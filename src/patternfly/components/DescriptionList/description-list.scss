@@ -1,4 +1,18 @@
-$pf-c-description-list--breakpoint-map: build-breakpoint-map("base", "md", "lg", "xl", "2xl");
+// stylelint-disable
+.ws-mdx-content,
+.ws-mdx-content-content {
+  width: 100%;
+  max-width: 100% !important;
+}
+
+.ws-toc,
+.pf-c-page__sidebar,
+.ws-table {
+  display: none;
+}
+// stylelint-enable
+$pf-c-description-list--rowgap-map: build-spacer-map("none", "sm");
+$pf-c-description-list--breakpoint-map: build-breakpoint-map("base", "sm", "md", "lg", "xl", "2xl");
 
 .pf-c-description-list {
   --pf-c-description-list--RowGap: var(--pf-global--gutter--md);
@@ -7,41 +21,56 @@ $pf-c-description-list--breakpoint-map: build-breakpoint-map("base", "md", "lg",
   --pf-c-description-list--GridTemplateColumns--width: 1fr;
   --pf-c-description-list--GridTemplateColumns: repeat(var(--pf-c-description-list--GridTemplateColumns--count), var(--pf-c-description-list--GridTemplateColumns--width));
 
-  // Group
+  // group
   --pf-c-description-list__group--RowGap: var(--pf-global--spacer--sm);
   --pf-c-description-list__group--ColumnGap: var(--pf-global--spacer--md);
   --pf-c-description-list__group--GridTemplateColumns: auto;
   --pf-c-description-list__group--GridColumn: auto;
 
-  // Term
+  // term
   --pf-c-description-list__term--FontWeight: var(--pf-global--FontWeight--bold);
   --pf-c-description-list__term--FontSize: var(--pf-global--FontSize--sm);
 
-  // Horizontal
+  // horizontal
   --pf-c-description-list--m-horizontal__term--width: 12ch;
   --pf-c-description-list--m-horizontal__description--width: minmax(10ch, auto);
-  --pf-c-description-list--m-horizontal__group--GridTemplateColumns: var(--pf-c-description-list__term--width) var(--pf-c-description-list--m-horizontal__description--width); // use --pf-c-description-list__term--width here as it is re-defined on line 45
+  --pf-c-description-list--m-horizontal__group--GridTemplateColumns: var(--pf-c-description-list--m-horizontal__term--width) var(--pf-c-description-list--m-horizontal__description--width); // use --pf-c-description-list__term--width here as it is re-defined on line 45
   --pf-c-description-list--m-1-col--GridTemplateColumns--count: 1;
+  --pf-c-description-list--m-2-col--GridTemplateColumns--count: 2;
+  --pf-c-description-list--m-3-col--GridTemplateColumns--count: 3;
+  --pf-c-description-list--m-auto-fit--m-horizontal--GridTemplateColumns--min: auto;
+  --pf-c-description-list--m-auto-fit--m-horizontal--GridTemplateColumns--md--min: #{pf-size-prem(350px)};
+
+  // vertical
+  --pf-c-description-list--m-vertical__group--GridTemplateColumns: auto;
+
+  // auto fit
+  --pf-c-description-list--GridTemplateColumns--min: auto;
+  --pf-c-description-list--GridTemplateColumns--md--min: #{pf-size-prem(250px)};
+  --pf-c-description-list--GridTemplateColumns--minmax--min: var(--pf-c-description-list--GridTemplateColumns--min);
+  --pf-c-description-list--GridTemplateColumns--max: 1fr;
+  --pf-c-description-list--GridTemplateColumns--minmax--max: var(--pf-c-description-list--m-auto-fit--GridTemplateColumns--max);
+  --pf-c-description-list--m-auto-fit--GridTemplateColumns: repeat(auto-fit, minmax(var(--pf-c-description-list--GridTemplateColumns--minmax--min), var(--pf-c-description-list--GridTemplateColumns--minmax--max)));
+
+  // compact
+  --pf-c-description-list--m-compact--RowGap: var(--pf-global--spacer--sm);
+  --pf-c-description-list--m-compact__group--RowGap: 0;
+  --pf-c-description-list--m-compact__group--ColumnGap: var(--pf-global--spacer--md);
+
+  @include pf-build-css-variable-stack("--pf-c-description-list__term--width", "--pf-c-description-list--m-horizontal__term--width", $pf-c-description-list--breakpoint-map);
+  @include pf-build-css-variable-stack("--pf-c-description-list--GridTemplateColumns--minmax--min", "--pf-c-description-list--GridTemplateColumns--min", $pf-c-description-list--breakpoint-map);
+  @include pf-build-css-variable-stack("--pf-c-description-list--GridTemplateColumns--minmax--max", "--pf-c-description-list--GridTemplateColumns--max", $pf-c-description-list--breakpoint-map);
 
   @media screen and (min-width: $pf-global--breakpoint--md) {
-    --pf-c-description-list--m-2-col--GridTemplateColumns--count: 2;
-    --pf-c-description-list--m-3-col--GridTemplateColumns--count: 3;
+    --pf-c-description-list--GridTemplateColumns--min: var(--pf-c-description-list--GridTemplateColumns--md--min);
+    --pf-c-description-list--m-auto-fit--m-horizontal--GridTemplateColumns--min: var(--pf-c-description-list--m-auto-fit--m-horizontal--GridTemplateColumns--md--min);
   }
-
-  --pf-c-description-list--m-auto-fit--GridTemplateColumns--min: #{pf-size-prem(250px)};
-  --pf-c-description-list--m-auto-fit--GridTemplateColumns--minmax--min: var(--pf-c-description-list--m-auto-fit--GridTemplateColumns--min);
 
   display: grid;
   align-items: baseline;
   row-gap: var(--pf-c-description-list--RowGap);
   column-gap: var(--pf-c-description-list--ColumnGap);
   grid-template-columns: var(--pf-c-description-list--GridTemplateColumns);
-
-  &.pf-m-horizontal {
-    --pf-c-description-list__group--GridTemplateColumns: var(--pf-c-description-list--m-horizontal__group--GridTemplateColumns);
-
-    @include pf-build-css-variable-stack("--pf-c-description-list__term--width", "--pf-c-description-list--m-horizontal__term--width", $pf-c-description-list--breakpoint-map);
-  }
 
   &.pf-m-inline-grid {
     display: inline-grid;
@@ -51,10 +80,10 @@ $pf-c-description-list--breakpoint-map: build-breakpoint-map("base", "md", "lg",
     --pf-c-description-list--GridTemplateColumns--width: minmax(8ch, max-content);
   }
 
-  &.pf-m-auto-fit {
-    grid-template-columns: repeat(auto-fit, minmax(var(--pf-c-description-list--m-auto-fit--GridTemplateColumns--minmax--min), 1fr));
-
-    @include pf-build-css-variable-stack("--pf-c-description-list--GridTemplateColumns--minmax--min", "--pf-c-description-list--GridTemplateColumns--min", $pf-c-description-list--breakpoint-map);
+  &.pf-m-compact {
+    --pf-c-description-list--RowGap: var(--pf-c-description-list--m-compact--RowGap);
+    --pf-c-description-list__group--RowGap: var(--pf-c-description-list--m-compact__group--RowGap);
+    --pf-c-description-list__group--ColumnGap: var(--pf-c-description-list--m-compact__group--ColumnGap);
   }
 }
 
@@ -65,6 +94,7 @@ $pf-c-description-list--breakpoint-map: build-breakpoint-map("base", "md", "lg",
   column-gap: var(--pf-c-description-list__group--ColumnGap);
   grid-template-columns: var(--pf-c-description-list__group--GridTemplateColumns);
   align-items: baseline;
+  max-width: 100%;
 }
 
 .pf-c-description-list__term,
@@ -99,15 +129,30 @@ $pf-c-description-list--breakpoint-map: build-breakpoint-map("base", "md", "lg",
       &.pf-m-3-col#{$breakpoint-name} {
         --pf-c-description-list--GridTemplateColumns--count: var(--pf-c-description-list--m-3-col--GridTemplateColumns--count);
       }
+
+      &.pf-m-horizontal#{$breakpoint-name} {
+        --pf-c-description-list--GridTemplateColumns--min: var(--pf-c-description-list--m-auto-fit--m-horizontal--GridTemplateColumns--min);
+        --pf-c-description-list__group--GridTemplateColumns: var(--pf-c-description-list--m-horizontal__group--GridTemplateColumns);
+      }
+
+      &.pf-m-vertical#{$breakpoint-name} {
+        --pf-c-description-list__group--GridTemplateColumns: var(--pf-c-description-list--m-vertical__group--GridTemplateColumns);
+      }
+
+      &.pf-m-auto-fit#{$breakpoint-name} {
+        --pf-c-description-list--GridTemplateColumns: var(--pf-c-description-list--m-auto-fit--GridTemplateColumns);
+      }
     }
   }
 }
 // stylelint-enable
 
-// .pf-c-description-list.pf-m-horizontal.pf-m-auto-term-widths {
-//   @supports (grid-template-columns: subgrid) {
-//     --pf-c-description-list--GridTemplateColumns--width: max-content auto;
-//     --pf-c-description-list__group--GridTemplateColumns: subgrid;
-//     --pf-c-description-list__group--GridColumn: auto / span 2;
-//   }
-// }
+.pf-c-description-list.pf-m-fluid {
+  --pf-c-description-list--m-horizontal__group--GridTemplateColumns: auto 1fr;
+}
+
+.pf-c-description-list__group.pf-m-fluid {
+  --pf-c-description-list--m-horizontal__group--GridTemplateColumns: auto 1fr;
+  --pf-c-description-list--m-horizontal__term--width: auto;
+  --pf-c-description-list--m-horizontal__description--width: 1fr;
+}
