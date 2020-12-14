@@ -29,15 +29,7 @@ wrapperTag: div
       {{/content}}
     {{/page-main-section}}
     {{#> page-main-section page-main-section--IsLimitWidth="true"}}
-      {{> toolbar--template
-        toolbar--id=(concat page--id '-toolbar')
-        toolbar--template--HasBulkSelect="true"
-        toolbar--template--HasToggleGroup="true"
-        toolbar--template--HasSearchFilter="true"
-        toolbar--template--HasFilterGroup="true"
-        toolbar--template--HasSortButton="true"
-        toolbar--template--HasOverflowMenu="true"
-      }}
+      {{> toolbar--template toolbar--id=(concat page--id '-toolbar') toolbar--template--HasBulkSelect="true" toolbar--template--HasToggleGroup="true" toolbar--template--HasSearchFilter="true" toolbar--template--HasSortButton="true" toolbar--template--HasOverflowMenu="true"}}
       {{> table-simple-table}}
       {{> table-pagination-footer}}
     {{/page-main-section}}
@@ -66,14 +58,7 @@ wrapperTag: div
     {{/page-main-section}}
     {{#> page-main-section}}
       {{#> card}}
-        {{> toolbar--template
-          toolbar--id=(concat page--id '-toolbar')
-          toolbar--template--HasBulkSelect="true"
-          toolbar--template--HasToggleGroup="true"
-          toolbar--template--HasSearchFilter="true"
-          toolbar--template--HasSortButton="true"
-          toolbar--template--HasOverflowMenu="true"
-        }}
+        {{> toolbar--template toolbar--id=(concat page--id '-toolbar') toolbar--template--HasBulkSelect="true" toolbar--template--HasToggleGroup="true" toolbar--template--HasSearchFilter="true" toolbar--template--HasOverflowMenu="true" toolbar--template--HasOverflowMenuSecondButton="true" toolbar--template--HasIconButtonGroup="true"}}
         {{> table-sortable-table}}
         {{> table-pagination-footer}}
       {{/card}}
@@ -103,15 +88,7 @@ wrapperTag: div
     {{/page-main-section}}
     {{#> page-main-section}}
       {{#> card}}
-        {{> toolbar--template
-          toolbar--id=(concat page--id '-toolbar')
-          toolbar--template--HasBulkSelect="true"
-          toolbar--template--HasToggleGroup="true"
-          toolbar--template--HasSearchFilter="true"
-          toolbar--template--HasFilterGroup="true"
-          toolbar--template--HasSortButton="true"
-          toolbar--template--HasExpandAll="true"
-        }}
+        {{> toolbar--template toolbar--id=(concat page--id '-toolbar') toolbar--template--HasBulkSelect="true" toolbar--template--HasToggleGroup="true" toolbar--template--HasSearchFilter="true" toolbar--template--HasFilterGroup="true" toolbar--template--HasSortButton="true" toolbar--template--HasExpandAll="true"}}
         {{> table-expandable-table}}
         {{> table-pagination-footer}}
       {{/card}}
@@ -141,14 +118,7 @@ wrapperTag: div
     {{/page-main-section}}
     {{#> page-main-section}}
       {{#> card}}
-        {{> toolbar--template
-          toolbar--id=(concat page--id '-toolbar')
-          toolbar--template--HasBulkSelect="true"
-          toolbar--template--HasToggleGroup="true"
-          toolbar--template--HasSearchFilter="true"
-          toolbar--template--HasFilterGroup="true"
-          toolbar--template--HasSortButton="true"
-        }}
+        {{> toolbar--template toolbar--id=(concat page--id '-toolbar') toolbar--template--HasBulkSelect="true" toolbar--template--HasToggleGroup="true" toolbar--template--HasSearchFilter="true" toolbar--template--HasFilterGroup="true" toolbar--template--HasSortButton="true"}}
         {{> table-compact-table}}
         {{> table-pagination-footer}}
       {{/card}}
@@ -178,14 +148,7 @@ wrapperTag: div
     {{/page-main-section}}
     {{#> page-main-section}}
       {{#> card}}
-        {{> toolbar--template
-          toolbar--id=(concat page--id '-toolbar')
-          toolbar--template--HasBulkSelect="true"
-          toolbar--template--HasToggleGroup="true"
-          toolbar--template--HasSearchFilter="true"
-          toolbar--template--HasFilterGroup="true"
-          toolbar--template--HasSortButton="true"
-        }}
+        {{> toolbar--template toolbar--id=(concat page--id '-toolbar') toolbar--template--HasBulkSelect="true" toolbar--template--HasToggleGroup="true" toolbar--template--HasSearchFilter="true" toolbar--template--HasFilterGroup="true" toolbar--template--HasSortButton="true"}}
         {{> table-compound-expansion-table}}
         {{> table-pagination-footer}}
       {{/card}}
@@ -271,14 +234,7 @@ wrapperTag: div
     {{/page-main-section}}
     {{#> page-main-section}}
       {{#> card}}
-        {{> toolbar--template
-          toolbar--id=(concat page--id '-toolbar')
-          toolbar--template--HasBulkSelect="true"
-          toolbar--template--HasToggleGroup="true"
-          toolbar--template--HasSearchFilter="true"
-          toolbar--template--HasFilterGroup="true"
-          toolbar--template--HasSortButton="true"
-        }}
+        {{> toolbar--template toolbar--id=(concat page--id '-toolbar') toolbar--template--HasBulkSelect="true" toolbar--template--HasToggleGroup="true" toolbar--template--HasSearchFilter="true" toolbar--template--HasFilterGroup="true" toolbar--template--HasSortButton="true"}}
         {{> table-simple-table}}
         {{> table-pagination-footer-static}}
       {{/card}}
@@ -309,14 +265,7 @@ wrapperTag: div
     {{/page-main-section}}
     {{#> page-main-section}}
       {{#> card}}
-        {{> toolbar--template
-          toolbar--id=(concat page--id '-toolbar')
-          toolbar--template--HasBulkSelect="true"
-          toolbar--template--HasToggleGroup="true"
-          toolbar--template--HasSearchFilter="true"
-          toolbar--template--HasFilterGroup="true"
-          toolbar--template--HasSortButton="true"
-        }}
+        {{> toolbar--template toolbar--id=(concat page--id '-toolbar') toolbar--template--HasBulkSelect="true" toolbar--template--HasToggleGroup="true" toolbar--template--HasSearchFilter="true" toolbar--template--HasFilterGroup="true" toolbar--template--HasSortButton="true"}}
         {{> table-simple-table}}
       {{/card}}
     {{/page-main-section}}
@@ -377,14 +326,7 @@ wrapperTag: div
     {{/page-main-section}}
     {{#> page-main-section}}
       {{#> card}}
-        {{> toolbar--template
-          toolbar--id=(concat page--id '-toolbar')
-          toolbar--template--HasBulkSelect="true"
-          toolbar--template--HasToggleGroup="true"
-          toolbar--template--HasSearchFilter="true"
-          toolbar--template--HasFilterGroup="true"
-          toolbar--template--HasSortButton="true"
-        }}
+        {{> toolbar--template toolbar--id=(concat page--id '-toolbar') toolbar--template--HasBulkSelect="true" toolbar--template--HasToggleGroup="true" toolbar--template--HasSearchFilter="true" toolbar--template--HasFilterGroup="true" toolbar--template--HasSortButton="true"}}
         {{> table-simple-table table-simple-table--modifier="pf-m-sticky-header"}}
         {{> table-pagination-footer}}
       {{/card}}
