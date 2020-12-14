@@ -1,0 +1,46 @@
+{{!-- expand all --}}
+{{#if toolbar--template--HasExpandAll}}
+  {{> toolbar-item-expand-all}}
+{{/if}}
+
+{{!-- bulk selector --}}
+{{#if toolbar--template--HasBulkSelect}}
+  {{> toolbar-item-bulk-select}}
+{{/if}}
+
+{{!-- context selector --}}
+{{#if toolbar--template--HasContextSelector}}
+  {{#> toolbar-item}}
+    {{> toolbar--template--context-selector}}
+  {{/toolbar-item}}
+{{/if}}
+
+{{!-- search filter --}}
+{{#if toolbar--template--HasSearchFilter}}
+  {{> toolbar-item-search-filter button--id="content"}}
+{{/if}}
+
+{{!-- filter --}}
+{{#if toolbar--template--HasFilter}}
+  {{#> toolbar-item}}
+    {{#> select id=(concat toolbar--id '-select-checkbox-status') select--IsCheckboxSelect="true"}}
+      Status
+    {{/select}}
+  {{/toolbar-item}}
+{{/if}}
+
+{{!-- filter group --}}
+{{#if toolbar--template--HasFilterGroup}}
+  {{#> toolbar-group toolbar-group--modifier="pf-m-filter-group"}}
+    {{#> toolbar-item}}
+      {{#> select id=(concat toolbar--id '-select-checkbox-status') select--IsCheckboxSelect="true"}}
+        Status
+      {{/select}}
+    {{/toolbar-item}}
+    {{#> toolbar-item}}
+      {{#> select id=(concat toolbar--id '-select-checkbox-risk') select--IsCheckboxSelect="true"}}
+        Risk
+      {{/select}}
+    {{/toolbar-item}}
+  {{/toolbar-group}}
+{{/if}}

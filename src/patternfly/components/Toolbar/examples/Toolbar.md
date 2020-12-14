@@ -6,6 +6,30 @@ cssPrefix: pf-c-toolbar
 
 import './Toolbar.css'
 
+### Testing
+```hbs
+{{> toolbar--template
+  toolbar--id="custom-id"
+  toolbar--template--HasBulkSelect="true"
+  toolbar--template--HasContextSelector="true"
+  toolbar--template--HasOverflowMenu="true"
+  toolbar--template--HasFilterGroup="true"
+  toolbar--template--HasSortButton="true"
+  toolbar--template--HasIconButtonGroup="true"
+}}
+```
+
+### Testing 2
+```hbs
+{{> toolbar--template
+  toolbar--id="custom-id-2"
+  toolbar--template--HasToggleGroup="true"
+  toolbar--template--HasSearchFilter="true"
+  toolbar--template--HasFilterGroup="true"
+  toolbar--template--HasOverflowMenu="true"
+}}
+```
+
 ## Introduction
 
 Toolbar relies on groups (`.pf-c-toolbar__group`) and items (`.pf-c-toolbar__item`), with default spacer values. Groups and items can be siblings and/or items can be nested within groups. Modifier selectors adjust spacing based on the type of group or item. Each modifier applies a unique CSS variable, therefore, the base spacer value for all elements can be customized and item/groups spacers can be themed individually. The default spacer value for items and groups is set to `--pf-c-toolbar--spacer--base`, whose value is `--pf-global--spacer--md` or 16px.
@@ -371,7 +395,6 @@ The `.pf-m-toggle-group` controls when, and at which breakpoint, filters will be
         {{/toolbar-group}}
       {{/toolbar-group}}
       {{> toolbar-icon-button-group-example toolbar-icon-button-group-example--IsOverflowMenu="true" toolbar-icon-button-group-example--control="true"}}
-      {{> toolbar-overflow-menu-example toolbar-overflow-menu-example--control="true"}}
     {{/toolbar-content-section}}
     {{#> toolbar-expandable-content}}
       {{#> toolbar-group toolbar-group--modifier="pf-m-chip-container"}}
@@ -399,7 +422,6 @@ The `.pf-m-toggle-group` controls when, and at which breakpoint, filters will be
         {{> toolbar-toggle toolbar-toggle--modifier="pf-m-expanded" toolbar-toggle--IsExpanded="true"}}
       {{/toolbar-group}}
       {{> toolbar-icon-button-group-example toolbar-icon-button-group-example--IsOverflowMenu="true" toolbar-icon-button-group-example--control="true"}}
-      {{> toolbar-overflow-menu-example toolbar-overflow-menu-example--control="true"}}
     {{/toolbar-content-section}}
     {{#> toolbar-expandable-content toolbar-expandable-content--IsExpanded="true"}}
       {{> toolbar-item-search-filter button--id="expanded-content"}}
@@ -526,7 +548,6 @@ The `.pf-m-toggle-group` controls when, and at which breakpoint, filters will be
         {{> toolbar-toggle toolbar-toggle--modifier="pf-m-expanded" toolbar-toggle--IsExpanded="true"}}
       {{/toolbar-group}}
       {{> toolbar-icon-button-group-example toolbar-icon-button-group-example--IsOverflowMenu="true" toolbar-icon-button-group-example--control="true"}}
-      {{> toolbar-overflow-menu-example toolbar-overflow-menu-example--control="true"}}
     {{/toolbar-content-section}}
     {{#> toolbar-expandable-content toolbar-expandable-content--IsExpanded="true"}}
       {{#> toolbar-group}}

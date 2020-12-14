@@ -24,8 +24,14 @@ wrapperTag: div
     {{#> page-main-section page-main-section--modifier="pf-m-light"}}
       {{> data-list-main-section-content}}
     {{/page-main-section}}
-    {{#> page-main-section page-main-section--modifier="pf-m-no-padding pf-m-padding-on-md"}}
+    {{#> page-main-section}}
       {{#> card}}
+        {{> toolbar--template
+          toolbar--id=(concat page--id '-toolbar')
+          toolbar--template--HasBulkSelect="true"
+          toolbar--template--HasContextSelector="true"
+          toolbar--template--HasOverflowMenu="true"
+        }}
         {{> data-list-simple-data-list}}
         {{> data-list-pagination-footer}}
       {{/card}}
@@ -53,8 +59,15 @@ wrapperTag: div
     {{#> page-main-section page-main-section--modifier="pf-m-light"}}
       {{> data-list-main-section-content}}
     {{/page-main-section}}
-    {{#> page-main-section page-main-section--modifier="pf-m-no-padding pf-m-padding-on-md"}}
+    {{#> page-main-section}}
       {{#> card}}
+        {{> toolbar--template
+          toolbar--id=(concat page--id '-toolbar')
+          toolbar--template--HasBulkSelect="true"
+          toolbar--template--HasSearchFilter="true"
+          toolbar--template--HasToggleGroup="true"
+          toolbar--template--HasOverflowMenu="true"
+        }}
         {{> data-list-actionable-data-list}}
         {{> data-list-pagination-footer}}
       {{/card}}
@@ -82,8 +95,15 @@ wrapperTag: div
     {{#> page-main-section page-main-section--modifier="pf-m-light"}}
       {{> data-list-main-section-content}}
     {{/page-main-section}}
-    {{#> page-main-section page-main-section--modifier="pf-m-no-padding pf-m-padding-on-md"}}
+    {{#> page-main-section}}
       {{#> card}}
+        {{> toolbar--template
+          toolbar--id=(concat page--id '-toolbar')
+          toolbar--template--HasBulkSelect="true"
+          toolbar--template--HasSearchFilter="true"
+          toolbar--template--HasToggleGroup="true"
+          toolbar--template--HasOverflowMenu="true"
+        }}
         {{> data-list-expandable-data-list}}
         {{> data-list-pagination-footer}}
       {{/card}}
@@ -111,8 +131,13 @@ wrapperTag: div
     {{#> page-main-section page-main-section--modifier="pf-m-light"}}
       {{> data-list-main-section-content}}
     {{/page-main-section}}
-    {{#> page-main-section page-main-section--modifier="pf-m-no-padding pf-m-padding-on-md"}}
+    {{#> page-main-section}}
       {{#> card}}
+        {{> toolbar--template
+          toolbar--id=(concat page--id '-toolbar')
+          toolbar--template--HasSearchFilter="true"
+          toolbar--template--HasOverflowMenu="true"
+        }}
         {{> data-list-simple-data-list}}
         {{> data-list-pagination-footer-static}}
       {{/card}}
