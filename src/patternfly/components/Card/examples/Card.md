@@ -4,6 +4,8 @@ section: components
 cssPrefix: pf-c-card
 ---
 
+import './Card.css'
+
 ## Examples
 ### Basic
 ```hbs
@@ -333,6 +335,27 @@ cssPrefix: pf-c-card
 {{/card}}
 ```
 
+### Full height card
+```hbs
+{{#> card card--id="card-full-height-example" card--modifier="pf-m-fill"}}
+  {{#> card-header}}
+    {{#> card-actions}}
+      {{> card--dropdown}}
+      {{> card--check}}
+    {{/card-actions}}
+    {{#> card-title card-title--attribute=(concat 'id="' card--id '-title"')}}
+      Title
+    {{/card-title}}
+  {{/card-header}}
+  {{#> card-body}}
+    Body
+  {{/card-body}}
+  {{#> card-footer}}
+    Footer
+  {{/card-footer}}
+{{/card}}
+```
+
 ### Card with dividers between sections
 ```hbs
 {{#> card}}
@@ -385,3 +408,4 @@ A card is a generic rectangular container that can be used to build other compon
 | `.pf-m-flat` | `.pf-c-card` | Modifies the card to have a border instead of a shadow. `.pf-m-flat` is for use in layouts where cards are against a white background. |
 | `.pf-m-rounded` | `.pf-c-card` | Modifies the card to have rounded corners. |
 | `.pf-m-expanded` | `.pf-c-card` | Modifies the card for the expanded state. |
+| `.pf-m-fill` | `.pf-c-card` | Modifies the card to full height of parent. |
