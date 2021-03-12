@@ -337,7 +337,7 @@ import './Card.css'
 
 ### Full height card
 ```hbs
-{{#> card card--id="card-full-height-example" card--modifier="pf-m-fill"}}
+{{#> card card--id="card-full-height-example" card--modifier="pf-m-full-height"}}
   {{#> card-header}}
     {{#> card-actions}}
       {{> card--dropdown}}
@@ -408,4 +408,4 @@ A card is a generic rectangular container that can be used to build other compon
 | `.pf-m-flat` | `.pf-c-card` | Modifies the card to have a border instead of a shadow. `.pf-m-flat` is for use in layouts where cards are against a white background. |
 | `.pf-m-rounded` | `.pf-c-card` | Modifies the card to have rounded corners. |
 | `.pf-m-expanded` | `.pf-c-card` | Modifies the card for the expanded state. |
-| `.pf-m-fill` | `.pf-c-card` | Modifies the card to full height of parent. |
+| `.pf-m-full-height` | `.pf-c-card` | Modifies the card to full height of parent. |
