@@ -1,50 +1,50 @@
 @mixin pf-c-data-list-responsive-block() {
-  // base responsive styles
-  @at-root .pf-c-data-list:not([class*="pf-m-grid"]) {
-    @media screen and (min-width: $pf-global--breakpoint--md) {
-      @content;
-    }
-  }
-
-  @at-root .pf-c-data-list.pf-m-grid-none {
-    @media screen and (min-width: $pf-global--breakpoint--xs) {
-      @content;
-    }
-  }
-
-  // grid modifiers
-  @each $size, $bp in $pf-global--breakpoint-name-map {
-    @at-root .pf-c-data-list.pf-m-grid-#{$size} {
-      @media screen and (min-width: #{$bp}) {
+  .pf-c-page:where(:not(.pf-m-resize-observer)) & {
+    // base responsive styles
+    @at-root .pf-c-data-list:not([class*="pf-m-grid"]) {
+      @media screen and (min-width: $pf-global--breakpoint--md) {
         @content;
+      }
+    }
+
+    @at-root .pf-c-data-list.pf-m-grid-none {
+      @content;
+    }
+
+    // grid modifiers
+    @each $size, $bp in $pf-global--breakpoint-name-map {
+      @at-root .pf-c-data-list.pf-m-grid-#{$size} {
+        @media screen and (min-width: #{$bp}) {
+          @content;
+        }
       }
     }
   }
 }
 
 @include pf-c-data-list-responsive-block {
-  --pf-c-data-list__cell--cell--PaddingTop: var(--pf-c-data-list__cell--cell--md--PaddingTop);
-  --pf-c-data-list__cell--PaddingBottom: var(--pf-c-data-list__cell--md--PaddingBottom);
-  --pf-c-data-list__item-control--MarginRight: var(--pf-c-data-list__item-control--md--MarginRight);
-  --pf-c-data-list__item-action--MarginLeft: var(--pf-c-data-list__item-action--md--MarginLeft);
-  --pf-c-data-list__expandable-content-body--PaddingTop: var(--pf-c-data-list__expandable-content-body--md--PaddingTop);
-  --pf-c-data-list__expandable-content-body--PaddingBottom: var(--pf-c-data-list__expandable-content-body--md--PaddingBottom);
-  --pf-c-data-list--m-compact__cell--PaddingBottom: var(--pf-c-data-list--m-compact__cell--md--PaddingBottom);
-  --pf-c-data-list--m-compact__cell-cell--PaddingTop: var(--pf-c-data-list--m-compact__cell-cell--md--PaddingTop);
+  // --pf-c-data-list__cell--cell--PaddingTop: var(--pf-c-data-list__cell--cell--md--PaddingTop);
+  // --pf-c-data-list__cell--PaddingBottom: var(--pf-c-data-list__cell--md--PaddingBottom);
+  // --pf-c-data-list__item-control--MarginRight: var(--pf-c-data-list__item-control--md--MarginRight);
+  // --pf-c-data-list__item-action--MarginLeft: var(--pf-c-data-list__item-action--md--MarginLeft);
+  // --pf-c-data-list__expandable-content-body--PaddingTop: var(--pf-c-data-list__expandable-content-body--md--PaddingTop);
+  // --pf-c-data-list__expandable-content-body--PaddingBottom: var(--pf-c-data-list__expandable-content-body--md--PaddingBottom);
+  // --pf-c-data-list--m-compact__cell--PaddingBottom: var(--pf-c-data-list--m-compact__cell--md--PaddingBottom);
+  // --pf-c-data-list--m-compact__cell-cell--PaddingTop: var(--pf-c-data-list--m-compact__cell-cell--md--PaddingTop);
 
-  @media screen and (min-width: $pf-global--breakpoint--xl) {
-    --pf-c-data-list__item-row--PaddingRight: var(--pf-c-data-list__item-row--xl--PaddingRight);
-    --pf-c-data-list__item-row--PaddingLeft: var(--pf-c-data-list__item-row--xl--PaddingLeft);
-    --pf-c-data-list__expandable-content-body--PaddingRight: var(--pf-c-data-list__expandable-content-body--xl--PaddingRight);
-    --pf-c-data-list__expandable-content-body--PaddingLeft: var(--pf-c-data-list__expandable-content-body--xl--PaddingLeft);
-  }
+  // @media screen and (min-width: $pf-global--breakpoint--xl) {
+  //   --pf-c-data-list__item-row--PaddingRight: var(--pf-c-data-list__item-row--xl--PaddingRight);
+  //   --pf-c-data-list__item-row--PaddingLeft: var(--pf-c-data-list__item-row--xl--PaddingLeft);
+  //   --pf-c-data-list__expandable-content-body--PaddingRight: var(--pf-c-data-list__expandable-content-body--xl--PaddingRight);
+  //   --pf-c-data-list__expandable-content-body--PaddingLeft: var(--pf-c-data-list__expandable-content-body--xl--PaddingLeft);
+  // }
 
-  .pf-c-data-list__item-content {
-    display: flex;
-    flex-wrap: wrap;
-    flex-grow: 1;
-    padding-bottom: var(--pf-c-data-list__item-content--md--PaddingBottom);
-  }
+  // .pf-c-data-list__item-content {
+  //   display: flex;
+  //   flex-wrap: wrap;
+  //   flex-grow: 1;
+  //   padding-bottom: var(--pf-c-data-list__item-content--md--PaddingBottom);
+  // }
 
   .pf-c-data-list__cell {
     &:not(:last-child):not(.pf-m-icon) {

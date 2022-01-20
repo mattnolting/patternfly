@@ -7,7 +7,7 @@ wrapperTag: div
 ## Demos
 ### Simple
 ```hbs isFullscreen
-{{#> page page--id="page-layout-data-list-simple"}}
+{{#> page page--id="page-layout-data-list-simple" page--modifier="pf-m-resize-observer pf-m-breakpoint-"}}
   {{#> skip-to-content skip-to-content--attribute=(concat 'href="#main-content-' page--id '"')}}
     Skip to content
   {{/skip-to-content}}
