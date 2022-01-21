@@ -1,10 +1,16 @@
-<ul class="pf-c-data-list{{#if data-list--modifier}} {{data-list--modifier}}{{/if}}"
-  role="list"
-  {{#if data-list--attribute}}
-    {{{data-list--attribute}}}
-  {{/if}}
-  {{#if data-list--id}}
-    id="{{{data-list--id}}}"
-  {{/if}}>
-  {{> @partial-block}}
-</ul>
+{{#> page page--modifier="pf-m-resize-observer "}}
+  {{#> page-main}}
+    {{#> page-main-section}}
+      <ul class="pf-c-data-list{{#if data-list--modifier}} {{data-list--modifier}}{{/if}}"
+        role="list"
+        {{#if data-list--attribute}}
+          {{{data-list--attribute}}}
+        {{/if}}
+        {{#if data-list--id}}
+          id="{{{data-list--id}}}"
+        {{/if}}>
+        {{> @partial-block}}
+      </ul>
+    {{/page-main-section}}
+  {{/page-main}}
+{{/page}}
