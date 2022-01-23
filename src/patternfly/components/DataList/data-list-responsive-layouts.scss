@@ -1,0 +1,29 @@
+@import "./data-list-config";
+
+$pf-c-data-list--breakpoint-map: build-breakpoint-map(sm, md, lg, xl, "2xl");
+
+// stylelint-disable no-duplicate-selectors
+.pf-c-data-list {
+  @each $breakpoint, $breakpoint-value in $pf-c-data-list--breakpoint-map {
+    $breakpoint-name: if($breakpoint != "base", -on-#{$breakpoint}, "");
+
+    @include pf-apply-breakpoint($breakpoint) {
+      &.pf-m-display-stack#{$breakpoint-name} {
+        @include pf-c-data-list--m-display-stack;
+      }
+
+      &.pf-m-display-inline#{$breakpoint-name} {
+        @include pf-c-data-list--m-display-inline;
+      }
+    }
+
+    // @include pf-apply-breakpoint($breakpoint) {
+    //   @each $spacer, $spacer-value in $pf-c-masthead--inset-map {
+    //     &.pf-m-inset-#{$spacer}#{$breakpoint-name} {
+    //       --pf-c-masthead--inset: #{$spacer-value};
+    //     }
+    //   }
+    // }
+  }
+}
+// stylelint-enable

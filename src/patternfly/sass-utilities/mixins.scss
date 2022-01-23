@@ -254,3 +254,65 @@
     }
   }
 }
+
+@mixin pf-resize-observer-breakpoint($component-breakpoint, $namespace: &, $page-breakpoint-list: $pf-global--breakpoint-list) {
+  $index: index($page-breakpoint-list, $component-breakpoint);
+  $breakpoints: ();
+  $mq-namespace: '.pf-c-page:where(:not(.pf-m-resize-observer)) ' + #{$namespace};
+
+  @for $i from $index through length($page-breakpoint-list) {
+    $breakpoints: append($breakpoints, '.pf-m-breakpoint-' + #{nth($page-breakpoint-list, $i)}, $separator: comma);
+  }
+
+  $namespace: '.pf-c-page:where(.pf-m-resize-observer:is(' + #{$breakpoints} + ')) ' + #{$namespace};
+
+  @at-root #{$namespace} {
+    @content;
+  }
+
+  @at-root #{$mq-namespace} {
+    @include pf-apply-breakpoint($component-breakpoint) {
+      @content;
+    }
+  }
+}
+
+@mixin pf-generate-layout-variables($map: (), $layout-title, $modifier: "display", $generate-mixin: false) {
+  $namespace: map-get($map, "namespace");
+  $layout-map: map-get($map, "layouts");
+  $layout-object: map-get($layout-map, $layout-title);
+  $layout-settings: ();
+  $layout-root: "--" + #{$namespace} + "--m-display-" + #{$layout-title} + "--";
+  $property-root: "--" + #{$namespace} + "--";
+  $child-root: "";
+
+  @each $child, $item in $layout-object {
+    $child-root: "";
+    $element-root: "";
+
+    @if $child == "root" {
+      $child-root: "--" + #{$namespace} + "--m-" + #{$modifier} + "-" + #{$layout-title} + "--";
+      $element-root: "--" + #{$namespace} + "--";
+    } @else {
+      $child-root: "--" + #{$namespace} + "--m-" + #{$modifier} + "-" + #{$layout-title} + "__" + #{$child} + "--";
+      $element-root: "--" + #{$namespace} + "__" + #{$child} + "--";
+    }
+
+    @each $var, $val in $item {
+      @if $generate-mixin == "true" {
+        $var: pascalize($var);
+        $prop: $child-root + $var;
+        $og-prop: #{$element-root} + #{$var};
+
+        // declaration
+        #{$og-prop}: var(#{$prop});
+      } @else {
+        $local-var: pascalize($var);
+        $local-var: $child-root + $local-var;
+
+        // declaration
+        #{$local-var}: #{$val};
+      }
+    }
+  }
+}

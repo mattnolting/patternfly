@@ -96,3 +96,45 @@
 
   @return $new-map;
 }
+
+// Build variable map
+@function pascalize($input, $pascalCase: true) {
+  $str: '';
+  $capital: $pascalCase;
+  $hyphen: false;
+
+  @for $i from 1 through str-length($input) {
+    $char: str-slice($input, $i, $i);
+
+    @if $char != '-' {
+      $str: $str + if($capital, to-upper-case($char), $char);
+
+      $capital: false;
+      $hyphen: false;
+    } @else {
+      // Allowing double hyphen for BEM syntax
+      @if $hyphen {
+        $str: $str + '--';
+        $hyphen: false;
+      } @else {
+        $hyphen: true;
+      }
+
+      $capital: true;
+    }
+  }
+
+  @return $str;
+}
+
+@function create-variable($root, $property, $modifier: null) {
+  $selector: "";
+
+  @if $modifier {
+    $selector: "--" + #{$root} + "--" + #{$modifier} "--" + pascalize(#{$property});
+  } @else {
+    $selector: "--" + #{$root} + "--" + pascalize(#{$property});
+  }
+
+  @return $selector;
+}
