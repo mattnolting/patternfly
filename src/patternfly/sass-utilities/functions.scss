@@ -129,8 +129,7 @@
 
 @function create-variable($root, $property, $modifier: null) {
   $selector: "";
-
-  @if $modifier {
+  @if $modifier != null {
     $selector: "--" + #{$root} + "--" + #{$modifier} "--" + pascalize(#{$property});
   } @else {
     $selector: "--" + #{$root} + "--" + pascalize(#{$property});

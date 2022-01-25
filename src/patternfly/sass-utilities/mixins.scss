@@ -258,13 +258,13 @@
 @mixin pf-resize-observer-breakpoint($component-breakpoint, $namespace: &, $page-breakpoint-list: $pf-global--breakpoint-list) {
   $index: index($page-breakpoint-list, $component-breakpoint);
   $breakpoints: ();
-  $mq-namespace: '.pf-c-page:where(:not(.pf-m-resize-observer)) ' + #{$namespace};
+  $mq-namespace: '.pf-c-page:where(:not(.pf-m-resize-observer ' + #{$namespace} + '))';
 
   @for $i from $index through length($page-breakpoint-list) {
     $breakpoints: append($breakpoints, '.pf-m-breakpoint-' + #{nth($page-breakpoint-list, $i)}, $separator: comma);
   }
 
-  $namespace: '.pf-c-page:where(.pf-m-resize-observer:is(' + #{$breakpoints} + ')) ' + #{$namespace};
+  $namespace: '.pf-c-page:where(.pf-m-resize-observer:is(' + #{$breakpoints} + ' ' + #{$namespace} '))';
 
   @at-root #{$namespace} {
     @content;
@@ -277,42 +277,90 @@
   }
 }
 
-@mixin pf-generate-layout-variables($map: (), $layout-title, $modifier: "display", $generate-mixin: false) {
+// Create a resuable mixin to defines component variants
+// Example output: .pf-component{__element}{--Property} to pf-c-component--m-{modifier}{__element}{--Property}
+// @group mixins
+// @moduleType mixin
+// @parameter: $sass-map(), $variant-title: "string"
+// @usage: @include pf-create-variant-mixin($source-map(), $variant-title: "display-inline");
+// notes: Only the desired name of the variant should be passed to $variant-title. `--m-` is automatically applied
+// ===============================================================================================
+@mixin pf-create-variant-mixin($map: (), $variant-title) {
   $namespace: map-get($map, "namespace");
   $layout-map: map-get($map, "layouts");
-  $layout-object: map-get($layout-map, $layout-title);
+  $layout-object: map-get($layout-map, $variant-title);
   $layout-settings: ();
-  $layout-root: "--" + #{$namespace} + "--m-display-" + #{$layout-title} + "--";
+  $layout-root: "--" + #{$namespace} + "--m-" + #{$variant-title} + "--";
   $property-root: "--" + #{$namespace} + "--";
   $child-root: "";
+  $element-root: "";
 
   @each $child, $item in $layout-object {
-    $child-root: "";
-    $element-root: "";
-
+    // if key is not root, don't add the child selector
     @if $child == "root" {
-      $child-root: "--" + #{$namespace} + "--m-" + #{$modifier} + "-" + #{$layout-title} + "--";
+      $child-root: "--" + #{$namespace} + "--m-" + #{$variant-title} + "--";
       $element-root: "--" + #{$namespace} + "--";
-    } @else {
-      $child-root: "--" + #{$namespace} + "--m-" + #{$modifier} + "-" + #{$layout-title} + "__" + #{$child} + "--";
+    }
+    // if key has a value other than root, add it to the selector
+    @else {
+      $child-root: "--" + #{$namespace} + "--m-" + #{$variant-title} + "__" + #{$child} + "--";
       $element-root: "--" + #{$namespace} + "__" + #{$child} + "--";
     }
 
-    @each $var, $val in $item {
-      @if $generate-mixin == "true" {
-        $var: pascalize($var);
-        $prop: $child-root + $var;
-        $og-prop: #{$element-root} + #{$var};
+    @each $property, $value in $item {
+      // convert property to pf variable extension (e.g. MarginRight)
+      $pf-var-extension: pascalize($property);
 
-        // declaration
-        #{$og-prop}: var(#{$prop});
-      } @else {
-        $local-var: pascalize($var);
-        $local-var: $child-root + $local-var;
+      // construct new variable
+      $pf-variant-var: #{$child-root}#{$pf-var-extension};
 
-        // declaration
-        #{$local-var}: #{$val};
-      }
+      // construct existing variable
+      $pf-original-var: #{$element-root}#{$pf-var-extension};
+
+      // assign existing variable the variant value
+      #{$pf-original-var}: var(#{$pf-variant-var});
     }
   }
+}
+
+// create a resuable mixin that redefines variant variables
+// from pf-component{__element}{--Property} to pf-c-component--m-modifier{__element}{--Property}
+@mixin pf-create-variant-css-variables($map: (), $variant-title) {
+  $namespace: map-get($map, "namespace");
+  $layout-map: map-get($map, "layouts");
+  $layout-object: map-get($layout-map, $variant-title);
+  $layout-settings: ();
+  $layout-root: "--" + #{$namespace} + "--m-" + #{$variant-title} + "--";
+  $property-root: "--" + #{$namespace} + "--";
+  $child-root: "";
+  $element-root: "";
+
+  @each $child, $item in $layout-object {
+    // if key is not root, don't add the child selector
+    @if $child == "root" {
+      $child-root: "--" + #{$namespace} + "--m-" + #{$variant-title} + "--";
+      $element-root: "--" + #{$namespace} + "--";
+    }
+    // if key has a value other than root, add it to the selector
+    @else {
+      $child-root: "--" + #{$namespace} + "--m-" + #{$variant-title} + "__" + #{$child} + "--";
+      $element-root: "--" + #{$namespace} + "__" + #{$child} + "--";
+    }
+
+    @each $property, $value in $item {
+      // convert property to pf variable extension (e.g. MarginRight)
+      $pf-var-extension: pascalize($property);
+
+      // construct new variable
+      $pf-variant-var: #{$child-root}#{$pf-var-extension};
+
+      // construct existing variable
+      $pf-original-var: #{$element-root}#{$pf-var-extension};
+
+      // variant variable initialization
+      #{$pf-variant-var}: #{$value};
+    }
+  }
+
+  @content;
 }
