@@ -25,11 +25,11 @@ cssPrefix: pf-c-data-list
   {{#> data-list-item data-list-item--id="item-2"}}
     {{#> data-list-item-row}}
       {{#> data-list-item-content}}
-        {{#> data-list-cell data-list-cell--modifier="pf-m-no-fill"}}
-          <span id="{{data-list--id}}-{{data-list-item--id}}">Secondary content (pf-m-no-fill)</span>
+        {{#> data-list-cell}}
+          <span id="{{data-list--id}}-{{data-list-item--id}}">Secondary content</span>
         {{/data-list-cell}}
-        {{#> data-list-cell data-list-cell--modifier="pf-m-no-fill pf-m-align-right"}}
-          Secondary content (pf-m-align-right pf-m-no-fill)
+        {{#> data-list-cell}}
+          Secondary content
         {{/data-list-cell}}
       {{/data-list-item-content}}
     {{/data-list-item-row}}

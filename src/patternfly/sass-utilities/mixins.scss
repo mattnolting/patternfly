@@ -258,13 +258,15 @@
 @mixin pf-resize-observer-breakpoint($component-breakpoint, $namespace: &, $page-breakpoint-list: $pf-global--breakpoint-list) {
   $index: index($page-breakpoint-list, $component-breakpoint);
   $breakpoints: ();
-  $mq-namespace: '.pf-c-page:where(:not(.pf-m-resize-observer ' + #{$namespace} + '))';
+  $mq-namespace: '.pf-c-page :where(:not(.pf-m-resize-observer) ' + #{$namespace} + ')';
 
   @for $i from $index through length($page-breakpoint-list) {
     $breakpoints: append($breakpoints, '.pf-m-breakpoint-' + #{nth($page-breakpoint-list, $i)}, $separator: comma);
   }
 
-  $namespace: '.pf-c-page:where(.pf-m-resize-observer:is(' + #{$breakpoints} + ' ' + #{$namespace} '))';
+  $namespace: '.pf-c-page :where(.pf-m-resize-observer:is(' + #{$breakpoints} + ') ' + #{$namespace} + ')';
+
+  @debug #{$namespace};
 
   @at-root #{$namespace} {
     @content;
