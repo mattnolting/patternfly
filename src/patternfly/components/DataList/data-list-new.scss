@@ -1,6 +1,11 @@
 @import "./data-list-config";
 
 .pf-c-data-list {
+  --pf-c-data-list--BorderTopColor: var(--pf-global--BorderColor--300);
+  --pf-c-data-list--BorderTopWidth: var(--pf-global--spacer--sm);
+  --pf-c-data-list--sm--BorderTopWidth: var(--pf-global--BorderWidth--sm);
+  --pf-c-data-list--sm--BorderTopColor: var(--pf-global--BorderColor--100);
+
   // update these at breaking change
   // data list item content
   --pf-c-data-list__item-content--PaddingBottom: 0;
@@ -129,7 +134,7 @@
 
   // resize observer
   // sm container size
-  @include pf-resize-observer-breakpoint("sm") {
+  @media screen and (min-width: $pf-global--breakpoint--sm) {
     --pf-c-data-list--BorderTopColor: var(--pf-c-data-list--sm--BorderTopColor);
     --pf-c-data-list--BorderTopWidth: var(--pf-c-data-list--sm--BorderTopWidth);
     --pf-c-data-list__item--BorderBottomWidth: var(--pf-c-data-list__item--sm--BorderBottomWidth);
@@ -138,6 +143,13 @@
   }
 
   @include pf-t-light;
+
+  // Set defaults, no resize observer
+  // Display media queryies first
+  @include pf-c-data-list--m-display-stack; // set default layout
+  @include pf-media-query-breakpoint("md") {
+    @include pf-c-data-list--m-display-inline;
+  }
 
   font-size: var(--pf-c-data-list--FontSize);
   line-height: var(--pf-c-data-list--LineHeight);
@@ -149,26 +161,30 @@
     overflow-anchor: none;
   }
 
-  // Mixin based modifiers
-  // always add as the last data-set in component root
-  &:where(.pf-m-display-stack) {
+  // Resize observer config
+  // This comes after media-query based declarations
+  @include pf-resize-observer-breakpoint("default") {
     @include pf-c-data-list--m-display-stack;
   }
 
-  &:where(.pf-m-display-inline) {
+  // Resize observer updates
+  // md container size
+  @include pf-resize-observer-breakpoint("md") {
     @include pf-c-data-list--m-display-inline;
   }
 
-  &:where(.pf-m-compact) {
-    @include pf-c-data-list--m-compact;
+  // Mixin based modifiers
+  // always add as the last data-set in component root
+  &.pf-m-display-stack {
+    @include pf-c-data-list--m-display-stack;
   }
 
-  // Set stack layout by default
-  @include pf-c-data-list--m-display-stack;
+  &.pf-m-display-inline {
+    @include pf-c-data-list--m-display-inline;
+  }
 
-  // md container size
-  @include pf-resize-observer-breakpoint("md") {
-    @include pf-c-data-list--m-display-inline; // display inline at 'md' by default
+  &.pf-m-compact {
+    @include pf-c-data-list--m-compact;
   }
 }
 
@@ -472,4 +488,18 @@
 
 .pf-c-data-list {
   // --pf-c-data-list__cell--cell--md--PaddingTop: 44px;
+
+  // --pf-c-data-list__cell--PaddingTop: var(--pf-global--spacer--2xl);
+  // --pf-c-data-list__cell--PaddingBottom: var(--pf-global--spacer--2xl);
+  // --pf-c-data-list__cell--MarginRight: 0;
+  // --pf-c-data-list__cell--md--MarginRight: var(--pf-global--spacer--xl);
+  // --pf-c-data-list__cell--md--PaddingBottom: 0;
+  // --pf-c-data-list__cell--m-icon--MarginRight: var(--pf-global--spacer--md);
+  // --pf-c-data-list__cell--cell--PaddingTop: 0;
+  // --pf-c-data-list__cell--cell--md--PaddingTop: var(--pf-global--spacer--lg);
+  // --pf-c-data-list__cell--m-icon--cell--PaddingTop: var(--pf-global--spacer--lg);
+  // --pf-c-data-list__item-action--md--MarginLeft: var(--pf-global--spacer--xl);
+  // --pf-c-data-list__expandable-content-body--md--PaddingTop: var(--pf-global--spacer--lg);
+  // --pf-c-data-list__expandable-content-body--md--PaddingBottom: var(--pf-global--spacer--lg);
+
 }
