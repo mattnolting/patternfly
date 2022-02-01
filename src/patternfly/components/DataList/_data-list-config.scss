@@ -18,6 +18,7 @@
   --pf-c-data-list--m-display-stack__item-action--MarginLeft: var(--pf-global--spacer--md);
   --pf-c-data-list--m-display-stack__expandable-content-body--PaddingTop: var(--pf-global--spacer--md);
   --pf-c-data-list--m-display-stack__expandable-content-body--PaddingBottom: var(--pf-global--spacer--md);
+  --pf-c-data-list--m-display-stack__item-control--MarginRight: var(--pf-global--spacer--md);
 }
 
 // Stack layout MIXIN
@@ -38,6 +39,7 @@
   --pf-c-data-list__item-action--MarginLeft: var(--pf-c-data-list--m-display-stack__item-action--MarginLeft);
   --pf-c-data-list__expandable-content-body--PaddingTop: var(--pf-c-data-list--m-display-stack__expandable-content-body--PaddingTop);
   --pf-c-data-list__expandable-content-body--PaddingBottom: var(--pf-c-data-list--m-display-stack__expandable-content-body--PaddingBottom);
+  --pf-c-data-list__item-control--MarginRight: var(--pf-c-data-list--m-display-stack__item-control--MarginRight);
 }
 
 // Inline layout VARIABLES
@@ -46,7 +48,7 @@
 @mixin pf-c-data-list--m-display-inline--variable-settings {
   --pf-c-data-list--m-display-inline--OverflowY: auto;
   --pf-c-data-list--m-display-inline__item-content--Display: flex;
-  --pf-c-data-list--m-display-inline__item-content--GridTemmplateColumns: none;
+  --pf-c-data-list--m-display-inline__item-content--GridTemplateColumns: none;
   --pf-c-data-list--m-display-inline__item-content--FlexWrap: wrap;
   --pf-c-data-list--m-display-inline__item-content--FlexGrow: 1;
 
@@ -60,6 +62,7 @@
   --pf-c-data-list--m-display-inline__item-action--MarginLeft: var(--pf-c-data-list__item-action--md--MarginLeft); // update at breaking change
   --pf-c-data-list--m-display-inline__expandable-content-body--PaddingTop: var(--pf-c-data-list__expandable-content-body--md--PaddingTop); // update at breaking change
   --pf-c-data-list--m-display-inline__expandable-content-body--PaddingBottom: var(--pf-c-data-list__expandable-content-body--md--PaddingBottom); // update at breaking change
+  --pf-c-data-list--m-display-inline__item-control--MarginRight: var(--pf-c-data-list__item-control--md--MarginRight); // update at breaking change
 }
 
 // Inline layout MIXIN
@@ -79,6 +82,7 @@
   --pf-c-data-list__item-action--MarginLeft: var(--pf-c-data-list--m-display-inline__item-action--MarginLeft);
   --pf-c-data-list__expandable-content-body--PaddingTop: var(--pf-c-data-list--m-display-inline__expandable-content-body--PaddingTop);
   --pf-c-data-list__expandable-content-body--PaddingBottom: var(--pf-c-data-list--m-display-inline__expandable-content-body--PaddingBottom);
+  --pf-c-data-list__item-control--MarginRight: var(--pf-c-data-list--m-display-inline__item-control--MarginRight);
 }
 
 // Compact variant VARIABLES
