@@ -1,16 +1,10 @@
-{{!-- {{#> page page--modifier="pf-m-resize-observer "}}
-  {{#> page-main}}
-    {{#> page-main-section}} --}}
-      <ul class="pf-c-data-list{{#if data-list--modifier}} {{data-list--modifier}}{{/if}} pf-m-display-"
-        role="list"
-        {{#if data-list--attribute}}
-          {{{data-list--attribute}}}
-        {{/if}}
-        {{#if data-list--id}}
-          id="{{{data-list--id}}}"
-        {{/if}}>
-        {{> @partial-block}}
-      </ul>
-    {{!-- {{/page-main-section}}
-  {{/page-main}}
-{{/page}} --}}
+<ul class="pf-c-data-list{{#if data-list--modifier}} {{data-list--modifier}}{{/if}} pf-m-display-"
+  role="list"
+  {{#if data-list--attribute}}
+    {{{data-list--attribute}}}
+  {{/if}}
+  {{#if data-list--id}}
+    id="{{{data-list--id}}}"
+  {{/if}}>
+  {{> @partial-block}}
+</ul>
