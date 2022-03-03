@@ -516,6 +516,140 @@ import './MenuToggle.css'
 
 ```
 
+### Typeahead
+```hbs
+{{#> menu-toggle menu-toggle--id="typeahead-example" menu-toggle--IsSplitButton="true"}}
+  {{#> text-input-group text-input-group--modifier="pf-m-plain"}}
+    {{#> text-input-group-main}}
+      {{#> text-input-group-text}}
+        {{> text-input-group-text-input text-input-group-text-input--attribute='placeholder="typeahead..."'}}
+      {{/text-input-group-text}}
+    {{/text-input-group-main}}
+    {{#> text-input-group-utilities}}
+      {{#> button button--modifier="pf-m-plain" button--attribute='aria-label="Clear input"'}}
+        <i class="fas fa-times fa-fw" aria-hidden="true"></i>
+      {{/button}}
+    {{/text-input-group-utilities}}
+  {{/text-input-group}}
+  {{#> menu-toggle-button menu-toggle-button--IsToggle="true"}}
+    {{#> menu-toggle-controls}}
+      {{> menu-toggle-toggle-icon}}
+    {{/menu-toggle-controls}}
+  {{/menu-toggle-button}}
+{{/menu-toggle}}
+
+&nbsp;
+
+{{#> menu-toggle menu-toggle--id="typeahead-primary-example" menu-toggle--IsSplitButton="true" menu-toggle--modifier="pf-m-primary"}}
+  {{#> text-input-group text-input-group--modifier="pf-m-plain"}}
+    {{#> text-input-group-main}}
+      {{#> text-input-group-text}}
+        {{> text-input-group-text-input text-input-group-text-input--attribute='placeholder="typeahead..."'}}
+      {{/text-input-group-text}}
+    {{/text-input-group-main}}
+    {{#> text-input-group-utilities}}
+      {{#> button button--modifier="pf-m-plain" button--attribute='aria-label="Clear input"'}}
+        <i class="fas fa-times fa-fw" aria-hidden="true"></i>
+      {{/button}}
+    {{/text-input-group-utilities}}
+  {{/text-input-group}}
+  {{#> menu-toggle-button menu-toggle-button--IsToggle="true"}}
+    {{#> menu-toggle-controls}}
+      {{> menu-toggle-toggle-icon}}
+    {{/menu-toggle-controls}}
+  {{/menu-toggle-button}}
+{{/menu-toggle}}
+
+&nbsp;
+
+{{#> menu-toggle menu-toggle--id="typeahead-secondary-example" menu-toggle--IsSplitButton="true" menu-toggle--modifier="pf-m-secondary"}}
+  {{#> text-input-group text-input-group--modifier="pf-m-plain"}}
+    {{#> text-input-group-main}}
+      {{#> text-input-group-text}}
+        {{> text-input-group-text-input text-input-group-text-input--attribute='placeholder="typeahead..."'}}
+      {{/text-input-group-text}}
+    {{/text-input-group-main}}
+    {{#> text-input-group-utilities}}
+      {{#> button button--modifier="pf-m-plain" button--attribute='aria-label="Clear input"'}}
+        <i class="fas fa-times fa-fw" aria-hidden="true"></i>
+      {{/button}}
+    {{/text-input-group-utilities}}
+  {{/text-input-group}}
+  {{#> menu-toggle-button menu-toggle-button--IsToggle="true"}}
+    {{#> menu-toggle-controls}}
+      {{> menu-toggle-toggle-icon}}
+    {{/menu-toggle-controls}}
+  {{/menu-toggle-button}}
+{{/menu-toggle}}
+```
+
+### Typeahead full width
+```hbs
+{{#> menu-toggle menu-toggle--id="typeahead-full-width-example" menu-toggle--IsSplitButton="true" menu-toggle--modifier="pf-m-full-width"}}
+  {{#> text-input-group text-input-group--modifier="pf-m-plain"}}
+    {{#> text-input-group-main}}
+      {{#> text-input-group-text}}
+        {{> text-input-group-text-input text-input-group-text-input--attribute='placeholder="typeahead..."'}}
+      {{/text-input-group-text}}
+    {{/text-input-group-main}}
+    {{#> text-input-group-utilities}}
+      {{#> button button--modifier="pf-m-plain" button--attribute='aria-label="Clear input"'}}
+        <i class="fas fa-times fa-fw" aria-hidden="true"></i>
+      {{/button}}
+    {{/text-input-group-utilities}}
+  {{/text-input-group}}
+  {{#> menu-toggle-button menu-toggle-button--IsToggle="true"}}
+    {{#> menu-toggle-controls}}
+      {{> menu-toggle-toggle-icon}}
+    {{/menu-toggle-controls}}
+  {{/menu-toggle-button}}
+{{/menu-toggle}}
+
+&nbsp;
+
+{{#> menu-toggle menu-toggle--id="typeahead-full-width-primary-example" menu-toggle--IsSplitButton="true" menu-toggle--modifier="pf-m-primary pf-m-full-width"}}
+  {{#> text-input-group text-input-group--modifier="pf-m-plain"}}
+    {{#> text-input-group-main}}
+      {{#> text-input-group-text}}
+        {{> text-input-group-text-input text-input-group-text-input--attribute='placeholder="typeahead..."'}}
+      {{/text-input-group-text}}
+    {{/text-input-group-main}}
+    {{#> text-input-group-utilities}}
+      {{#> button button--modifier="pf-m-plain" button--attribute='aria-label="Clear input"'}}
+        <i class="fas fa-times fa-fw" aria-hidden="true"></i>
+      {{/button}}
+    {{/text-input-group-utilities}}
+  {{/text-input-group}}
+  {{#> menu-toggle-button menu-toggle-button--IsToggle="true"}}
+    {{#> menu-toggle-controls}}
+      {{> menu-toggle-toggle-icon}}
+    {{/menu-toggle-controls}}
+  {{/menu-toggle-button}}
+{{/menu-toggle}}
+
+&nbsp;
+
+{{#> menu-toggle menu-toggle--id="typeahead-full-width-secondary-example" menu-toggle--IsSplitButton="true" menu-toggle--modifier="pf-m-secondary pf-m-full-width"}}
+  {{#> text-input-group text-input-group--modifier="pf-m-plain"}}
+    {{#> text-input-group-main}}
+      {{#> text-input-group-text}}
+        {{> text-input-group-text-input text-input-group-text-input--attribute='placeholder="typeahead..."'}}
+      {{/text-input-group-text}}
+    {{/text-input-group-main}}
+    {{#> text-input-group-utilities}}
+      {{#> button button--modifier="pf-m-plain" button--attribute='aria-label="Clear input"'}}
+        <i class="fas fa-times fa-fw" aria-hidden="true"></i>
+      {{/button}}
+    {{/text-input-group-utilities}}
+  {{/text-input-group}}
+  {{#> menu-toggle-button menu-toggle-button--IsToggle="true"}}
+    {{#> menu-toggle-controls}}
+      {{> menu-toggle-toggle-icon}}
+    {{/menu-toggle-controls}}
+  {{/menu-toggle-button}}
+{{/menu-toggle}}
+```
+
 ### Full height
 ```hbs
 {{#> menu-toggle menu-toggle--modifier="pf-m-full-height"}}
@@ -579,3 +713,4 @@ import './MenuToggle.css'
 | `.pf-m-plain` | `.pf-c-menu-toggle` | Modifies the menu toggle component for the plain variation. |
 | `.pf-m-expanded` | `.pf-c-menu-toggle` | Modifies the menu toggle component for the expanded state. |
 | `.pf-m-full-height` | `.pf-c-menu-toggle` | Modifies the menu toggle component to full height of parent. |
+| `.pf-m-full-width` | `.pf-c-menu-toggle` | Modifies the menu toggle component to full width of parent. |
