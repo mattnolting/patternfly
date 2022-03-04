@@ -6,6 +6,7 @@
   --pf-c-menu-toggle--PaddingLeft: var(--pf-global--spacer--sm);
   --pf-c-menu-toggle--FontSize: var(--pf-global--FontSize--md);
   --pf-c-menu-toggle--Color: var(--pf-global--Color--100);
+  --pf-c-menu-toggle--placeholder--Color: var(--pf-global--Color--200);
   --pf-c-menu-toggle--LineHeight: var(--pf-global--LineHeight--md);
   --pf-c-menu-toggle--BackgroundColor: transparent;
 
@@ -50,6 +51,7 @@
 
   // Primary
   --pf-c-menu-toggle--m-primary--Color: var(--pf-global--Color--light-100);
+  --pf-c-menu-toggle--m-primary--placeholder--Color: var(--pf-global--Color--light-200);
   --pf-c-menu-toggle--m-primary--BorderRadius: var(--pf-global--BorderRadius--sm);
   --pf-c-menu-toggle--m-primary--BackgroundColor: var(--pf-global--primary-color--100);
   --pf-c-menu-toggle--m-primary--hover--BackgroundColor: var(--pf-global--primary-color--200);
@@ -60,6 +62,7 @@
 
   // Secondary
   --pf-c-menu-toggle--m-secondary--Color: var(--pf-global--primary-color--100);
+  --pf-c-menu-toggle--m-secondary--placeholder--Color: var(--pf-global--primary-color--200);
   --pf-c-menu-toggle--m-secondary--BorderRadius: var(--pf-global--BorderRadius--sm);
   --pf-c-menu-toggle--m-secondary--BackgroundColor: transparent;
   --pf-c-menu-toggle--m-secondary--before--BorderWidth: var(--pf-global--BorderWidth--sm);
@@ -150,12 +153,6 @@
   --pf-c-menu-toggle__button__controls--MarginRight: var(--pf-global--spacer--sm);
   --pf-c-menu-toggle__button__controls--MarginLeft: var(--pf-global--spacer--sm);
 
-  // Input group margins
-  --pf-c-menu-toggle--c-text-input-group--MarginTop: calc(var(--pf-c-menu-toggle--PaddingTop) * -1);
-  --pf-c-menu-toggle--c-text-input-group--MarginRight: calc(var(--pf-c-menu-toggle--PaddingRight) * -1);
-  --pf-c-menu-toggle--c-text-input-group--MarginBottom: calc(var(--pf-c-menu-toggle--PaddingBottom) * -1);
-  --pf-c-menu-toggle--c-text-input-group--MarginLeft: calc(var(--pf-c-menu-toggle--PaddingLeft) * -1);
-
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -193,6 +190,7 @@
   &.pf-m-primary {
     --pf-c-menu-toggle--BorderRadius: var(--pf-c-menu-toggle--m-primary--BorderRadius);
     --pf-c-menu-toggle--Color: var(--pf-c-menu-toggle--m-primary--Color);
+    --pf-c-menu-toggle--placeholder--Color: var(--pf-c-menu-toggle--m-primary--placeholder--Color);
     --pf-c-menu-toggle--BackgroundColor: var(--pf-c-menu-toggle--m-primary--BackgroundColor);
     --pf-c-menu-toggle--hover--BackgroundColor: var(--pf-c-menu-toggle--m-primary--hover--BackgroundColor);
     --pf-c-menu-toggle--focus--BackgroundColor: var(--pf-c-menu-toggle--m-primary--focus--BackgroundColor);
@@ -208,6 +206,7 @@
 
   &.pf-m-secondary {
     --pf-c-menu-toggle--Color: var(--pf-c-menu-toggle--m-secondary--Color);
+    --pf-c-menu-toggle--placeholder--Color: var(--pf-c-menu-toggle--m-secondary--placeholder--Color);
     --pf-c-menu-toggle--m-expanded--Color: var(--pf-c-menu-toggle--m-secondary--m-expanded--Color);
 
     &,
@@ -473,14 +472,35 @@
 
   &.pf-m-full-width {
     width: 100%;
+
+    > * {
+      flex: 1;
+
+      &:last-child {
+        flex: none;
+      }
+    }
   }
 
   .pf-c-text-input-group {
     --pf-c-text-input-group__utilities--MarginRight: 0;
-    --pf-c-menu-toggle--c-text-input-group--MarginRight: 0;
+    --pf-c-menu-toggle--PaddingTop: 0;
+    --pf-c-menu-toggle--PaddingRight: 0;
+    --pf-c-menu-toggle--PaddingBottom: 0;
+    --pf-c-menu-toggle--PaddingLeft: 0;
+    --pf-c-text-input-group--BackgroundColor: transparent;
+    --pf-c-text-input-group__text--before--BorderColor: transparent;
+    --pf-c-text-input-group__text--after--BorderBottomColor: transparent;
+    --pf-c-menu-toggle--m-split-button--first-child--PaddingRight: 0;
+    --pf-c-text-input-group--placeholder--Color: var(--pf-c-menu-toggle--placeholder--Color);
+  }
 
-    flex: 1;
-    margin: var(--pf-c-menu-toggle--c-text-input-group--MarginTop) var(--pf-c-menu-toggle--c-text-input-group--MarginRight) var(--pf-c-menu-toggle--c-text-input-group--MarginBottom) var(--pf-c-menu-toggle--c-text-input-group--MarginLeft);
+  .pf-c-button {
+    --pf-c-button--Color: var(--pf-c-menu-toggle--Color, inherit);
+    --pf-c-button--m-plain--Color: var(--pf-c-menu-toggle--Color, inherit);
+    --pf-c-button--m-plain--hover--Color: var(--pf-c-menu-toggle--hover--Color, inherit);
+    --pf-c-button--m-plain--focus--Color: var(--pf-c-menu-toggle--focus--Color, inherit);
+    --pf-c-button--m-plain--active--Color: var(--pf-c-menu-toggle--active--Color, inherit);
   }
 }
 
