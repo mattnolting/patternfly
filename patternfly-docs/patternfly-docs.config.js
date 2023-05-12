@@ -30,6 +30,10 @@ module.exports = {
     {
       text: 'Custom icons',
       path: '/adding-custom-icons'
+    },
+    {
+      text: 'Workspace',
+      path: '/workspace-docs'
     }
   ],
   port: 8001
