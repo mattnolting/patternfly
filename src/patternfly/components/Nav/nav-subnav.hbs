@@ -2,8 +2,15 @@
   {{#if nav-subnav--attribute}}
     {{{nav-subnav--attribute}}}
   {{/if}}
-  {{#unless nav-item--expanded}}
+  {{#unless nav-item--IsExpanded}}
     hidden
   {{/unless}}>
-  {{> @partial-block}}
+  {{#if nav-section-title--text}}
+    {{> nav-section-title nav-section-title--id=(dasherize nav--id nav-section--id nav-section-title--text)}}
+  {{/if}}
+  {{#> nav-list}}
+    {{#if @partial-block}}
+      {{> @partial-block}}
+    {{/if}}
+  {{/nav-list}}
 </section>

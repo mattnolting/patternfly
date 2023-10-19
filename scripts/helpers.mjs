@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { patternflyNamespace, patternflyVersion } from './init.mjs';
 
 /** Ignore the object appended by handlebars. */
@@ -56,6 +57,69 @@ else custom value for select--width: {{#> select)}}Filter by name{{/select}}
 */
 export const ternary = (testValue, trueValue, fallback) => {
   return testValue ? trueValue : fallback;
+};
+
+export const logger = function (optionalValue) {
+  console.log('Current Context');
+  console.log('====================');
+  console.log(this);
+  if (optionalValue) {
+    console.log('Value');
+    console.log('====================');
+    console.log(optionalValue);
+  }
+}
+
+export const stringToLower = function (string) {
+  const newString = string.toLowerCase();
+  return newString;
+}
+
+export const dasherize = (...params) => {
+  let newString = '';
+
+  params.forEach(element => {
+    if (typeof element === 'string') {
+      if (newString.length > 0) {
+        element = element.replace(/\s/g, '-').toLowerCase();
+        newString += '-';
+      }
+      newString += element.toLowerCase();
+    }
+  });
+
+  return newString;
+};
+
+export const setTag = function (partialVar, el, fallback = 'div') {
+  if (partialVar !== undefined) {
+    this.type = el;
+  } else {
+    this.type = fallback;
+  }
+};
+
+export const tag = function (tag) {
+  return this.type;
+};
+
+export const setModifier = function (param, className) {
+  return param ? className : '';
+};
+
+export const setModifiers = function (...mods) {
+  let modSet = '';
+
+  for (const prop in mods) {
+    const hash = mods[prop].hash;
+    for (const [key, value] of Object.entries(hash)) {
+      if (this[key]) {
+        modSet += ` ${value}`;
+      }
+    }
+  };
+
+  return modSet
 };
 
 /** Helper which allows a booleans value to be inversed, similar to how notting a variable with ! works in regular JS */

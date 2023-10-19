@@ -10,77 +10,39 @@ import './Navigation.css'
 
 ### Default
 ```hbs
-{{#> nav nav--attribute='aria-label="Global"'}}
-  {{#> nav-list}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#"}}
-        Link 1
-      {{/nav-link}}
-    {{/nav-item}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#" nav-link--current="true"}}
-        Current link
-      {{/nav-link}}
-    {{/nav-item}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#"}}
-        Link 3
-      {{/nav-link}}
-    {{/nav-item}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#"}}
-        Link 4
-      {{/nav-link}}
-    {{/nav-item}}
-  {{/nav-list}}
+{{#> nav nav--id='default-example' nav--width='300px'}}
+  {{#> nav-section nav-section-title--text='Cluster'}}
+    {{#> nav-list}}
+      {{> nav-item nav-link--text='Dashboard'}}
+      {{> nav-item nav-link--text='Builds'}}
+      {{> nav-item nav-link--text='Compute' nav-link--IsCurrent=true}}
+      {{> nav-item nav-link--text='Networking'}}
+      {{> nav-item nav-link--text='Observe'}}
+      {{> nav-item nav-link--text='Operations'}}
+      {{> nav-item nav-link--text='Applications'}}
+      {{> nav-item nav-link--text='Workloads'}}
+    {{/nav-list}}
+  {{/nav-section}}
 {{/nav}}
 ```
 
 ### Grouped nav
 ```hbs
-{{#> nav nav--attribute='aria-label="Global"'}}
-  {{#> nav-section nav-section--attribute='aria-labelledby="grouped-title1"'}}
-    {{#> nav-section-title nav-section-title--attribute='id="grouped-title1"'}}
-      Section title 1
-    {{/nav-section-title}}
+{{#> nav nav--id='grouped-nav-example'}}
+  {{#> nav-section nav-section-title--text='Cluster'}}
     {{#> nav-list}}
-      {{#> nav-item}}
-        {{#> nav-link nav-link--href="#"}}
-          Link 1
-        {{/nav-link}}
-      {{/nav-item}}
-      {{#> nav-item}}
-        {{#> nav-link nav-link--href="#"}}
-          Link 2
-        {{/nav-link}}
-      {{/nav-item}}
-      {{#> nav-item}}
-        {{#> nav-link nav-link--href="#"}}
-          Link 3
-        {{/nav-link}}
-      {{/nav-item}}
+      {{> nav-item nav-link--text='Dashboard'}}
+      {{> nav-item nav-link--text='Builds'}}
+      {{> nav-item nav-link--text='Compute' nav-link--IsCurrent=true}}
+      {{> nav-item nav-link--text='Networking'}}
     {{/nav-list}}
   {{/nav-section}}
-  {{#> nav-section nav-section--attribute='aria-labelledby="grouped-title2"'}}
-    {{#> nav-section-title nav-section-title--attribute='id="grouped-title2"'}}
-      Section title 2
-    {{/nav-section-title}}
+  {{#> nav-section nav-section-title--text='Settings'}}
     {{#> nav-list}}
-      {{#> nav-item}}
-        {{#> nav-link nav-link--href="#"}}
-          Link 1
-        {{/nav-link}}
-      {{/nav-item}}
-      {{#> nav-item}}
-        {{#> nav-link nav-link--href="#" nav-link--current="true"}}
-          Current link
-        {{/nav-link}}
-      {{/nav-item}}
-      {{#> nav-item}}
-        {{#> nav-link nav-link--href="#"}}
-          Link 3
-        {{/nav-link}}
-      {{/nav-item}}
+      {{> nav-item nav-link--text='User management'}}
+      {{> nav-item nav-link--text='Administration'}}
+      {{> nav-item nav-link--text='Import YAML'}}
+      {{> nav-item nav-link--text='Help & Support'}}
     {{/nav-list}}
   {{/nav-section}}
 {{/nav}}
@@ -88,44 +50,22 @@ import './Navigation.css'
 
 ### Grouped nav, no titles
 ```hbs
-{{#> nav nav--attribute='aria-label="Global"'}}
-  {{#> nav-section nav-section--attribute='aria-label="Section one"'}}
+{{#> nav nav--id='grouped-nav-no-titles-example'}}
+  {{#> nav-section nav-section--aria-label='Cluster'}}
     {{#> nav-list}}
-      {{#> nav-item}}
-        {{#> nav-link nav-link--href="#"}}
-          Link 1
-        {{/nav-link}}
-      {{/nav-item}}
-      {{#> nav-item}}
-        {{#> nav-link nav-link--href="#"}}
-          Link 2
-        {{/nav-link}}
-      {{/nav-item}}
-      {{#> nav-item}}
-        {{#> nav-link nav-link--href="#"}}
-          Link 3
-        {{/nav-link}}
-      {{/nav-item}}
+      {{> nav-item nav-link--text='Dashboard'}}
+      {{> nav-item nav-link--text='Builds'}}
+      {{> nav-item nav-link--text='Compute' nav-link--IsCurrent=true}}
+      {{> nav-item nav-link--text='Networking'}}
     {{/nav-list}}
   {{/nav-section}}
   {{> divider}}
-  {{#> nav-section nav-section--attribute='aria-label="Section two"'}}
+  {{#> nav-section nav-section--aria-label='Settings'}}
     {{#> nav-list}}
-      {{#> nav-item}}
-        {{#> nav-link nav-link--href="#"}}
-          Section 2, link 1
-        {{/nav-link}}
-      {{/nav-item}}
-      {{#> nav-item}}
-        {{#> nav-link nav-link--href="#" nav-link--current="true"}}
-          Current link
-        {{/nav-link}}
-      {{/nav-item}}
-      {{#> nav-item}}
-        {{#> nav-link nav-link--href="#"}}
-          Link 3
-        {{/nav-link}}
-      {{/nav-item}}
+      {{> nav-item nav-link--text='User management'}}
+      {{> nav-item nav-link--text='Administration'}}
+      {{> nav-item nav-link--text='Import YAML'}}
+      {{> nav-item nav-link--text='Help & Support'}}
     {{/nav-list}}
   {{/nav-section}}
 {{/nav}}
@@ -133,69 +73,52 @@ import './Navigation.css'
 
 ### Expanded
 ```hbs
-{{#> nav nav--attribute='aria-label="Global"'}}
+{{#> nav nav--id='expanded-example'}}
   {{#> nav-list}}
-    {{#> nav-item nav-item--expandable="true" nav-item--expanded="true" nav-item--current="true"}}
-      {{#> nav-link nav-link--href="#" nav-link--attribute='id="expandable-example1"'}}
-        Link 1 (current and expanded example)
-      {{/nav-link}}
-      {{#> nav-subnav nav-subnav--attribute='aria-labelledby="expandable-example1"'}}
-        {{#> nav-list}}
-          {{#> nav-item newcontent}}
-            {{#> nav-link nav-link--href="#"}}
-              Current link
-            {{/nav-link}}
-          {{/nav-item}}
-          {{> divider divider--type="li"}}
-          {{#> nav-item newcontent}}
-            {{#> nav-link nav-link--href="#"}}
-              Subnav link 2
-            {{/nav-link}}
-          {{/nav-item}}
-          {{#> nav-item newcontent}}
-            {{#> nav-link nav-link--href="#" nav-link--current="true"}}
-              Subnav link 3
-            {{/nav-link}}
-          {{/nav-item}}
-        {{/nav-list}}
+    {{#>nav-item
+        nav-link--text='Cluster'
+        nav-item--id=(dasherize nav--id nav-link--text)
+        nav-item--IsExpandable=true
+        nav-item--IsExpanded=true
+      }}
+      {{#>nav-subnav
+          nav-subnav--labelledby=nav-item--id
+          nav-item--IsExpandable=false
+          nav-item--IsExpanded=false
+        }}
+        {{> nav-item nav-link--text='Dashboard'}}
+        {{> nav-item nav-link--text='Builds'}}
+        {{> nav-item nav-link--text='Compute' nav-link--IsCurrent=true}}
+        {{> nav-item nav-link--text='Networking'}}
       {{/nav-subnav}}
     {{/nav-item}}
-    {{#> nav-item nav-item--expandable="true" nav-item--expanded="true"}}
-      {{#> nav-link nav-link--href="#" nav-link--attribute='id="expandable-example2"'}}
-        Link 2 (expanded, but not current example)
-      {{/nav-link}}
-      {{#> nav-subnav nav-subnav--attribute='aria-labelledby="expandable-example2"'}}
-        {{#> nav-list}}
-          {{#> nav-item newcontent}}
-            {{#> nav-link nav-link--href="#"}}
-              Subnav link 1
-            {{/nav-link}}
-          {{/nav-item}}
-          {{#> nav-item newcontent}}
-            {{#> nav-link nav-link--href="#"}}
-              Subnav link 2
-            {{/nav-link}}
-          {{/nav-item}}
-        {{/nav-list}}
+
+    {{#>nav-item
+        nav-link--text='Settings'
+        nav-item--id=(dasherize nav--id nav-link--text)
+        nav-item--IsExpandable=true
+        nav-item--IsExpanded=true
+      }}
+      {{#>nav-subnav
+          nav-item--IsExpandable=false
+          nav-item--IsExpanded=false
+          nav-subnav--labelledby=nav-item--id
+        }}
+        {{> nav-item nav-link--text='User management'}}
+        {{> nav-item nav-link--text='Administration'}}
+        {{> nav-item nav-link--text='Import YAML'}}
+        {{> nav-item nav-link--text='Help & Support'}}
       {{/nav-subnav}}
     {{/nav-item}}
-    {{#> nav-item nav-item--expandable="true"}}
-      {{#> nav-link nav-link--href="#" nav-link--attribute='id="expandable-example3"'}}
-        Link 3
-      {{/nav-link}}
-      {{#> nav-subnav nav-subnav--attribute='aria-labelledby="expandable-example3"'}}
-        {{#> nav-list}}
-          {{#> nav-item newcontent}}
-            {{#> nav-link nav-link--href="#"}}
-              Subnav link 1
-            {{/nav-link}}
-          {{/nav-item}}
-          {{#> nav-item newcontent}}
-            {{#> nav-link nav-link--href="#"}}
-              Subnav link 2
-            {{/nav-link}}
-          {{/nav-item}}
-        {{/nav-list}}
+
+    {{#> nav-item
+        nav-item--IsExpandable=true
+        nav-item--id=(dasherize nav--id nav-link--text)
+        nav-link--text='Profile'
+      }}
+      {{#>nav-subnav nav-subnav--labelledby=nav-item--id}}
+        {{> nav-item nav-link--text='User Settings'}}
+        {{> nav-item nav-link--text='Preferences'}}
       {{/nav-subnav}}
     {{/nav-item}}
   {{/nav-list}}
@@ -204,55 +127,48 @@ import './Navigation.css'
 
 ### Expanded with subnav titles
 ```hbs
-{{#> nav nav--attribute='aria-label="Global"'}}
+{{#> nav nav--id='expandable-with-subnav-titles-example'}}
   {{#> nav-list}}
-    {{#> nav-item nav-item--expandable="true" nav-item--expanded="true" nav-item--current="true"}}
-      {{#> nav-link nav-link--href="#"}}
-        Link 1
-      {{/nav-link}}
-      {{#> nav-subnav nav-subnav--attribute='aria-labelledby="subnav-title1"'}}
-        {{#> nav-subnav-title nav-subnav-title--attribute='id="subnav-title1"'}}
-          Current and expanded example sub-navigation
-        {{/nav-subnav-title}}
-        {{#> nav-list}}
-          {{#> nav-item newcontent}}
-            {{#> nav-link nav-link--href="#"}}
-              Current link
-            {{/nav-link}}
-          {{/nav-item}}
-          {{#> nav-item newcontent}}
-            {{#> nav-link nav-link--href="#" nav-link--current="true"}}
-              Subnav link 2
-            {{/nav-link}}
-          {{/nav-item}}
-          {{#> nav-item newcontent}}
-            {{#> nav-link nav-link--href="#"}}
-              Subnav link 3
-            {{/nav-link}}
-          {{/nav-item}}
-        {{/nav-list}}
+    {{#>nav-item
+        nav-link--text='Cluster'
+        nav-item--id=(dasherize nav--id nav-link--text)
+        nav-item--IsExpandable=true
+        nav-item--IsExpanded=true
+      }}
+      {{#>nav-subnav
+          nav-item--IsExpandable=false
+          nav-item--IsExpanded=false
+          nav-section-title--text='Options'
+          nav-subnav--labelledby=nav-item--id
+        }}
+        {{> nav-item nav-link--text='Dashboard'}}
+        {{> nav-item nav-link--text='Builds'}}
+        {{> nav-item nav-link--text='Compute' nav-link--IsCurrent=true}}
+        {{> nav-item nav-link--text='Networking'}}
       {{/nav-subnav}}
     {{/nav-item}}
-    {{#> nav-item nav-item--expandable="true" nav-item--expanded="true"}}
-      {{#> nav-link nav-link--href="#"}}
-        Link 2
-      {{/nav-link}}
-      {{#> nav-subnav nav-subnav--attribute='aria-labelledby="subnav-title2"'}}
-        {{#> nav-subnav-title nav-subnav-title--attribute='id="subnav-title2"'}}
-          Expanded, but not current example sub-navigation
-        {{/nav-subnav-title}}
-        {{#> nav-list}}
-          {{#> nav-item newcontent}}
-            {{#> nav-link nav-link--href="#"}}
-              Subnav link 1
-            {{/nav-link}}
-          {{/nav-item}}
-          {{#> nav-item newcontent}}
-            {{#> nav-link nav-link--href="#"}}
-              Subnav link 2
-            {{/nav-link}}
-          {{/nav-item}}
-        {{/nav-list}}
+
+    {{#>nav-item
+        nav-link--text='Settings'
+        nav-item--id=(dasherize nav--id nav-link--text)
+        nav-item--IsExpandable=true
+      }}
+      {{#>nav-subnav nav-subnav--labelledby=nav-item--id}}
+        {{> nav-item nav-link--text='User management'}}
+        {{> nav-item nav-link--text='Administration'}}
+        {{> nav-item nav-link--text='Import YAML'}}
+        {{> nav-item nav-link--text='Help & Support'}}
+      {{/nav-subnav}}
+    {{/nav-item}}
+
+    {{#> nav-item
+        nav-link--text='Profile'
+        nav-item--id=(dasherize nav--id nav-link--text)
+        nav-item--IsExpandable=true
+      }}
+      {{#>nav-subnav nav-subnav--labelledby=nav-item--id}}
+        {{> nav-item nav-link--text='User Settings'}}
+        {{> nav-item nav-link--text='Preferences'}}
       {{/nav-subnav}}
     {{/nav-item}}
   {{/nav-list}}
@@ -261,423 +177,171 @@ import './Navigation.css'
 
 ### Mixed
 ```hbs
-{{#> nav nav--attribute='aria-label="Global"'}}
-  {{#> nav-list}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#"}}
-        Link 1 (not expandable)
-      {{/nav-link}}
-    {{/nav-item}}
-    {{#> nav-item nav-item--expandable="true" nav-item--expanded="true"}}
-      {{#> nav-link nav-link--href="#" nav-link--attribute='id="nav-mixed-link2"'}}
-        Link 2 (expanded, but not current example)
-      {{/nav-link}}
-      {{#> nav-subnav nav-subnav--attribute='aria-labelledby="nav-mixed-link2"'}}
-        {{#> nav-list}}
-          {{#> nav-item newcontent}}
-            {{#> nav-link nav-link--href="#"}}
-              Subnav link 1
-            {{/nav-link}}
-          {{/nav-item}}
-          {{#> nav-item newcontent}}
-            {{#> nav-link nav-link--href="#"}}
-              Subnav link 2
-            {{/nav-link}}
-          {{/nav-item}}
-        {{/nav-list}}
-      {{/nav-subnav}}
-    {{/nav-item}}
-    {{#> nav-item nav-item--expandable="true" nav-item--current="true"}}
-      {{#> nav-link nav-link--href="#" nav-link--attribute='id="nav-mixed-link4"'}}
-        Link 3 (current, but not expanded example)
-      {{/nav-link}}
-      {{#> nav-subnav nav-subnav--attribute='aria-labelledby="nav-mixed-link4"'}}
-        {{#> nav-list}}
-          {{#> nav-item newcontent}}
-            {{#> nav-link nav-link--href="#"}}
-              Subnav link 1
-            {{/nav-link}}
-          {{/nav-item}}
-          {{#> nav-item newcontent}}
-            {{#> nav-link nav-link--href="#" nav-link--current="true"}}
-              Subnav link 2
-            {{/nav-link}}
-          {{/nav-item}}
-          {{#> nav-item newcontent}}
-            {{#> nav-link nav-link--href="#"}}
-              Subnav link 3
-            {{/nav-link}}
-          {{/nav-item}}
-        {{/nav-list}}
-      {{/nav-subnav}}
-    {{/nav-item}}
-  {{/nav-list}}
+{{#> nav nav--id='default-example' nav--width='300px'}}
+  {{#> nav-section nav-section-title--text='Cluster'}}
+    {{#> nav-list nav-section-title--text=false}}
+      {{> nav-item nav-link--text='Dashboard'}}
+      {{> nav-item nav-link--text='Builds'}}
+      {{> nav-item nav-link--text='Compute'}}
+
+      {{#>nav-item
+          nav-link--text='Settings'
+          nav-item--id=(dasherize nav--id nav-link--text)
+          nav-item--IsExpandable=true
+          nav-item--IsExpanded=true
+        }}
+        {{#>nav-subnav
+            nav-item--IsExpandable=false
+            nav-item--IsExpanded=false
+            nav-subnav--labelledby=nav-item--id
+          }}
+          {{> nav-item nav-link--text='User management'}}
+          {{> nav-item nav-link--text='Administration' nav-link--IsCurrent=true}}
+          {{> nav-item nav-link--text='Import YAML'}}
+          {{> nav-item nav-link--text='Help & Support'}}
+        {{/nav-subnav}}
+      {{/nav-item}}
+      {{#>nav-item
+          nav-link--text='Profile'
+          nav-item--id=(dasherize nav--id nav-link--text)
+          nav-item--IsExpandable=true
+          nav-item--IsExpanded=true
+        }}
+        {{#>nav-subnav
+            nav-item--IsExpandable=false
+            nav-item--IsExpanded=false
+            nav-subnav--labelledby=nav-item--id
+          }}
+          {{> nav-item nav-link--text='User Settings'}}
+          {{> nav-item nav-link--text='Preferences'}}
+        {{/nav-subnav}}
+      {{/nav-item}}
+    {{/nav-list}}
+  {{/nav-section}}
 {{/nav}}
 ```
 
 ### Expandable, third level
 ```hbs
-{{#> nav nav--attribute='aria-label="Global"' nav--id="expandable-third-level-example"}}
+{{#> nav nav--id="expandable-third-level-example"}}
   {{#> nav-list}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#"}}
-        Clusters
-      {{/nav-link}}
-    {{/nav-item}}
-    {{#> nav-item nav-item--current="true"}}
-      {{#> nav-link nav-link--href="#"}}
-        Overview
-      {{/nav-link}}
-    {{/nav-item}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#"}}
-        Releases
-      {{/nav-link}}
-    {{/nav-item}}
-    {{#> nav-item nav-item--expandable="true"}}
-      {{#> nav-link nav-link--href="#" nav-link--attribute=(concat 'id="' nav--id '-example-1"')}}
-        Subscriptions
-      {{/nav-link}}
-      {{#> nav-subnav nav-subnav--attribute=(concat 'aria-labelledby="' nav--id '-example-1"')}}
-        {{#> nav-list newcontent}}
-          {{#> nav-item}}
-            {{#> nav-link nav-link--href="#"}}
-              Subnav link 1
-            {{/nav-link}}
-          {{/nav-item}}
-          {{#> nav-item}}
-            {{#> nav-link nav-link--href="#"}}
-              Subnav link 2
-            {{/nav-link}}
-          {{/nav-item}}
-        {{/nav-list}}
+    {{> nav-item nav-link--text='Clusters'}}
+    {{> nav-item nav-link--text='Overview'}}
+    {{> nav-item nav-link--text='Releases'}}
+    {{#>nav-item
+        nav-link--text='Subscriptions'
+        nav-item--IsExpandable=true
+        nav-item--id=(dasherize nav--id nav-link--text)
+      }}
+      {{#>nav-subnav
+          nav-subnav--labelledby=nav-item--id
+          nav-item--IsExpandable=false
+          nav-item--IsExpanded=false
+        }}
+        {{> nav-item nav-link--text='Renew'}}
+        {{> nav-item nav-link--text='Cancel'}}
       {{/nav-subnav}}
     {{/nav-item}}
-    {{#> nav-item nav-item--expandable="true" nav-item--expanded="true"}}
-      {{#> nav-link nav-link--href="#" nav-link--attribute=(concat 'id="' nav--id '-example-2"')}}
-        Cost management
-      {{/nav-link}}
-      {{#> nav-subnav nav-subnav--attribute=(concat 'aria-labelledby="' nav--id '-example-2"')}}
-        {{#> nav-list nav-item--expandable=unset nav-item--expanded=unset}}
-          {{#> nav-item}}
-            {{#> nav-link nav-link--href="#"}}
-              Overview
-            {{/nav-link}}
-          {{/nav-item}}
-          {{#> nav-item}}
-            {{#> nav-link nav-link--href="#"}}
-              Openshift
-            {{/nav-link}}
-          {{/nav-item}}
-          {{#> nav-item nav-item--expandable="true" nav-item--expanded="true"}}
-            {{#> nav-link nav-link--href="#" nav-link--attribute=(concat 'id="' nav--id '-sub-example-1"')}}
-              Public clouds
-            {{/nav-link}}
-            {{#> nav-subnav nav-subnav--attribute=(concat 'aria-labelledby="' nav--id '-sub-example-1"')}}
-              {{#> nav-list nav-item--expandable=unset nav-item--expanded=unset}}
-                {{#> nav-item}}
-                  {{#> nav-link nav-link--href="#"}}
-                    Amazon Web Services
-                  {{/nav-link}}
-                {{/nav-item}}
-                {{#> nav-item}}
-                  {{#> nav-link nav-link--href="#"}}
-                    Microsoft Azure
-                  {{/nav-link}}
-                {{/nav-item}}
-                {{#> nav-item}}
-                  {{#> nav-link nav-link--href="#"}}
-                    Google Cloud Services
-                  {{/nav-link}}
-                {{/nav-item}}
-              {{/nav-list}}
-            {{/nav-subnav}}
-          {{/nav-item}}
-          {{#> nav-item}}
-            {{#> nav-link nav-link--href="#"}}
-              Cost Models
-            {{/nav-link}}
-          {{/nav-item}}
-          {{#> nav-item}}
-            {{#> nav-link nav-link--href="#"}}
-              Cost Explorer
-            {{/nav-link}}
-          {{/nav-item}}
-        {{/nav-list}}
+    {{#> nav-item nav-link--text='Cost management' nav-item--IsExpandable=true nav-item--IsExpanded=true}}
+      {{#>nav-subnav
+          nav-subnav--labelledby=nav-item--id
+          nav-item--IsExpandable=false
+          nav-item--IsExpanded=false
+        }}
+        {{> nav-item nav-link--text='Overview'}}
+        {{> nav-item nav-link--text='OpenShift'}}
+        {{#>nav-item
+            nav-link--text='Public clouds'
+            nav-item--id=(dasherize nav--id nav-link--text)
+            nav-item--IsExpandable=true
+            nav-item--IsExpanded=true
+          }}
+          {{#>nav-subnav
+              nav-item--IsExpandable=false
+              nav-item--IsExpanded=false
+            }}
+            {{> nav-item nav-link--text='Amazon Web Services'}}
+            {{> nav-item nav-link--text='Microsoft Azure' nav-link--IsCurrent=true}}
+            {{> nav-item nav-link--text='Google Cloud Services'}}
+          {{/nav-subnav}}
+        {{/nav-item}}
+        {{> nav-item nav-link--text='Cost Models'}}
+        {{> nav-item nav-link--text='Cost explorer'}}
       {{/nav-subnav}}
     {{/nav-item}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#"}}
-        Support Cases
-      {{/nav-link}}
-    {{/nav-item}}
+    {{> nav-item nav-link--text='Support Cases'}}
   {{/nav-list}}
 {{/nav}}
 ```
 
 ### Horizontal
 ```hbs
-{{#> nav nav--HasScroll="true" nav--IsHorizontal="true" nav--attribute='aria-label="Global"'}}
+{{#> nav nav--id='horizontal-example' nav--IsHorizontal=true}}
   {{#> nav-list}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#" nav-link--current="true"}}
-        Item 1
-      {{/nav-link}}
-    {{/nav-item}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#"}}
-        Item 2
-      {{/nav-link}}
-    {{/nav-item}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#"}}
-        Item 3
-      {{/nav-link}}
-    {{/nav-item}}
+    {{> nav-item nav-link--text='Dashboard'}}
+    {{> nav-item nav-link--text='Builds'}}
+    {{> nav-item nav-link--text='Compute' nav-link--IsCurrent=true}}
+    {{> nav-item nav-link--text='Networking'}}
   {{/nav-list}}
 {{/nav}}
 ```
 
 ### Horizontal overflow
 ```hbs
-{{#> nav nav--HasScroll="true" nav--IsHorizontal="true" nav--IsScrollable="true" nav--attribute='aria-label="Global"'}}
+{{#>nav nav--id='horizontal-overflow-example'
+    nav--HasScroll=true
+    nav--IsHorizontal=true
+    nav--IsScrollable=true
+  }}
   {{#> nav-list}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#"}}
-        Horizontal nav item 1
-      {{/nav-link}}
-    {{/nav-item}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#"}}
-        Horizontal nav item 2
-      {{/nav-link}}
-    {{/nav-item}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#"}}
-        Horizontal nav item 3
-      {{/nav-link}}
-    {{/nav-item}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#"}}
-        Horizontal nav item 4
-      {{/nav-link}}
-    {{/nav-item}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#" nav-link--current="true"}}
-        Horizontal nav item 5
-      {{/nav-link}}
-    {{/nav-item}}
+    {{> nav-item nav-link--text='Dashboard'}}
+    {{> nav-item nav-link--text='Builds'}}
+    {{> nav-item nav-link--text='Compute' nav-link--IsCurrent=true}}
+    {{> nav-item nav-link--text='Networking'}}
+    {{> nav-item nav-link--text='Observe'}}
+    {{> nav-item nav-link--text='Operations'}}
+    {{> nav-item nav-link--text='Applications'}}
+    {{> nav-item nav-link--text='Workloads'}}
   {{/nav-list}}
 {{/nav}}
 ```
 
 ### Horizontal subnav
 ```hbs
-{{#> nav nav--IsHorizontalSubnav="true" nav--attribute='aria-label="Local"'}}
+{{#>nav
+    nav--id='horizontal-subnav-example'
+    nav--IsHorizontalSubnav=true
+  }}
   {{#> nav-list}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#" nav-link--current="true"}}
-        Item 1
-      {{/nav-link}}
-    {{/nav-item}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#"}}
-        Item 2
-      {{/nav-link}}
-    {{/nav-item}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#"}}
-        Item 3
-      {{/nav-link}}
-    {{/nav-item}}
+    {{> nav-item nav-link--text='Dashboard'}}
+    {{> nav-item nav-link--text='Builds'}}
+    {{> nav-item nav-link--text='Compute' nav-link--IsCurrent=true}}
+    {{> nav-item nav-link--text='Networking'}}
+    {{> nav-item nav-link--text='Observe'}}
+    {{> nav-item nav-link--text='Operations'}}
+    {{> nav-item nav-link--text='Applications'}}
+    {{> nav-item nav-link--text='Workloads'}}
   {{/nav-list}}
 {{/nav}}
 ```
 
 ### Horizontal subnav overflow
 ```hbs
-{{#> nav nav--HasScroll="true" nav--IsHorizontalSubnav="true" nav--IsScrollable="true" nav--attribute='aria-label="Global"'}}
+{{#>nav
+    nav--id='horizontal-subnav-overflow-example'
+    nav--HasScroll=true
+    nav--IsHorizontal=true
+    nav--IsScrollable=true
+  }}
   {{#> nav-list}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#"}}
-        Horizontal nav item 1
-      {{/nav-link}}
-    {{/nav-item}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#"}}
-        Horizontal nav item 2
-      {{/nav-link}}
-    {{/nav-item}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#"}}
-        Horizontal nav item 3
-      {{/nav-link}}
-    {{/nav-item}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#"}}
-        Horizontal nav item 4
-      {{/nav-link}}
-    {{/nav-item}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#" nav-link--current="true"}}
-        Horizontal nav item 5
-      {{/nav-link}}
-    {{/nav-item}}
-  {{/nav-list}}
-{{/nav}}
-```
-
-### Tertiary
-```hbs isDeprecated
-{{#> nav nav--HasScroll="true" nav--IsTertiary="true" nav--attribute='aria-label="Local"'}}
-  {{#> nav-list}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#" nav-link--current="true"}}
-        Item 1
-      {{/nav-link}}
-    {{/nav-item}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#"}}
-        Item 2
-      {{/nav-link}}
-    {{/nav-item}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#"}}
-        Item 3
-      {{/nav-link}}
-    {{/nav-item}}
-  {{/nav-list}}
-{{/nav}}
-```
-
-### Tertiary overflow
-```hbs isDeprecated
-{{#> nav nav--HasScroll="true" nav--IsTertiary="true" nav--IsScrollable="true" nav--attribute='aria-label="Local"'}}
-  {{#> nav-list}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#" nav-link--current="true"}}
-        Tertiary nav item 1
-      {{/nav-link}}
-    {{/nav-item}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#"}}
-        Tertiary nav item 2
-      {{/nav-link}}
-    {{/nav-item}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#"}}
-        Tertiary nav item 3
-      {{/nav-link}}
-    {{/nav-item}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#"}}
-        Tertiary nav item 4
-      {{/nav-link}}
-    {{/nav-item}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#"}}
-        Tertiary nav item 5
-      {{/nav-link}}
-    {{/nav-item}}
-  {{/nav-list}}
-{{/nav}}
-```
-
-### Default in light mode
-```hbs isDeprecated
-{{#> nav nav--attribute='aria-label="Global"' nav--modifier="pf-m-light"}}
-  {{#> nav-list}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#"}}
-        Current link
-      {{/nav-link}}
-    {{/nav-item}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#" nav-link--current="true"}}
-        Link 2
-      {{/nav-link}}
-    {{/nav-item}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#"}}
-        Link 3
-      {{/nav-link}}
-    {{/nav-item}}
-    {{#> nav-item}}
-      {{#> nav-link nav-link--href="#"}}
-        Link 4
-      {{/nav-link}}
-    {{/nav-item}}
-  {{/nav-list}}
-{{/nav}}
-```
-
-### Expanded in light mode
-```hbs isDeprecated
-{{#> nav nav--attribute='aria-label="Global"' nav--modifier="pf-m-light"}}
-  {{#> nav-list}}
-    {{#> nav-item nav-item--expandable="true" nav-item--expanded="true" nav-item--current="true"}}
-      {{#> nav-link nav-link--href="#" nav-link--attribute='id="expandable-light-example1"'}}
-        Link 1 (current and expanded example)
-      {{/nav-link}}
-      {{#> nav-subnav nav-subnav--attribute='aria-labelledby="expandable-light-example1"'}}
-        {{#> nav-list}}
-          {{#> nav-item newcontent}}
-            {{#> nav-link nav-link--href="#"}}
-              Current link
-            {{/nav-link}}
-          {{/nav-item}}
-          {{> divider divider--type="li"}}
-          {{#> nav-item newcontent}}
-            {{#> nav-link nav-link--href="#"}}
-              Subnav link 2
-            {{/nav-link}}
-          {{/nav-item}}
-          {{#> nav-item newcontent}}
-            {{#> nav-link nav-link--href="#" nav-link--current="true"}}
-              Subnav link 3
-            {{/nav-link}}
-          {{/nav-item}}
-        {{/nav-list}}
-      {{/nav-subnav}}
-    {{/nav-item}}
-    {{#> nav-item nav-item--expandable="true" nav-item--expanded="true"}}
-      {{#> nav-link nav-link--href="#" nav-link--attribute='id="expandable-light-example2"'}}
-        Link 2 (expanded, but not current example)
-      {{/nav-link}}
-      {{#> nav-subnav nav-subnav--attribute='aria-labelledby="expandable-light-example2"'}}
-        {{#> nav-list}}
-          {{#> nav-item newcontent}}
-            {{#> nav-link nav-link--href="#"}}
-              Subnav link 1
-            {{/nav-link}}
-          {{/nav-item}}
-          {{#> nav-item newcontent}}
-            {{#> nav-link nav-link--href="#"}}
-              Subnav link 2
-            {{/nav-link}}
-          {{/nav-item}}
-        {{/nav-list}}
-      {{/nav-subnav}}
-    {{/nav-item}}
-    {{#> nav-item nav-item--expandable="true"}}
-      {{#> nav-link nav-link--href="#" nav-link--attribute='id="expandable-light-example3"'}}
-        Link 3
-      {{/nav-link}}
-      {{#> nav-subnav nav-subnav--attribute='aria-labelledby="expandable-light-example3"'}}
-        {{#> nav-list}}
-          {{#> nav-item newcontent}}
-            {{#> nav-link nav-link--href="#"}}
-              Subnav link 1
-            {{/nav-link}}
-          {{/nav-item}}
-          {{#> nav-item newcontent}}
-            {{#> nav-link nav-link--href="#"}}
-              Subnav link 2
-            {{/nav-link}}
-          {{/nav-item}}
-        {{/nav-list}}
-      {{/nav-subnav}}
-    {{/nav-item}}
+    {{> nav-item nav-link--text='Dashboard'}}
+    {{> nav-item nav-link--text='Builds'}}
+    {{> nav-item nav-link--text='Compute' nav-link--IsCurrent=true}}
+    {{> nav-item nav-link--text='Networking'}}
+    {{> nav-item nav-link--text='Observe'}}
+    {{> nav-item nav-link--text='Operations'}}
+    {{> nav-item nav-link--text='Applications'}}
+    {{> nav-item nav-link--text='Workloads'}}
   {{/nav-list}}
 {{/nav}}
 ```
@@ -714,7 +378,7 @@ When using anything other than a text node for the link text, wrap the link text
         Link 1 <i class="fas fa-arrow-right" aria-hidden="true"></i>
       {{/nav-link}}
     {{/nav-item}}
-    {{#> nav-item nav-item--expandable="true" nav-item--expanded="true"}}
+    {{#> nav-item nav-item--IsExpandable="true" nav-item--IsExpanded="true"}}
       {{#> nav-link nav-link--href="#" nav-link--attribute='id="nav-link-text-link2"'}}
         Link 2 <small>(small text)</small>
       {{/nav-link}}
@@ -735,7 +399,7 @@ When using anything other than a text node for the link text, wrap the link text
         {{/nav-list}}
       {{/nav-subnav}}
     {{/nav-item}}
-    {{#> nav-item nav-item--expandable="true" nav-item--current="true"}}
+    {{#> nav-item nav-item--IsExpandable=true nav-item--IsCurrent=true}}
       {{#> nav-link nav-link--href="#" nav-link--attribute='id="nav-link-text-link4"'}}
         Link 3
         <strong>(strong text)</strong>
@@ -748,7 +412,7 @@ When using anything other than a text node for the link text, wrap the link text
             {{/nav-link}}
           {{/nav-item}}
           {{#> nav-item newcontent}}
-            {{#> nav-link nav-link--href="#" nav-link--current="true"}}
+            {{#> nav-link nav-link--href="#" nav-link--IsCurrent=true}}
               Subnav link 2
             {{/nav-link}}
           {{/nav-item}}

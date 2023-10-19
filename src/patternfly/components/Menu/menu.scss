@@ -221,7 +221,7 @@
   --#{$menu}--m-nav--c-menu--m-top--Bottom: calc(0 + var(--#{$menu}--m-nav--c-menu--m-top--bottom-offset));
   --#{$menu}--m-nav__list-item--first-child--c-menu--Top: 0;
 
- inset-block-start: var(--#{$menu}--Top);
+  inset-block-start: var(--#{$menu}--Top);
   z-index: var(--#{$menu}--ZIndex);
   width: var(--#{$menu}--Width);
   min-width: var(--#{$menu}--MinWidth);
@@ -286,7 +286,7 @@
           $prop: transform,
           $ltr-val: translateX(-100%),
           $rtl-val: translateX(#{pf-v5-calc-inverse(-100%)})
-        );    
+        );
       }
       // stylelint-enable
     }
@@ -569,7 +569,7 @@
     --#{$menu}__item--Color: var(--#{$menu}__list-item--m-disabled__item--Color);
     --#{$menu}__item-toggle-icon: var(--#{$menu}__list-item--m-disabled__item-toggle-icon--Color);
   }
-  
+
   &.pf-m-disabled {
     --#{$menu}__list-item--focus-within--BackgroundColor: transparent;
 
@@ -695,7 +695,7 @@
 // Toggle icon
 .#{$menu}__item-toggle-icon {
   @include pf-v5-mirror-inline-on-rtl;
-  
+
   padding-inline-start: var(--#{$menu}__item-toggle-icon--PaddingLeft);
   padding-inline-end: var(--#{$menu}__item-toggle-icon--PaddingRight);
   color: var(--#{$menu}__item-toggle-icon, inherit);

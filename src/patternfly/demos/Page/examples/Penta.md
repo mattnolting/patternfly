@@ -101,7 +101,7 @@ wrapperTag: div
               {{/nav-link}}
             {{/nav-item}}
             {{#> nav-item}}
-              {{#> nav-link nav-link--href="#" nav-link--current="true"}}
+              {{#> nav-link nav-link--href="#" nav-link--IsCurrent="true"}}
                 Applications
               {{/nav-link}}
             {{/nav-item}}
