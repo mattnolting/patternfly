@@ -1,5 +1,5 @@
 {{#> nav-subnav}}
-  {{#> nav-list nav-item--IsDrilldown=reset nav-item--IsExpanded=reset}}
+  {{#> nav-list nav-item--IsDrilldown=false nav-item--IsExpanded=true}}
     {{#> nav-item nav-item--IsDrillup="true"}}
       {{#> nav-link nav-link--href="#"}}
         Subscriptions
@@ -15,7 +15,7 @@
         Dedicated
       {{/nav-link}}
       {{#> nav-subnav}}
-        {{#> nav-list nav-item--IsExpanded=reset nav-item--IsDrilldown=reset}}
+        {{#> nav-list nav-item--IsExpanded=false nav-item--IsDrilldown=false}}
           {{#> nav-item nav-item--IsDrillup="true"}}
             {{#> nav-link nav-link--href="#"}}
               Dedicated
@@ -32,7 +32,7 @@
             {{/nav-link}}
           {{/nav-item}}
           {{#if nav--drilldown--HasFlyout}}
-            {{#> nav-item nav-item--IsDrilldown=reset nav-item--IsFlyout="true"}}
+            {{#> nav-item nav-item--IsDrilldown=false nav-item--IsFlyout="true"}}
               {{#> nav-link nav-link--href="#"}}
                 Subscriptions
               {{/nav-link}}

@@ -2,7 +2,7 @@
   {{#> wizard-nav-list}}
     {{#> wizard-nav-item}}
       {{#if wizard-template-nav--IsInfo}}
-        {{#> wizard-nav-link wizard-nav-link--IsCurrent="true" wizard-nav-link--IsCurrentPage="true"}}
+        {{#> wizard-nav-link wizard-nav-link--IsCurrent=true wizard-nav-link--IsCurrentPage="true"}}
           Information
         {{/wizard-nav-link}}
       {{else}}
@@ -18,7 +18,7 @@
           Configuration
         {{/wizard-nav-link}}
       {{else}}
-        {{#> wizard-nav-link wizard-nav-link--IsCurrent="true"}}
+        {{#> wizard-nav-link wizard-nav-link--IsCurrent=true}}
           Configuration
         {{/wizard-nav-link}}
       {{/if}}
@@ -35,7 +35,7 @@
               Substep B
             {{/wizard-nav-link}}
           {{else}}
-            {{#> wizard-nav-link wizard-nav-link--IsCurrent="true" wizard-nav-link--IsCurrentPage="true"}}
+            {{#> wizard-nav-link wizard-nav-link--IsCurrent=true wizard-nav-link--IsCurrentPage="true"}}
               Substep B
             {{/wizard-nav-link}}
           {{/if}}
