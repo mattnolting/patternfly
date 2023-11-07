@@ -1,14 +1,18 @@
-{{#> toolbar-group toolbar-group--id=(concat masthead-template--id '-icon-group-') toolbar-group--modifier="pf-m-icon-button-group pf-m-align-right pf-m-spacer-none pf-m-spacer-md-on-md"}}
+{{#> toolbar-group toolbar-group--id=(concat masthead-template--id '-icon-group-')
+    toolbar-group--modifier='pf-m-icon-button-group pf-m-align-end pf-m-align-items-center'
+  }}
   {{#if masthead-template--HasNotificationDrawer}}
     {{#> toolbar-item}}
       {{> notification-badge notification-badge--IsExpanded=notification-drawer--IsExpanded notification-badge--IsAttention=notification-drawer--IsAttention notification-badge--IsUnread=notification-drawer--IsUnread}}
     {{/toolbar-item}}
   {{/if}}
-  {{#> toolbar-group toolbar-group--modifier=(concat 'pf-m-icon-button-group pf-m-hidden pf-m-visible-on-' masthead-template-content-icon-group--breakpoint)}}
+  {{#> toolbar-group toolbar-group--modifier=(concat 'pf-m-icon-button-group pf-m-hidden pf-m-visible-on-' masthead-template-content-icon-group--breakpoint)
+     toolbar-group--modifier='pf-m-align-self-stretch'
+  }}
     {{#> toolbar-item}}
       {{> masthead-template-application-launcher app-launcher--id=(concat toolbar-group--id '-app-launcher')}}
     {{/toolbar-item}}
-    {{#> toolbar-item}}
+    {{#> toolbar-item toolbar-item--modifier='pf-m-align-items-center'}}
       {{#> menu-toggle menu-toggle--IsPlain="true" menu-toggle--attribute='aria-label="Settings"'}}
         <i class="fas fa-cog" aria-hidden="true"></i>
       {{/menu-toggle}}

@@ -13,3 +13,11 @@
 #ws-html-demos-c-toolbar-toolbar-attribute-value-search-filter-on-mobile {
   min-height: 175px;
 }
+
+.ws-preview-html {
+  resize: both;
+}
+
+.pf-v5-c-toolbar {
+  border: 1px dashed;
+}

@@ -1,0 +1,100 @@
+$pf-v5-c-toolbar--breakpoint-map: build-breakpoint-map('sm', 'md', 'lg', 'xl', '2xl');
+
+// Toggle group modifiers
+@each $breakpoint, $breakpoint-value in $pf-v5-c-toolbar--breakpoint-map {
+  $breakpoint-name: -on-#{$breakpoint};
+
+  @include pf-v5-apply-breakpoint($breakpoint) {
+    .#{$toolbar}__group,
+    .#{$toolbar}__item {
+      &.pf-m-hide#{$breakpoint-name} {
+        display: none;
+
+        .#{$toolbar}__toggle {
+          display: inline-block;
+        }
+      }
+
+      &.pf-m-show#{$breakpoint-name} {
+        display: flex;
+
+        .#{$toolbar}__toggle {
+          display: none;
+        }
+      }
+    }
+
+    // Align end
+    .#{$toolbar}__item.pf-m-align-end#{$breakpoint-name},
+    .#{$toolbar}__group.pf-m-align-end#{$breakpoint-name} {
+      margin-inline-start: auto;
+    }
+
+    // Align start
+    .#{$toolbar}__item.pf-m-align-start#{$breakpoint-name},
+    .#{$toolbar}__group.pf-m-align-start#{$breakpoint-name} {
+      margin-inline-start: 0;
+
+      & ~ .pf-m-pagination {
+        margin-inline-start: auto;
+      }
+    }
+
+    .#{$toolbar}__content-section,
+    .#{$toolbar}__group,
+    .#{$toolbar}__item {
+      &.pf-m-nowrap#{$breakpoint-name} {
+        flex-wrap: nowrap;
+      }
+
+      &.pf-m-wrap#{$breakpoint-name} {
+        flex-wrap: wrap;
+      }
+    }
+
+    @each $alignment in $pf-v5-c-toolbar--align-items--alignments {
+      .#{$toolbar}__group.pf-m-align-items-#{$alignment}#{$breakpoint-name} {
+        // if toolbar__group children are not toolbar__items, align them to baseline
+        > :not(:where(.#{$toolbar}__item)) { // use :where psuedo to avoid increasing specificity
+          align-self: #{$alignment};
+        }
+
+        // for toolbar__items to align correctly, they must retain align-self: stretch
+        > .#{$toolbar}__item {
+          align-items: #{$alignment};
+        }
+      }
+
+      .#{$toolbar}__group.pf-m-align-self-#{$alignment}#{$breakpoint-name},
+      .#{$toolbar}__item.pf-m-align-self-#{$alignment}#{$breakpoint-name} {
+        align-self: #{$alignment};
+      }
+    }
+
+
+    @each $gap, $gap-value in $pf-v5-c-toolbar--spacer-map {
+      .#{$toolbar} .pf-m-gap-#{$gap}#{$breakpoint-name} {
+        column-gap: #{$gap-value};
+      }
+    }
+  }
+
+  @each $gap, $gap-value in $pf-v5-c-toolbar--spacer-map {
+    .#{$toolbar}__group,
+    .#{$toolbar}__item {
+      .pf-m-margin-inline-start#{$gap}#{$breakpoint-name} {
+        margin-inline-start: #{$gap-value};
+      }
+
+      .pf-m-margin-inline-end#{$gap}#{$breakpoint-name} {
+        margin-inline-end: #{$gap-value};
+      }
+    }
+  }
+
+  @each $inset, $inset-value in $pf-v5-c-toolbar--inset-map {
+    &.pf-m-inset-#{$inset}#{$breakpoint-name} {
+      --#{$toolbar}--inset: #{$inset-value};
+    }
+  }
+}

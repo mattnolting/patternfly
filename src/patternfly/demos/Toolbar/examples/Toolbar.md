@@ -33,7 +33,7 @@ import './Toolbar.css'
 
 ### Toolbar with validation on desktop
 ```hbs isFullscreen
-{{> page-template page-template--id="toolbar-pagination-management-example"}}
+{{> page-template page-template--id="toolbar-pagination-management-e xample"}}
 
 {{#* inline "page-template-main-content"}}
   {{> page-template-breadcrumb}}

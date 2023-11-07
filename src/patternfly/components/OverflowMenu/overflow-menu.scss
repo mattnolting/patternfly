@@ -2,23 +2,21 @@
 
 .#{$overflow-menu} {
   // Base spacer - shared value
-  --#{$overflow-menu}--spacer--base: var(--#{$pf-global}--spacer--md);
+  --#{$overflow-menu}--ColumnGap--base: var(--pf-t--global--spacer--sm);
 
   // Spacer values
-  --#{$overflow-menu}--spacer: var(--#{$pf-global}--spacer--sm);
-  --#{$overflow-menu}__group--spacer: var(--#{$overflow-menu}--spacer--base);
-  --#{$overflow-menu}__item--spacer: var(--#{$overflow-menu}--spacer--base);
-  --#{$overflow-menu}--c-divider--m-vertical--spacer: var(--#{$overflow-menu}--spacer--base);
+  --#{$overflow-menu}--ColumnGap: var(--#{$overflow-menu}--ColumnGap--base);
+  --#{$overflow-menu}__group--ColumnGap: var(--#{$overflow-menu}--ColumnGap--base);
+  --#{$overflow-menu}--c-divider--m-vertical--spacer: var(--#{$overflow-menu}--ColumnGap--base);
 
   // Button group
-  --#{$overflow-menu}__group--m-button-group--spacer: var(--#{$overflow-menu}--spacer--base);
-  --#{$overflow-menu}__group--m-button-group--space-items: var(--#{$pf-global}--spacer--sm);
+  --#{$overflow-menu}__group--m-button-group--ColumnGap: var(--#{$overflow-menu}--ColumnGap--base);
 
   // Icon button group
-  --#{$overflow-menu}__group--m-icon-button-group--spacer: var(--#{$overflow-menu}--spacer--base);
-  --#{$overflow-menu}__group--m-icon-button-group--space-items: 0;
+  --#{$overflow-menu}__group--m-icon-button-group--ColumnGap: 0;
 
   display: inline-flex;
+  column-gap: var(--#{$overflow-menu}--ColumnGap);
   align-items: center;
 }
 
@@ -30,45 +28,34 @@
 
 // Group
 .#{$overflow-menu}__group {
-  --#{$overflow-menu}--spacer: var(--#{$overflow-menu}__group--spacer);
+  --#{$overflow-menu}--ColumnGap: var(--#{$overflow-menu}__group--ColumnGap);
 
   display: flex;
-  align-items: center;
+
+  // align-items: center;
 
   // Button group
   &.pf-m-button-group {
-    --#{$overflow-menu}--spacer: var(--#{$overflow-menu}__group--m-button-group--spacer);
-
-    > * {
-      --#{$overflow-menu}--spacer: var(--#{$overflow-menu}__group--m-button-group--space-items);
-    }
+    --#{$overflow-menu}--ColumnGap: var(--#{$overflow-menu}__group--m-button-group--ColumnGap);
   }
 
   // Icon button group
   &.pf-m-icon-button-group {
-    --#{$overflow-menu}--spacer: var(--#{$overflow-menu}__group--m-icon-button-group--spacer);
-
-    > * {
-      --#{$overflow-menu}--spacer: var(--#{$overflow-menu}__group--m-icon-button-group--space-items);
-    }
+    --#{$overflow-menu}--ColumnGap: var(--#{$overflow-menu}__group--m-icon-button-group--ColumnGap);
   }
 }
 
 // Item
 .#{$overflow-menu}__item {
   // reset spacer
-  --#{$overflow-menu}--spacer: var(--#{$overflow-menu}__item--spacer);
+  --#{$overflow-menu}--ColumnGap: var(--#{$overflow-menu}__item--ColumnGap);
 }
 
 .#{$overflow-menu}__content,
 .#{$overflow-menu}__control,
 .#{$overflow-menu}__group,
 .#{$overflow-menu}__item {
-  margin-inline-end: var(--#{$overflow-menu}--spacer);
-
-  &:last-child {
-    --#{$overflow-menu}--spacer: 0;
-  }
+  column-gap: var(--#{$overflow-menu}--ColumnGap);
 }
 
 // Divider
@@ -81,9 +68,5 @@
 
   > .#{$divider}.pf-m-vertical {
     margin-inline-end: var(--#{$overflow-menu}--spacer);
-
-    &:last-child {
-      --#{$overflow-menu}--spacer: 0;
-    }
   }
 }
