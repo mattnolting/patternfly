@@ -151,8 +151,8 @@
 
 @mixin pf-v5-u-screen-reader {
   position: fixed;
- inset-block-start: 0;
- inset-inline-start: 0;
+  inset-block-start: 0;
+  inset-inline-start: 0;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
@@ -386,4 +386,13 @@
 // Declares a global inverse multiplier var used for returning the inverse of a number. Defined within blocks that reference the global var in calc() functions to conditionally return the default or inverse value of a number.
 @mixin pf-v5-set-inverse($val: true) {
   --#{$pf-global}--inverse--multiplier: #{if($val, -1, 1)};
+}
+
+// Usage: @include pf-v5-button-proportional($elements: ('.#{$button}--m-proportional', '.#{$button}--m-proportional'));
+@mixin pf-v5-button-proportional($element, $min-width: 'var(--#{$button}--m-proportional--MinWidth)') {
+  #{$element} {
+    aspect-ratio: 1 / 1;
+    min-width: #{$min-width};
+    padding-inline: 0;
+  }
 }

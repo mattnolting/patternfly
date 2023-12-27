@@ -133,7 +133,7 @@ import './TextInputGroup.css'
   {{/input-group-item}}
   {{#> input-group-item input-group-item--IsPlain=true}}
     {{#> button button--modifier="pf-m-plain" button--attribute='aria-label="Close"'}}
-      <i class="fas fa-times" aria-hidden="true"></i>
+      <i class="fas fa-fw fa-times" aria-hidden="true"></i>
     {{/button}}
   {{/input-group-item}}
 
@@ -147,8 +147,8 @@ import './TextInputGroup.css'
     {{> text-input-group--search-input text-input-group--id="text-input-group-search-input-group-with-submit-button" text-input-group-text-input--placeholder="Find by name"}}
   {{/input-group-item}}
   {{#> input-group-item}}
-    {{#> button button--modifier="pf-m-control" button--attribute='aria-label="Search"' button--IsSubmit="true"}}
-      <i class="fas fa-arrow-right" aria-hidden="true"></i>
+    {{#> button button--modifier="pf-m-control" button--IsProportional=true button--attribute='aria-label="Search"' button--IsSubmit="true"}}
+      <i class="fas fa-fw fa-arrow-right" aria-hidden="true"></i>
     {{/button}}
   {{/input-group-item}}
 {{/input-group}}
@@ -161,17 +161,16 @@ import './TextInputGroup.css'
     {{> text-input-group--search-input text-input-group--id="text-input-group-search-input-group-advanced-search" text-input-group--value="username:root firstname:ned"}}
   {{/input-group-item}}
   {{#> input-group-item}}
-    {{#> button button--modifier="pf-m-control" button--attribute='aria-expanded="false" aria-label="Advanced search"'}}
+    {{#> button button--modifier="pf-m-control" button--IsProportional=true button--attribute='aria-expanded="false" aria-label="Advanced search"'}}
       <i class="fas fa-caret-down" aria-hidden="true"></i>
     {{/button}}
   {{/input-group-item}}
   {{#> input-group-item}}
-    {{#> button button--modifier="pf-m-control" button--attribute='aria-label="Search"' button--IsSubmit="true"}}
+    {{#> button button--modifier="pf-m-control" button--IsProportional=true button--attribute='aria-label="Search"' button--IsSubmit="true"}}
       <i class="fas fa-arrow-right" aria-hidden="true"></i>
     {{/button}}
   {{/input-group-item}}
 {{/input-group}}
-
 ```
 
 ### Search input group, advanced search expanded
@@ -186,7 +185,7 @@ import './TextInputGroup.css'
     {{/button}}
   {{/input-group-item}}
   {{#> input-group-item}}
-    {{#> button button--modifier="pf-m-control" button--attribute='aria-label="Search"' button--IsSubmit="true"}}
+    {{#> button button--modifier="pf-m-control" button--IsProportional=true button--attribute='aria-label="Search"' button--IsSubmit="true"}}
       <i class="fas fa-arrow-right" aria-hidden="true"></i>
     {{/button}}
   {{/input-group-item}}
@@ -334,7 +333,7 @@ import './TextInputGroup.css'
     {{/button}}
   {{/input-group-item}}
   {{#> input-group-item}}
-    {{#> button button--modifier="pf-m-control" button--attribute='aria-label="Search"' button--IsSubmit="true"}}
+    {{#> button button--modifier="pf-m-control" button--IsProportional=true button--attribute='aria-label="Search"' button--IsSubmit="true"}}
       <i class="fas fa-arrow-right" aria-hidden="true"></i>
     {{/button}}
   {{/input-group-item}}

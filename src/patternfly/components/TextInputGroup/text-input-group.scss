@@ -1,158 +1,186 @@
-// @debug $text-input-group; // check your variable names located in src/patternfly/sass-utilities/component-namespaces.scss
+:where(:root),
+:where([data-theme="#{$text-input-group}"]) {
+  --#{$text-input-group}--RowGap: var(--pf-t--global--spacer--xs);
 
-.#{$text-input-group} {
-  --#{$text-input-group}--BackgroundColor: var(--#{$pf-global}--BackgroundColor--100);
+  // --#{$text-input-group}--ColumnGap: var(--pf-t--global--spacer--sm);
+  --#{$text-input-group}--BorderRadius: var(--pf-t--global--border--radius--small);
+  --#{$text-input-group}--BackgroundColor: var(--pf-t--global--background--color--control--default);
+  --#{$text-input-group}--BorderWidth: var(--pf-t--global--border--width--control--default);
+  --#{$text-input-group}--BorderColor: var(--pf-t--global--border--color--default);
+  --#{$text-input-group}--hover--BorderColor: var(--pf-t--global--border--color--brand--hover);
+  --#{$text-input-group}--focus-within--BorderColor: var(--pf-t--global--border--color--brand--clicked);
+  --#{$text-input-group}--focus-within--BorderWidth: var(--pf-t--global--border--width--control--active);
+  --#{$text-input-group}--before--ZIndex: var(--pf-t--global--Zindex--xs);
 
-  // Base border
-  --#{$text-input-group}__text--before--BorderWidth: var(--#{$pf-global}--BorderWidth--sm);
-  --#{$text-input-group}__text--before--BorderColor: var(--#{$pf-global}--BorderColor--300);
+  // * Text input group main icon text input
+  --#{$text-input-group}__main--m-icon__text-input--PaddingInlineStart: var(--pf-t--global--spacer--xl);
 
-  // Bottom border
-  --#{$text-input-group}__text--after--BorderBottomWidth: var(--#{$pf-global}--BorderWidth--sm);
-  --#{$text-input-group}__text--after--BorderBottomColor: var(--#{$pf-global}--BorderColor--200);
-  --#{$text-input-group}--hover__text--after--BorderBottomColor: var(--#{$pf-global}--primary-color--100);
-  --#{$text-input-group}__text--focus-within--after--BorderBottomWidth: var(--#{$pf-global}--BorderWidth--md);
-  --#{$text-input-group}__text--focus-within--after--BorderBottomColor: var(--#{$pf-global}--primary-color--100);
-
-  // Main
-  --#{$text-input-group}__main--first-child--not--text-input--MarginLeft: var(--#{$pf-global}--spacer--sm);
-  --#{$text-input-group}__main--m-icon__text-input--PaddingLeft: var(--#{$pf-global}--spacer--xl);
-  --#{$text-input-group}__main--RowGap: var(--#{$pf-global}--spacer--xs);
-  --#{$text-input-group}__main--ColumnGap: var(--#{$pf-global}--spacer--sm);
-
-  // Chip group
-  --#{$text-input-group}--c-chip-group__main--PaddingTop: var(--#{$pf-global}--spacer--xs);
-  --#{$text-input-group}--c-chip-group__main--PaddingRight: var(--#{$pf-global}--spacer--xs);
-  --#{$text-input-group}--c-chip-group__main--PaddingBottom: var(--#{$pf-global}--spacer--xs);
-
-  // Text input
-  --#{$text-input-group}__text-input--PaddingTop: var(--#{$pf-global}--spacer--form-element);
-  --#{$text-input-group}__text-input--PaddingRight: var(--#{$pf-global}--spacer--sm);
-  --#{$text-input-group}__text-input--PaddingBottom: var(--#{$pf-global}--spacer--form-element);
-  --#{$text-input-group}__text-input--PaddingLeft: var(--#{$pf-global}--spacer--sm);
+  // * Text input group text input
+  --#{$text-input-group}__text-input--PaddingBlock: var(--pf-t--global--spacer--sm);
+  --#{$text-input-group}__text-input--PaddingInline: var(--pf-t--global--spacer--sm);
   --#{$text-input-group}__text-input--MinWidth: 12ch;
-  --#{$text-input-group}__text-input--m-hint--Color: var(--#{$pf-global}--Color--200); // matches placeholder text color
-  --#{$text-input-group}__text-input--placeholder--Color: var(--#{$pf-global}--Color--200);
   --#{$text-input-group}__text-input--BackgroundColor: transparent;
+  --#{$text-input-group}__text-input--m-hint--Color: var(--pf-t--global--text--color--placeholder);
+  --#{$text-input-group}__text-input--placeholder--Color: var(--pf-t--global--text--color--placeholder);
 
-  // Icon
-  --#{$text-input-group}__icon--Left: var(--#{$pf-global}--spacer--sm);
-  --#{$text-input-group}__icon--Color: var(--#{$pf-global}--icon--Color--dark);
+  // * Text input group icon
+  --#{$text-input-group}__icon--Left: var(--pf-t--global--spacer--sm);
+  --#{$text-input-group}__icon--Color: var(--pf-t--global--text--color--placeholder);
   --#{$text-input-group}__icon--TranslateY: -50%;
 
-  // Utilities
-  --#{$text-input-group}__utilities--MarginRight: var(--#{$pf-global}--spacer--sm);
-  --#{$text-input-group}__utilities--MarginLeft: var(--#{$pf-global}--spacer--xs);
-  --#{$text-input-group}__utilities--child--MarginLeft: var(--#{$pf-global}--spacer--xs);
-  --#{$text-input-group}__utilities--c-button--PaddingRight: var(--#{$pf-global}--spacer--xs);
-  --#{$text-input-group}__utilities--c-button--PaddingLeft: var(--#{$pf-global}--spacer--xs);
+  // * Text input group utilities
+  --#{$text-input-group}__utilities--ColumnGap: var(--pf-t--global--spacer--sm);
+  --#{$text-input-group}__utilities--button--MinWidth: #{pf-size-prem(34px)};
+  --#{$text-input-group}__utilities--button--PaddingInline: 0;
 
-  // input disabled style
-  --#{$text-input-group}--m-disabled--Color: var(--#{$pf-global}--disabled-color--100);
-  --#{$text-input-group}--m-disabled--BackgroundColor: var(--#{$pf-global}--disabled-color--300);
+  // * Text input group chip group
+  --#{$text-input-group}--c-chip-group__main--PaddingBlock: var(--pf-t--global--spacer--xs);
+  --#{$text-input-group}--c-chip-group__main--PaddingInlineEnd: var(--pf-t--global--spacer--xs);
 
-  position: relative;
+  // * Text input group disabled
+  --#{$text-input-group}--m-disabled--Color: var(--pf-t--global--text--color--on-disabled);
+  --#{$text-input-group}--m-disabled--BackgroundColor: var(--pf-t--global--background--color--disabled--default);
+}
+
+// - Text input group - Text input group main - Text input group group - Text input group utilities
+.#{$text-input-group},
+.#{$text-input-group}__main,
+.#{$text-input-group}__group,
+.#{$text-input-group}__utilities {
   display: flex;
+}
+
+// - Text input group - Text input group text - Text input group text input
+.#{$text-input-group},
+.#{$text-input-group}__text,
+.#{$text-input-group}__text-input {
+  position: relative;
+}
+
+// - Text input group
+.#{$text-input-group} {
   width: 100%; // when child of flex layout, take up space
+  overflow: hidden;
   color: var(--#{$text-input-group}--Color, inherit);
   background-color: var(--#{$text-input-group}--BackgroundColor);
+  border-radius: var(--#{$text-input-group}--BorderRadius);
 
-  &:hover {
-    --#{$text-input-group}__text--after--BorderBottomColor: var(--#{$text-input-group}--hover__text--after--BorderBottomColor);
+  &::before {
+    position: absolute;
+    inset: 0;
+    z-index: var(--#{$text-input-group}--before--ZIndex);
+    pointer-events: none;
+    content: "";
+    border: var(--#{$text-input-group}--BorderWidth) solid var(--#{$text-input-group}--BorderColor); // use after pseudo to present border on top of items
+    border-radius: inherit;
   }
 
-  &.pf-m-disabled {
-    --#{$text-input-group}__text--before--BorderWidth: 0;
-    --#{$text-input-group}__text--after--BorderBottomWidth: 0;
-    --#{$text-input-group}--Color: var(--#{$text-input-group}--m-disabled--Color);
-    --#{$text-input-group}__icon--Color: var(--#{$text-input-group}--m-disabled--Color);
-    --#{$text-input-group}--BackgroundColor: var(--#{$text-input-group}--m-disabled--BackgroundColor);
-
-    pointer-events: none;
+  &:hover {
+    --#{$text-input-group}--BorderColor: var(--#{$text-input-group}--hover--BorderColor);
   }
 
   &.pf-m-plain {
     --#{$text-input-group}--BackgroundColor: transparent;
 
     .#{$text-input-group}__text {
-      &::before,
-      &::after {
+      &::before {
         border: 0;
       }
     }
   }
+
+  &:is(:focus, :focus-within, :focus-visible) {
+    --#{$text-input-group}--BorderColor: var(--#{$text-input-group}--focus-within--BorderColor);
+    --#{$text-input-group}--BorderWidth: var(--#{$text-input-group}--focus-within--BorderWidth);
+
+    &::before {
+      z-index: 100;
+    }
+  }
+
+  &:is(:disabled, [disabled], .pf-m-disabled, [disabled="true"]) {
+    --#{$text-input-group}--Color: var(--#{$text-input-group}--m-disabled--Color);
+    --#{$text-input-group}--icon--Color: var(--#{$text-input-group}--m-disabled--Color);
+    --#{$text-input-group}--BackgroundColor: var(--#{$text-input-group}--m-disabled--BackgroundColor);
+    --#{$text-input-group}__icon--Color: var(--#{$text-input-group}--m-disabled--Color);
+
+    pointer-events: none;
+
+    * {
+      mix-blend-mode: initial;
+    }
+  }
 }
 
+// - Text input group main
 .#{$text-input-group}__main {
-  display: flex;
   flex: 1;
   flex-wrap: wrap;
-  gap: var(--#{$text-input-group}__main--RowGap) var(--#{$text-input-group}__main--ColumnGap);
+  row-gap: var(--#{$text-input-group}__main--RowGap, var(--#{$text-input-group}--RowGap));
+  column-gap: var(--#{$text-input-group}__main--ColumnGap, var(--#{$text-input-group}--ColumnGap));
   min-width: 0;
 
   &.pf-m-icon {
-    --#{$text-input-group}__text-input--PaddingLeft: var(--#{$text-input-group}__main--m-icon__text-input--PaddingLeft);
-  }
-
-  > :first-child:not(.#{$text-input-group}__text) {
-    margin-inline-start: var(--#{$text-input-group}__main--first-child--not--text-input--MarginLeft);
+    --#{$text-input-group}__text-input--PaddingInlineStart: var(--#{$text-input-group}__main--m-icon__text-input--PaddingInlineStart);
   }
 
   .#{$chip-group}__main {
-    padding-block-start: var(--#{$text-input-group}--c-chip-group__main--PaddingTop);
-    padding-block-end: var(--#{$text-input-group}--c-chip-group__main--PaddingBottom);
-    padding-inline-end: var(--#{$text-input-group}--c-chip-group__main--PaddingRight);
+    padding-block-start: var(--#{$text-input-group}--c-chip-group__main--PaddingBlockStart, var(--#{$text-input-group}--c-chip-group__main--PaddingBlock));
+    padding-block-end: var(--#{$text-input-group}--c-chip-group__main--PaddingBlockEnd, var(--#{$text-input-group}--c-chip-group__main--PaddingBlock));
+    padding-inline-end: var(--#{$text-input-group}--c-chip-group__main--PaddingInlineEnd);
   }
 }
 
+// - Text input group utilties
+.#{$text-input-group}__utilities {
+  @include pf-v5-button-proportional('.#{$button}');
+
+  column-gap: var(--#{$text-input-group}__utilities--ColumnGap);
+  align-items: center;
+  padding-inline-start: var(--#{$text-input-group}__utilities--PaddingInlineStart, var(--#{$text-input-group}__utilities--ColumnGap));
+  padding-inline-end: var(--#{$text-input-group}__utilities--PaddingInlineEnd, var(--#{$text-input-group}__utilities--ColumnGap));
+
+  .#{$button} + .#{$button} {
+    margin-inline-start: calc(var(--#{$text-input-group}__utilities--ColumnGap) * -1); // offset adjacent buttons
+  }
+
+  &:is(:last-child) {
+    padding-inline-end: 0;
+  }
+}
+
+// - Text input group text
 .#{$text-input-group}__text {
   display: inline-grid;
   flex: 1;
   grid-template-areas: "text-input";
   grid-template-columns: 1fr;
-
-  &::before,
-  &::after {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    content: "";
-  }
-
-  &::before {
-    border: var(--#{$text-input-group}__text--before--BorderWidth) solid var(--#{$text-input-group}__text--before--BorderColor);
-  }
-
-  &::after {
-    border-block-end: var(--#{$text-input-group}__text--after--BorderBottomWidth) solid var(--#{$text-input-group}__text--after--BorderBottomColor);
-  }
-
-  &:focus-within {
-    --#{$text-input-group}__text--after--BorderBottomWidth: var(--#{$text-input-group}__text--focus-within--after--BorderBottomWidth);
-    --#{$text-input-group}__text--after--BorderBottomColor: var(--#{$text-input-group}__text--focus-within--after--BorderBottomColor);
-  }
 }
 
+// - Text input group icon
 .#{$text-input-group}__icon {
   position: absolute;
- inset-block-start: 50%;
- inset-inline-start: var(--#{$text-input-group}__icon--Left);
+  inset-block-start: 50%;
+  inset-inline-start: var(--#{$text-input-group}__icon--Left);
   color: var(--#{$text-input-group}__icon--Color);
   transform: translateY(var(--#{$text-input-group}__icon--TranslateY));
 }
 
+// - Text input group text ihput
 .#{$text-input-group}__text-input {
   @include pf-v5-text-overflow;
 
-  position: relative;
   width: 100%;
   min-width: var(--#{$text-input-group}__text-input--MinWidth);
-  padding-block-start: var(--#{$text-input-group}__text-input--PaddingTop);
-  padding-block-end: var(--#{$text-input-group}__text-input--PaddingBottom);
-  padding-inline-start: var(--#{$text-input-group}__text-input--PaddingLeft);
-  padding-inline-end: var(--#{$text-input-group}__text-input--PaddingRight);
+  padding-block-start: var(--#{$text-input-group}__text-input--PaddingBlockStart, var(--#{$text-input-group}__text-input--PaddingBlock));
+  padding-block-end: var(--#{$text-input-group}__text-input--PaddingBlockEnd, var(--#{$text-input-group}__text-input--PaddingBlock));
+  padding-inline-start: var(--#{$text-input-group}__text-input--PaddingInlineStart, var(--#{$text-input-group}__text-input--PaddingInline));
+  padding-inline-end: var(--#{$text-input-group}__text-input--PaddingInlineEnd, var(--#{$text-input-group}__text-input--PaddingInline));
+  color: inherit;
   background-color: var(--#{$text-input-group}__text-input--BackgroundColor);
   border: 0;
+  border-radius: inherit;
+  outline: none;
 
   &,
   &.pf-m-hint {
@@ -168,30 +196,40 @@
   }
 }
 
-.#{$text-input-group}__utilities {
-  display: flex;
-  align-items: center;
-  margin-inline-start: var(--#{$text-input-group}__utilities--MarginLeft);
-  margin-inline-end: var(--#{$text-input-group}__utilities--MarginRight);
-
-  > * + * {
-    margin-inline-start: var(--#{$text-input-group}__utilities--child--MarginLeft);
-  }
-
-  .#{$button} {
-    --#{$button}--PaddingRight: var(--#{$text-input-group}__utilities--c-button--PaddingRight);
-    --#{$button}--PaddingLeft: var(--#{$text-input-group}__utilities--c-button--PaddingLeft);
-  }
+// - Text input group text - Text input group utilities where button
+.#{$text-input-group}__text,
+.#{$text-input-group}__utilities > :where(.#{$button}) {
+  border-start-start-radius: var(--#{$text-input-group}--BorderStartStartRadius);
+  border-start-end-radius: var(--#{$text-input-group}--BorderStartEndRadius);
+  border-end-start-radius: var(--#{$text-input-group}--BorderEndStartRadius);
+  border-end-end-radius: var(--#{$text-input-group}--BorderEndEndRadius);
 }
 
-
-.#{$text-input-group}__group {
-  display: flex;
+// - Text input group main first child
+.#{$text-input-group}__main:first-child > :first-child {
+  --#{$text-input-group}--BorderStartStartRadius: var(--#{$text-input-group}--BorderRadius);
+  --#{$text-input-group}--BorderEndStartRadius: var(--#{$text-input-group}--BorderRadius);
 }
 
-// stylelint-disable no-invalid-position-at-import-rule
-@import "themes/dark/text-input-group";
+// - Text input group main last child
+.#{$text-input-group}__main:last-child > :last-child {
+  --#{$text-input-group}--BorderEndStartRadius: var(--#{$text-input-group}--BorderRadius);
+  --#{$text-input-group}--BorderEndEndRadius: var(--#{$text-input-group}--BorderRadius);
+}
 
-@include pf-v5-theme-dark {
-  @include pf-v5-theme-dark-text-input-group;
+// - Text input group utilities where last child
+.#{$text-input-group}__utlities > .#{$button}:where(:last-child) {
+  --#{$text-input-group}--BorderEndStartRadius: var(--#{$text-input-group}--BorderRadius);
+  --#{$text-input-group}--BorderEndEndRadius: var(--#{$text-input-group}--BorderRadius);
+}
+
+// - Text input group main - Text input group utilities only child
+.#{$text-input-group}__main,
+.#{$text-input-group}__utilities:only-child :where(.#{$button}) {
+  &:only-child {
+    --#{$text-input-group}--BorderStartStartRadius: var(--#{$text-input-group}--BorderRadius);
+    --#{$text-input-group}--BorderStartEndRadius: var(--#{$text-input-group}--BorderRadius);
+    --#{$text-input-group}--BorderEndStartRadius: var(--#{$text-input-group}--BorderRadius);
+    --#{$text-input-group}--BorderEndEndRadius: var(--#{$text-input-group}--BorderRadius);
+  }
 }

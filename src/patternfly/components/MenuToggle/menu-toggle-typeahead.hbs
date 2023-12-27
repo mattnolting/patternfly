@@ -1,0 +1,24 @@
+{{#> menu-toggle menu-toggle--IsDiv=true menu-toggle--IsTypeahead=true menu-toggle--modifier="pf-m-full-width"}}
+  {{#> text-input-group--search-input text-input-group--id=(dasherize menu-toggle--id 'typeahead') text-input-group--value="username:root firstname:ned"}}
+    {{> badge badge--modifier="pf-m-read" badge--text='1/3'}}
+    {{#> button button--IsProportional=true button--attribute='aria-label="Help"'}}
+      <i class="fas fa-info" aria-hidden="true"></i>
+    {{/button}}
+    {{#> button button--IsProportional=true button--modifier="pf-m-primary" button--attribute='aria-label="Download"'}}
+      <i class="fas fa-download" aria-hidden="true"></i>
+    {{/button}}
+    {{#> button button--IsProportional=true button--modifier="pf-m-secondary" button--attribute='aria-label="Upload something"'}}
+      <i class="fas fa-upload" aria-hidden="true"></i>
+    {{/button}}
+    {{#> button button--IsProportional=true button--modifier="pf-m-danger" button--attribute='aria-label="Stop"'}}
+      <i class="fas fa-stop" aria-hidden="true"></i>
+    {{/button}}
+    {{#> button button--IsProportional=true button--modifier="" button--attribute='aria-label="Upload something"'}}
+      <i class="fas fa-times" aria-hidden="true"></i>
+    {{/button}}
+  {{/text-input-group--search-input}}
+
+  {{#> button button--IsProportional=true button--modifier="" button--attribute='aria-label="Upload something"'}}
+    <i class="fas fa-times" aria-hidden="true"></i>
+  {{/button}}
+{{/menu-toggle}}

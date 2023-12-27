@@ -6,8 +6,63 @@ cssPrefix: pf-v5-c-menu-toggle
 ---
 
 import './MenuToggle.css'
-
+<!--
 ## Examples
+
+## Test examples
+
+ -->
+
+### Test default
+```hbs
+{{> menu-toggle-variations menu-toggle-variations--id='default-menu-toggle-example'}}
+{{> title title--text='Action' title--modifier='pf-m-xl pf-v5-u-mt-2xl' title--type='h3'}}
+{{> menu-toggle-variations menu-toggle-variations--id='default-menu-toggle-example-action' menu-toggle--IsAction=true}}
+```
+
+### Test primary
+```hbs
+{{> menu-toggle-variations menu-toggle-variations--id='primary-menu-toggle-example' menu-toggle--IsPrimary=true}}
+{{> title title--text='Action' title--modifier='pf-m-xl pf-v5-u-mt-2xl' title--type='h3'}}
+{{> menu-toggle-variations menu-toggle-variations--id='default-menu-toggle-example' menu-toggle--IsAction=true menu-toggle--IsPrimary=true}}
+```
+
+### Test secondary
+```hbs
+{{> menu-toggle-variations menu-toggle-variations--id='secondary-menu-toggle-example' menu-toggle--IsSecondary=true}}
+```
+
+### Test plain
+```hbs
+{{> menu-toggle-variations menu-toggle-variations--id='primary-menu-toggle-example' menu-toggle--IsPlain=true}}
+```
+
+### Test pill style
+```hbs
+{{> menu-toggle-variations menu-toggle-variations--id='pill-style-menu-toggle-example' menu-toggle--modifier='pf-m-pill'}}
+```
+
+### Test action style
+```hbs
+{{> menu-toggle-variations menu-toggle-variations--id='action-style-menu-toggle-example' menu-toggle--modifier='pf-m-action'}}
+```
+
+### Test pill action style
+```hbs
+{{> menu-toggle-variations menu-toggle-variations--id='pill-action-style-menu-toggle-example' menu-toggle--modifier='pf-m-action pf-m-pill'}}
+```
+
+### Base component
+```hbs
+{{#> menu-toggle}}
+  {{#> menu-toggle-text}}
+    Toggle
+  {{/menu-toggle-text}}
+  {{#> menu-toggle-control}}
+    {{> menu-toggle-toggle-icon}}
+  {{/menu-toggle-control}}
+{{/menu-toggle}}
+```
 
 ### Collapsed
 ```hbs
@@ -15,9 +70,9 @@ import './MenuToggle.css'
   {{#> menu-toggle-text}}
     Collapsed
   {{/menu-toggle-text}}
-  {{#> menu-toggle-controls}}
+  {{#> menu-toggle-control}}
     {{> menu-toggle-toggle-icon}}
-  {{/menu-toggle-controls}}
+  {{/menu-toggle-control}}
 {{/menu-toggle}}
 ```
 
@@ -27,9 +82,9 @@ import './MenuToggle.css'
   {{#> menu-toggle-text}}
     Expanded
   {{/menu-toggle-text}}
-  {{#> menu-toggle-controls}}
+  {{#> menu-toggle-control}}
     {{> menu-toggle-toggle-icon}}
-  {{/menu-toggle-controls}}
+  {{/menu-toggle-control}}
 {{/menu-toggle}}
 ```
 
@@ -39,9 +94,9 @@ import './MenuToggle.css'
   {{#> menu-toggle-text}}
     Disabled
   {{/menu-toggle-text}}
-  {{#> menu-toggle-controls}}
+  {{#> menu-toggle-control}}
     {{> menu-toggle-toggle-icon}}
-  {{/menu-toggle-controls}}
+  {{/menu-toggle-control}}
 {{/menu-toggle}}
 ```
 
@@ -56,9 +111,9 @@ import './MenuToggle.css'
       4 selected
     {{/badge}}
   {{/menu-toggle-count}}
-  {{#> menu-toggle-controls}}
+  {{#> menu-toggle-control}}
     {{> menu-toggle-toggle-icon}}
-  {{/menu-toggle-controls}}
+  {{/menu-toggle-control}}
 {{/menu-toggle}}
 ```
 
@@ -68,9 +123,9 @@ import './MenuToggle.css'
   {{#> menu-toggle-text}}
     Collapsed
   {{/menu-toggle-text}}
-  {{#> menu-toggle-controls}}
+  {{#> menu-toggle-control}}
     {{> menu-toggle-toggle-icon}}
-  {{/menu-toggle-controls}}
+  {{/menu-toggle-control}}
 {{/menu-toggle}}
 
 &nbsp;
@@ -82,9 +137,9 @@ import './MenuToggle.css'
   {{#> menu-toggle-text}}
     Icon
   {{/menu-toggle-text}}
-  {{#> menu-toggle-controls}}
+  {{#> menu-toggle-control}}
     {{> menu-toggle-toggle-icon}}
-  {{/menu-toggle-controls}}
+  {{/menu-toggle-control}}
 {{/menu-toggle}}
 
 &nbsp;
@@ -93,9 +148,9 @@ import './MenuToggle.css'
   {{#> menu-toggle-text}}
     Expanded
   {{/menu-toggle-text}}
-  {{#> menu-toggle-controls}}
+  {{#> menu-toggle-control}}
     {{> menu-toggle-toggle-icon}}
-  {{/menu-toggle-controls}}
+  {{/menu-toggle-control}}
 {{/menu-toggle}}
 
 &nbsp;
@@ -104,9 +159,9 @@ import './MenuToggle.css'
   {{#> menu-toggle-text}}
     Disabled
   {{/menu-toggle-text}}
-  {{#> menu-toggle-controls}}
+  {{#> menu-toggle-control}}
     {{> menu-toggle-toggle-icon}}
-  {{/menu-toggle-controls}}
+  {{/menu-toggle-control}}
 {{/menu-toggle}}
 ```
 
@@ -116,9 +171,9 @@ import './MenuToggle.css'
   {{#> menu-toggle-text}}
     Collapsed
   {{/menu-toggle-text}}
-  {{#> menu-toggle-controls}}
+  {{#> menu-toggle-control}}
     {{> menu-toggle-toggle-icon}}
-  {{/menu-toggle-controls}}
+  {{/menu-toggle-control}}
 {{/menu-toggle}}
 
 &nbsp;
@@ -130,9 +185,9 @@ import './MenuToggle.css'
   {{#> menu-toggle-text}}
     Icon
   {{/menu-toggle-text}}
-  {{#> menu-toggle-controls}}
+  {{#> menu-toggle-control}}
     {{> menu-toggle-toggle-icon}}
-  {{/menu-toggle-controls}}
+  {{/menu-toggle-control}}
 {{/menu-toggle}}
 
 &nbsp;
@@ -141,9 +196,9 @@ import './MenuToggle.css'
   {{#> menu-toggle-text}}
     Expanded
   {{/menu-toggle-text}}
-  {{#> menu-toggle-controls}}
+  {{#> menu-toggle-control}}
     {{> menu-toggle-toggle-icon}}
-  {{/menu-toggle-controls}}
+  {{/menu-toggle-control}}
 {{/menu-toggle}}
 
 &nbsp;
@@ -152,9 +207,9 @@ import './MenuToggle.css'
   {{#> menu-toggle-text}}
     Disabled
   {{/menu-toggle-text}}
-  {{#> menu-toggle-controls}}
+  {{#> menu-toggle-control}}
     {{> menu-toggle-toggle-icon}}
-  {{/menu-toggle-controls}}
+  {{/menu-toggle-control}}
 {{/menu-toggle}}
 ```
 
@@ -183,9 +238,9 @@ import './MenuToggle.css'
   {{#> menu-toggle-text}}
     Disabled
   {{/menu-toggle-text}}
-  {{#> menu-toggle-controls}}
+  {{#> menu-toggle-control}}
     {{> menu-toggle-toggle-icon}}
-  {{/menu-toggle-controls}}
+  {{/menu-toggle-control}}
 {{/menu-toggle}}
 
 &nbsp;
@@ -194,42 +249,42 @@ import './MenuToggle.css'
   {{#> menu-toggle-text}}
     Custom text
   {{/menu-toggle-text}}
-  {{#> menu-toggle-controls}}
+  {{#> menu-toggle-control}}
     {{> menu-toggle-toggle-icon}}
-  {{/menu-toggle-controls}}
+  {{/menu-toggle-control}}
 {{/menu-toggle}}
 ```
 
 ### Split button (checkbox)
 ```hbs
-{{#> menu-toggle menu-toggle--id="split-button-checkbox-disabled-example" menu-toggle--IsDisabled="true" menu-toggle--IsDiv="true" menu-toggle--IsSplitButton="true"}}
-  {{> menu-toggle--check check--IsStandalone=true check--IsDisabled=true}}
-  {{#> menu-toggle-button menu-toggle-button--IsToggle="true"}}
-    {{#> menu-toggle-controls}}
+{{#> menu-toggle menu-toggle--id="split-button-checkbox-disabled-example" menu-toggle--IsDisabled="true" menu-toggle--IsDiv=true menu-toggle--IsSplitButton=true}}
+  {{> menu-toggle--check check--LabelWrapped=true check--IsDisabled=true}}
+  {{#> menu-toggle-button menu-toggle-button--IsToggle=true}}
+    {{#> menu-toggle-control}}
       {{> menu-toggle-toggle-icon}}
-    {{/menu-toggle-controls}}
+    {{/menu-toggle-control}}
   {{/menu-toggle-button}}
 {{/menu-toggle}}
 
 &nbsp;
 
 {{#> menu-toggle menu-toggle--id="split-button-checkbox-example" menu-toggle--IsDiv="true" menu-toggle--IsSplitButton="true"}}
-  {{> menu-toggle--check check--IsStandalone=true}}
+  {{> menu-toggle--check check--LabelWrapped=true}}
   {{#> menu-toggle-button menu-toggle-button--IsToggle="true"}}
-    {{#> menu-toggle-controls}}
+    {{#> menu-toggle-control}}
       {{> menu-toggle-toggle-icon}}
-    {{/menu-toggle-controls}}
+    {{/menu-toggle-control}}
   {{/menu-toggle-button}}
 {{/menu-toggle}}
 
 &nbsp;
 
 {{#> menu-toggle menu-toggle--id="split-button-checkbox-expanded-example" menu-toggle--IsExpanded="true" menu-toggle--IsDiv="true" menu-toggle--IsSplitButton="true"}}
-  {{> menu-toggle--check check--IsStandalone=true}}
+  {{> menu-toggle--check check--LabelWrapped=true}}
   {{#> menu-toggle-button menu-toggle-button--IsToggle="true"}}
-    {{#> menu-toggle-controls}}
+    {{#> menu-toggle-control}}
       {{> menu-toggle-toggle-icon}}
-    {{/menu-toggle-controls}}
+    {{/menu-toggle-control}}
   {{/menu-toggle-button}}
 {{/menu-toggle}}
 ```
@@ -237,22 +292,22 @@ import './MenuToggle.css'
 ### Split button (checkbox with toggle text)
 ```hbs
 {{#> menu-toggle menu-toggle--id="split-button-checkbox-with-toggle-text-disabled-example" menu-toggle--IsDiv="true" menu-toggle--IsSplitButton="true" menu-toggle--IsDisabled="true"}}
-  {{> menu-toggle--check check-label--text="10 selected" check--IsDisabled=true}}
+  {{> menu-toggle--check check-label--text='10 selected' check--IsDisabled=true}}
   {{#> menu-toggle-button menu-toggle-button--IsToggle="true"}}
-    {{#> menu-toggle-controls}}
+    {{#> menu-toggle-control}}
       {{> menu-toggle-toggle-icon}}
-    {{/menu-toggle-controls}}
+    {{/menu-toggle-control}}
   {{/menu-toggle-button}}
 {{/menu-toggle}}
 
 &nbsp;
 
-{{#> menu-toggle menu-toggle--id="split-button-checkbox-with-toggle-text-example" menu-toggle--IsDiv="true" menu-toggle--IsSplitButton="true"}}
-  {{> menu-toggle--check check-label--text="10 selected"}}
+{{#> menu-toggle menu-toggle--id="split-button-checkbox-with-toggle-text-example" menu-toggle--IsDiv="true" menu-toggle--IsSplitButton="true" }}
+  {{> menu-toggle--check check-label--text='10 selected'}}
   {{#> menu-toggle-button menu-toggle-button--IsToggle="true"}}
-    {{#> menu-toggle-controls}}
+    {{#> menu-toggle-control}}
       {{> menu-toggle-toggle-icon}}
-    {{/menu-toggle-controls}}
+    {{/menu-toggle-control}}
   {{/menu-toggle-button}}
 {{/menu-toggle}}
 
@@ -261,22 +316,21 @@ import './MenuToggle.css'
 {{#> menu-toggle menu-toggle--id="split-button-checkbox-with-toggle-text-expanded-example" menu-toggle--IsDiv="true" menu-toggle--IsSplitButton="true" menu-toggle--IsExpanded="true"}}
   {{> menu-toggle--check check-label--text="10 selected"}}
   {{#> menu-toggle-button menu-toggle-button--IsToggle="true"}}
-    {{#> menu-toggle-controls}}
+    {{#> menu-toggle-control}}
       {{> menu-toggle-toggle-icon}}
-    {{/menu-toggle-controls}}
+    {{/menu-toggle-control}}
   {{/menu-toggle-button}}
 {{/menu-toggle}}
 ```
-
 
 ### Split button, primary
 ```hbs
 {{#> menu-toggle menu-toggle--modifier="pf-m-primary" menu-toggle--id="split-button-checkbox-primary-disabled-example"  menu-toggle--IsDiv="true" menu-toggle--IsSplitButton="true" menu-toggle--IsDisabled="true"}}
   {{> menu-toggle--check check-label--text="10 selected" check--IsDisabled=true}}
   {{#> menu-toggle-button menu-toggle-button--IsToggle="true"}}
-    {{#> menu-toggle-controls}}
+    {{#> menu-toggle-control}}
       {{> menu-toggle-toggle-icon}}
-    {{/menu-toggle-controls}}
+    {{/menu-toggle-control}}
   {{/menu-toggle-button}}
 {{/menu-toggle}}
 
@@ -285,9 +339,9 @@ import './MenuToggle.css'
 {{#> menu-toggle menu-toggle--modifier="pf-m-primary" menu-toggle--id="split-button-checkbox-primary-example" menu-toggle--IsDiv="true" menu-toggle--IsSplitButton="true"}}
   {{> menu-toggle--check check-label--text="10 selected"}}
   {{#> menu-toggle-button menu-toggle-button--IsToggle="true"}}
-    {{#> menu-toggle-controls}}
+    {{#> menu-toggle-control}}
       {{> menu-toggle-toggle-icon}}
-    {{/menu-toggle-controls}}
+    {{/menu-toggle-control}}
   {{/menu-toggle-button}}
 {{/menu-toggle}}
 
@@ -296,9 +350,9 @@ import './MenuToggle.css'
 {{#> menu-toggle menu-toggle--modifier="pf-m-primary" menu-toggle--id="split-button-checkbox-primary-expanded-example" menu-toggle--IsDiv="true" menu-toggle--IsSplitButton="true" menu-toggle--IsExpanded="true"}}
   {{> menu-toggle--check check-label--text="10 selected"}}
   {{#> menu-toggle-button menu-toggle-button--IsToggle="true"}}
-    {{#> menu-toggle-controls}}
+    {{#> menu-toggle-control}}
       {{> menu-toggle-toggle-icon}}
-    {{/menu-toggle-controls}}
+    {{/menu-toggle-control}}
   {{/menu-toggle-button}}
 {{/menu-toggle}}
 ```
@@ -308,9 +362,9 @@ import './MenuToggle.css'
 {{#> menu-toggle menu-toggle--modifier="pf-m-secondary" menu-toggle--id="split-button-checkbox-secondary-disabled-example"  menu-toggle--IsDiv="true" menu-toggle--IsSplitButton="true" menu-toggle--IsDisabled="true"}}
   {{> menu-toggle--check check-label--text="10 selected" check--IsDisabled=true}}
   {{#> menu-toggle-button menu-toggle-button--IsToggle="true"}}
-    {{#> menu-toggle-controls}}
+    {{#> menu-toggle-control}}
       {{> menu-toggle-toggle-icon}}
-    {{/menu-toggle-controls}}
+    {{/menu-toggle-control}}
   {{/menu-toggle-button}}
 {{/menu-toggle}}
 
@@ -319,9 +373,9 @@ import './MenuToggle.css'
 {{#> menu-toggle menu-toggle--modifier="pf-m-secondary" menu-toggle--id="split-button-checkbox-secondary-example" menu-toggle--IsDiv="true" menu-toggle--IsSplitButton="true"}}
   {{> menu-toggle--check check-label--text="10 selected"}}
   {{#> menu-toggle-button menu-toggle-button--IsToggle="true"}}
-    {{#> menu-toggle-controls}}
+    {{#> menu-toggle-control}}
       {{> menu-toggle-toggle-icon}}
-    {{/menu-toggle-controls}}
+    {{/menu-toggle-control}}
   {{/menu-toggle-button}}
 {{/menu-toggle}}
 
@@ -330,9 +384,9 @@ import './MenuToggle.css'
 {{#> menu-toggle menu-toggle--modifier="pf-m-secondary" menu-toggle--id="split-button-checkbox-secondary-expanded-example" menu-toggle--IsDiv="true" menu-toggle--IsSplitButton="true" menu-toggle--IsExpanded="true"}}
   {{> menu-toggle--check check-label--text="10 selected"}}
   {{#> menu-toggle-button menu-toggle-button--IsToggle="true"}}
-    {{#> menu-toggle-controls}}
+    {{#> menu-toggle-control}}
       {{> menu-toggle-toggle-icon}}
-    {{/menu-toggle-controls}}
+    {{/menu-toggle-control}}
   {{/menu-toggle-button}}
 {{/menu-toggle}}
 ```
@@ -344,9 +398,9 @@ import './MenuToggle.css'
     Action
   {{/menu-toggle-button}}
   {{#> menu-toggle-button menu-toggle-button--IsToggle="true"}}
-    {{#> menu-toggle-controls}}
+    {{#> menu-toggle-control}}
       {{> menu-toggle-toggle-icon}}
-    {{/menu-toggle-controls}}
+    {{/menu-toggle-control}}
   {{/menu-toggle-button}}
 {{/menu-toggle}}
 
@@ -357,9 +411,9 @@ import './MenuToggle.css'
     Action
   {{/menu-toggle-button}}
   {{#> menu-toggle-button menu-toggle-button--IsToggle="true"}}
-    {{#> menu-toggle-controls}}
+    {{#> menu-toggle-control}}
       {{> menu-toggle-toggle-icon}}
-    {{/menu-toggle-controls}}
+    {{/menu-toggle-control}}
   {{/menu-toggle-button}}
 {{/menu-toggle}}
 
@@ -370,9 +424,9 @@ import './MenuToggle.css'
     Action
   {{/menu-toggle-button}}
   {{#> menu-toggle-button menu-toggle-button--IsToggle="true"}}
-    {{#> menu-toggle-controls}}
+    {{#> menu-toggle-control}}
       {{> menu-toggle-toggle-icon}}
-    {{/menu-toggle-controls}}
+    {{/menu-toggle-control}}
   {{/menu-toggle-button}}
 {{/menu-toggle}}
 ```
@@ -384,9 +438,9 @@ import './MenuToggle.css'
     Action
   {{/menu-toggle-button}}
   {{#> menu-toggle-button menu-toggle-button--IsToggle="true"}}
-    {{#> menu-toggle-controls}}
+    {{#> menu-toggle-control}}
       {{> menu-toggle-toggle-icon}}
-    {{/menu-toggle-controls}}
+    {{/menu-toggle-control}}
   {{/menu-toggle-button}}
 {{/menu-toggle}}
 
@@ -397,9 +451,9 @@ import './MenuToggle.css'
     Action
   {{/menu-toggle-button}}
   {{#> menu-toggle-button menu-toggle-button--IsToggle="true"}}
-    {{#> menu-toggle-controls}}
+    {{#> menu-toggle-control}}
       {{> menu-toggle-toggle-icon}}
-    {{/menu-toggle-controls}}
+    {{/menu-toggle-control}}
   {{/menu-toggle-button}}
 {{/menu-toggle}}
 
@@ -410,9 +464,9 @@ import './MenuToggle.css'
     Action
   {{/menu-toggle-button}}
   {{#> menu-toggle-button menu-toggle-button--IsToggle="true"}}
-    {{#> menu-toggle-controls}}
+    {{#> menu-toggle-control}}
       {{> menu-toggle-toggle-icon}}
-    {{/menu-toggle-controls}}
+    {{/menu-toggle-control}}
   {{/menu-toggle-button}}
 {{/menu-toggle}}
 ```
@@ -424,9 +478,9 @@ import './MenuToggle.css'
     Action
   {{/menu-toggle-button}}
   {{#> menu-toggle-button menu-toggle-button--IsToggle="true"}}
-    {{#> menu-toggle-controls}}
+    {{#> menu-toggle-control}}
       {{> menu-toggle-toggle-icon}}
-    {{/menu-toggle-controls}}
+    {{/menu-toggle-control}}
   {{/menu-toggle-button}}
 {{/menu-toggle}}
 
@@ -437,9 +491,9 @@ import './MenuToggle.css'
     Action
   {{/menu-toggle-button}}
   {{#> menu-toggle-button menu-toggle-button--IsToggle="true"}}
-    {{#> menu-toggle-controls}}
+    {{#> menu-toggle-control}}
       {{> menu-toggle-toggle-icon}}
-    {{/menu-toggle-controls}}
+    {{/menu-toggle-control}}
   {{/menu-toggle-button}}
 {{/menu-toggle}}
 
@@ -450,9 +504,9 @@ import './MenuToggle.css'
     Action
   {{/menu-toggle-button}}
   {{#> menu-toggle-button menu-toggle-button--IsToggle="true"}}
-    {{#> menu-toggle-controls}}
+    {{#> menu-toggle-control}}
       {{> menu-toggle-toggle-icon}}
-    {{/menu-toggle-controls}}
+    {{/menu-toggle-control}}
   {{/menu-toggle-button}}
 {{/menu-toggle}}
 ```
@@ -466,9 +520,9 @@ import './MenuToggle.css'
   {{#> menu-toggle-text}}
     Icon
   {{/menu-toggle-text}}
-  {{#> menu-toggle-controls}}
+  {{#> menu-toggle-control}}
     {{> menu-toggle-toggle-icon}}
-  {{/menu-toggle-controls}}
+  {{/menu-toggle-control}}
 {{/menu-toggle}}
 
 &nbsp;
@@ -480,9 +534,9 @@ import './MenuToggle.css'
   {{#> menu-toggle-text}}
     Icon
   {{/menu-toggle-text}}
-  {{#> menu-toggle-controls}}
+  {{#> menu-toggle-control}}
     {{> menu-toggle-toggle-icon}}
-  {{/menu-toggle-controls}}
+  {{/menu-toggle-control}}
 {{/menu-toggle}}
 ```
 
@@ -495,9 +549,9 @@ import './MenuToggle.css'
   {{#> menu-toggle-text}}
     Ned Username
   {{/menu-toggle-text}}
-  {{#> menu-toggle-controls}}
+  {{#> menu-toggle-control}}
     {{> menu-toggle-toggle-icon}}
-  {{/menu-toggle-controls}}
+  {{/menu-toggle-control}}
 {{/menu-toggle}}
 
 &nbsp;
@@ -509,9 +563,9 @@ import './MenuToggle.css'
   {{#> menu-toggle-text}}
     Ned Username
   {{/menu-toggle-text}}
-  {{#> menu-toggle-controls}}
+  {{#> menu-toggle-control}}
     {{> menu-toggle-toggle-icon}}
-  {{/menu-toggle-controls}}
+  {{/menu-toggle-control}}
 {{/menu-toggle}}
 
 &nbsp;
@@ -523,9 +577,9 @@ import './MenuToggle.css'
   {{#> menu-toggle-text}}
     Ned Username
   {{/menu-toggle-text}}
-  {{#> menu-toggle-controls}}
+  {{#> menu-toggle-control}}
     {{> menu-toggle-toggle-icon}}
-  {{/menu-toggle-controls}}
+  {{/menu-toggle-control}}
 {{/menu-toggle}}
 
 ```
@@ -536,9 +590,9 @@ import './MenuToggle.css'
   {{#> menu-toggle-text}}
     Full height
   {{/menu-toggle-text}}
-  {{#> menu-toggle-controls}}
+  {{#> menu-toggle-control}}
     {{> menu-toggle-toggle-icon}}
-  {{/menu-toggle-controls}}
+  {{/menu-toggle-control}}
 {{/menu-toggle}}
 ```
 
@@ -558,9 +612,9 @@ import './MenuToggle.css'
     {{/text-input-group-utilities}}
   {{/text-input-group}}
   {{#> menu-toggle-button menu-toggle-button--IsToggle="true"}}
-    {{#> menu-toggle-controls}}
+    {{#> menu-toggle-control}}
       {{> menu-toggle-toggle-icon}}
-    {{/menu-toggle-controls}}
+    {{/menu-toggle-control}}
   {{/menu-toggle-button}}
 {{/menu-toggle}}
 ```
@@ -581,7 +635,7 @@ import './MenuToggle.css'
 | `.pf-v5-c-menu-toggle__icon` | `<span>` | Defines the menu toggle component icon/image. |
 | `.pf-v5-c-menu-toggle__text` | `<span>` | Defines the menu toggle component text. |
 | `.pf-v5-c-menu-toggle__count` | `<span>` | Defines the menu toggle component count. |
-| `.pf-v5-c-menu-toggle__controls` | `<span>` | Defines the menu toggle component controls. |
+| `.pf-v5-c-menu-toggle__control` | `<span>` | Defines the menu toggle component control. |
 | `.pf-v5-c-menu-toggle__toggle-icon` | `<span>` | Defines the menu toggle component toggle/arrow icon. |
 | `.pf-v5-c-menu-toggle__button` | `<button>` | Initiates the menu toggle button. |
 | `.pf-m-split-button` | `.pf-v5-c-menu-toggle` | Modifies the menu toggle component for the split button variation. |

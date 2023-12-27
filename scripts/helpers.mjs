@@ -85,8 +85,7 @@ export const debug = function (optionalValue) {
 // stringToLower: is a helper function that transforms a string to lowercase
 // ======================================================================================
 export const stringToLower = function (string) {
-  const newString = string.toLowerCase();
-  return newString;
+  return string.toLowerCase();
 }
 
 // ======================================================================================
@@ -99,9 +98,55 @@ export const dasherize = (...params) => {
     if (typeof element === 'string') {
       newString += element.replace(/[A-Z]/g, m => '-' + m.toLowerCase().replace(/\s/g, ''));
     }
+    // console.log(element);
   });
 
   return newString
+};
+
+// ======================================================================================
+// array: creates array from string
+// ======================================================================================
+export const array = function () {
+  return Array.prototype.slice.call(arguments, 0, -1);
+};
+
+export const render = function (thing) {
+  return this.thing;
+}
+
+export const hasValue = function (prop) {
+  let temp = '';
+
+  if (Array.isArray(prop)) {
+    temp = prop.includes(true);
+  } else if (prop !== undefined) {
+    temp = false;
+  } else {
+    temp = false
+  }
+
+  return temp;
+}
+
+// export const setType = function (variable, el, fallback, type = 'testinggdsagadsg', options) {
+
+export const setType = function (type = 'testinggdsagadsg') {
+  const name = type;
+
+  if (!this.settings) {
+    this.settings = {};
+  }
+
+  this.settings[type] = 'testing';
+  // console.log(this);
+  // if (Array.isArray(variable)) {
+  //   this[type] = variable.includes(true) ? el : fallback;
+  // } else if (variable !== undefined) {
+  //   this[type] = el;
+  // } else {
+  //   this[type] = fallback;
+  // }
 };
 
 // ======================================================================================
@@ -114,10 +159,13 @@ export const dasherize = (...params) => {
 //
 // ======================================================================================
 export const setTag = function (partialVar, el, fallback = 'div') {
-  if (partialVar !== undefined) {
-    this.type = el;
+  console.log(typeof partialVar);
+  if ((typeof partialVar === 'object') && partialVar !== undefined) {
+    this.tag = el;
+  } else if (Array.isArray(partialVar)) {
+    this.tag = partialVar.includes(true) ? el : fallback;
   } else {
-    this.type = fallback;
+    this.tag = fallback;
   }
 };
 
@@ -134,7 +182,7 @@ export const setTag = function (partialVar, el, fallback = 'div') {
 //     Can request a specific value to be logged. `component--id` is requested on the second line
 // ======================================================================================
 export const tag = function (tag) {
-  return this.type;
+  return this.tag;
 };
 
 // ======================================================================================
@@ -165,6 +213,20 @@ export const reset = function (...params) {
     element = undefined;
   })
 };
+
+// ======================================================================================
+// stringToLower: is a helper funcdtion that transforms a string to lowercase
+// ======================================================================================
+export const ifAll = function (array, result) {
+  if (Array.isArray(array)) {
+    console.log('its and array');
+  }
+  console.log(typeof array);
+
+  console.log(Array.isArray(array), result);
+
+  // return newString;
+}
 
 // ======================================================================================
 // setModifiers: setModifiers is a helper function that returns a string of all partials parameters that are true

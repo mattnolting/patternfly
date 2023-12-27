@@ -1,0 +1,145 @@
+{{#> logiWrap menu-toggle--text='Toggle' title--modifier='pf-m-xl pf-v5-u-mt-2xl' title--type='h3'}}
+  {{#> l-flex l-flex--modifier='pf-m-space-items-xl pf-m-column'}}
+    {{#> l-flex l-flex--modifier="pf-m-row"}}
+      {{!-- {{> menu-toggle-example-group example--id='default'}} --}}
+
+      {{#> l-flex l-flex--modifier="pf-m-column" group--id=(dasherize menu-toggle-variations--id 'mixed-modifiers') menu-toggle--icon='cog' menu-toggle--badge--count='4 selected'}}
+        {{> title title--text='Default menu toggle'}}
+        {{#> l-flex entry--id=(dasherize group--id example--id)}}
+          {{> menu-toggle menu-toggle--id=(dasherize entry--id 'default')}}
+          {{> menu-toggle menu-toggle--IsHover=true menu-toggle--id=(dasherize entry--id 'hover')}}
+          {{> menu-toggle menu-toggle--IsExpanded=true menu-toggle--id=(dasherize entry--id 'expanded')}}
+          {{> menu-toggle menu-toggle--IsDisabled=true menu-toggle--id=(dasherize entry--id 'disabled')}}
+        {{/l-flex}}
+      {{/l-flex}}
+
+      {{#> l-flex l-flex--modifier="pf-m-column" group--id=(dasherize menu-toggle-variations--id 'split-mixed-modifiers') menu-toggle--IsSplitButton=true menu-toggle--IsCheck=true check--IsStandalone=true menu-toggle--icon='cog' menu-toggle--badge--count='4 selected'}}
+        {{> title title--text='Split default menu toggle'}}
+        {{#> l-flex entry--id=(dasherize group--id example--id)}}
+          {{> menu-toggle menu-toggle--id=(dasherize entry--id 'default')}}
+          {{> menu-toggle menu-toggle--IsHover=true menu-toggle--id=(dasherize entry--id 'hover')}}
+          {{> menu-toggle menu-toggle--IsExpanded=true menu-toggle--id=(dasherize entry--id 'expanded')}}
+          {{> menu-toggle menu-toggle--IsDisabled=true menu-toggle--id=(dasherize entry--id 'disabled')}}
+        {{/l-flex}}
+      {{/l-flex}}
+    {{/l-flex}}
+
+    {{#> l-flex l-flex--modifier="pf-m-row"}}
+      {{#> logiWrap}}
+        {{#> l-flex l-flex--modifier="pf-m-column"}}
+          {{#> l-flex-item}}
+            Regular
+          {{/l-flex-item}}
+          {{> menu-toggle}}
+          {{> menu-toggle menu-toggle--IsHover=true}}
+          {{> menu-toggle menu-toggle--IsExpanded=true}}
+          {{> menu-toggle menu-toggle--IsDisabled=true}}
+        {{/l-flex}}
+        {{#> l-flex l-flex--modifier="pf-m-column"}}
+          {{#> l-flex-item}}
+            With icon
+          {{/l-flex-item}}
+          {{#> logiWrap menu-toggle--icon='cog'}}
+            {{> menu-toggle}}
+            {{> menu-toggle menu-toggle--IsHover=true}}
+            {{> menu-toggle menu-toggle--IsExpanded=true}}
+            {{> menu-toggle menu-toggle--IsDisabled=true}}
+          {{/logiWrap}}
+        {{/l-flex}}
+        {{#> l-flex l-flex--modifier="pf-m-column"}}
+          {{#> l-flex-item}}
+            With badge
+          {{/l-flex-item}}
+          {{#> logiWrap menu-toggle--badge--count='4 selected'}}
+            {{> menu-toggle}}
+            {{> menu-toggle menu-toggle--IsHover=true}}
+            {{> menu-toggle menu-toggle--IsExpanded=true}}
+            {{> menu-toggle menu-toggle--IsDisabled=true}}
+          {{/logiWrap}}
+        {{/l-flex}}
+        {{#> l-flex l-flex--modifier="pf-m-column"}}
+          {{#> l-flex-item}}
+            With avatar
+          {{/l-flex-item}}
+          {{#> logiWrap menu-toggle--HasAvatar=true}}
+            {{> menu-toggle}}
+            {{> menu-toggle menu-toggle--IsHover=true}}
+            {{> menu-toggle menu-toggle--IsExpanded=true}}
+            {{> menu-toggle menu-toggle--IsDisabled=true}}
+          {{/logiWrap}}
+        {{/l-flex}}
+        {{#> l-flex l-flex--modifier="pf-m-column"}}
+          {{#> l-flex-item}}
+            Icon only
+          {{/l-flex-item}}
+          {{#> logiWrap menu-toggle--text=reset menu-toggle--HasKebab=true}}
+            {{> menu-toggle}}
+            {{> menu-toggle menu-toggle--IsHover=true}}
+            {{> menu-toggle menu-toggle--IsExpanded=true}}
+            {{> menu-toggle menu-toggle--IsDisabled=true}}
+          {{/logiWrap}}
+        {{/l-flex}}
+        {{#> l-flex l-flex--modifier="pf-m-column"}}
+          {{#> l-flex-item}}
+            Plain text
+          {{/l-flex-item}}
+          {{#> logiWrap}}
+            {{> menu-toggle}}
+            {{> menu-toggle menu-toggle--IsHover=true}}
+            {{> menu-toggle menu-toggle--IsExpanded=true}}
+            {{> menu-toggle menu-toggle--IsDisabled=true}}
+          {{/logiWrap}}
+        {{/l-flex}}
+      {{/logiWrap}}
+      {{#> l-flex l-flex--modifier="pf-m-column"}}
+        {{#> l-flex-item}}
+          Split check
+        {{/l-flex-item}}
+        {{#> logiWrap menu-toggle--text=reset menu-toggle--IsSplitButton=true menu-toggle--IsCheck=true check--IsStandalone=true example--id=(concat menu-toggle-variations--id '-split-text')}}
+          {{> menu-toggle menu-toggle--id=(concat example--id '-check')}}
+          {{> menu-toggle menu-toggle--id=(concat example--id '-check-hover') menu-toggle--IsHover=true}}
+          {{> menu-toggle menu-toggle--id=(concat example--id '-check-expanded') menu-toggle--IsExpanded=true}}
+          {{> menu-toggle menu-toggle--id=(concat example--id '-check-disabled') menu-toggle--IsDisabled=true}}
+        {{/logiWrap}}
+      {{/l-flex}}
+      {{#> l-flex l-flex--modifier="pf-m-column"}}
+        {{#> l-flex-item}}
+          Split text label
+        {{/l-flex-item}}
+        {{#> logiWrap menu-toggle--text=reset menu-toggle--IsSplitButton=true menu-toggle--IsCheck=true check-label--text='Toggle' example--id=(concat menu-toggle-variations--id '-split-text-label')}}
+          {{> menu-toggle menu-toggle--id=(concat example--id '-check-label')}}
+          {{> menu-toggle menu-toggle--id=(concat example--id '-check-label-hover') menu-toggle--IsHover=true}}
+          {{> menu-toggle menu-toggle--id=(concat example--id '-check-label-expanded') menu-toggle--IsExpanded=true}}
+          {{> menu-toggle menu-toggle--id=(concat example--id '-check-label-disabled') menu-toggle--IsDisabled=true}}
+        {{/logiWrap}}
+      {{/l-flex}}
+    {{/l-flex}}
+    {{#> l-flex l-flex--modifier="pf-m-row"}}
+      {{#> l-flex l-flex--modifier="pf-m-column" menu-toggle--IsAction=true}}
+        {{#> l-flex-item}}
+          Action
+        {{/l-flex-item}}
+        {{#> logiWrap menu-toggle--text='Action' menu-toggle--IsSplitButton=true example--id=(concat menu-toggle-variations--id '-action')}}
+          {{> menu-toggle menu-toggle--id=(concat example--id '-check-action')}}
+          {{> menu-toggle menu-toggle--id=(concat example--id '-check-hover-action') menu-toggle--IsHover=true}}
+          {{> menu-toggle menu-toggle--id=(concat example--id '-check-expanded') menu-toggle--IsExpanded=true}}
+          {{> menu-toggle menu-toggle--id=(concat example--id '-check-disabled') menu-toggle--IsDisabled=true}}
+        {{/logiWrap}}
+      {{/l-flex}}
+      {{#> l-flex l-flex--modifier="pf-m-column"}}
+        {{#> l-flex-item}}
+          Split text label
+        {{/l-flex-item}}
+        {{#> logiWrap menu-toggle--text='Action' menu-toggle--IsSplitButton=true menu-toggle--IsSplitButton=true example--id=(concat menu-toggle-variations--id '-split-text-label')}}
+          {{> menu-toggle menu-toggle--id=(concat example--id '-check-label')}}
+          {{> menu-toggle menu-toggle--id=(concat example--id '-check-label-hover') menu-toggle--IsHover=true}}
+          {{> menu-toggle menu-toggle--id=(concat example--id '-check-label-expanded') menu-toggle--IsExpanded=true}}
+          {{> menu-toggle menu-toggle--id=(concat example--id '-check-label-disabled') menu-toggle--IsDisabled=true}}
+        {{/logiWrap}}
+      {{/l-flex}}
+    {{/l-flex}}
+    {{#> l-flex l-flex--modifier="pf-m-row"}}
+      {{> menu-toggle-typeahead menu-toggle--id=(dasherize example--id 'typeahead')}}
+    {{/l-flex}}
+  {{/l-flex}}
+{{/logiWrap}}

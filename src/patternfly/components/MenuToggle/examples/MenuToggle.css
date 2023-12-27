@@ -1,3 +1,20 @@
 #ws-core-c-menu-toggle-full-height .ws-preview-html {
   height: 80px;
 }
+
+/* TODO remove before merge  */
+.ws-core-c-menu-toggle {
+  width: 100%;
+  resize: horizontal;
+  border: 1px solid;
+  overflow: auto;
+}
+
+.ws-mdx-content-content {
+  min-width: none;
+  max-width: none;
+}
+
+.ws-toc {
+  display: none;
+}
