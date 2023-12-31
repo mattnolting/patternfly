@@ -21,6 +21,7 @@
       {{> check check--id=(concat select--id '-check-needs-maintenance') check-label--text="Needs maintenance" check-input--IsChecked=true}}
     {{/select-menu-fieldset}}
   {{/select-menu-group}}
+  {{> divider}}
   {{#> select-menu-group}}
     {{#> select-menu-group-title select-menu-group-title--attribute=(concat 'id="' select--id '-group-vendor"')}}
       Vendor

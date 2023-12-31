@@ -2,6 +2,8 @@
 
 :root,
 :where(.#{$select}) {
+  --#{$select}--ColumnGap: var(--pf-t--global--spacer--sm);
+  --#{$select}--TextAlign: start;
   --#{$select}--Color: var(--pf-t--global--text--color--regular);
   --#{$select}--FontSize: var(--pf-t--global--font--size--body--default);
   --#{$select}--FontWeight: var(--pf-t--global--font--weight--body);
@@ -10,25 +12,43 @@
   --#{$select}--BorderWidth: var(--pf-t--global--border--width--control--default);
   --#{$select}--BorderColor: var(--pf-t--global--border--color--default);
   --#{$select}--BorderRadius: var(--pf-t--global--border--radius--small);
-  --#{$select}--TextAlign: start;
+  --#{$select}--icon--MinWidth: #{pf-size-prem(20px)};
+  --#{$select}--action--MinWidth: #{pf-size-prem(40px)};
+  // --#{$select}--icon--PaddingLeft: var(--#{$pf-global}--spacer--sm);
+  // --#{$select}--icon--PaddingRight: var(--#{$pf-global}--spacer--sm);
   --#{$select}--placeholder--Color: var(--pf-t--global--text--color--placeholder);
+  --#{$select}--section--divider--PaddingTop: calc(var(--#{$select}__menu-item--PaddingTop) + var(--#{$select}__menu--RowGap));
 
   // * Select toggle
   --#{$select}__toggle--MinWidth: var(--#{$pf-global}--target-size--MinWidth); // TODO: udpate when value becomes token
   --#{$select}__toggle--PaddingLeft: var(--pf-t--global--spacer--sm);
   --#{$select}__toggle--PaddingRight: var(--pf-t--global--spacer--sm);
+  --#{$select}__toggle--Color: var(--#{$select}--Color);
+  --#{$select}__toggle--BackgroundColor: var(--#{$select}--BackgroundColor);
+  --#{$select}__toggle--disabled--BackgroundColor: var(--pf-t--global--background--color--disabled--default);
+  --#{$select}__toggle--disabled--Color: var(--pf-t--global--icon--color--on-disabled);
+  --#{$select}__toggle--m-plain--BorderColor: transparent;
+  --#{$select}__toggle--m-placeholder--Color: transparent;
+
+  // * Toggle wrapper
+  // However, for cases where the clear icon button or a badge are added, the correct width will need to be calculated in script
+  // Max-width is needed for ellipsing the text. This leaves enough space for the toggle caret.
+  --#{$select}__toggle-wrapper--ColumnGap: var(--pf-t--global--spacer--xs);
+  --#{$select}__toggle-wrapper--PaddingInlineStart: var(--pf-t--global--spacer--sm);
+  --#{$select}__toggle-wrapper--MaxWidth: calc(100% - var(--pf-t--global--spacer--lg));
+
+  // Chip group within a toggle-wrapper needs a margin-bottom in case it wraps
+  --#{$select}__toggle-wrapper--c-chip-group--MarginTop: #{pf-size-prem(5px)};
+  --#{$select}__toggle-wrapper--c-chip-group--MarginBottom: #{pf-size-prem(5px)};
+
+  // * Select menu
+  --#{$select}__menu--RowGap: var(--pf-t--global--spacer--sm);
 
   // * Select toggle text
   --#{$select}__toggle-text--PaddingTop: var(--pf-t--global--spacer--sm);
   --#{$select}__toggle-text--PaddingBottom: var(--pf-t--global--spacer--sm);
-  --#{$select}__toggle-text--PaddingLeft: var(--pf-t--global--spacer--sm);
 
-  // * Select toggle
-  --#{$select}__toggle--m-plain--BorderColor: transparent;
-  --#{$select}__toggle--m-placeholder--Color: transparent;
-  --#{$select}__toggle--disabled--BackgroundColor: var(--pf-t--global--background--color--disabled--default);
-
-  // Menu
+  // * Select menu
   --#{$select}__menu--BackgroundColor: var(--pf-t--global--background--color--floating--default);
   --#{$select}__menu--BoxShadow: var(--pf-t--global--box-shadow--md);
   --#{$select}__menu--PaddingTop: var(--pf-t--global--spacer--sm);
@@ -39,62 +59,57 @@
   --#{$select}__menu--MinWidth: 100%;
   --#{$select}__menu--m-top--TranslateY: calc(-100% - var(--pf-t--global--spacer--sm)); // The "dropup" menu must be transformed up and this calculates how much to create space between the toggle and menu
 
-  // Menu item
+  // * Select menu item
+  --#{$select}__menu-item--Width: 100%;
   --#{$select}__menu-item--PaddingTop: var(--pf-t--global--spacer--sm);
   --#{$select}__menu-item--PaddingBottom: var(--pf-t--global--spacer--sm);
   --#{$select}__menu-item--PaddingLeft: var(--pf-t--global--spacer--lg);
   --#{$select}__menu-item--PaddingRight: var(--pf-t--global--spacer--lg);
+  --#{$select}__menu-item--BackgroundColor: var(--pf-t--global--background--color--action--plain--default);
+  --#{$select}__menu-item--hover--BackgroundColor: var(--pf-t--global--background--color--action--plain--hover);
+  // --#{$select}__menu-item--disabled--BackgroundColor: var(--pf-t--global--background--color--disabled--default);
+  // --#{$select}__menu-item--disabled--Color: var(--pf-t--global--text--color--placeholder);
 
-  // --#{$select}__menu-item--FontSize: var(--pf-t--global--font--size--md);
-  // --#{$select}__menu-item--FontWeight: var(--pf-t--global--font--weight--body);
-  // --#{$select}__menu-item--LineHeight: var(--pf-t--global--font--line-height--body);
-  // --#{$select}__menu-item--Color: var(--#{$pf-global}--Color--dark-100);
-
-  --#{$select}__menu-item--Width: 100%;
-  --#{$select}__menu-item--disabled--Color: var(--pf-t--global--text--color--placeholder);
-  --#{$select}__menu-item--hover--BackgroundColor: var(--#{$pf-global}--BackgroundColor--light-300);
-  --#{$select}__menu-item--focus--BackgroundColor: var(--#{$pf-global}--BackgroundColor--light-300);
-  --#{$select}__menu-item--disabled--BackgroundColor: transparent;
+  // * Menu item link
   --#{$select}__menu-item--m-link--Width: auto;
   --#{$select}__menu-item--m-link--hover--BackgroundColor: transparent;
   --#{$select}__menu-item--m-link--focus--BackgroundColor: transparent;
   --#{$select}__menu-item--m-action--Color: var(--pf-t--global--color--brand--default);
   --#{$select}__menu-item--m-action--hover--Color: var(--pf-t--global--color--brand--hover);
-  // --#{$select}__menu-item--m-action--focus--Color: var(--pf-t--global--icon--color--regular);
-  --#{$select}__menu-item--m-action--disabled--Color: var(--pf-t--global--text--color--disabled);
 
+  // * Menu item action
+  // --#{$select}__menu-item--m-action--disabled--Color: var(--pf-t--global--text--color--disabled);
   --#{$select}__menu-item--m-action--Width: auto;
   --#{$select}__menu-item--m-action--FontSize: var(--pf-t--global--font--size--body--sm);
   --#{$select}__menu-item--m-action--hover--BackgroundColor: transparent;
-  // --#{$select}__menu-item--m-action--focus--BackgroundColor: transparent;
-  --#{$select}__menu-item--hover__menu-item--m-action--Color: var(--#{$pf-global}--Color--200); // remove at breaking change
-  --#{$select}__menu-item--m-favorite-action--Color: var(--#{$pf-global}--Color--200);
+
+  // * Menu item favorite
+  --#{$select}__menu-item--m-favorite-action--Color: var(--pf-t--global--color--brand--default);
   --#{$select}__menu-item--m-favorite-action--hover--Color: var(--pf-t--global--icon--color--regular);
-  --#{$select}__menu-item--m-favorite-action--focus--Color: var(--pf-t--global--icon--color--regular);
-  --#{$select}__menu-wrapper--m-favorite__menu-item--m-favorite-action--Color: var(--#{$pf-global}--palette--gold-400);
-  --#{$select}__menu-wrapper--m-favorite__menu-item--m-favorite-action--hover--Color: var(--#{$pf-global}--palette--gold-500);
-  --#{$select}__menu-wrapper--m-favorite__menu-item--m-favorite-action--focus--Color: var(--#{$pf-global}--palette--gold-500);
-  --#{$select}__menu-item--m-load--Color: var(--#{$pf-global}--link--Color);
+
+  // * Menu item favorite
+  --#{$select}__menu-wrapper--m-favorite__menu-item--m-favorite-action--Color: var(--pf-t--global--color--favorite--default);
+  --#{$select}__menu-wrapper--m-favorite__menu-item--m-favorite-action--hover--Color: var(--pf-t--global--color--favorite--hover);
+
+  // * Menu item load
+  --#{$select}__menu-item--m-load--Color: var(--pf-v5-global--link--Color);
+
+  // * Menu item selected
   --#{$select}__menu-item--m-selected--PaddingRight: var(--pf-t--global--spacer--2xl);
 
-  // Menu item icon
-  --#{$select}__menu-item-icon--Color: var(--#{$pf-global}--active-color--100);
-  --#{$select}__menu-item-icon--FontSize: var(--#{$pf-global}--icon--FontSize--sm);
+  // * Menu item icon
+  --#{$select}__menu-item-icon--Color: var(--#{$pf-global}--active-color--100); // TODO: udpate this variable
+  --#{$select}__menu-item-icon--FontSize: var(--#{$pf-global}--icon--FontSize--sm); // TODO: update this variable
   --#{$select}__menu-item-icon--Right: var(--pf-t--global--spacer--md);
   --#{$select}__menu-item-icon--Top: 50%;
   --#{$select}__menu-item-icon--TranslateY: -50%;
 
-
-
-
-
-
   // * Select invalid toggle
-  --#{$select}--m-invalid__toggle--BorderColor: var(--#{$pf-global}--danger-color--100);
-  --#{$select}--m-invalid__toggle--BorderWidth: var(--#{$pf-global}--BorderWidth--md);
+  --#{$select}--m-invalid__toggle--BorderColor: var(--pf-t--global--color--status--danger--default);
+  --#{$select}--m-invalid__toggle--BorderWidth: var(--pf-t--global--border--width--control--active);
 
   // * Select invalid toggle status icon
-  --#{$select}--m-invalid__toggle-status-icon--Color: var(--#{$pf-global}--danger-color--100);
+  --#{$select}--m-invalid__toggle-status-icon--Color: var(--pf-t--global--color--status--danger--default);
 
   // * Select success toggle active
   --#{$select}--m-success__toggle--active--BorderBottomColor: var(--#{$pf-global}--success-color--100);
@@ -107,23 +122,12 @@
 
   // * Select success toggle active
   --#{$select}--m-warning__toggle--BorderColor: var(--#{$pf-global}--warning-color--100);
-  --#{$select}--m-warning__toggle--BorderWidth: var(--#{$pf-global}--BorderWidth--md);
+  --#{$select}--m-warning__toggle--BorderWidth: var(--pf-t--global--border--width--control--active);
   --#{$select}--m-warning__toggle--hover--BorderBottomColor: var(--#{$pf-global}--warning-color--100);
   --#{$select}--m-warning__toggle--m-expanded--BorderBottomColor: var(--#{$pf-global}--warning-color--100);
   --#{$select}--m-warning__toggle-status-icon--Color: var(--#{$pf-global}--warning-color--100);
 
-  // Space for the children of the toggle
-  --#{$select}__toggle-wrapper--not-last-child--MarginRight: var(--pf-t--global--spacer--sm);
-
-  // Max-width is needed for ellipsing the text. This leaves enough space for the toggle caret.
-  // However, for cases where the clear icon button or a badge are added, the correct width will need to be calculated in script
-  --#{$select}__toggle-wrapper--MaxWidth: calc(100% - var(--pf-t--global--spacer--lg));
-
-  // Chip group within a toggle-wrapper needs a margin-bottom in case it wraps
-  --#{$select}__toggle-wrapper--c-chip-group--MarginTop: #{pf-size-prem(5px)};
-  --#{$select}__toggle-wrapper--c-chip-group--MarginBottom: #{pf-size-prem(5px)};
-
-  // Select input for typeahead
+    // Select input for typeahead
   --#{$select}__toggle-typeahead--FlexBasis: 10em;
   --#{$select}__toggle-typeahead--BackgroundColor: transparent;
   --#{$select}__toggle-typeahead--BorderTop: var(--pf-t--global--border--width--control--default) solid transparent;
@@ -145,79 +149,110 @@
   --#{$select}__toggle-status-icon--Color: var(--pf-t--global--icon--color--regular);
 
   // Toggle arrow
-  --#{$select}__toggle-arrow--MarginLeft: var(--pf-t--global--spacer--md);
-  --#{$select}__toggle-arrow--MarginRight: var(--pf-t--global--spacer--sm);
-  --#{$select}__toggle-arrow--with-clear--MarginLeft: var(--pf-t--global--spacer--sm);
+  // --#{$select}__toggle-arrow--MarginLeft: var(--pf-t--global--spacer--md);
+  // --#{$select}__toggle-arrow--MarginRight: var(--pf-t--global--spacer--sm);
+  // --#{$select}__toggle-arrow--with-clear--MarginLeft: var(--pf-t--global--spacer--sm);
   --#{$select}__toggle-arrow--m-top--m-expanded__toggle-arrow--Rotate: 180deg;
 
-
-  --#{$select}--m-plain__toggle-arrow--Color: var(--#{$pf-global}--Color--200);
+  // * Select plain
+  --#{$select}--m-plain__toggle-arrow--Color: var(--pf-t--global--color--brand--default);
   --#{$select}--m-plain--hover__toggle-arrow--Color: var(--pf-t--global--icon--color--regular);
 
-  // Toggle button
-  --#{$select}__toggle-clear--PaddingRight: var(--pf-t--global--spacer--sm);
+  // * Select toggle
   --#{$select}__toggle-clear--PaddingLeft: var(--pf-t--global--spacer--md);
   --#{$select}__toggle-clear--toggle-button--PaddingLeft: var(--pf-t--global--spacer--sm);
   --#{$select}__toggle-button--Color: var(--pf-t--global--icon--color--regular);
 
-  // Menu list item
+  // * Select list item loading
   --#{$select}__list-item--m-loading--PaddingTop: var(--pf-t--global--spacer--sm);
 
-  // Menu item action icon
+  // * Select menu item action icon
   --#{$select}__menu-item-action-icon--MinHeight: calc(var(--#{$select}__menu-item--FontSize) * var(--#{$select}__menu-item--LineHeight));
 
-  // Match within a menu item when using typeahead
+  // * Select menu item match
   --#{$select}__menu-item--match--FontWeight: var(--#{$pf-global}--FontWeight--bold);
 
-  // Menu group padding
-  --#{$select}__menu-search--PaddingTop: var(--pf-t--global--spacer--sm);
-  --#{$select}__menu-search--PaddingRight: var(--#{$select}__menu-item--PaddingRight);
-  --#{$select}__menu-search--PaddingBottom: var(--pf-t--global--spacer--md);
-  --#{$select}__menu-search--PaddingLeft: var(--#{$select}__menu-item--PaddingLeft);
+  // * Select menu search
+  // --#{$select}__menu-search--PaddingTop: var(--pf-t--global--spacer--sm);
+  // --#{$select}__menu-search--PaddingBottom: var(--pf-t--global--spacer--md);
 
+  --#{$select}__menu-search--PaddingRight: var(--pf-t--global--spacer--md);
+  --#{$select}__menu-search--PaddingLeft: var(--pf-t--global--spacer--md);
+
+  // * Select menu group
   // Menu group
   // add a little space if it's not the first group because the first one also has the menu padding
   --#{$select}__menu-group--menu-group--PaddingTop: var(--pf-t--global--spacer--sm);
 
+  // * Select menu group title
   // Menu section heading
   // Paddings are set to always line up with the other menu items
-  --#{$select}__menu-group-title--PaddingTop: var(--#{$select}__menu-item--PaddingTop);
-  --#{$select}__menu-group-title--PaddingRight: var(--#{$select}__menu-item--PaddingRight);
-  --#{$select}__menu-group-title--PaddingBottom: var(--#{$select}__menu-item--PaddingBottom);
-  --#{$select}__menu-group-title--PaddingLeft: var(--#{$select}__menu-item--PaddingLeft);
-  --#{$select}__menu-group-title--FontSize: var(--#{$pf-global}--FontSize--xs);
   --#{$select}__menu-group-title--FontWeight: var(--pf-t--global--font--weight--body);
   --#{$select}__menu-group-title--Color: var(--pf-t--global--text--color--placeholder);
 
-  // Menu item count
+  // --#{$select}__menu-group-title--PaddingTop: var(--#{$select}__menu-item--PaddingTop);
+  // --#{$select}__menu-group-title--PaddingRight: var(--#{$select}__menu-item--PaddingRight);
+  // --#{$select}__menu-group-title--PaddingBottom: var(--#{$select}__menu-item--PaddingBottom);
+  // --#{$select}__menu-group-title--PaddingLeft: var(--#{$select}__menu-item--PaddingLeft);
+
+  // * Select menu item count
   --#{$select}__menu-item-count--MarginLeft: var(--pf-t--global--spacer--md);
   --#{$select}__menu-item-count--FontSize: var(--#{$pf-global}--FontSize--sm);
-  --#{$select}__menu-item-count--Color: var(--#{$pf-global}--Color--200);
-  --#{$select}__menu-item--disabled__menu-item-count--Color: var(--pf-t--global--text--color--placeholder);
+  --#{$select}__menu-item-count--Color: var(--pf-t--global--color--brand--default);
+  // --#{$select}__menu-item--disabled__menu-item-count--Color: var(--pf-t--global--text--color--placeholder);
 
-  // Menu item description
+  // * Select menu item description
   --#{$select}__menu-item-description--FontSize: var(--#{$pf-global}--FontSize--xs);
-  --#{$select}__menu-item-description--Color: var(--#{$pf-global}--Color--200);
+  --#{$select}__menu-item-description--Color: var(--pf-t--global--text--color--subtle);
   --#{$select}__menu-item-description--PaddingRight: var(--#{$select}__menu-item--PaddingRight);
 
-  // Menu item title
-  --#{$select}__menu-item-main--PaddingRight: var(--#{$select}__menu-item--PaddingRight);
+  // * Select menu item selected
   --#{$select}__menu-item--m-selected__menu-item-main--PaddingRight: var(--#{$select}__menu-item--m-selected--PaddingRight);
 
-  // Menu footer
+  // * Select menu item footer
   --#{$select}__menu-footer--BoxShadow: var(--#{$pf-global}--BoxShadow--sm-top);
-  --#{$select}__menu-footer--PaddingTop: var(--pf-t--global--spacer--md);
-  --#{$select}__menu-footer--PaddingRight: var(--pf-t--global--spacer--md);
-  --#{$select}__menu-footer--PaddingBottom: var(--pf-t--global--spacer--md);
-  --#{$select}__menu-footer--PaddingLeft: var(--pf-t--global--spacer--md);
-  --#{$select}__menu-footer--MarginTop: var(--pf-t--global--spacer--sm);
-  --#{$select}__menu-footer--MarginBottom: calc(var(--pf-t--global--spacer--sm) * -1);
 
-  // Divider
-  --#{$select}-menu--c-divider--MarginTop: var(--pf-t--global--spacer--sm);
-  --#{$select}-menu--c-divider--MarginBottom: var(--pf-t--global--spacer--sm);
+
+  // --#{$select}__menu-footer--PaddingTop: var(--pf-t--global--spacer--md);
+  // --#{$select}__menu-footer--PaddingRight: var(--pf-t--global--spacer--md);
+  // --#{$select}__menu-footer--PaddingBottom: var(--pf-t--global--spacer--md);
+  // --#{$select}__menu-footer--PaddingLeft: var(--pf-t--global--spacer--md);
+  // --#{$select}__menu-footer--MarginTop: var(--pf-t--global--spacer--sm);
+  // --#{$select}__menu-footer--MarginBottom: calc(var(--pf-t--global--spacer--sm) * -1);
+
+  // * Select menu divider
+  // --#{$select}-menu--c-divider--MarginTop: var(--pf-t--global--spacer--sm);
+  // --#{$select}-menu--c-divider--MarginBottom: var(--pf-t--global--spacer--sm);
 }
 
+.#{$select},
+.#{$select}__toggle,
+.#{$select}__toggle-wrapper,
+.#{$select}__menu-wrapper {
+  display: flex;
+}
+
+.#{$select},
+.#{$select}__toggle,
+.#{$select}__toggle-wrapper {
+  align-items: center;
+}
+
+[class*="#{$select}"][hidden] {
+  display: none;
+}
+
+[class*="#{$select}"]:is(.pf-m-disabled, :disabled) {
+  &,
+  & * {
+    --#{$select}__toggle--Color: var(--#{$select}__toggle--disabled--Color);
+    --#{$select}__toggle--BackgroundColor: var(--#{$select}__toggle--disabled--BackgroundColor);
+
+    pointer-events: none;
+  }
+}
+
+// - Select
 .#{$select} {
   position: relative;
   // display: inline-block;
@@ -230,9 +265,6 @@
     margin-block-end: var(--#{$select}-menu--c-divider--MarginBottom);
 
     // Support divider as last item in group to separate groups
-    &:last-child {
-      --#{$select}-menu--c-divider--MarginBottom: 0;
-    }
   }
 
   &.pf-m-invalid {
@@ -266,27 +298,7 @@
   }
 }
 
-[class*="#{$select}"][hidden] {
-  display: none;
-}
-
-.#{$select}__menu-search + .#{$divider} {
-  --#{$select}-menu--c-divider--MarginTop: 0;
-}
-
-.#{$select},
-.#{$select}__toggle,
-.#{$select}__toggle-wrapper,
-.#{$select}__menu-wrapper {
-  display: flex;
-}
-
-.#{$select},
-.#{$select}__toggle,
-.#{$select}__toggle-wrapper {
-  align-items: center;
-}
-
+// - Select toggle
 .#{$select}__toggle {
   position: relative;
   flex: 1 1 100%;
@@ -316,17 +328,6 @@
     inset: 0;
     content: "";
     border: var(--#{$select}--BorderWidth) solid var(--#{$select}--BorderColor);
-  }
-
-  &.pf-m-disabled,
-  &:disabled {
-    --#{$select}__toggle--BackgroundColor: var(--#{$select}__toggle--disabled--BackgroundColor);
-
-    pointer-events: none;
-
-    &::before {
-      border: 0;
-    }
   }
 
   &:hover {
@@ -386,42 +387,80 @@
     margin-inline-start: auto;
   }
 
-  .#{$select}__toggle-button {
-    color: var(--#{$select}__toggle-button--Color);
-  }
-
-  .#{$select}__toggle-clear + .#{$select}__toggle-button {
-    padding-inline-start: var(--#{$select}__toggle-clear--toggle-button--PaddingLeft);
+  // - Select icon
+  :where([class*="icon"]) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: var(--#{$select}--icon--MinWidth);
   }
 
   &.pf-m-placeholder {
     --#{$select}__toggle-text--Color: var(--#{$select}--placeholder--Color);
   }
+
+  &.pf-m-disabled,
+  &:disabled {
+    // color: var(--#{$select}__toggle--disabled--Color);
+    // background-color: var(--#{$select}__toggle--disabled--BackgroundColor);
+
+    // pointer-events: none;
+
+    &::before {
+      border: 0;
+    }
+  }
 }
 
-.#{$select}__toggle-arrow {
-  color: var(--#{$select}__toggle-arrow--Color, inherit);
+// - Select toggle arrow
+.#{$select}__toggle-button,
+.#{$select}__toggle-arrow,
+.#{$select}__toggle-status-icon,
+.#{$select}__toggle-action,
+.#{$select}__toggle-clear {
+  display: flex;
 
-  * + & {
-    margin-inline-start: var(--#{$select}__toggle-arrow--MarginLeft);
-    margin-inline-end: var(--#{$select}__toggle-arrow--MarginRight);
+  // TODO: remove button wrapper when button updates merge
+  &,
+  &.#{$button} {
+    --pf-v5-c-button--m-plain--MinWidth: var(--#{$select}--action--MinWidth);
+    --pf-v5-c-button--PaddingLeft: 0;
+    --pf-v5-c-button--PaddingRight: 0;
+
+    min-width: var(--#{$select}--action--MinWidth);
+    align-self: stretch;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    color: var(--#{$select}__toggle--action--Color, inherit);
+
+    &:last-child {
+      border-start-start-radius: 0;
+      border-end-start-radius: 0;
+    }
+
+    &:not(:last-child) {
+      border-radius: 0;
+    }
   }
-  // stylelint-disable-next-line
+
   .#{$select}.pf-m-top.pf-m-expanded & {
     transform: rotate(var(--#{$select}__toggle-arrow--m-top--m-expanded__toggle-arrow--Rotate));
   }
 }
 
+// - Select toggle text
 .#{$select}__toggle-text {
   @include pf-v5-text-overflow;
 
   padding-block-start: var(--#{$select}__toggle-text--PaddingTop);
   padding-block-end: var(--#{$select}__toggle-text--PaddingBottom);
-  padding-inline-start: var(--#{$select}__toggle-text--PaddingLeft);
   color: var(--#{$select}__toggle-text--Color, inherit);
 }
 
+// - Select toggle wrapper
 .#{$select}__toggle-wrapper {
+  column-gap: var(--#{$select}__toggle-wrapper--ColumnGap);
   flex: 1;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -430,41 +469,18 @@
   // However, for cases where the clear icon button or a badge are added, the correct width will need to be calculated in script
   min-width: 0;
   max-width: var(--#{$select}__toggle-wrapper--MaxWidth);
+  padding-inline-start: var(--#{$select}__toggle-wrapper--PaddingInlineStart);
   white-space: normal;
-
-  // Add space between children
-  > :not(:last-child) {
-    margin-inline-end: var(--#{$select}__toggle-wrapper--not-last-child--MarginRight);
-  }
-
-  // a chip group needs a bottom margin to make some space between the chip group and typeahead input box if it wraps
-  .#{$chip}-group {
-    // margin-block-start: var(--#{$select}__toggle-wrapper--c-chip-group--MarginTop);
-    // margin-block-end: var(--#{$select}__toggle-wrapper--c-chip-group--MarginBottom);
-  }
-
-  // When the input is the first thing then use a negative left padding so it matches the toggle container
-  > .#{$select}__toggle-typeahead:first-child {
-    margin-inline-start: calc(-1 * var(--#{$select}__toggle--PaddingLeft));
-  }
-
-  // TODO: change this to :has()
 }
 
-// .#{$select}__toggle-icon + .#{$select}__toggle-text {
-//   margin-inline-start: var(--#{$select}__toggle-icon--toggle-text--MarginLeft);
-// }
 
-.#{$select}__toggle-status-icon {
-  margin-inline-start: var(--#{$select}__toggle-status-icon--MarginLeft);
-  color: var(--#{$select}__toggle-status-icon--Color);
-}
-
+// - Select toggle badge
 .#{$select}__toggle-badge {
   display: flex;
   padding-inline-start: var(--#{$select}__toggle-badge--PaddingLeft);
 }
 
+// - Select toggle typeahead
 .#{$select}__toggle-typeahead {
   flex-basis: var(--#{$select}__toggle-typeahead--FlexBasis);
   flex-grow: 1;
@@ -481,6 +497,7 @@
   }
 }
 
+// - Select menu
 .#{$select}__menu {
   display: grid;
   position: absolute;
@@ -512,12 +529,13 @@
     z-index: auto;
     min-width: min-content;
   }
+
+  &:is(div) {
+    row-gap: var(--#{$select}__menu--RowGap);
+  }
 }
 
-.#{$select}__menu-fieldset {
-  border: 0;
-}
-
+// - Select menu wrapper
 .#{$select}__menu-wrapper {
   display: flex;
 
@@ -528,6 +546,7 @@
   }
 }
 
+// - Select menu item
 .#{$select}__menu-item {
   position: relative;
   width: var(--#{$select}__menu-item--Width);
@@ -541,7 +560,7 @@
   color: var(--#{$select}__menu-item--Color, var(--#{$select}--Color));
   text-align: start;
   white-space: nowrap;
-  background-color: var(--#{$select}__menu-item--BackgroundColor, transparent);
+  background-color: var(--#{$select}__menu-item--BackgroundColor);
   border: 0;
 
   &:hover,
@@ -596,9 +615,9 @@
       --#{$select}__menu-item--m-action--Color: var(--#{$select}__menu-item--m-action--focus--Color);
     }
 
-    &:disabled {
-      --#{$select}__menu-item--disabled--Color: var(--#{$select}__menu-item--m-action--disabled--Color);
-    }
+    // &:disabled {
+    //   --#{$select}__menu-item--disabled--Color: var(--#{$select}__menu-item--m-action--disabled--Color);
+    // }
   }
 
   &.pf-m-favorite-action {
@@ -624,16 +643,6 @@
     white-space: normal;
   }
 
-  @at-root .#{$select}__menu-wrapper.pf-m-disabled,
-  &:disabled,
-  &.pf-m-disabled {
-    --#{$select}__menu-item-count--Color: var(--#{$select}__menu-item--disabled__menu-item-count--Color);
-
-    color: var(--#{$select}__menu-item--disabled--Color);
-    pointer-events: none;
-    background-color: var(--#{$select}__menu-item--disabled--BackgroundColor);
-  }
-
   &.#{$check} .#{$check}__label {
     width: 100%;
   }
@@ -645,6 +654,12 @@
   }
 }
 
+// - Select menu fieldset
+.#{$select}__menu-fieldset {
+  border: 0;
+}
+
+// - Select list item
 .#{$select}__list-item {
   &.pf-m-loading {
     padding-block-start: var(--#{$select}__list-item--m-loading--PaddingTop);
@@ -652,6 +667,7 @@
   }
 }
 
+// - Select menu item main
 .#{$select}__menu-item-main {
   position: relative;
   display: block;
@@ -659,14 +675,17 @@
   white-space: nowrap;
 }
 
+// - Select menu item row
 .#{$select}__menu-item-row {
   display: flex;
 }
 
+// - Select menu item text
 .#{$select}__menu-item-text {
   flex-grow: 1;
 }
 
+// - Select menu item count
 .#{$select}__menu-item-count {
   align-self: center;
   margin-inline-start: var(--#{$select}__menu-item-count--MarginLeft);
@@ -674,6 +693,7 @@
   color: var(--#{$select}__menu-item-count--Color);
 }
 
+// - Select menu item description
 .#{$select}__menu-item-description {
   display: block;
   padding-inline-end: var(--#{$select}__menu-item-description--PaddingRight);
@@ -681,6 +701,7 @@
   color: var(--#{$select}__menu-item-description--Color);
 }
 
+// - Select menu item icon
 .#{$select}__menu-item-icon {
   position: absolute;
   inset-block-start: var(--#{$select}__menu-item-icon--Top);
@@ -690,51 +711,43 @@
   transform: translateY(var(--#{$select}__menu-item-icon--TranslateY));
 }
 
+// - Select menu item action icon
 .#{$select}__menu-item-action-icon {
   display: flex;
   align-items: center;
   min-height: var(--#{$select}__menu-item-action-icon--MinHeight);
 }
 
+// - Select menu item match
 .#{$select}__menu-item--match {
   font-weight: var(--#{$select}__menu-item--match--FontWeight);
   background-color: inherit;
 }
 
-.#{$select}__menu-group + .#{$select}__menu-group {
-  padding-block-start: var(--#{$select}__menu-group--menu-group--PaddingTop);
-}
-
+// - Select menu search
 .#{$select}__menu-search {
-  padding-block-start: var(--#{$select}__menu-search--PaddingTop);
-  padding-block-end: var(--#{$select}__menu-search--PaddingBottom);
-  padding-inline-start: var(--#{$select}__menu-search--PaddingLeft);
-  padding-inline-end: var(--#{$select}__menu-search--PaddingRight);
+  padding-block-start: var(--#{$select}__menu-search--PaddingTop, 0);
+  padding-block-end: var(--#{$select}__menu-search--PaddingBottom, 0);
+  padding-inline-start: var(--#{$select}__menu-search--PaddingLeft, var(--#{$select}__menu-item--PaddingLeft));
+  padding-inline-end: var(--#{$select}__menu-search--PaddingRight, var(--#{$select}__menu-item--PaddingRight));
 }
 
+// - Select menu group title
 .#{$select}__menu-group-title {
-  padding-block-start: var(--#{$select}__menu-group-title--PaddingTop);
-  padding-block-end: var(--#{$select}__menu-group-title--PaddingBottom);
-  padding-inline-start: var(--#{$select}__menu-group-title--PaddingLeft);
-  padding-inline-end: var(--#{$select}__menu-group-title--PaddingRight);
-  font-size: var(--#{$select}__menu-group-title--FontSize);
+  padding-block-start: var(--#{$select}__menu-group-title--PaddingTop, var(--#{$select}__menu-item--PaddingTop));
+  padding-block-end: var(--#{$select}__menu-group-title--PaddingBottom, var(--#{$select}__menu-item--PaddingBottom));
+  padding-inline-start: var(--#{$select}__menu-group-title--PaddingLeft, var(--#{$select}__menu-item--PaddingLeft));
+  padding-inline-end: var(--#{$select}__menu-group-title--PaddingRight, var(--#{$select}__menu-item--PaddingRight));
+  font-size: var(--#{$select}__menu-group-title--FontSize, inherit);
   font-weight: var(--#{$select}__menu-group-title--FontWeight);
   color: var(--#{$select}__menu-group-title--Color);
 }
 
+// - Select menu footer
 .#{$select}__menu-footer {
-  padding-block-start: var(--#{$select}__menu-footer--PaddingTop);
-  padding-block-end: var(--#{$select}__menu-footer--PaddingBottom);
-  padding-inline-start: var(--#{$select}__menu-footer--PaddingLeft);
-  padding-inline-end: var(--#{$select}__menu-footer--PaddingRight);
-  margin-block-start: var(--#{$select}__menu-footer--MarginTop);
-  margin-block-end: var(--#{$select}__menu-footer--MarginBottom);
-  box-shadow: var(--#{$select}__menu-footer--BoxShadow);
-}
-
-// stylelint-disable no-invalid-position-at-import-rule
-@import "themes/dark/select";
-
-@include pf-v5-theme-dark {
-  @include pf-v5-theme-dark-select;
+  padding-block-start: var(--#{$select}__menu-footer--PaddingTop, var(--#{$select}__menu-item--PaddingTop));
+  padding-block-end: var(--#{$select}__menu-footer--PaddingBottom, var(--#{$select}__menu-item--PaddingBottom));
+  padding-inline-start: var(--#{$select}__menu-footer--PaddingLeft, var(--#{$select}__menu-item--PaddingLeft));
+  padding-inline-end: var(--#{$select}__menu-footer--PaddingRight, var(--#{$select}__menu-item--PaddingRight));
+  border-top: var(--#{$select}__menu-footer--BorderWidth, var(--#{$select}--BorderWidth)) solid var(--#{$select}__menu-footer--BorderColor, var(--#{$select}--BorderColor));
 }
