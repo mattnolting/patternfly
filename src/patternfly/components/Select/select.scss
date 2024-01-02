@@ -12,12 +12,12 @@
   --#{$select}--BorderWidth: var(--pf-t--global--border--width--control--default);
   --#{$select}--BorderColor: var(--pf-t--global--border--color--default);
   --#{$select}--BorderRadius: var(--pf-t--global--border--radius--small);
+  --#{$select}--active--BorderWidth: var(--pf-t--global--border--width--button--active);
   --#{$select}--icon--MinWidth: #{pf-size-prem(20px)};
   --#{$select}--action--MinWidth: #{pf-size-prem(40px)};
-  // --#{$select}--icon--PaddingLeft: var(--#{$pf-global}--spacer--sm);
-  // --#{$select}--icon--PaddingRight: var(--#{$pf-global}--spacer--sm);
   --#{$select}--placeholder--Color: var(--pf-t--global--text--color--placeholder);
   --#{$select}--section--divider--PaddingTop: calc(var(--#{$select}__menu-item--PaddingTop) + var(--#{$select}__menu--RowGap));
+  --#{$select}--disabled--Color: var(--pf-t--global--text--color--disabled);
 
   // * Select toggle
   --#{$select}__toggle--MinWidth: var(--#{$pf-global}--target-size--MinWidth); // TODO: udpate when value becomes token
@@ -25,7 +25,6 @@
   --#{$select}__toggle--PaddingRight: var(--pf-t--global--spacer--sm);
   --#{$select}__toggle--Color: var(--#{$select}--Color);
   --#{$select}__toggle--BackgroundColor: var(--#{$select}--BackgroundColor);
-  --#{$select}__toggle--disabled--BackgroundColor: var(--pf-t--global--background--color--disabled--default);
   --#{$select}__toggle--disabled--Color: var(--pf-t--global--icon--color--on-disabled);
   --#{$select}__toggle--m-plain--BorderColor: transparent;
   --#{$select}__toggle--m-placeholder--Color: transparent;
@@ -105,8 +104,8 @@
   --#{$select}__menu-item-icon--TranslateY: -50%;
 
   // * Select invalid toggle
-  --#{$select}--m-invalid__toggle--BorderColor: var(--pf-t--global--color--status--danger--default);
-  --#{$select}--m-invalid__toggle--BorderWidth: var(--pf-t--global--border--width--control--active);
+  --#{$select}--m-invalid--BorderColor: var(--pf-t--global--color--status--danger--default);
+  --#{$select}--active--BorderWidth: var(--pf-t--global--border--width--control--active);
 
   // * Select invalid toggle status icon
   --#{$select}--m-invalid__toggle-status-icon--Color: var(--pf-t--global--color--status--danger--default);
@@ -245,10 +244,13 @@
 [class*="#{$select}"]:is(.pf-m-disabled, :disabled) {
   &,
   & * {
+    // --#{$select}--Color: var(--#{$select}--disabled--Color);
     --#{$select}__toggle--Color: var(--#{$select}__toggle--disabled--Color);
     --#{$select}__toggle--BackgroundColor: var(--#{$select}__toggle--disabled--BackgroundColor);
+    --#{$select}__menu-item--Color: var(--#{$select}--disabled--Color);
 
     pointer-events: none;
+    mix-blend-mode: unset;
   }
 }
 
@@ -268,16 +270,22 @@
   }
 
   &.pf-m-invalid {
+    --#{$select}--BorderColor: var(--#{$select}--m-invalid--BorderColor);
+    --#{$select}--BorderWidth: var(--#{$select}--active--BorderWidth);
+
     // --#{$select}__toggle--BorderBottomColor: var(--#{$select}--m-invalid__toggle--BorderBottomColor);
     // --#{$select}__toggle--BorderBottomWidth: var(--#{$select}--m-invalid__toggle--BorderBottomWidth);
     // --#{$select}__toggle--hover--BorderBottomColor: var(--#{$select}--m-invalid__toggle--hover--BorderBottomColor);
-    // --#{$select}__toggle--focus--BorderBottomColor: var(--#{$select}--m-invalid__toggle--focus--BorderBottomColor);
+    // --#{$select}__toggle--focus--BorderBottomColor: var(--#{$select}--m-invalid__togglmin-e--focus--BorderBottomColor);
     // --#{$select}__toggle--active--BorderBottomColor: var(--#{$select}--m-invalid__toggle--active--BorderBottomColor);
     // --#{$select}__toggle--m-expanded--BorderBottomColor: var(--#{$select}--m-invalid__toggle--m-expanded--BorderBottomColor);
     // --#{$select}__toggle-status-icon--Color: var(--#{$select}--m-invalid__toggle-status-icon--Color);
   }
 
   &.pf-m-success {
+    --#{$select}--BorderColor: var(--#{$select}--m-success--BorderColor);
+    --#{$select}--BorderWidth: var(--#{$select}--active--BorderWidth);
+
     // --#{$select}__toggle--BorderBottomColor: var(--#{$select}--m-success__toggle--BorderBottomColor);
     // --#{$select}__toggle--BorderBottomWidth: var(--#{$select}--m-success__toggle--BorderBottomWidth);
     // --#{$select}__toggle--hover--BorderBottomColor: var(--#{$select}--m-success__toggle--hover--BorderBottomColor);
@@ -288,6 +296,9 @@
   }
 
   &.pf-m-warning {
+    --#{$select}--BorderColor: var(--#{$select}--m-warning--BorderColor);
+    --#{$select}--BorderWidth: var(--#{$select}--active--BorderWidth);
+
     // --#{$select}__toggle--BorderBottomColor: var(--#{$select}--m-warning__toggle--BorderBottomColor);
     // --#{$select}__toggle--BorderBottomWidth: var(--#{$select}--m-warning__toggle--BorderBottomWidth);
     // --#{$select}__toggle--hover--BorderBottomColor: var(--#{$select}--m-warning__toggle--hover--BorderBottomColor);
@@ -295,6 +306,11 @@
     // --#{$select}__toggle--active--BorderBottomColor: var(--#{$select}--m-warning__toggle--active--BorderBottomColor);
     // --#{$select}__toggle--m-expanded--BorderBottomColor: var(--#{$select}--m-warning__toggle--m-expanded--BorderBottomColor);
     // --#{$select}__toggle-status-icon--Color: var(--#{$select}--m-warning__toggle-status-icon--Color);
+  }
+
+  // TODO: update with check enhancements
+  .#{$check} {
+    --pf-v5-c-check--GridGap: 0 var(--pf-t--global--spacer--sm);
   }
 }
 
@@ -322,12 +338,10 @@
   }
 
   &::before {
-    --#{$select}__toggle--BorderWidth-base: var(--#{$select}__toggle--BorderTopWidth) var(--#{$select}__toggle--BorderRightWidth) var(--#{$select}__toggle--BorderBottomWidth) var(--#{$select}__toggle--BorderLeftWidth); // remove at breaking change
-
     position: absolute;
     inset: 0;
     content: "";
-    border: var(--#{$select}--BorderWidth) solid var(--#{$select}--BorderColor);
+    border: var(--#{$select}__toggle--BorderWidth, var(--#{$select}--BorderWidth)) solid var(--#{$select}__toggle--BorderColor, var(--#{$select}--BorderColor));
   }
 
   &:hover {
@@ -402,7 +416,7 @@
   &.pf-m-disabled,
   &:disabled {
     // color: var(--#{$select}__toggle--disabled--Color);
-    // background-color: var(--#{$select}__toggle--disabled--BackgroundColor);
+    background-color: var(--#{$select}__toggle--disabled--BackgroundColor, var(--#{$select}--disabled--BackgroundColor));
 
     // pointer-events: none;
 
@@ -469,7 +483,6 @@
   // However, for cases where the clear icon button or a badge are added, the correct width will need to be calculated in script
   min-width: 0;
   max-width: var(--#{$select}__toggle-wrapper--MaxWidth);
-  padding-inline-start: var(--#{$select}__toggle-wrapper--PaddingInlineStart);
   white-space: normal;
 }
 
@@ -554,10 +567,10 @@
   padding-block-end: var(--#{$select}__menu-item--PaddingBottom);
   padding-inline-start: var(--#{$select}__menu-item--PaddingLeft);
   padding-inline-end: var(--#{$select}__menu-item--PaddingRight);
-  font-size: var(--#{$select}__menu-item--FontSize, var(--#{$select}--FontSize));
-  font-weight: var(--#{$select}__menu-item--FontWeight, var(--#{$select}--FontWeight));
-  line-height: var(--#{$select}__menu-item--LineHeight, var(--#{$select}--LineHeight));
-  color: var(--#{$select}__menu-item--Color, var(--#{$select}--Color));
+  font-size: var(--#{$select}__menu-item--FontSize, inherit);
+  font-weight: var(--#{$select}__menu-item--FontWeight, inherit);
+  line-height: var(--#{$select}__menu-item--LineHeight, inherit);
+  color: var(--#{$select}__menu-item--Color, inherit);
   text-align: start;
   white-space: nowrap;
   background-color: var(--#{$select}__menu-item--BackgroundColor);
