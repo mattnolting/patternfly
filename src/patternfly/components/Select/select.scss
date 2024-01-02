@@ -16,13 +16,13 @@
   --#{$select}--icon--MinWidth: #{pf-size-prem(20px)};
   --#{$select}--action--MinWidth: #{pf-size-prem(40px)};
   --#{$select}--placeholder--Color: var(--pf-t--global--text--color--placeholder);
-  --#{$select}--section--divider--PaddingTop: calc(var(--#{$select}__menu-item--PaddingTop) + var(--#{$select}__menu--RowGap));
   --#{$select}--disabled--Color: var(--pf-t--global--text--color--disabled);
 
   // * Select toggle
   --#{$select}__toggle--MinWidth: var(--#{$pf-global}--target-size--MinWidth); // TODO: udpate when value becomes token
   --#{$select}__toggle--PaddingLeft: var(--pf-t--global--spacer--sm);
   --#{$select}__toggle--PaddingRight: var(--pf-t--global--spacer--sm);
+  --#{$select}__toggle--ColumnGap: var(--pf-t--global--spacer--sm);
   --#{$select}__toggle--Color: var(--#{$select}--Color);
   --#{$select}__toggle--BackgroundColor: var(--#{$select}--BackgroundColor);
   --#{$select}__toggle--disabled--Color: var(--pf-t--global--icon--color--on-disabled);
@@ -36,10 +36,6 @@
   --#{$select}__toggle-wrapper--PaddingInlineStart: var(--pf-t--global--spacer--sm);
   --#{$select}__toggle-wrapper--MaxWidth: calc(100% - var(--pf-t--global--spacer--lg));
 
-  // Chip group within a toggle-wrapper needs a margin-bottom in case it wraps
-  --#{$select}__toggle-wrapper--c-chip-group--MarginTop: #{pf-size-prem(5px)};
-  --#{$select}__toggle-wrapper--c-chip-group--MarginBottom: #{pf-size-prem(5px)};
-
   // * Select menu
   --#{$select}__menu--RowGap: var(--pf-t--global--spacer--sm);
 
@@ -48,14 +44,14 @@
   --#{$select}__toggle-text--PaddingBottom: var(--pf-t--global--spacer--sm);
 
   // * Select menu
-  --#{$select}__menu--BackgroundColor: var(--pf-t--global--background--color--floating--default);
-  --#{$select}__menu--BoxShadow: var(--pf-t--global--box-shadow--md);
-  --#{$select}__menu--PaddingTop: var(--pf-t--global--spacer--sm);
-  --#{$select}__menu--PaddingBottom: var(--pf-t--global--spacer--sm);
   --#{$select}__menu--Top: calc(100% + var(--pf-t--global--spacer--sm)); // The top of the menu must be pushed down to create space between the toggle and menu
   --#{$select}__menu--ZIndex: var(--pf-t--global--Zindex--md);
   --#{$select}__menu--Width: auto;
   --#{$select}__menu--MinWidth: 100%;
+  --#{$select}__menu--PaddingTop: var(--pf-t--global--spacer--sm);
+  --#{$select}__menu--PaddingBottom: var(--pf-t--global--spacer--sm);
+  --#{$select}__menu--BackgroundColor: var(--pf-t--global--background--color--floating--default);
+  --#{$select}__menu--BoxShadow: var(--pf-t--global--box-shadow--md);
   --#{$select}__menu--m-top--TranslateY: calc(-100% - var(--pf-t--global--spacer--sm)); // The "dropup" menu must be transformed up and this calculates how much to create space between the toggle and menu
 
   // * Select menu item
@@ -64,15 +60,13 @@
   --#{$select}__menu-item--PaddingBottom: var(--pf-t--global--spacer--sm);
   --#{$select}__menu-item--PaddingLeft: var(--pf-t--global--spacer--lg);
   --#{$select}__menu-item--PaddingRight: var(--pf-t--global--spacer--lg);
+  --#{$select}__menu-item--ColumnGap: var(--pf-t--global--spacer--xs);
   --#{$select}__menu-item--BackgroundColor: var(--pf-t--global--background--color--action--plain--default);
   --#{$select}__menu-item--hover--BackgroundColor: var(--pf-t--global--background--color--action--plain--hover);
-  // --#{$select}__menu-item--disabled--BackgroundColor: var(--pf-t--global--background--color--disabled--default);
-  // --#{$select}__menu-item--disabled--Color: var(--pf-t--global--text--color--placeholder);
 
   // * Menu item link
   --#{$select}__menu-item--m-link--Width: auto;
   --#{$select}__menu-item--m-link--hover--BackgroundColor: transparent;
-  --#{$select}__menu-item--m-link--focus--BackgroundColor: transparent;
   --#{$select}__menu-item--m-action--Color: var(--pf-t--global--color--brand--default);
   --#{$select}__menu-item--m-action--hover--Color: var(--pf-t--global--color--brand--hover);
 
@@ -92,9 +86,6 @@
 
   // * Menu item load
   --#{$select}__menu-item--m-load--Color: var(--pf-v5-global--link--Color);
-
-  // * Menu item selected
-  --#{$select}__menu-item--m-selected--PaddingRight: var(--pf-t--global--spacer--2xl);
 
   // * Menu item icon
   --#{$select}__menu-item-icon--Color: var(--#{$pf-global}--active-color--100); // TODO: udpate this variable
@@ -148,9 +139,6 @@
   --#{$select}__toggle-status-icon--Color: var(--pf-t--global--icon--color--regular);
 
   // Toggle arrow
-  // --#{$select}__toggle-arrow--MarginLeft: var(--pf-t--global--spacer--md);
-  // --#{$select}__toggle-arrow--MarginRight: var(--pf-t--global--spacer--sm);
-  // --#{$select}__toggle-arrow--with-clear--MarginLeft: var(--pf-t--global--spacer--sm);
   --#{$select}__toggle-arrow--m-top--m-expanded__toggle-arrow--Rotate: 180deg;
 
   // * Select plain
@@ -189,51 +177,47 @@
   --#{$select}__menu-group-title--FontWeight: var(--pf-t--global--font--weight--body);
   --#{$select}__menu-group-title--Color: var(--pf-t--global--text--color--placeholder);
 
-  // --#{$select}__menu-group-title--PaddingTop: var(--#{$select}__menu-item--PaddingTop);
-  // --#{$select}__menu-group-title--PaddingRight: var(--#{$select}__menu-item--PaddingRight);
-  // --#{$select}__menu-group-title--PaddingBottom: var(--#{$select}__menu-item--PaddingBottom);
-  // --#{$select}__menu-group-title--PaddingLeft: var(--#{$select}__menu-item--PaddingLeft);
-
   // * Select menu item count
   --#{$select}__menu-item-count--MarginLeft: var(--pf-t--global--spacer--md);
   --#{$select}__menu-item-count--FontSize: var(--#{$pf-global}--FontSize--sm);
   --#{$select}__menu-item-count--Color: var(--pf-t--global--color--brand--default);
-  // --#{$select}__menu-item--disabled__menu-item-count--Color: var(--pf-t--global--text--color--placeholder);
 
   // * Select menu item description
   --#{$select}__menu-item-description--FontSize: var(--#{$pf-global}--FontSize--xs);
   --#{$select}__menu-item-description--Color: var(--pf-t--global--text--color--subtle);
-  --#{$select}__menu-item-description--PaddingRight: var(--#{$select}__menu-item--PaddingRight);
-
-  // * Select menu item selected
-  --#{$select}__menu-item--m-selected__menu-item-main--PaddingRight: var(--#{$select}__menu-item--m-selected--PaddingRight);
 
   // * Select menu item footer
   --#{$select}__menu-footer--BoxShadow: var(--#{$pf-global}--BoxShadow--sm-top);
-
-
-  // --#{$select}__menu-footer--PaddingTop: var(--pf-t--global--spacer--md);
-  // --#{$select}__menu-footer--PaddingRight: var(--pf-t--global--spacer--md);
-  // --#{$select}__menu-footer--PaddingBottom: var(--pf-t--global--spacer--md);
-  // --#{$select}__menu-footer--PaddingLeft: var(--pf-t--global--spacer--md);
-  // --#{$select}__menu-footer--MarginTop: var(--pf-t--global--spacer--sm);
-  // --#{$select}__menu-footer--MarginBottom: calc(var(--pf-t--global--spacer--sm) * -1);
-
-  // * Select menu divider
-  // --#{$select}-menu--c-divider--MarginTop: var(--pf-t--global--spacer--sm);
-  // --#{$select}-menu--c-divider--MarginBottom: var(--pf-t--global--spacer--sm);
 }
 
 .#{$select},
 .#{$select}__toggle,
 .#{$select}__toggle-wrapper,
-.#{$select}__menu-wrapper {
+.#{$select}__menu-wrapper,
+.#{$select}__menu-item,
+.#{$select}__menu-item-row,
+.#{$select}__menu-item-action-icon {
   display: flex;
+  column-gap: var(--#{$select}__toggle--ColumnGap);
+}
+
+.#{$select}__menu-item-main {
+  display: grid;
+  column-gap: var(--#{$select}__toggle--ColumnGap);
+  grid-template-columns: 1fr;
+  grid-auto-flow: column;
+}
+
+.#{$select}__menu-item,
+.#{$select}__menu-item-main {
+  position: relative;
+  white-space: nowrap;
 }
 
 .#{$select},
 .#{$select}__toggle,
-.#{$select}__toggle-wrapper {
+.#{$select}__toggle-wrapper,
+.#{$select}__menu-item-action-icon {
   align-items: center;
 }
 
@@ -244,7 +228,6 @@
 [class*="#{$select}"]:is(.pf-m-disabled, :disabled) {
   &,
   & * {
-    // --#{$select}--Color: var(--#{$select}--disabled--Color);
     --#{$select}__toggle--Color: var(--#{$select}__toggle--disabled--Color);
     --#{$select}__toggle--BackgroundColor: var(--#{$select}__toggle--disabled--BackgroundColor);
     --#{$select}__menu-item--Color: var(--#{$select}--disabled--Color);
@@ -257,55 +240,30 @@
 // - Select
 .#{$select} {
   position: relative;
-  // display: inline-block;
-  // width: 100%;
   color: var(--#{$select}--Color);
   background-color: var(--#{$select}--BackgroundColor);
 
   .#{$divider} {
     margin-block-start: var(--#{$select}-menu--c-divider--MarginTop);
     margin-block-end: var(--#{$select}-menu--c-divider--MarginBottom);
-
-    // Support divider as last item in group to separate groups
   }
 
   &.pf-m-invalid {
     --#{$select}--BorderColor: var(--#{$select}--m-invalid--BorderColor);
     --#{$select}--BorderWidth: var(--#{$select}--active--BorderWidth);
-
-    // --#{$select}__toggle--BorderBottomColor: var(--#{$select}--m-invalid__toggle--BorderBottomColor);
-    // --#{$select}__toggle--BorderBottomWidth: var(--#{$select}--m-invalid__toggle--BorderBottomWidth);
-    // --#{$select}__toggle--hover--BorderBottomColor: var(--#{$select}--m-invalid__toggle--hover--BorderBottomColor);
-    // --#{$select}__toggle--focus--BorderBottomColor: var(--#{$select}--m-invalid__togglmin-e--focus--BorderBottomColor);
-    // --#{$select}__toggle--active--BorderBottomColor: var(--#{$select}--m-invalid__toggle--active--BorderBottomColor);
-    // --#{$select}__toggle--m-expanded--BorderBottomColor: var(--#{$select}--m-invalid__toggle--m-expanded--BorderBottomColor);
-    // --#{$select}__toggle-status-icon--Color: var(--#{$select}--m-invalid__toggle-status-icon--Color);
+    --#{$select}__toggle-status-icon--Color: var(--#{$select}--m-invalid__toggle-status-icon--Color);
   }
 
   &.pf-m-success {
     --#{$select}--BorderColor: var(--#{$select}--m-success--BorderColor);
     --#{$select}--BorderWidth: var(--#{$select}--active--BorderWidth);
-
-    // --#{$select}__toggle--BorderBottomColor: var(--#{$select}--m-success__toggle--BorderBottomColor);
-    // --#{$select}__toggle--BorderBottomWidth: var(--#{$select}--m-success__toggle--BorderBottomWidth);
-    // --#{$select}__toggle--hover--BorderBottomColor: var(--#{$select}--m-success__toggle--hover--BorderBottomColor);
-    // --#{$select}__toggle--focus--BorderBottomColor: var(--#{$select}--m-success__toggle--focus--BorderBottomColor);
-    // --#{$select}__toggle--active--BorderBottomColor: var(--#{$select}--m-success__toggle--active--BorderBottomColor);
-    // --#{$select}__toggle--m-expanded--BorderBottomColor: var(--#{$select}--m-success__toggle--m-expanded--BorderBottomColor);
-    // --#{$select}__toggle-status-icon--Color: var(--#{$select}--m-success__toggle-status-icon--Color);
+    --#{$select}__toggle-status-icon--Color: var(--#{$select}--m-success__toggle-status-icon--Color);
   }
 
   &.pf-m-warning {
     --#{$select}--BorderColor: var(--#{$select}--m-warning--BorderColor);
     --#{$select}--BorderWidth: var(--#{$select}--active--BorderWidth);
-
-    // --#{$select}__toggle--BorderBottomColor: var(--#{$select}--m-warning__toggle--BorderBottomColor);
-    // --#{$select}__toggle--BorderBottomWidth: var(--#{$select}--m-warning__toggle--BorderBottomWidth);
-    // --#{$select}__toggle--hover--BorderBottomColor: var(--#{$select}--m-warning__toggle--hover--BorderBottomColor);
-    // --#{$select}__toggle--focus--BorderBottomColor: var(--#{$select}--m-warning__toggle--focus--BorderBottomColor);
-    // --#{$select}__toggle--active--BorderBottomColor: var(--#{$select}--m-warning__toggle--active--BorderBottomColor);
-    // --#{$select}__toggle--m-expanded--BorderBottomColor: var(--#{$select}--m-warning__toggle--m-expanded--BorderBottomColor);
-    // --#{$select}__toggle-status-icon--Color: var(--#{$select}--m-warning__toggle-status-icon--Color);
+    --#{$select}__toggle-status-icon--Color: var(--#{$select}--m-warning__toggle-status-icon--Color);
   }
 
   // TODO: update with check enhancements
@@ -332,38 +290,66 @@
   background-color: var(--#{$select}__toggle--BackgroundColor, inherit);
   border: 0;
 
+  &::before {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    content: "";
+    border: var(--#{$select}__toggle--BorderWidth, var(--#{$select}--BorderWidth)) solid var(--#{$select}__toggle--BorderColor, var(--#{$menu}toggle--BorderColor));
+  }
+
   &,
   &::before {
     border-radius: var(--#{$select}__toggle--BorderRadius, var(--#{$select}--BorderRadius));
   }
 
-  &::before {
-    position: absolute;
-    inset: 0;
-    content: "";
-    border: var(--#{$select}__toggle--BorderWidth, var(--#{$select}--BorderWidth)) solid var(--#{$select}__toggle--BorderColor, var(--#{$select}--BorderColor));
+  // - Menu toggle hover
+  &:is(:hover, :focus),
+  :is(:hover, :focus) {
+    --#{$select}--icon--Color: var(--#{$select}__toggle--hover--icon--Color);
+
+    color: var(--#{$select}__toggle--hover--Color, var(--#{$select}__toggle--Color));
+    background-color: var(--#{$select}__toggle--hover--BackgroundColor, var(--#{$select}__toggle--BackgroundColor));
+
+    &::before {
+      border-color: var(--#{$select}__toggle--hover--BorderColor, var(--#{$select}__toggle--BorderColor)); // point to default border width color
+      border-width: var(--#{$select}__toggle--hover--BorderWidth, var(--#{$select}__toggle--BorderWidth)); // point to default border width hover
+    }
   }
 
-  &:hover {
-    --#{$select}__toggle--BorderBottomColor: var(--#{$select}__toggle--hover--BorderBottomColor);
+  // - Menu toggle expanded
+  &:is(.pf-m-expanded, [aria-expanded="true"], [expanded]),
+  :is(.pf-m-expanded, [aria-expanded="true"], [expanded]) {
+    --#{$select}--icon--Color: var(--#{$select}__toggle--m-expanded--icon--Color);
+
+    color: var(--#{$select}__toggle--m-expanded--Color, var(--#{$select}__toggle--hover--Color, var(--#{$select}__toggle--Color)));
+    background-color: var(--#{$select}__toggle--m-expanded--BackgroundColor, var(--#{$select}__toggle--hover--BackgroundColor, var(--#{$select}__toggle--BackgroundColor)));
+
+    &::before {
+      border-color: var(--#{$select}__toggle--m-expanded--BorderColor, var(--#{$select}__toggle--hover--BorderColor, var(--#{$select}__toggle--BorderColor)));
+      border-width: var(--#{$select}__toggle--m-expanded--BorderWidth, var(--#{$select}__toggle--hover--BorderWidth, var(--#{$select}__toggle--BorderWidth)));
+    }
   }
 
-  &:focus,
-  &:focus-within {
-    --#{$select}__toggle--BorderBottomColor: var(--#{$select}__toggle--focus--BorderBottomColor);
-    --#{$select}__toggle--BorderBottomWidth: var(--#{$select}__toggle--focus--BorderBottomWidth);
+  // - Menu toggle disabled
+  &:is(:disabled, [disabled], [aria-disabled="true"], .pf-m-disabled, .pf-m-aria-disabled),
+  :is(:disabled, [disabled], [aria-disabled="true"], .pf-m-disabled, .pf-m-aria-disabled) {
+    --#{$select}__toggle--icon--Color: var(--#{$select}__toggle--disabled--icon--Color);
+
+    color: var(--#{$select}__toggle--disabled--Color);
+    pointer-events: none;
+    background-color: var(--#{$select}__toggle--disabled--BackgroundColor);
+
+    &::before {
+      border-color: var(--#{$select}__toggle--disabled--BorderColor, transparent);
+      border-width: var(--#{$select}__toggle--disabled--BorderWidth, 0);
+    }
   }
 
-  &:active,
-  &.pf-m-active {
-    --#{$select}__toggle--BorderBottomColor: var(--#{$select}__toggle--active--BorderBottomColor);
-    --#{$select}__toggle--BorderBottomWidth: var(--#{$select}__toggle--active--BorderBottomWidth);
-  }
-
-  .pf-m-expanded > & {
-    --#{$select}__toggle--BorderBottomColor: var(--#{$select}__toggle--m-expanded--BorderBottomColor);
-    --#{$select}__toggle--BorderBottomWidth: var(--#{$select}__toggle--m-expanded--BorderBottomWidth);
-  }
+  // .pf-m-expanded > & {
+  //   --#{$select}__toggle--BorderBottomColor: var(--#{$select}__toggle--m-expanded--BorderBottomColor);
+  //   --#{$select}__toggle--BorderBottomWidth: var(--#{$select}__toggle--m-expanded--BorderBottomWidth);
+  // }
 
   &.pf-m-plain {
     --#{$select}__toggle-arrow--Color: var(--#{$select}--m-plain__toggle-arrow--Color);
@@ -412,18 +398,6 @@
   &.pf-m-placeholder {
     --#{$select}__toggle-text--Color: var(--#{$select}--placeholder--Color);
   }
-
-  &.pf-m-disabled,
-  &:disabled {
-    // color: var(--#{$select}__toggle--disabled--Color);
-    background-color: var(--#{$select}__toggle--disabled--BackgroundColor, var(--#{$select}--disabled--BackgroundColor));
-
-    // pointer-events: none;
-
-    &::before {
-      border: 0;
-    }
-  }
 }
 
 // - Select toggle arrow
@@ -441,10 +415,10 @@
     --pf-v5-c-button--PaddingLeft: 0;
     --pf-v5-c-button--PaddingRight: 0;
 
-    min-width: var(--#{$select}--action--MinWidth);
-    align-self: stretch;
     align-items: center;
+    align-self: stretch;
     justify-content: center;
+    min-width: var(--#{$select}--action--MinWidth);
     padding: 0;
     color: var(--#{$select}__toggle--action--Color, inherit);
 
@@ -474,9 +448,9 @@
 
 // - Select toggle wrapper
 .#{$select}__toggle-wrapper {
-  column-gap: var(--#{$select}__toggle-wrapper--ColumnGap);
   flex: 1;
   flex-wrap: wrap;
+  column-gap: var(--#{$select}__toggle-wrapper--ColumnGap);
   justify-content: flex-start;
 
   // Max-width is needed for ellipsing the text. This leaves enough space for the toggle caret.
@@ -512,18 +486,17 @@
 
 // - Select menu
 .#{$select}__menu {
-  display: grid;
   position: absolute;
   inset-block-start: var(--#{$select}__menu--Top);
   z-index: var(--#{$select}__menu--ZIndex);
+  display: grid;
   width: var(--#{$select}__menu--Width);
   min-width: var(--#{$select}__menu--MinWidth);
   padding-block-start: var(--#{$select}__menu--PaddingTop);
   padding-block-end: var(--#{$select}__menu--PaddingBottom);
   background-color: var(--#{$select}__menu--BackgroundColor);
-  background-clip: padding-box;
-  box-shadow: var(--#{$select}__menu--BoxShadow);
   border-radius: var(--#{$select}__menu--BorderRadius, var(--#{$select}--BorderRadius));
+  box-shadow: var(--#{$select}__menu--BoxShadow);
 
   &.pf-m-align-right {
     inset-inline-end: 0;
@@ -561,7 +534,7 @@
 
 // - Select menu item
 .#{$select}__menu-item {
-  position: relative;
+  column-gap: var(--#{$select}__menu-item--ColumnGap);
   width: var(--#{$select}__menu-item--Width);
   padding-block-start: var(--#{$select}__menu-item--PaddingTop);
   padding-block-end: var(--#{$select}__menu-item--PaddingBottom);
@@ -572,40 +545,37 @@
   line-height: var(--#{$select}__menu-item--LineHeight, inherit);
   color: var(--#{$select}__menu-item--Color, inherit);
   text-align: start;
-  white-space: nowrap;
   background-color: var(--#{$select}__menu-item--BackgroundColor);
   border: 0;
 
-  &:hover,
-  &:focus,
-  &.pf-m-focus {
-    --#{$select}__menu-item--m-action--Color: var(--#{$select}__menu-item--hover__menu-item--m-action--Color); // remove at breaking change
+  // &:hover,
+  // &:focus,
+  // &.pf-m-focus {
+  //   --#{$select}__menu-item--m-action--Color: var(--#{$select}__menu-item--hover__menu-item--m-action--Color); // remove at breaking change
 
-    text-decoration: none;
-  }
+  //   text-decoration: none;
+  // }
 
-  @at-root .#{$select}__menu-wrapper,
-  & {
-    &:hover {
-      background-color: var(--#{$select}__menu-item--hover--BackgroundColor);
-    }
-  }
+  // @at-root .#{$select}__menu-wrapper,
+  // & {
+  //   &:hover {
+  //     background-color: var(--#{$select}__menu-item--hover--BackgroundColor);
+  //   }
+  // }
 
-  @at-root .#{$select}__menu-wrapper:focus-within,
-  .#{$select}__menu-wrapper.pf-m-focus,
-  &:focus,
+  // @at-root .#{$select}__menu-wrapper:focus-within,
+  // .#{$select}__menu-wrapper.pf-m-focus,
+  // &:focus,
   &.pf-m-focus {
     position: relative;
     background-color: var(--#{$select}__menu-item--focus--BackgroundColor);
   }
 
   &.pf-m-link {
-    --#{$select}__menu-item--PaddingRight: 0;
-    --#{$select}__menu-item-main--PaddingRight: 0;
-    --#{$select}__menu-item-description--PaddingRight: 0;
     --#{$select}__menu-item--Width: var(--#{$select}__menu-item--m-link--Width);
+    --#{$select}__menu-item--PaddingRight: 0;
     --#{$select}__menu-item--hover--BackgroundColor: var(--#{$select}__menu-item--m-link--hover--BackgroundColor);
-    --#{$select}__menu-item--focus--BackgroundColor: var(--#{$select}__menu-item--m-link--focus--BackgroundColor);
+    --#{$select}__menu-item-main--PaddingRight: 0;
 
     flex-grow: 1;
   }
@@ -614,23 +584,19 @@
     --#{$select}__menu-item--Color: var(--#{$select}__menu-item--m-action--Color);
     --#{$select}__menu-item--Width: var(--#{$select}__menu-item--m-action--Width);
     --#{$select}__menu-item--hover--BackgroundColor: var(--#{$select}__menu-item--m-action--hover--BackgroundColor);
-    --#{$select}__menu-item--focus--BackgroundColor: var(--#{$select}__menu-item--m-action--focus--BackgroundColor);
 
     display: flex;
     align-items: flex-start;
     font-size: var(--#{$select}__menu-item--m-action--FontSize);
 
-    &:hover {
+    &:hover,
+    &:focus {
       --#{$select}__menu-item--m-action--Color: var(--#{$select}__menu-item--m-action--hover--Color);
     }
 
     &:focus {
       --#{$select}__menu-item--m-action--Color: var(--#{$select}__menu-item--m-action--focus--Color);
     }
-
-    // &:disabled {
-    //   --#{$select}__menu-item--disabled--Color: var(--#{$select}__menu-item--m-action--disabled--Color);
-    // }
   }
 
   &.pf-m-favorite-action {
@@ -639,16 +605,7 @@
     --#{$select}__menu-item--m-action--focus--Color: var(--#{$select}__menu-item--m-favorite-action--focus--Color);
   }
 
-  &.pf-m-selected {
-    --#{$select}__menu-item--PaddingRight: var(--#{$select}__menu-item--m-selected--PaddingRight);
-    --#{$select}__menu-item-main--PaddingRight: var(--#{$select}__menu-item--m-selected__menu-item-main--PaddingRight);
-  }
-
   &.pf-m-description {
-    &:not(.#{$check}) {
-      --#{$select}__menu-item--PaddingRight: 0;
-    }
-
     .#{$check}__label {
       white-space: nowrap;
     }
@@ -680,19 +637,6 @@
   }
 }
 
-// - Select menu item main
-.#{$select}__menu-item-main {
-  position: relative;
-  display: block;
-  padding-inline-end: var(--#{$select}__menu-item-main--PaddingRight);
-  white-space: nowrap;
-}
-
-// - Select menu item row
-.#{$select}__menu-item-row {
-  display: flex;
-}
-
 // - Select menu item text
 .#{$select}__menu-item-text {
   flex-grow: 1;
@@ -701,27 +645,20 @@
 // - Select menu item count
 .#{$select}__menu-item-count {
   align-self: center;
-  margin-inline-start: var(--#{$select}__menu-item-count--MarginLeft);
-  font-size: var(--#{$select}__menu-item-count--FontSize);
-  color: var(--#{$select}__menu-item-count--Color);
+  font-size: var(--#{$select}__menu-item-count--FontSize, inherit);
+  color: var(--#{$select}__menu-item-count--Color, inherit);
 }
 
 // - Select menu item description
 .#{$select}__menu-item-description {
-  display: block;
-  padding-inline-end: var(--#{$select}__menu-item-description--PaddingRight);
-  font-size: var(--#{$select}__menu-item-description--FontSize);
-  color: var(--#{$select}__menu-item-description--Color);
+  font-size: var(--#{$select}__menu-item-description--FontSize, inherit);
+  color: var(--#{$select}__menu-item-description--Color, inherit);
 }
 
 // - Select menu item icon
 .#{$select}__menu-item-icon {
-  position: absolute;
-  inset-block-start: var(--#{$select}__menu-item-icon--Top);
-  inset-inline-end: var(--#{$select}__menu-item-icon--Right);
-  font-size: var(--#{$select}__menu-item-icon--FontSize);
-  color: var(--#{$select}__menu-item-icon--Color);
-  transform: translateY(var(--#{$select}__menu-item-icon--TranslateY));
+  font-size: var(--#{$select}__menu-item-icon--FontSize, var(--#{$select}--icon--FontSize));
+  color: var(--#{$select}__menu-item-icon--Color, var(--#{$select}--icon--Color));
 }
 
 // - Select menu item action icon
@@ -734,7 +671,7 @@
 // - Select menu item match
 .#{$select}__menu-item--match {
   font-weight: var(--#{$select}__menu-item--match--FontWeight);
-  background-color: inherit;
+  // background-color: inherit;
 }
 
 // - Select menu search
@@ -762,5 +699,5 @@
   padding-block-end: var(--#{$select}__menu-footer--PaddingBottom, var(--#{$select}__menu-item--PaddingBottom));
   padding-inline-start: var(--#{$select}__menu-footer--PaddingLeft, var(--#{$select}__menu-item--PaddingLeft));
   padding-inline-end: var(--#{$select}__menu-footer--PaddingRight, var(--#{$select}__menu-item--PaddingRight));
-  border-top: var(--#{$select}__menu-footer--BorderWidth, var(--#{$select}--BorderWidth)) solid var(--#{$select}__menu-footer--BorderColor, var(--#{$select}--BorderColor));
+  border-block-start: var(--#{$select}__menu-footer--BorderWidth, var(--#{$select}--BorderWidth)) solid var(--#{$select}__menu-footer--BorderColor, var(--#{$select}--BorderColor));
 }
