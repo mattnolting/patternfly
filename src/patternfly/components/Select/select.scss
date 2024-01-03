@@ -12,11 +12,18 @@
   --#{$select}--BorderWidth: var(--pf-t--global--border--width--control--default);
   --#{$select}--BorderColor: var(--pf-t--global--border--color--default);
   --#{$select}--BorderRadius: var(--pf-t--global--border--radius--small);
+  --#{$select}--placeholder--Color: var(--pf-t--global--text--color--placeholder);
+  --#{$select}--hover--BorderWidth: var(--pf-t--global--border--width--control--default);
   --#{$select}--active--BorderWidth: var(--pf-t--global--border--width--button--active);
+  --#{$select}--disabled--Color: var(--pf-t--global--text--color--disabled);
+  --#{$select}--expanded--BorderWidth: var(--pf-t--global--border--width--control--active);
+  --#{$select}--success--BorderColor: var(--pf-t--global--border--color--status--success--clicked);
+  --#{$select}--invalid--BorderColor: var(--pf-t--global--color--status--danger--default);
   --#{$select}--icon--MinWidth: #{pf-size-prem(20px)};
   --#{$select}--action--MinWidth: #{pf-size-prem(40px)};
-  --#{$select}--placeholder--Color: var(--pf-t--global--text--color--placeholder);
-  --#{$select}--disabled--Color: var(--pf-t--global--text--color--disabled);
+  --#{$select}--status-icon--invalid--Color: var(--pf-t--global--icon--color--status--danger--default);
+  --#{$select}--status-icon--warning--Color: var(--pf-t--global--icon--color--status--warning--default);
+  --#{$select}--status-icon--success--Color: var(--pf-t--global--icon--color--status--success--default);
 
   // * Select toggle
   --#{$select}__toggle--MinWidth: var(--#{$pf-global}--target-size--MinWidth); // TODO: udpate when value becomes token
@@ -24,8 +31,14 @@
   --#{$select}__toggle--PaddingRight: var(--pf-t--global--spacer--sm);
   --#{$select}__toggle--ColumnGap: var(--pf-t--global--spacer--sm);
   --#{$select}__toggle--Color: var(--#{$select}--Color);
+  --#{$select}__toggle--BorderWidth: var(--pf-t--global--border--width--control--default);
+  --#{$select}__toggle--BorderColor: var(--pf-t--global--border--color--default);
   --#{$select}__toggle--BackgroundColor: var(--#{$select}--BackgroundColor);
-  --#{$select}__toggle--disabled--Color: var(--pf-t--global--icon--color--on-disabled);
+  --#{$select}__toggle--hover--BorderColor: var(--pf-t--global--border--color--brand--hover);
+  // --#{$select}__toggle--hover--BorderWidth: var(--pf-t--global--border--width--control--default);
+  --#{$select}__toggle--m-expanded--BorderWidth: var(--pf-t--global--border--width--control--active);
+  --#{$select}__toggle--disabled--Color: var(--pf-t--global--text--color--on-disabled);
+  --#{$select}__toggle--disabled--BackgroundColor: var(--pf-t--global--background--color--disabled--default);
   --#{$select}__toggle--m-plain--BorderColor: transparent;
   --#{$select}__toggle--m-placeholder--Color: transparent;
 
@@ -36,14 +49,58 @@
   --#{$select}__toggle-wrapper--PaddingInlineStart: var(--pf-t--global--spacer--sm);
   --#{$select}__toggle-wrapper--MaxWidth: calc(100% - var(--pf-t--global--spacer--lg));
 
-  // * Select menu
-  --#{$select}__menu--RowGap: var(--pf-t--global--spacer--sm);
-
   // * Select toggle text
   --#{$select}__toggle-text--PaddingTop: var(--pf-t--global--spacer--sm);
   --#{$select}__toggle-text--PaddingBottom: var(--pf-t--global--spacer--sm);
 
+  // * Select typeahead
+  --#{$select}__toggle-typeahead--MinWidth: #{pf-size-prem(120px)};
+  --#{$select}__toggle-typeahead--FlexBasis: 10em;
+  --#{$select}__toggle-typeahead--BackgroundColor: transparent;
+  --#{$select}__toggle-typeahead--BorderTop: var(--pf-t--global--border--width--control--default) solid transparent;
+
+  // * Select toggle badge
+  --#{$select}__toggle-badge--PaddingLeft: var(--pf-t--global--spacer--sm);
+
+  // * Select toggle button
+  --#{$select}__toggle-button--Color: var(--pf-t--global--icon--color--regular);
+
+  // * Select toggle clear
+  --#{$select}__toggle-clear--PaddingLeft: var(--pf-t--global--spacer--md);
+  --#{$select}__toggle-clear--toggle-button--PaddingLeft: var(--pf-t--global--spacer--sm);
+
+  // * Select toggle arrow
+  --#{$select}__toggle-arrow--m-top--m-expanded__toggle-arrow--Rotate: 180deg;
+
+  // * Select plain
+  --#{$select}--m-plain__toggle-arrow--Color: var(--pf-t--global--color--brand--default);
+  --#{$select}--m-plain--hover__toggle-arrow--Color: var(--pf-t--global--icon--color--regular);
+
+  // * Select toggle placeholder text
+  --#{$select}__toggle--m-placeholder__toggle-text--Color: var(--pf-t--global--text--color--placeholder);
+
+
+  // * Select invalid toggle status icon
+  --#{$select}--m-invalid__toggle-status-icon--Color: var(--pf-t--global--color--status--danger--default);
+
+  // * Select success toggle active
+  --#{$select}--m-success--active--BorderColor: var(--#{$pf-global}--success-color--100);
+
+  // * Select success toggle active
+  --#{$select}--m-success--m-expanded--BorderColor: var(--#{$pf-global}--success-color--100);
+
+  // * Select success toggle active
+  --#{$select}--m-success-status-icon--Color: var(--#{$pf-global}--success-color--100);
+
+  // * Select success toggle active
+  --#{$select}--m-warning--BorderColor: var(--#{$pf-global}--warning-color--100);
+  --#{$select}--m-warning--BorderWidth: var(--pf-t--global--border--width--control--active);
+  --#{$select}--m-warning--hover--BorderBottomColor: var(--#{$pf-global}--warning-color--100);
+  --#{$select}--m-warning--m-expanded--BorderBottomColor: var(--#{$pf-global}--warning-color--100);
+  --#{$select}--m-warning-status-icon--Color: var(--#{$pf-global}--warning-color--100);
+
   // * Select menu
+  --#{$select}__menu--RowGap: var(--pf-t--global--spacer--sm);
   --#{$select}__menu--Top: calc(100% + var(--pf-t--global--spacer--sm)); // The top of the menu must be pushed down to create space between the toggle and menu
   --#{$select}__menu--ZIndex: var(--pf-t--global--Zindex--md);
   --#{$select}__menu--Width: auto;
@@ -94,62 +151,6 @@
   --#{$select}__menu-item-icon--Top: 50%;
   --#{$select}__menu-item-icon--TranslateY: -50%;
 
-  // * Select invalid toggle
-  --#{$select}--m-invalid--BorderColor: var(--pf-t--global--color--status--danger--default);
-  --#{$select}--active--BorderWidth: var(--pf-t--global--border--width--control--active);
-
-  // * Select invalid toggle status icon
-  --#{$select}--m-invalid__toggle-status-icon--Color: var(--pf-t--global--color--status--danger--default);
-
-  // * Select success toggle active
-  --#{$select}--m-success__toggle--active--BorderBottomColor: var(--#{$pf-global}--success-color--100);
-
-  // * Select success toggle active
-  --#{$select}--m-success__toggle--m-expanded--BorderBottomColor: var(--#{$pf-global}--success-color--100);
-
-  // * Select success toggle active
-  --#{$select}--m-success__toggle-status-icon--Color: var(--#{$pf-global}--success-color--100);
-
-  // * Select success toggle active
-  --#{$select}--m-warning__toggle--BorderColor: var(--#{$pf-global}--warning-color--100);
-  --#{$select}--m-warning__toggle--BorderWidth: var(--pf-t--global--border--width--control--active);
-  --#{$select}--m-warning__toggle--hover--BorderBottomColor: var(--#{$pf-global}--warning-color--100);
-  --#{$select}--m-warning__toggle--m-expanded--BorderBottomColor: var(--#{$pf-global}--warning-color--100);
-  --#{$select}--m-warning__toggle-status-icon--Color: var(--#{$pf-global}--warning-color--100);
-
-    // Select input for typeahead
-  --#{$select}__toggle-typeahead--FlexBasis: 10em;
-  --#{$select}__toggle-typeahead--BackgroundColor: transparent;
-  --#{$select}__toggle-typeahead--BorderTop: var(--pf-t--global--border--width--control--default) solid transparent;
-
-  // Typeahead form
-  --#{$select}__toggle-typeahead--MinWidth: #{pf-size-prem(120px)};
-
-  // Toggle text
-  --#{$select}__toggle--m-placeholder__toggle-text--Color: var(--pf-t--global--text--color--placeholder);
-
-  //  Select toggle icon + toggle text
-  --#{$select}__toggle-icon--toggle-text--MarginLeft: var(--pf-t--global--spacer--sm);
-
-  // Select toggle badge
-  --#{$select}__toggle-badge--PaddingLeft: var(--pf-t--global--spacer--sm);
-
-  // Select toggle status icon
-  --#{$select}__toggle-status-icon--MarginLeft: var(--pf-t--global--spacer--sm);
-  --#{$select}__toggle-status-icon--Color: var(--pf-t--global--icon--color--regular);
-
-  // Toggle arrow
-  --#{$select}__toggle-arrow--m-top--m-expanded__toggle-arrow--Rotate: 180deg;
-
-  // * Select plain
-  --#{$select}--m-plain__toggle-arrow--Color: var(--pf-t--global--color--brand--default);
-  --#{$select}--m-plain--hover__toggle-arrow--Color: var(--pf-t--global--icon--color--regular);
-
-  // * Select toggle
-  --#{$select}__toggle-clear--PaddingLeft: var(--pf-t--global--spacer--md);
-  --#{$select}__toggle-clear--toggle-button--PaddingLeft: var(--pf-t--global--spacer--sm);
-  --#{$select}__toggle-button--Color: var(--pf-t--global--icon--color--regular);
-
   // * Select list item loading
   --#{$select}__list-item--m-loading--PaddingTop: var(--pf-t--global--spacer--sm);
 
@@ -198,14 +199,13 @@
 .#{$select}__menu-item-row,
 .#{$select}__menu-item-action-icon {
   display: flex;
-  column-gap: var(--#{$select}__toggle--ColumnGap);
 }
 
 .#{$select}__menu-item-main {
   display: grid;
-  column-gap: var(--#{$select}__toggle--ColumnGap);
   grid-template-columns: 1fr;
   grid-auto-flow: column;
+  column-gap: var(--#{$select}__toggle--ColumnGap);
 }
 
 .#{$select}__menu-item,
@@ -237,41 +237,6 @@
   }
 }
 
-// - Select
-.#{$select} {
-  position: relative;
-  color: var(--#{$select}--Color);
-  background-color: var(--#{$select}--BackgroundColor);
-
-  .#{$divider} {
-    margin-block-start: var(--#{$select}-menu--c-divider--MarginTop);
-    margin-block-end: var(--#{$select}-menu--c-divider--MarginBottom);
-  }
-
-  &.pf-m-invalid {
-    --#{$select}--BorderColor: var(--#{$select}--m-invalid--BorderColor);
-    --#{$select}--BorderWidth: var(--#{$select}--active--BorderWidth);
-    --#{$select}__toggle-status-icon--Color: var(--#{$select}--m-invalid__toggle-status-icon--Color);
-  }
-
-  &.pf-m-success {
-    --#{$select}--BorderColor: var(--#{$select}--m-success--BorderColor);
-    --#{$select}--BorderWidth: var(--#{$select}--active--BorderWidth);
-    --#{$select}__toggle-status-icon--Color: var(--#{$select}--m-success__toggle-status-icon--Color);
-  }
-
-  &.pf-m-warning {
-    --#{$select}--BorderColor: var(--#{$select}--m-warning--BorderColor);
-    --#{$select}--BorderWidth: var(--#{$select}--active--BorderWidth);
-    --#{$select}__toggle-status-icon--Color: var(--#{$select}--m-warning__toggle-status-icon--Color);
-  }
-
-  // TODO: update with check enhancements
-  .#{$check} {
-    --pf-v5-c-check--GridGap: 0 var(--pf-t--global--spacer--sm);
-  }
-}
-
 // - Select toggle
 .#{$select}__toggle {
   position: relative;
@@ -295,7 +260,7 @@
     inset: 0;
     pointer-events: none;
     content: "";
-    border: var(--#{$select}__toggle--BorderWidth, var(--#{$select}--BorderWidth)) solid var(--#{$select}__toggle--BorderColor, var(--#{$menu}toggle--BorderColor));
+    border: var(--#{$select}__toggle--BorderWidth) solid var(--#{$select}__toggle--BorderColor);
   }
 
   &,
@@ -304,16 +269,16 @@
   }
 
   // - Menu toggle hover
-  &:is(:hover, :focus),
-  :is(:hover, :focus) {
-    --#{$select}--icon--Color: var(--#{$select}__toggle--hover--icon--Color);
+  &:hover,
+  &:focus {
+    --#{$select}--icon--Color: var(--#{$select}__toggle--hover--status-icon--Color);
 
     color: var(--#{$select}__toggle--hover--Color, var(--#{$select}__toggle--Color));
     background-color: var(--#{$select}__toggle--hover--BackgroundColor, var(--#{$select}__toggle--BackgroundColor));
 
     &::before {
-      border-color: var(--#{$select}__toggle--hover--BorderColor, var(--#{$select}__toggle--BorderColor)); // point to default border width color
-      border-width: var(--#{$select}__toggle--hover--BorderWidth, var(--#{$select}__toggle--BorderWidth)); // point to default border width hover
+      border-color: var(--#{$select}__toggle--hover--BorderColor, var(--#{$select}--hover--BorderColor, var(--#{$select}--BorderColor))); // point to default border width color
+      border-width: var(--#{$select}__toggle--hover--BorderWidth, var(--#{$select}--hover--BorderWidth, var(--#{$select}--BorderWidth))); // point to default border width hover
     }
   }
 
@@ -338,18 +303,13 @@
 
     color: var(--#{$select}__toggle--disabled--Color);
     pointer-events: none;
-    background-color: var(--#{$select}__toggle--disabled--BackgroundColor);
+    background-color: var(--#{$select}__toggle--disabled--BackgroundColor, var(--#{$select}--disabled--BackgroundColor));
 
     &::before {
       border-color: var(--#{$select}__toggle--disabled--BorderColor, transparent);
       border-width: var(--#{$select}__toggle--disabled--BorderWidth, 0);
     }
   }
-
-  // .pf-m-expanded > & {
-  //   --#{$select}__toggle--BorderBottomColor: var(--#{$select}__toggle--m-expanded--BorderBottomColor);
-  //   --#{$select}__toggle--BorderBottomWidth: var(--#{$select}__toggle--m-expanded--BorderBottomWidth);
-  // }
 
   &.pf-m-plain {
     --#{$select}__toggle-arrow--Color: var(--#{$select}--m-plain__toggle-arrow--Color);
@@ -368,9 +328,7 @@
   }
 
   &.pf-m-typeahead {
-    --#{$select}__toggle--PaddingTop: 0;
-    --#{$select}__toggle--PaddingRight: 0;
-    --#{$select}__toggle--PaddingBottom: 0;
+    --#{$select}__toggle--ColumnGap: 0;
 
     .#{$form-control} {
       @include pf-v5-text-overflow;
@@ -400,41 +358,94 @@
   }
 }
 
+// - Select
+.#{$select} {
+  position: relative;
+  color: var(--#{$select}--Color);
+  background-color: var(--#{$select}--BackgroundColor);
+
+  .#{$divider} {
+    margin-block-start: var(--#{$select}-menu--c-divider--MarginTop);
+    margin-block-end: var(--#{$select}-menu--c-divider--MarginBottom);
+  }
+
+  &.pf-m-invalid,
+  &.pf-m-success,
+  &.pf-m-warning {
+    --#{$select}__toggle--BorderWidth: var(--#{$select}--active--BorderWidth);
+    --#{$select}__toggle--hover--BorderWidth: var(--#{$select}--active--BorderWidth);
+  }
+
+  &.pf-m-invalid {
+    --#{$select}__toggle--BorderColor: var(--#{$select}--invalid--BorderColor);
+    --#{$select}__toggle--hover--BorderColor: var(--#{$select}--invalid--BorderColor);
+    --#{$select}--status-icon--Color: var(--#{$select}--status-icon--invalid--Color);
+    --#{$select}__toggle--hover--icon--Color: var(--#{$select}--status-icon--invalid--Color);
+  }
+
+  &.pf-m-success {
+    --#{$select}__toggle--BorderColor: var(--#{$select}--success--BorderColor);
+    --#{$select}--status-icon--Color: var(--#{$select}--status-icon--success--Color);
+    --#{$select}__toggle--hover--BorderColor: var(--#{$select}--success--BorderColor);
+    --#{$select}__toggle--hover--icon--Color: var(--#{$select}--status-icon--success--Color);
+  }
+
+  &.pf-m-warning {
+    --#{$select}__toggle--BorderColor: var(--#{$select}--m-warning--BorderColor);
+    --#{$select}__toggle--hover--BorderColor: var(--#{$select}--m-warning--BorderColor);
+    --#{$select}--status-icon--Color: var(--#{$select}--status-icon--warning--Color);
+    --#{$select}__toggle--hover--icon--Color: var(--#{$select}--status-icon--warning--Color);
+  }
+
+  // TODO: update with check enhancements
+  .#{$check} {
+    --pf-v5-c-check--GridGap: 0 var(--pf-t--global--spacer--sm);
+  }
+}
+
 // - Select toggle arrow
 .#{$select}__toggle-button,
 .#{$select}__toggle-arrow,
 .#{$select}__toggle-status-icon,
 .#{$select}__toggle-action,
 .#{$select}__toggle-clear {
+  --pf-v5-c-button--m-plain--MinWidth: var(--#{$select}--action--MinWidth);
+  --pf-v5-c-button--PaddingLeft: 0;
+  --pf-v5-c-button--PaddingRight: 0;
+
   display: flex;
+  align-items: center;
+  align-self: stretch;
+  justify-content: center;
+  padding: 0;
+  color: var(--#{$select}__toggle--action--Color, inherit);
 
   // TODO: remove button wrapper when button updates merge
-  &,
-  &.#{$button} {
-    --pf-v5-c-button--m-plain--MinWidth: var(--#{$select}--action--MinWidth);
-    --pf-v5-c-button--PaddingLeft: 0;
-    --pf-v5-c-button--PaddingRight: 0;
+  &:last-child {
+    border-start-start-radius: 0;
+    border-end-start-radius: 0;
+  }
 
-    align-items: center;
-    align-self: stretch;
-    justify-content: center;
-    min-width: var(--#{$select}--action--MinWidth);
-    padding: 0;
-    color: var(--#{$select}__toggle--action--Color, inherit);
-
-    &:last-child {
-      border-start-start-radius: 0;
-      border-end-start-radius: 0;
-    }
-
-    &:not(:last-child) {
-      border-radius: 0;
-    }
+  &:not(:last-child) {
+    border-radius: 0;
   }
 
   .#{$select}.pf-m-top.pf-m-expanded & {
     transform: rotate(var(--#{$select}__toggle-arrow--m-top--m-expanded__toggle-arrow--Rotate));
   }
+}
+
+// - Select toggle arrow
+.#{$select}__toggle-button,
+.#{$select}__toggle-arrow,
+.#{$select}__toggle-action,
+.#{$select}__toggle-clear {
+  min-width: var(--#{$select}--action--MinWidth);
+}
+
+// - Select toggle status icon
+.#{$select}__toggle-status-icon {
+  color: var(--#{$select}--status-icon--Color);
 }
 
 // - Select toggle text
@@ -566,6 +577,7 @@
   // @at-root .#{$select}__menu-wrapper:focus-within,
   // .#{$select}__menu-wrapper.pf-m-focus,
   // &:focus,
+
   &.pf-m-focus {
     position: relative;
     background-color: var(--#{$select}__menu-item--focus--BackgroundColor);
@@ -622,6 +634,49 @@
     --#{$select}__menu-item--focus--BackgroundColor: transparent;
     --#{$select}__menu-item--Color: var(--#{$select}__menu-item--m-load--Color);
   }
+
+  // - Menu toggle hover
+  &:is(:hover, :focus),
+  :is(:hover, :focus) {
+    --#{$select}--icon--Color: var(--#{$select}__toggle--hover--icon--Color);
+
+    color: var(--#{$select}__toggle--hover--Color, var(--#{$select}__toggle--Color));
+    background-color: var(--#{$select}__toggle--hover--BackgroundColor, var(--#{$select}__toggle--BackgroundColor));
+
+    &::before {
+      border-color: var(--#{$select}__toggle--hover--BorderColor, var(--#{$select}__toggle--BorderColor)); // point to default border width color
+      border-width: var(--#{$select}__toggle--hover--BorderWidth, var(--#{$select}__toggle--BorderWidth)); // point to default border width hover
+    }
+  }
+
+  // - Menu toggle expanded
+  &:is(.pf-m-expanded, [aria-expanded="true"], [expanded]),
+  :is(.pf-m-expanded, [aria-expanded="true"], [expanded]) {
+    --#{$select}--icon--Color: var(--#{$select}__toggle--m-expanded--icon--Color);
+
+    color: var(--#{$select}__toggle--m-expanded--Color, var(--#{$select}__toggle--hover--Color, var(--#{$select}__toggle--Color)));
+    background-color: var(--#{$select}__toggle--m-expanded--BackgroundColor, var(--#{$select}__toggle--hover--BackgroundColor, var(--#{$select}__toggle--BackgroundColor)));
+
+    &::before {
+      border-color: var(--#{$select}__toggle--m-expanded--BorderColor, var(--#{$select}__toggle--hover--BorderColor, var(--#{$select}__toggle--BorderColor)));
+      border-width: var(--#{$select}__toggle--m-expanded--BorderWidth, var(--#{$select}__toggle--hover--BorderWidth, var(--#{$select}__toggle--BorderWidth)));
+    }
+  }
+
+  // - Menu toggle disabled
+  &:is(:disabled, [disabled], [aria-disabled="true"], .pf-m-disabled, .pf-m-aria-disabled),
+  :is(:disabled, [disabled], [aria-disabled="true"], .pf-m-disabled, .pf-m-aria-disabled) {
+    --#{$select}__toggle--icon--Color: var(--#{$select}__toggle--disabled--icon--Color);
+
+    color: var(--#{$select}__toggle--disabled--Color);
+    pointer-events: none;
+    background-color: var(--#{$select}__toggle--disabled--BackgroundColor);
+
+    &::before {
+      border-color: var(--#{$select}__toggle--disabled--BorderColor, transparent);
+      border-width: var(--#{$select}__toggle--disabled--BorderWidth, 0);
+    }
+  }
 }
 
 // - Select menu fieldset
@@ -657,6 +712,7 @@
 
 // - Select menu item icon
 .#{$select}__menu-item-icon {
+  margin-inline-start: auto;
   font-size: var(--#{$select}__menu-item-icon--FontSize, var(--#{$select}--icon--FontSize));
   color: var(--#{$select}__menu-item-icon--Color, var(--#{$select}--icon--Color));
 }
@@ -671,7 +727,6 @@
 // - Select menu item match
 .#{$select}__menu-item--match {
   font-weight: var(--#{$select}__menu-item--match--FontWeight);
-  // background-color: inherit;
 }
 
 // - Select menu search
