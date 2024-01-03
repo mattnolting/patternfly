@@ -35,7 +35,6 @@
   --#{$select}__toggle--BorderColor: var(--pf-t--global--border--color--default);
   --#{$select}__toggle--BackgroundColor: var(--#{$select}--BackgroundColor);
   --#{$select}__toggle--hover--BorderColor: var(--pf-t--global--border--color--brand--hover);
-  // --#{$select}__toggle--hover--BorderWidth: var(--pf-t--global--border--width--control--default);
   --#{$select}__toggle--m-expanded--BorderWidth: var(--pf-t--global--border--width--control--active);
   --#{$select}__toggle--disabled--Color: var(--pf-t--global--text--color--on-disabled);
   --#{$select}__toggle--disabled--BackgroundColor: var(--pf-t--global--background--color--disabled--default);
@@ -239,6 +238,11 @@
 
 // - Select toggle
 .#{$select}__toggle {
+  // TODO: update after form-control updates
+  .#{$form-control} {
+    --pf-v5-c-form-control--OutlineOffset: calc(var(--#{$form-control}--before--BorderWidth) * -1);
+  }
+
   position: relative;
   flex: 1 1 100%;
   justify-content: space-between;
@@ -271,44 +275,47 @@
   // - Menu toggle hover
   &:hover,
   &:focus {
+    --#{$select}--Color: var(--#{$select}__toggle--hover--Color, var(--#{$select}__toggle--Color));
+    --#{$select}--BackgroundColor: var(--#{$select}__toggle--hover--BackgroundColor, var(--#{$select}__toggle--BackgroundColor));
+    --#{$select}--BorderColor: var(--#{$select}__toggle--hover--BorderColor, var(--#{$select}--BorderColor)); // point to default border width color
+    --#{$select}--BorderWidth: var(--#{$select}__toggle--hover--BorderWidth, var(--#{$select}--BorderWidth)); // point to default border width hover
+
+    // - Select toggle icon
     --#{$select}--icon--Color: var(--#{$select}__toggle--hover--status-icon--Color);
-
-    color: var(--#{$select}__toggle--hover--Color, var(--#{$select}__toggle--Color));
-    background-color: var(--#{$select}__toggle--hover--BackgroundColor, var(--#{$select}__toggle--BackgroundColor));
-
-    &::before {
-      border-color: var(--#{$select}__toggle--hover--BorderColor, var(--#{$select}--hover--BorderColor, var(--#{$select}--BorderColor))); // point to default border width color
-      border-width: var(--#{$select}__toggle--hover--BorderWidth, var(--#{$select}--hover--BorderWidth, var(--#{$select}--BorderWidth))); // point to default border width hover
-    }
   }
 
   // - Menu toggle expanded
-  &:is(.pf-m-expanded, [aria-expanded="true"], [expanded]),
-  :is(.pf-m-expanded, [aria-expanded="true"], [expanded]) {
+  &:is(.pf-m-expanded, [aria-expanded="true"], [expanded]) {
+    --#{$select}--Color: var(--#{$select}__toggle--m-expanded--Color, var(--#{$select}__toggle--hover--Color, var(--#{$select}__toggle--Color)));
+    --#{$select}--BackgroundColor: var(--#{$select}__toggle--m-expanded--BackgroundColor, var(--#{$select}__toggle--hover--BackgroundColor, var(--#{$select}__toggle--BackgroundColor)));
+    --#{$select}--BorderColor: var(--#{$select}__toggle--m-expanded--BorderColor, var(--#{$select}__toggle--hover--BorderColor, var(--#{$select}__toggle--BorderColor)));
+    --#{$select}--BorderWidth: var(--#{$select}__toggle--m-expanded--BorderWidth, var(--#{$select}__toggle--hover--BorderWidth, var(--#{$select}__toggle--BorderWidth)));
+
+    // - Select toggle icon
     --#{$select}--icon--Color: var(--#{$select}__toggle--m-expanded--icon--Color);
-
-    color: var(--#{$select}__toggle--m-expanded--Color, var(--#{$select}__toggle--hover--Color, var(--#{$select}__toggle--Color)));
-    background-color: var(--#{$select}__toggle--m-expanded--BackgroundColor, var(--#{$select}__toggle--hover--BackgroundColor, var(--#{$select}__toggle--BackgroundColor)));
-
-    &::before {
-      border-color: var(--#{$select}__toggle--m-expanded--BorderColor, var(--#{$select}__toggle--hover--BorderColor, var(--#{$select}__toggle--BorderColor)));
-      border-width: var(--#{$select}__toggle--m-expanded--BorderWidth, var(--#{$select}__toggle--hover--BorderWidth, var(--#{$select}__toggle--BorderWidth)));
-    }
   }
 
   // - Menu toggle disabled
   &:is(:disabled, [disabled], [aria-disabled="true"], .pf-m-disabled, .pf-m-aria-disabled),
   :is(:disabled, [disabled], [aria-disabled="true"], .pf-m-disabled, .pf-m-aria-disabled) {
+    --#{$select}--Color: var(--#{$select}__toggle--disabled--Color);
+    --#{$select}--BackgroundColor: var(--#{$select}__toggle--disabled--BackgroundColor, var(--#{$select}--disabled--BackgroundColor));
     --#{$select}__toggle--icon--Color: var(--#{$select}__toggle--disabled--icon--Color);
 
-    color: var(--#{$select}__toggle--disabled--Color);
     pointer-events: none;
-    background-color: var(--#{$select}__toggle--disabled--BackgroundColor, var(--#{$select}--disabled--BackgroundColor));
 
     &::before {
       border-color: var(--#{$select}__toggle--disabled--BorderColor, transparent);
       border-width: var(--#{$select}__toggle--disabled--BorderWidth, 0);
     }
+  }
+
+  // - Select icon
+  :where([class*="icon"]) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: var(--#{$select}--icon--MinWidth);
   }
 
   &.pf-m-plain {
@@ -329,28 +336,23 @@
 
   &.pf-m-typeahead {
     --#{$select}__toggle--ColumnGap: 0;
+    --#{$select}__toggle--PaddingLeft: var(--#{$select}__toggle--m-typeahead--PaddingLeft, 0);
+    --#{$select}__toggle--PaddingRight: var(--#{$select}__toggle--m-typeahead--PaddingRight, 0);
 
     .#{$form-control} {
       @include pf-v5-text-overflow;
 
+      --pf-v5-c-form-control--OutlineOffset: 0;
+
       --#{$form-control}--invalid--BackgroundUrl: none;
 
       position: relative;
+
+      &::after {
+        border-end-start-radius: 0;
+        border-end-end-radius: 0;
+      }
     }
-  }
-
-  .#{$select}__toggle-clear {
-    padding-inline-start: var(--#{$select}__toggle-clear--PaddingLeft);
-    padding-inline-end: var(--#{$select}__toggle-clear--PaddingRight);
-    margin-inline-start: auto;
-  }
-
-  // - Select icon
-  :where([class*="icon"]) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: var(--#{$select}--icon--MinWidth);
   }
 
   &.pf-m-placeholder {
@@ -480,18 +482,34 @@
 
 // - Select toggle typeahead
 .#{$select}__toggle-typeahead {
+  --pf-v5-c-form-control--BorderRadius: 0;
+  --pf-v5-c-form-control--before--BorderStyle: none;
+
   flex-basis: var(--#{$select}__toggle-typeahead--FlexBasis);
   flex-grow: 1;
   flex-shrink: 0;
   min-width: var(--#{$select}__toggle-typeahead--MinWidth);
 
+  border-radius: 0;
+
+  &:focus,
+  &:focus-within,
+  .#{form-control}:active {
+    --#{form-control}--before--BorderWidth: var(--#{$select}--active--BorderWidth);
+  }
+
+  > :is(input, select, textarea) {
+    outline: none;
+  }
+
   &.#{$form-control} {
     background-color: var(--#{$select}__toggle-typeahead--BackgroundColor);
+    outline: none;
 
-    &::before,
-    &::after {
-      border: 0;
-    }
+    // &::before,
+    // &::after {
+    //   border: 0;
+    // }
   }
 }
 
