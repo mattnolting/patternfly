@@ -95,10 +95,9 @@ export const dasherize = (...params) => {
   let newString = '';
 
   params.forEach(function(element, i) {
-    if (typeof element === 'string') {
+    if ((typeof element) === 'string') {
       newString += element.replace(/[A-Z]/g, m => '-' + m.toLowerCase().replace(/\s/g, ''));
     }
-    // console.log(element);
   });
 
   return newString
@@ -130,7 +129,6 @@ export const hasValue = function (prop) {
 }
 
 // export const setType = function (variable, el, fallback, type = 'testinggdsagadsg', options) {
-
 export const setType = function (type = 'testinggdsagadsg') {
   const name = type;
 
@@ -159,14 +157,31 @@ export const setType = function (type = 'testinggdsagadsg') {
 //
 // ======================================================================================
 export const setTag = function (partialVar, el, fallback = 'div') {
-  console.log(typeof partialVar);
-  if ((typeof partialVar === 'object') && partialVar !== undefined) {
-    this.tag = el;
-  } else if (Array.isArray(partialVar)) {
-    this.tag = partialVar.includes(true) ? el : fallback;
-  } else {
-    this.tag = fallback;
+  let newTag = fallback;
+
+  if (!this.settings) {
+    this.settings = {};
   }
+
+  if (typeof partialVar === 'undefined' || partialVar === null) {
+    console.log('This variable is undefined');
+  } else if (!partialVar.isExtensible) {
+    console.log('This variable is not extensible');
+  } else {
+    if ((partialVar !== null || partialVar !== undefined) && partialVar.isExtensible) {
+      if ((typeof partialVar === 'object') && partialVar !== undefined) {
+        newTag = el;
+      } else if (Array.isArray(partialVar) && partialVar.includes(true || 'true')) {
+        newTag = el;
+      } else if ((typeof partialVar) === 'string') {
+        console.log('its an string');
+        newTag = el;
+      }
+    }
+  }
+
+  this.settings.tag = newTag;
+  console.log(this, (typeof this.settings.tag));
 };
 
 // ======================================================================================
@@ -181,8 +196,11 @@ export const setTag = function (partialVar, el, fallback = 'div') {
 // Options:
 //     Can request a specific value to be logged. `component--id` is requested on the second line
 // ======================================================================================
-export const tag = function (tag) {
-  return this.tag;
+export const tag = function () {
+  return this.settings.tag;
+  // return 'div';
+
+  // debug(this);
 };
 
 // ======================================================================================
@@ -213,20 +231,6 @@ export const reset = function (...params) {
     element = undefined;
   })
 };
-
-// ======================================================================================
-// stringToLower: is a helper funcdtion that transforms a string to lowercase
-// ======================================================================================
-export const ifAll = function (array, result) {
-  if (Array.isArray(array)) {
-    console.log('its and array');
-  }
-  console.log(typeof array);
-
-  console.log(Array.isArray(array), result);
-
-  // return newString;
-}
 
 // ======================================================================================
 // setModifiers: setModifiers is a helper function that returns a string of all partials parameters that are true

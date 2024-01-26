@@ -1,7 +1,5 @@
-{{setTag menu-toggle-button--IsButton 'button' 'div'}}
-
-<{{tag}} class="{{pfv}}menu-toggle__button
-  {{#if menu-toggle-button--IsAction}}
+<{{#ifAny menu-toggle--IsDiv menu-toggle--IsSplitButton menu-toggle--IsAction}}button{{else}}div{{/ifAny}} class="{{pfv}}menu-toggle__button
+  {{#if menu-toggle--IsAction}}
     pf-m-action
   {{/if}}
   {{#if menu-toggle-button--modifier}}
@@ -10,11 +8,7 @@
   {{#if menu-toggle-button--attribute}}
     {{{menu-toggle-button--attribute}}}
   {{/if}}>
-  {{#if menu-toggle--IsToggle}}
-    {{> menu-toggle-toggle--icon}}
-  {{else if menu-toggle-button--text}}
-    {{menu-toggle-button--text}}
-  {{else if @partial-block}}
+  {{#if @partial-block}}
     {{> @partial-block}}
   {{/if}}
-</{{tag}}>
+</{{#ifAny menu-toggle--IsDiv menu-toggle--IsSplitButton menu-toggle--IsAction}}button{{else}}div{{/ifAny}}>

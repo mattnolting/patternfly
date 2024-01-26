@@ -2,5 +2,7 @@
   {{#if menu-toggle-controls--attribute}}
     {{{menu-toggle-controls--attribute}}}
   {{/if}}>
-  {{> @partial-block}}
+  {{#if @partial-block}}
+    {{> @partial-block}}
+  {{/if}}
 </div>

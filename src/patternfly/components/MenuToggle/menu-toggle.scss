@@ -55,10 +55,10 @@
   --#{$menu-toggle}__toggle-icon--MinWidth: calc(var(--#{$menu-toggle}__toggle-icon--Size) + var(--#{$menu-toggle}--PaddingInline) * 2);
 
   // * Menu icon
-  --#{$menu-toggle}__icon--Size: var(--pf-t--global--icon--size--md);
-  --#{$menu-toggle}__icon--LineHeight: var(--pf-t--global--font--line-height--body);
-  --#{$menu-toggle}__icon--MinWidth: calc(var(--#{$menu-toggle}__icon--Size) * var(--#{$menu-toggle}__icon--LineHeight));
-  --#{$menu-toggle}__icon--MinWidth: var(--pf-t--global--spacer--button--horizontal--default);
+  // --#{$menu-toggle}__icon--Size: var(--pf-t--global--icon--size--md);
+  // --#{$menu-toggle}__icon--LineHeight: var(--pf-t--global--font--line-height--body);
+  // --#{$menu-toggle}__icon--MinWidth: calc(var(--#{$menu-toggle}__icon--Size) * var(--#{$menu-toggle}__icon--LineHeight));
+  // --#{$menu-toggle}__icon--MinWidth: var(--pf-t--global--spacer--button--horizontal--default);
 
   // * Menu toggle disabled
   --#{$menu-toggle}--disabled--Color: var(--pf-t--global--text--color--on-disabled);
@@ -120,6 +120,7 @@
   --#{$menu-toggle}--m-action__control--PaddingRight: var(--pf-v5-global--spacer--sm);
   --#{$menu-toggle}--m-action--PaddingInline: var(--pf-v5-global--spacer--lg);
   --#{$menu-toggle}--m-action--PaddingRight: var(--pf-v5-global--spacer--lg);
+  --#{$menu-toggle}--m-action--ColumnGap: var(--pf-t--global--border--width--control--default);
 
   // * Menu toggle split button action secondary
   --#{$menu-toggle}--m-action--m-primary--BackgroundColor: var(--pf-t--global--border--color--brand--default);
@@ -150,7 +151,6 @@
 // - Menu toggle control - Menu toggle controls - Menu toggle count
 .#{$menu-toggle}__main,
 .#{$menu-toggle}__controls,
-.#{$menu-toggle}__control,
 .#{$menu-toggle}__count {
   display: flex;
   align-items: center;
@@ -158,24 +158,10 @@
   justify-content: center;
 }
 
-// // - Menu toggle control
-// .#{$menu-toggle}__control {
-//   min-width: var(--#{$menu-toggle}__control--MinWidth);
-//   min-height: var(--#{$menu-toggle}__control--MinHeight);
-//   padding-block-start: var(--#{$menu-toggle}__control--PaddingBlockStart);
-//   padding-block-end: var(--#{$menu-toggle}__control--PaddingBlockEnd);
-//   font-size: var(--#{$menu-toggle}--FontSize);
-//   line-height: var(--#{$menu-toggle}--LineHeight);
-
-//   &:only-child {
-//     min-width: var(--#{$menu-toggle}__control--only-child--MinWidth);
-//   }
-// }
-
 .#{$menu-toggle}__main {
+  column-gap: var(--#{$menu-toggle}__main--ColumnGap, var(--#{$menu-toggle}--ColumnGap));
   padding-inline-start: var(--#{$menu-toggle}__main--PaddingInlineStart, var(--#{$menu-toggle}__main--PaddingInline));
   padding-inline-end: var(--#{$menu-toggle}__main--PaddingInlineEnd, var(--#{$menu-toggle}__main--PaddingInline));
-  column-gap: var(--#{$menu-toggle}__main--ColumnGap, var(--#{$menu-toggle}--ColumnGap));
 }
 
 @include pf-v5-button-proportional('.#{$menu-toggle}__control:only-child', 'var(--#{$menu-toggle}__control--only-child--MinWidth)'); // make toggle only buttons square
@@ -186,18 +172,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  max-width: 100%;
-  padding-block-start: 0;
-  padding-block-end: 0;
-  padding-inline-start: var(--#{$menu-toggle}--PaddingInlineStart, var(--#{$menu-toggle}--PaddingInline));
-  padding-inline-end: var(--#{$menu-toggle}--PaddingRight, var(--#{$menu-toggle}--PaddingInline));
-  padding-inline-start: 0;
-  padding-inline-end: 0;
-  cursor: pointer;
+  width: max-content; // set max content to prevent flex/grid layout from stretching
+  padding: 0;
   overflow: hidden;
   font-size: var(--#{$menu-toggle}--FontSize);
   line-height: var(--#{$menu-toggle}--LineHeight);
   color: var(--#{$menu-toggle}--Color);
+  cursor: pointer;
   background-color: var(--#{$menu-toggle}--BackgroundColor);
   border: 0;
 
@@ -217,30 +198,9 @@
     border-radius: var(--#{$menu-toggle}--BorderRadius);
   }
 
-  &:where(button) {
-    cursor: pointer;
+  &:where(:not(.pf-m-split-button, .pf-m-typeahead)) > * {
+    pointer-events: none;
   }
-
-  :where(.#{$button}) {
-    --#{$button}--BackgroundColor: var(--#{$menu-toggle}--BackgroundColor);
-
-    &:hover {
-      background-color: var(--#{$menu-toggle}--hover--BackgroundColor);
-    }
-
-    // TODO: put button 'suggestions' here, :where(button) - padding, background color, etc
-    --pf-v5-c-button--BorderRadius: 0;
-  }
-
-  // > :first-child:where(:not(:only-child)) {
-  //   border-start-start-radius: var(--#{$menu-toggle}--BorderRadius);
-  //   border-end-start-radius: var(--#{$menu-toggle}--BorderRadius);
-  // }
-
-  // > :last-child:where(:not(:only-child))  {
-  //   border-start-end-radius: var(--#{$menu-toggle}--BorderRadius);
-  //   border-end-end-radius: var(--#{$menu-toggle}--BorderRadius);
-  // }
 
   // - Menu toggle primary
   &.pf-m-primary {
@@ -312,6 +272,7 @@
   &:is(:hover, :focus),
   .#{$menu-toggle}__button:is(:hover, :focus, .pf-m-hover) {
     --#{$menu-toggle}--Color: var(--#{$menu-toggle}--hover--Color);
+    --#{$menu-toggle}--BackgroundColor: var(--#{$menu-toggle}--hover--BackgroundColor, inherit); // point to default border width color
     --#{$menu-toggle}--BorderColor: var(--#{$menu-toggle}--hover--BorderColor, inherit); // point to default border width color
     --#{$menu-toggle}--BorderWidth: var(--#{$menu-toggle}--hover--BorderWidth, inherit); // point to default border width hover
   }
@@ -347,6 +308,8 @@
   &.pf-m-action {
     --#{$menu-toggle}--BorderRadius: var(--#{$menu-toggle}--m-action--BorderRadius, var(--#{$menu-toggle}--m-button--BorderRadius));
     --#{$menu-toggle}--PaddingInline: var(--pf-t--global--spacer--lg);
+    --#{$menu-toggle}--ColumnGap: var(--#{$menu-toggle}--m-action--ColumnGap);
+    --#{$menu-toggle}--PaddingInlineStart: 12px;
   }
 
   &.pf-m-button {
@@ -380,12 +343,13 @@
 
 // - Menu toggle controls
 .#{$menu-toggle}__controls {
+  .#{$menu-toggle}__button:has(.#{$button}) {
+    padding: revert;
+  }
 
   .#{$menu-toggle}__button,
   :where(.#{$button}) {
     align-self: stretch;
-    border: none;
-    outline-offset: 1px;
 
     &,
     &::before,
@@ -394,13 +358,14 @@
     }
   }
 
-  .#{$menu-toggle}__button:has(.#{$button}) {
-    padding: 0;
+  :where(.#{$button}),
+  :where(.#{$button}.pf-m-adaptive) {
+    align-self: stretch;
+    justify-self: stretch;
+    aspect-ratio: 1 / 1;
+    padding: revert;
   }
 
-  :where(.#{$button}):hover {
-    mix-blend-mode: var(--pf-t--global--background--color--action--plain--hover--blend);
-  }
 }
 
 // - Menu toggle button
@@ -410,9 +375,9 @@
   flex-wrap: nowrap;
   column-gap: var(--#{$menu-toggle}__button--ColumnGap);
   align-items: center;
-  align-self: stretch;
   padding-block: 0;
-  padding-inline: 0;
+  padding-inline-start: var(--#{$menu-toggle}--PaddingInlineStart, 0);
+  padding-inline-end: var(--#{$menu-toggle}--PaddingInlineEnd, 0);
   font-size: var(--#{$menu-toggle}--FontSize);
   line-height: var(--#{$menu-toggle}--LineHeight);
   color: var(--#{$menu-toggle}--Color);
@@ -421,11 +386,11 @@
   outline-offset: var(--#{$menu-toggle}--OutlineOffset);
 
   > :first-child:not(:only-child) {
-    margin-inline-start: calc(var(--#{$menu-toggle}--ColumnGap) / 2);
+    --#{$menu-toggle}--PaddingInlineStart: calc(var(--#{$menu-toggle}--ColumnGap) / 2);
   }
 
   > :last-child:not(:only-child) {
-    margin-inline-end: var(--#{$menu-toggle}--PaddingInline);
+    --#{$menu-toggle}--PaddingInlineEnd: var(--#{$menu-toggle}--PaddingInline);
   }
 }
 
@@ -442,7 +407,7 @@
 // - Menu toggle toggle icon - Menu toggle icon
 .#{$menu-toggle}__toggle-icon {
   font-size: var(--#{$menu-toggle}__toggle-icon--Size);
-
+  line-height: var(--#{$menu-toggle}__icon--LineHeight);
 }
 
 @include pf-v5-button-proportional('.#{$menu-toggle}__toggle-icon', 'var(--#{$menu-toggle}__toggle-icon--Size)'); // make toggle only buttons square
@@ -460,7 +425,6 @@
 .#{$menu-toggle}__icon {
   display: flex;
   align-items: center;
-  align-self: center;
   justify-content: center;
   color: var(--#{$menu-toggle}__icon--Color);
 }
@@ -515,11 +479,15 @@
   padding-inline-start: var(--#{$menu-toggle}--c-check--PaddingInlineStart);
   padding-inline-end: var(--#{$menu-toggle}--c-check--PaddingInlineEnd);
 
+  & + .#{$menu-toggle}__main {
+    --#{$menu-toggle}__main--PaddingInlineStart: 0;
+  }
+
   // TODO: apply background color and mix-blend-mode here
+  // margin-inline-start: var(--#{$menu-toggle}--c-check--PaddingInline);
 
   .#{$check}__input {
     align-self: center;
-    // margin-inline-start: var(--#{$menu-toggle}--c-check--PaddingInline);
     transform: none;
 
     &::before {

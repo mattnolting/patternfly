@@ -1,10 +1,5 @@
-{{setTag (array menu-toggle--IsDiv menu-toggle--IsAction menu-toggle--IsCheck menu-toggle--IsSplitButton) 'div' 'button'}}
-
-<{{tag}} class="{{pfv}}menu-toggle
-  {{
-    setModifiers
-    menu-toggle--IsButtonStyle='pf-m-button'
-    menu-toggle--IsControlStyle='pf-m-control'
+<{{#ifAny menu-toggle--IsDiv menu-toggle--IsSplitButton menu-toggle--IsAction}}div{{else}}button{{/ifAny}} class="{{pfv}}menu-toggle
+  {{setModifiers
     menu-toggle--IsPrimary='pf-m-primary'
     menu-toggle--IsSecondary='pf-m-secondary'
     menu-toggle--IsPlain='pf-m-plain'
@@ -14,11 +9,10 @@
     menu-toggle--IsAction='pf-m-action'
     menu-toggle--IsSplitButton='pf-m-split-button'
     menu-toggle--IsDisabled='pf-m-disabled'
-    menu-toggle--IsHover='pf-m-hover'
     menu-toggle--modifier=menu-toggle--modifier
   }}"
 
-  {{#ifEquals tag 'button'}}
+  {{#unless (concat menu-toggle--IsDiv menu-toggle--IsSplitButton menu-toggle--IsAction)}}
     type="button"
     {{#if menu-toggle--IsExpanded}}
       aria-expanded="true"
@@ -28,7 +22,7 @@
     {{#if menu-toggle--IsDisabled}}
       disabled
     {{/if}}
-  {{/ifEquals}}
+  {{/unless}}
 
   {{#if menu-toggle--id}}
     id="{{menu-toggle--id}}"
@@ -48,35 +42,38 @@
     {{/if}}
 
     {{#ifAny menu-toggle--icon menu-toggle--HasAvatar menu-toggle--text menu-toggle--badge--count}}
-      {{#if menu-toggle--IsAction}}
-        {{> menu-toggle-button menu-toggle-button--text=menu-toggle--text}}
-      {{else}}
-        {{#> menu-toggle-main}}
-          {{#if menu-toggle--icon}}
-            {{> menu-toggle-icon}}
-          {{/if}}
-          {{#if menu-toggle--HasAvatar}}
-            {{#> menu-toggle-icon}}
-              {{> avatar avatar--modifier='pf-m-sm'}}
-            {{/menu-toggle-icon}}
-          {{/if}}
-          {{#if menu-toggle--text}}
-            {{> menu-toggle-text}}
-          {{/if}}
-          {{#if menu-toggle--badge--count}}
-            {{#> menu-toggle-count}}
-              {{> badge badge--modifier="pf-m-unread" badge--text=menu-toggle--badge--count}}
-            {{/menu-toggle-count}}
-          {{/if}}
-        {{/menu-toggle-main}}
-      {{/if}}
+      {{#> menu-toggle-main}}
+
+        {{#if menu-toggle--icon}}
+          {{> menu-toggle-icon}}
+        {{/if}}
+
+        {{#if menu-toggle--HasAvatar}}
+          {{#> menu-toggle-icon}}
+            {{> avatar avatar--modifier='pf-m-sm'}}
+          {{/menu-toggle-icon}}
+        {{/if}}
+
+        {{#if menu-toggle--text}}
+          {{> menu-toggle-text}}
+        {{/if}}
+
+        {{#if menu-toggle--badge--count}}
+          {{#> menu-toggle-count}}
+            {{> badge badge--modifier="pf-m-unread" badge--text=menu-toggle--badge--count}}
+          {{/menu-toggle-count}}
+        {{/if}}
+
+      {{/menu-toggle-main}}
     {{/ifAny}}
+
     {{#> menu-toggle-controls}}
-      {{#> menu-toggle-button}}
-        {{#> button button--IsPlain=true button--type=(ternary (hasValue (array menu-toggle--IsDiv menu-toggle--IsAction menu-toggle--IsCheck menu-toggle--IsSplitButton)) 'button' 'span')}}
+      {{#> menu-toggle-button button--type=(ternary (hasValue (array menu-toggle--IsDiv menu-toggle--IsAction menu-toggle--IsSplitButton)) 'button' 'span')}}
+        {{#> button button--IsPlain=true}}
           {{> menu-toggle-toggle-icon}}
         {{/button}}
       {{/menu-toggle-button}}
     {{/menu-toggle-controls}}
+
   {{/if}}
-</{{tag}}>
+</{{#ifAny menu-toggle--IsDiv menu-toggle--IsSplitButton menu-toggle--IsAction}}div{{else}}button{{/ifAny}}>
