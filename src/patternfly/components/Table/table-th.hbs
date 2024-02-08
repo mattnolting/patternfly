@@ -47,7 +47,7 @@
       {{#> table-button-content}}
         {{#> table-text}}
           {{#if table-th--IsFavorite}}
-            <i class="fas fa-star" aria-hidden="true"></i>
+            <i class="fas fa-fw fa-star" aria-hidden="true"></i>
           {{else}}
             {{> @partial-block}}
           {{/if}}
@@ -55,12 +55,12 @@
         {{#> table-sort-indicator}}
           {{#if table-th--selected}}
             {{#if table-th--asc}}
-              <i class="fas fa-long-arrow-alt-up"></i>
+              <i class="fas fa-fw fa-long-arrow-alt-up"></i>
             {{else}}
-              <i class="fas fa-long-arrow-alt-down"></i>
+              <i class="fas fa-fw fa-long-arrow-alt-down"></i>
             {{/if}}
           {{else}}
-            <i class="fas fa-arrows-alt-v"></i>
+            <i class="fas fa-fw fa-arrows-alt-v"></i>
           {{/if}}
         {{/table-sort-indicator}}
       {{/table-button-content}}
