@@ -1,0 +1,16 @@
+// @debug $resize-observer; // check your variable names located in src/patternfly/sass-utilities/component-namespaces
+
+.#{$resize-observer} {
+  display: block;
+
+  &[data-size="lg"] {
+    background: var(--pf-t--global--background--color--400);
+  }
+}
+
+.#{$masthead} {
+  &[data-size="lg"] {
+    background: var(--pf-t--global--background--color--400);
+  }
+}
+
