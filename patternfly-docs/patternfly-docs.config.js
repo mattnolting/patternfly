@@ -16,6 +16,10 @@ module.exports = {
   ],
   topNavItems: [
     {
+      text: 'OpenForge',
+      path: '/OpenForge'
+    },
+    {
       text: 'Contribute',
       path: '/contribution'
     },
