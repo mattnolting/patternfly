@@ -1,11 +1,11 @@
-{{#> table table--id=(concat card--id '-popover-table') table--modifier="pf-m-compact" table--expandable="true" table--attribute='aria-label="Control panel table"'}}
+{{#> table table--id=(concat card--id '-popover-table') table--modifier="pf-m-compact" table--IsExpandable=true table--aria-label='Control panel table"'}}
   {{#> table-thead}}
     {{#> table-tr}}
-      {{#> table-td}}{{/table-td}}
-      {{#> table-th table-th--attribute='scope="col"'}}
+      {{> table-cell table-cell--IsEmpty=true}}
+      {{#> table-th}}
         Components
       {{/table-th}}
-      {{#> table-th table-th--attribute='scope="col"' table-th--modifier="pf-m-fit-content"}}
+      {{#> table-th  table-th--modifier="pf-m-fit-content"}}
         Response rate
       {{/table-th}}
     {{/table-tr}}
@@ -13,7 +13,7 @@
 
   {{#> table-tbody table-tbody--modifier="pf-m-expanded"}}
     {{#> table-tr table-tr--expanded="true"}}
-      {{#> table-td table-td--toggle="true" table-td--button--attribute=(concat 'aria-labelledby="' table--id '-node1 expandable-toggle1" id="expandable-toggle1" aria-label="Details" aria-controls="' table--id '-content1"')}}{{/table-td}}
+      {{#> table-td table-td--table--IsGrid=true table-td--button--attribute=(concat 'aria-labelledby="' table--id '-node1 expandable-toggle1" id="expandable-toggle1" aria-label="Details" aria-controls="' table--id '-content1"')}}{{/table-td}}
       {{#> table-td table-td--data-label="Branches" table-td--attribute='id="{{table--id}}-node1"'}}
         {{#> table-text}}
           API Servers
@@ -26,7 +26,7 @@
       {{/table-td}}
     {{/table-tr}}
 
-    {{#> table-tr table-tr--expandable="true" table-tr--IsExpanded="true"}}
+    {{#> table-tr table-tr--expandable="true" table-tr--IsExpanded=true}}
       {{#> table-td table-td--attribute=(concat 'colspan="3" id="' table--id '-content1"')}}
         <div class="{{pfv}}table__expandable-row-content">
           {{#> alert alert--modifier="pf-m-danger pf-m-inline" alert--attribute='aria-label="Inline danger alert"'}}
@@ -44,7 +44,7 @@
 
   {{#> table-tbody}}
     {{#> table-tr}}
-      {{#> table-td table-td--toggle="true" table-td--button--attribute=(concat 'aria-labelledby="' table--id '-node1 expandable-toggle2" id="expandable-toggle2" aria-label="Details" aria-controls="' table--id '-content2"')}}{{/table-td}}
+      {{#> table-td table-td--table--IsGrid=true table-td--button--attribute=(concat 'aria-labelledby="' table--id '-node1 expandable-toggle2" id="expandable-toggle2" aria-label="Details" aria-controls="' table--id '-content2"')}}{{/table-td}}
       {{#> table-td table-td--data-label="Branches" table-td--attribute='id="{{table--id}}-node2"'}}
         {{#> table-text}}
           Controller Managers
@@ -68,7 +68,7 @@
 
   {{#> table-tbody}}
     {{#> table-tr}}
-      {{#> table-td table-td--toggle="true" table-td--button--attribute=(concat 'aria-labelledby="' table--id '-node1 expandable-toggle3" id="expandable-toggle3" aria-label="Details" aria-controls="' table--id '-content3"')}}{{/table-td}}
+      {{#> table-td table-td--table--IsGrid=true table-td--button--attribute=(concat 'aria-labelledby="' table--id '-node1 expandable-toggle3" id="expandable-toggle3" aria-label="Details" aria-controls="' table--id '-content3"')}}{{/table-td}}
       {{#> table-td table-td--data-label="Branches" table-td--attribute='id="{{table--id}}-node3"'}}
         {{#> table-text}}
           Schedulers
@@ -92,7 +92,7 @@
 
   {{#> table-tbody}}
     {{#> table-tr}}
-      {{#> table-td table-td--toggle="true" table-td--button--attribute=(concat 'aria-labelledby="' table--id '-node1 expandable-toggle4" id="expandable-toggle4" aria-label="Details" aria-controls="' table--id '-content4"')}}{{/table-td}}
+      {{#> table-td table-td--table--IsGrid=true table-td--button--attribute=(concat 'aria-labelledby="' table--id '-node1 expandable-toggle4" id="expandable-toggle4" aria-label="Details" aria-controls="' table--id '-content4"')}}{{/table-td}}
       {{#> table-td table-td--data-label="Branches" table-td--attribute='id="{{table--id}}-node4"'}}
         {{#> table-text}}
           etcd

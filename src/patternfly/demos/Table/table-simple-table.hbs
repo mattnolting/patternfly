@@ -1,24 +1,24 @@
-{{#> table table--id=(concat page--id '-table') table--grid="true" table--modifier=(concat 'pf-m-grid-md ' table-simple-table--modifier) table--attribute='aria-label="This is a table with checkboxes"'}}
+{{#> table table--id=(concat page--id '-table') table--IsGrid=true table--modifier=(concat 'pf-m-grid-md ' table-simple-table--modifier) table--aria-label='This is a table with checkboxes"'}}
   {{#> table-thead}}
     {{#> table-tr}}
-      {{> table-td table-td--IsEmpty="true"}}
-      {{#> table-th table-th--attribute='scope="col"'}}
+      {{> table-cell table-cell--IsEmpty=true}}
+      {{#> table-th}}
         Repositories
       {{/table-th}}
-      {{#> table-th table-th--attribute='scope="col"'}}
+      {{#> table-th}}
         Branches
       {{/table-th}}
-      {{#> table-th table-th--attribute='scope="col"'}}
+      {{#> table-th}}
         Pull requests
       {{/table-th}}
-      {{#> table-th table-th--attribute='scope="col"'}}
+      {{#> table-th}}
         Workspaces
       {{/table-th}}
-      {{#> table-th table-th--attribute='scope="col"'}}
+      {{#> table-th}}
         Last commit
       {{/table-th}}
-      {{> table-td table-td--IsEmpty="true"}}
-      {{> table-td table-td--IsEmpty="true"}}
+      {{> table-cell table-cell--IsEmpty=true}}
+      {{> table-cell table-cell--IsEmpty=true}}
     {{/table-tr}}
   {{/table-thead}}
 
@@ -50,9 +50,7 @@
       {{#> table-td table-td--data-label="Action"}}
         <a href="#">Action link</a>
       {{/table-td}}
-      {{#> table-td table-td--action="true"}}
-        {{> dropdown dropdown--id=(concat table--id "-dropdown-kebab-1") dropdown-menu--modifier="pf-m-align-right" dropdown-toggle--IsPlain="true"}}
-      {{/table-td}}
+      {{> table-cell table-cell--IsAction=true}}
     {{/table-tr}}
 
     {{#> table-tr}}
@@ -82,9 +80,7 @@
       {{#> table-td table-td--data-label="Action"}}
         <a href="#">Action link</a>
       {{/table-td}}
-      {{#> table-td table-td--action="true"}}
-        {{> dropdown dropdown--id=(concat table--id "-dropdown-kebab-2") dropdown-menu--modifier="pf-m-align-right" dropdown-toggle--IsPlain="true"}}
-      {{/table-td}}
+      {{> table-cell table-cell--IsAction=true}}
     {{/table-tr}}
 
     {{#> table-tr}}
@@ -114,9 +110,7 @@
       {{#> table-td table-td--data-label="Action"}}
         <a href="#">Action link</a>
       {{/table-td}}
-      {{#> table-td table-td--action="true"}}
-        {{> dropdown dropdown--id=(concat table--id "-dropdown-kebab-3") dropdown-menu--modifier="pf-m-align-right" dropdown-toggle--IsPlain="true"}}
-      {{/table-td}}
+      {{> table-cell table-cell--IsAction=true}}
     {{/table-tr}}
 
     {{#> table-tr}}
@@ -146,9 +140,7 @@
       {{#> table-td table-td--data-label="Action"}}
         <a href="#">Action link</a>
       {{/table-td}}
-      {{#> table-td table-td--action="true"}}
-        {{> dropdown dropdown--id=(concat table--id "-dropdown-kebab-4") dropdown-menu--modifier="pf-m-align-right" dropdown-toggle--IsPlain="true"}}
-      {{/table-td}}
+      {{> table-cell table-cell--IsAction=true}}
     {{/table-tr}}
 
     {{#> table-tr}}
@@ -178,9 +170,7 @@
       {{#> table-td table-td--data-label="Action"}}
         <a href="#">Action link</a>
       {{/table-td}}
-      {{#> table-td table-td--action="true"}}
-        {{> dropdown dropdown--id=(concat table--id "-dropdown-kebab-5") dropdown-menu--modifier="pf-m-align-right" dropdown-toggle--IsPlain="true"}}
-      {{/table-td}}
+      {{> table-cell table-cell--IsAction=true}}
     {{/table-tr}}
   {{/table-tbody}}
 {{/table}}

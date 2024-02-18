@@ -1,6 +1,7 @@
 // TODO: clean up unused variables
 // TODO: update grouping comments to // * Table {element}
 
+// * Table
 :where(:root),
 :where(.#{$table}) {
   --#{$table}--BackgroundColor: var(--pf-t--global--background--color--primary--default);
@@ -11,9 +12,9 @@
   --#{$table}__caption--FontSize: var(--pf-t--global--font--size--body--default);
   --#{$table}__caption--Color: var(--pf-t--global--text--color--subtle);
   --#{$table}__caption--PaddingTop: var(--pf-t--global--spacer--md);
-  --#{$table}__caption--PaddingRight: var(--pf-t--global--spacer--lg);
+  --#{$table}__caption--PaddingRight: var(--pf-t--global--spacer--md);
   --#{$table}__caption--PaddingBottom: var(--pf-t--global--spacer--md);
-  --#{$table}__caption--PaddingLeft: var(--pf-t--global--spacer--lg);
+  --#{$table}__caption--PaddingLeft: var(--pf-t--global--spacer--md);
 
   // * Table thead cell
   --#{$table}__thead--cell--FontSize: var(--pf-t--global--font--size--body--sm);
@@ -66,9 +67,11 @@
 
   // * Table toggle
   --#{$table}__toggle--PaddingTop: var(--pf-t--global--spacer--sm);
-  --#{$table}__toggle--PaddingBottom: var(--pf-t--global--spacer--sm);
+  --#{$table}__toggle--PaddingBottom: 0;
   --#{$table}__toggle--PaddingLeft: var(--pf-t--global--spacer--sm);
   --#{$table}__toggle--PaddingRight: var(--pf-t--global--spacer--sm);
+  --#{$table}__thead__toggle--PaddingTop: 0;
+  --#{$table}__thead__toggle--PaddingBottom: var(--pf-t--global--spacer--sm);
   --#{$table}__toggle--c-button__toggle-icon--Rotate: 270deg;
   --#{$table}__toggle--c-button__toggle-icon--Transition: .2s ease-in 0s;
   --#{$table}__toggle--c-button--m-expanded__toggle-icon--Rotate: 360deg;
@@ -236,7 +239,6 @@
 // TODO: flatten the modifiers out ex: .#{$table}.pf-m-sticky-header {}
 // - Table
 .#{$table} {
-  // Base
   width: 100%;
   background-color: var(--#{$table}--BackgroundColor);
 
@@ -362,22 +364,16 @@
 
     // First child padding left
     &:first-child {
-      padding-inline-start: calc(var(--#{$table}--cell--first-last-child--PaddingInline) + var(--#{$table}--cell--PaddingLeft));
+    padding-inline-start: calc(var(--#{$table}--cell--first-last-child--PaddingInline) + var(--#{$table}--cell--PaddingLeft));
     }
 
     // Last child padding right
     &:last-child {
-      padding-inline-end: calc(var(--#{$table}--cell--first-last-child--PaddingInline) + var(--#{$table}--cell--PaddingRight));
+    padding-inline-end: calc(var(--#{$table}--cell--first-last-child--PaddingInline) + var(--#{$table}--cell--PaddingRight));
     }
 
     &.pf-m-center {
       text-align: center;
-    }
-
-    &:empty {
-      width: auto;
-      min-width: 0;
-      padding: 0;
     }
 
     &.pf-m-help {
@@ -413,6 +409,7 @@
     padding-block-start: var(--#{$table}__caption--PaddingTop);
     padding-block-end: var(--#{$table}__caption--PaddingBottom);
     padding-inline-start: var(--#{$table}__caption--PaddingLeft);
+    padding-inline-end: var(--#{$table}__caption--PaddingRight);
     font-size: var(--#{$table}__caption--FontSize);
     color: var(--#{$table}__caption--Color);
     text-align: start;
@@ -790,10 +787,6 @@
       height: auto;
       line-height: 1;
       vertical-align: baseline;
-    }
-
-    tbody & {
-      height: auto;
     }
   }
 }

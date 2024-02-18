@@ -205,6 +205,10 @@ export const tag = function (tag) {
   return this.type;
 };
 
+export const lookup = function (tag) {
+  return tag;
+};
+
 // ======================================================================================
 // setModifier: is a helper function that sets a modifier class
 // ======================================================================================
@@ -259,7 +263,7 @@ export const setModifiers = function (...mods) {
     }
   };
 
-  return modSet
+  return modSet;
 };
 
 /** Helper which allows a booleans value to be inversed, similar to how notting a variable with ! works in regular JS */
@@ -280,3 +284,7 @@ export const pfv = (type) => {
 
   return namespace + version + prefix;
 };
+
+export const prefix = function (term) {
+  return pfv('c') + term;
+}

@@ -1,4 +1,4 @@
-{{#> table table--id="compact-table-demo-data-list" table--grid="true" table--modifier="pf-m-compact pf-m-grid-lg pf-m-no-border-rows" table--attribute='aria-label="This is a compact table example"'}}
+{{#> table table--id="compact-table-demo-data-list" table--IsGrid=true table--modifier="pf-m-compact pf-m-grid-lg pf-m-no-border-rows" table--aria-label='This is a compact table example"'}}
   {{#> table-thead}}
     {{#> table-tr}}
       {{#> table-td table-td--IsCheck=true}}
@@ -6,26 +6,26 @@
           {{#> check-input check-input--attribute='name="check-all" aria-label="Select all rows"'}}{{/check-input}}
         {{/check}}
       {{/table-td}}
-      {{#> table-th table-th--attribute='scope="col"'}}
+      {{#> table-th}}
         Contributor
       {{/table-th}}
-      {{#> table-th table-th--attribute='scope="col"'}}
+      {{#> table-th}}
         Position
       {{/table-th}}
-      {{#> table-th table-th--attribute='scope="col"'}}
+      {{#> table-th}}
         Location
       {{/table-th}}
-      {{#> table-th table-th--attribute='scope="col"'}}
+      {{#> table-th}}
         Last seen
       {{/table-th}}
-      {{#> table-th table-th--attribute='scope="col"'}}
+      {{#> table-th}}
         Numbers
       {{/table-th}}
-      {{#> table-th table-th--attribute='scope="col"' table-th--icon="true"}}
+      {{#> table-th  table-th--HasIcon="true"}}
         Icons
       {{/table-th}}
-      {{> table-td table-td--IsEmpty="true"}}
-      {{> table-td table-td--IsEmpty="true"}}
+      {{> table-cell table-cell--IsEmpty=true}}
+      {{> table-cell table-cell--IsEmpty=true}}
     {{/table-tr}}
   {{/table-thead}}
   {{#> table-tbody}}
@@ -50,13 +50,13 @@
       {{#> table-td table-td--data-label="Numbers"}}
         0556
       {{/table-td}}
-      {{#> table-td table-td--data-label="Icon" table-td--icon="true"}}
+      {{#> table-td table-td--data-label="Icon" table-td--HasIcon=true}}
         <i class="fas fa-check"></i>
       {{/table-td}}
       {{#> table-td table-td--data-label="Action"}}
         <a href="#">Action link</a>
       {{/table-td}}
-      {{#> table-td table-td--action="true"}}
+      {{#> table-td table-td--IsAction=true}}
         {{> dropdown dropdown--id=(concat card--id "-dropdown-kebab-1") dropdown-menu--modifier="pf-m-align-right" dropdown-toggle--IsPlain="true"}}
       {{/table-td}}
     {{/table-tr}}
@@ -81,13 +81,13 @@
       {{#> table-td table-td--data-label="Numbers"}}
         9492
       {{/table-td}}
-      {{#> table-td table-td--data-label="Icon" table-td--icon="true"}}
+      {{#> table-td table-td--data-label="Icon" table-td--HasIcon=true}}
         <i class="fas fa-check"></i>
       {{/table-td}}
       {{#> table-td table-td--data-label="Action"}}
         <a href="#">Action link</a>
       {{/table-td}}
-      {{#> table-td table-td--action="true"}}
+      {{#> table-td table-td--IsAction=true}}
         {{> dropdown dropdown--id=(concat card--id "-dropdown-kebab-2") dropdown-menu--modifier="pf-m-align-right" dropdown-toggle--IsPlain="true"}}
       {{/table-td}}
     {{/table-tr}}
@@ -112,15 +112,13 @@
       {{#> table-td table-td--data-label="Numbers"}}
         9929
       {{/table-td}}
-      {{#> table-td table-td--data-label="Icon" table-td--icon="true"}}
+      {{#> table-td table-td--data-label="Icon" table-td--HasIcon=true}}
         <i class="fas fa-check"></i>
       {{/table-td}}
       {{#> table-td table-td--data-label="Action"}}
         <a href="#">Action link</a>
       {{/table-td}}
-      {{#> table-td table-td--action="true"}}
-        {{> dropdown dropdown--id=(concat card--id "-dropdown-kebab-3") dropdown-menu--modifier="pf-m-align-right" dropdown-toggle--IsPlain="true"}}
-      {{/table-td}}
+      {{> table-cell table-cell--IsAction=true}}
     {{/table-tr}}
     {{#> table-tr}}
       {{#> table-td table-td--IsCheck=true}}
@@ -143,15 +141,13 @@
       {{#> table-td table-td--data-label="Last commit"}}
         2217
       {{/table-td}}
-      {{#> table-td table-td--data-label="Icon" table-td--icon="true"}}
+      {{#> table-td table-td--data-label="Icon" table-td--HasIcon=true}}
         <i class="fas fa-check"></i>
       {{/table-td}}
       {{#> table-td table-td--data-label="Action"}}
         <a href="#">Action link</a>
       {{/table-td}}
-      {{#> table-td table-td--action="true"}}
-        {{> dropdown dropdown--id=(concat card--id "-dropdown-kebab-4") dropdown-menu--modifier="pf-m-align-right" dropdown-toggle--IsPlain="true"}}
-      {{/table-td}}
+      {{#> table-td table-td--IsAction=true}}
     {{/table-tr}}
   {{/table-tbody}}
 {{/table}}

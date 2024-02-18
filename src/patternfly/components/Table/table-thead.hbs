@@ -1,7 +1,26 @@
-<thead class="{{pfv}}table__thead
-  {{#if table-thead--modifier}}{{table-thead--modifier}}{{/if}}{{#if table-thead--IsNested}} pf-m-nested-column-header{{/if}}"
+{{#>
+  config
+  IsThead=true
+}}
+
+<thead class="{{pfv}}table__thead {{table__thead--modifiers}}"
   {{#if table-thead--attribute}}
     {{{table-thead--attribute}}}
   {{/if}}>
   {{> @partial-block}}
 </thead>
+
+{{/config}}
+
+  {{!-- {{setModifiers
+    table-thead--IsNested='pf-m-nested-column-header'
+    table-thead--modifier=table-thead--modifier
+  }}" --}}
+{{!-- {{#> layout}}
+  {{#*inline "nav"}}
+    My Nav
+  {{/inline}}
+  {{#*inline "content"}}
+    My Content
+  {{/inline}}
+{{/layout}} --}}

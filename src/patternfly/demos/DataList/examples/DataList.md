@@ -15,7 +15,7 @@ wrapperTag: div
       {{> toolbar-template
           toolbar-template--id='data-list-basic-example-toolbar'
           toolbar-template--HasBulkSelect=true
-          toolbar-template--HasOverflowMenu=true
+          toolbar-template--IsOverflowMenu=true
         }}
       {{> data-list-simple-data-list}}
       {{> data-list-pagination-footer}}
@@ -35,8 +35,8 @@ wrapperTag: div
           toolbar-template--id='data-list-actionable-example-toolbar'
           toolbar-template--HasToggleGroup=true
           toolbar-template--HasBulkSelect=true
-          toolbar-template--HasOverflowMenu=true
-          toolbar-template--HasOverflowMenuSecondButton=true
+          toolbar-template--IsOverflowMenu=true
+          toolbar-template--IsOverflowMenuSecondButton=true
         }}
       {{> data-list-actionable-data-list}}
       {{> data-list-pagination-footer}}
@@ -58,7 +58,7 @@ wrapperTag: div
           toolbar-template--HasExpandAll=true
           toolbar-template--HasBulkSelect=true
           toolbar-template--HasSearchFilter=true
-          toolbar-template--HasOverflowMenu=true
+          toolbar-template--IsOverflowMenu=true
         }}
       {{> data-list-expandable-data-list}}
       {{> data-list-pagination-footer}}
@@ -78,8 +78,8 @@ wrapperTag: div
           toolbar-template--id='data-list-static-bottom-example-toolbar'
           toolbar-template--HasToggleGroup=true
           toolbar-template--HasSearchFilter=true
-          toolbar-template--HasOverflowMenu=true
-          toolbar-template--HasOverflowMenuSecondButton=true
+          toolbar-template--IsOverflowMenu=true
+          toolbar-template--IsOverflowMenuSecondButton=true
         }}
       {{> data-list-simple-data-list}}
       {{> data-list-pagination-footer-static}}

@@ -15,7 +15,7 @@ section: patterns
         toolbar-template--modifier="pf-m-page-insets"
         toolbar-template--HasToggleGroup=true
         toolbar-template--HasBulkSelect=true
-        toolbar-template--HasOverflowMenu=true
+        toolbar-template--IsOverflowMenu=true
         toolbar-template--HasFilter=true
       }}
   {{/page-main-section}}

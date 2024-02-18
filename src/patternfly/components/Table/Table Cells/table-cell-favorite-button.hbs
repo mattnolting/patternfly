@@ -1,0 +1,9 @@
+{{#if table-cell--IsFavorite}}
+  {{#> button button--IsPlain=true
+      button--id=(dasherize table--id '-favorite-button' table-tr--index)
+      button--aria-label=(ternary table-cell--IsFavorited 'Starred' 'Not starred')
+      button--aria-labelleby=(dasherize table--id 'node' table-tr--index table--id 'favorite-button' table-tr--index)
+    }}
+    <i class="fas fa-star" aria-hidden="true"></i>
+  {{/button}}
+{{/if}}

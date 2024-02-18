@@ -2,9 +2,9 @@
   {{~#if table-td--IsToggle}} {{pfv}}table__toggle{{/if}}
   {{~#if table-td--IsCheck}} {{pfv}}table__check{{/if}}
   {{~#if table-td--IsAction}} {{pfv}}table__action{{/if}}
-  {{~#if table-td--HasOverflowMenu}} {{pfv}}table__action{{/if}}
-  {{~#if table-td--icon}} {{pfv}}table__icon{{/if}}
-  {{~#if table-td--compound-expansion-toggle}} {{pfv}}table__compound-expansion-toggle{{/if}}
+  {{~#if table-td--IsOverflowMenu}} {{pfv}}table__action{{/if}}
+  {{~#if table-td--HasIcon}} {{pfv}}table__icon{{/if}}
+  {{~#if table-td--IsCompoundExpansionToggle}} {{pfv}}table__compound-expansion-toggle{{/if}}
   {{~#if table-td--IsStickyColumn}} {{pfv}}table__sticky-column{{/if}}
   {{~#if table-td--IsFavorite}} {{pfv}}table__favorite{{/if}}
   {{~#if table-td--IsDraggable}} {{pfv}}table__draggable{{/if}}
@@ -27,7 +27,7 @@
     data-label="{{table-td--data-label}}"
   {{/if}}>
   {{#unless table-td--IsEmpty}}
-    {{#if table-td--HasOverflowMenu}}
+    {{#if table-td--IsOverflowMenu}}
       {{> table--overflow-menu}}
     {{else if table-td--IsAction}}
       {{> menu-toggle menu-toggle--IsPlain=true menu-toggle--HasKebab=(ternary menu-toggle--icon false true) menu-toggle--aria-label='Table actions'}}
@@ -43,7 +43,7 @@
       }}
         {{> table-toggle-icon}}
       {{/button}}
-    {{else if table-td--compound-expansion-toggle}}
+    {{else if table-td--IsCompoundExpansionToggle}}
       {{#> table-button table-button--attribute=table-th--button--attribute}}
         {{#> table-text}}
           {{> @partial-block}}

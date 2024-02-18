@@ -1,0 +1,158 @@
+{{!--
+  Comments:
+    IsThead is set in table-thead.hbs, IsTbody is set in table-tbody.hbs. Setting this paramater in the
+    relative template allows for the automation of tag application.
+
+  Options:
+
+  Params:
+    classRoot:
+    aria-label:
+    data-label:
+    id:
+    tag:
+    scope:
+--}}
+
+{{#>
+  config
+  table-cell--classRoot='table__'
+  table-cell--aria-label=''
+  table-cell--data-label=''
+  table-cell--id='test'
+  table-cell--tag=(ternary IsThead 'th' 'td')
+  table-cell--scope=(ternary IsThead 'col' 'row')
+  table-cell--role=(ternary IsTbody 'cell' 'row')
+}}
+
+<{{table-cell--tag}} class="{{setClass (concat table-cell--classRoot table-cell--tag)}}
+  {{!-- set versioned modifiers `pf-v-c-type` --}}
+  {{setModifiers
+    table-cell--HasIcon=(setClass 'table__icon')
+    table-cell--HasCompoundExpansionToggle=(setClass 'table__compound-expansion-toggle')
+    table-cell--IsAction=(setClass 'table__action')
+    table-cell--IsCheck=(setClass 'table__check')
+    table-cell--IsSort=(setClass 'table__sort')
+    table-cell--IsSortableWrap=(setClass 'pf-m-wrap')
+    table-cell--IsStickyLeft=(setClass 'table__sticky-cell pf-m-left')
+    table-cell--IsStickyRight=(setClass 'table__sticky-cell pf-m-right')
+    table-cell--IsToggle=(setClass 'table__toggle')
+  }}
+
+  {{!-- set standard modifiers `pf-m-modifier` --}}
+  {{setModifiers
+    table-cell--IsColumnHelp='pf-m-help'
+    table-cell--IsExpanded='pf-m-expanded'
+    table-cell--IsFavorite='pf-m-favorite'
+    table-cell--IsSelected='pf-m-selected'
+    table-cell--IsWrap='pf-m-wrap'
+  }}"
+
+  {{#ifEquals table-cell--tag 'th'}}
+    scope="{{table-cell--scope}}"
+  {{/ifEquals}}
+
+  {{#ifEquals table-cell--tag 'td'}}
+    role="cell"
+  {{/ifEquals}}
+
+  {{!-- Table attributes --}}
+  {{ternary table-cell--attribute table-cell--attribute ''}}>
+
+  {{!-- Table sort cell --}} {{#if table-cell--IsSort}}
+  {{> table-sort}}
+
+  {{!-- Table toggle cell --}} {{else if table-cell--IsMenuToggle}}
+  {{> table-toggle}}
+
+  {{!-- Table overflow menu action cell --}} {{else if table-cell--IsOverflowMenu}}
+  {{> table-action table-action--IsOverflowMenu=true}}
+
+  {{!-- Table check cell --}} {{else if table-cell--IsCheck}}
+  {{> check check--IsStandalone=true check--IsLabelWrapped=true}}
+
+  {{!-- Table radio cell --}} {{else if table-cell--IsRadio}}
+  {{> radio radio--IsStandalone=true radio--IsLabelWrapped=true}}
+
+  {{!-- Table compound expansion toggle cell --}}{{else if table-cell--IsCompoundExpansionToggle}}
+  {{> table-compound-expansion-toggle}}
+
+  {{!-- Table compound expansion toggle cell --}}{{else if table-cell--IsStickyColumn}}
+    stickycolumn
+
+
+  {{else if table-cell--IsFavorite}}
+    favorite
+  {{else if table-cell--IsDraggable}}
+    draggable
+  {{else if table-cell--HasIcon}}
+    icon
+  {{else if table-cell--IsEmpty}}
+    empty
+  {{else if table-cell--text}}
+    {{{table-cell--text}}}
+  {{else if @partial-block}}
+    {{> @partial-block}}
+  {{/if}}
+
+{{!-- {{debug}} --}}
+</{{table-cell--tag}}>
+{{/config}}
+
+{{!-- table-cell--IsSort='' --}}
+
+{{!-- {{> (lookup table-cell--tag)}}
+  {{#if table-cell--IsToggle}}
+    {{> table-toggle}}
+  {{/if}}
+--}}
+
+
+{{!-- <td class="{{pfv}}table__td
+  {{setModifiers
+    table-td--IsToggle=(dasherize (pfv) 'table__toggle')
+    table-td--IsCheck=(dasherize (pfv) 'table__check')
+    table-td--IsAction=(dasherize (pfv) 'table__action')
+    table-td--HasIcon=(dasherize (pfv) 'table__icon')
+    table-td--IsCompoundExpansionToggle=(dasherize (pfv) 'table__compound-expansion-toggle')
+    table-td--IsStickyColumn=(dasherize (pfv) 'table__sticky-column')
+    table-td--IsFavorite=(dasherize (pfv) 'table__favorite')
+    table-td--IsDraggable=(dasherize (pfv) 'table__draggable')
+    table-td--IsFavorited='pf-m-favorited'
+    table-td--modifier=table-td--modifier
+  }}"
+  {{#unless table-td--IsEmpty}}
+    {{#unless table-td--type}}
+      {{#if table--IsTree-view}}
+        role="gridcell"
+      {{else}}
+        role="cell"
+      {{/if}}
+    {{/unless}}
+  {{/unless}}
+  {{#if table-td--attribute}}
+    {{{table-td--attribute}}}
+  {{/if}}
+  {{#if table-td--data-label}}
+    data-label="{{table-td--data-label}}"
+  {{/if}}>
+  {{#unless table-td--IsEmpty}}
+    {{#if table-td--IsToggle}}
+      <button class="{{pfv}}button pf-m-plain{{#if table-tr--IsExpanded}} pf-m-expanded{{/if}}" {{#if table-td--button--attribute}}{{{table-td--button--attribute}}}{{/if}} {{#if table-tr--IsExpanded}}aria-expanded="true"{{/if}}>
+        {{> table-toggle-icon}}
+      </button>
+    {{else if table-td--IsCompoundExpansionToggle}}
+      {{#> table-button table-button--attribute=table-th--button--attribute}}
+        {{#> table-text}}
+          {{> @partial-block}}
+        {{/table-text}}
+      {{/table-button}}
+    {{else if table-td--IsFavorite}}
+      {{> table-favorite-button}}
+    {{else if table-td--IsDraggable}}
+      {{> table-draggable-button}}
+    {{else}}
+      {{> @partial-block}}
+    {{/if}}
+  {{/unless}}
+</td> --}}

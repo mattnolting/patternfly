@@ -208,41 +208,33 @@ wrapperTag: div
           {{/toolbar-content-section}}
         {{/toolbar-content}}
       {{/toolbar}}
-      {{#> table table--id=(concat page--id '-table') table--grid="true" table--modifier=(concat 'pf-m-grid-md ' table-simple-table--modifier) table--attribute='aria-label="This is a table with checkboxes"'}}
+      {{#> table table--id=(concat page--id '-table') table--IsGrid=true table--modifier=(concat 'pf-m-grid-md ' table-simple-table--modifier) table--aria-label='This is a table with checkboxes"'}}
         {{#> table-thead}}
           {{#> table-tr}}
-            {{#> table-td table-td--IsCheck=true}}
-              {{#> check check--modifier="pf-m-standalone"}}
-                {{#> check-input check-input--attribute=(concat 'name="checkrow1" aria-labelledby="' table--id '-node1"')}}{{/check-input}}
-              {{/check}}
-            {{/table-td}}
-            {{#> table-th table-th--attribute='scope="col"'}}
+            {{> table-cell table-cell--IsCheck=true}}
+            {{#> table-th}}
               Repositories
             {{/table-th}}
-            {{#> table-th table-th--attribute='scope="col"'}}
+            {{#> table-th}}
               Branches
             {{/table-th}}
-            {{#> table-th table-th--attribute='scope="col"'}}
+            {{#> table-th}}
               Pull requests
             {{/table-th}}
-            {{#> table-th table-th--attribute='scope="col"'}}
+            {{#> table-th}}
               Workspaces
             {{/table-th}}
-            {{#> table-th table-th--attribute='scope="col"'}}
+            {{#> table-th}}
               Last commit
             {{/table-th}}
-            {{> table-td table-td--IsEmpty="true"}}
-            {{> table-td table-td--IsEmpty="true"}}
+            {{> table-cell table-cell--IsEmpty=true}}
+            {{> table-cell table-cell--IsEmpty=true}}
           {{/table-tr}}
         {{/table-thead}}
 
         {{#> table-tbody table-tr--IsClickable="true" table-tr--basic--title="Clickable"}}
           {{#> table-tr}}
-            {{#> table-td table-td--IsCheck=true}}
-              {{#> check check--modifier="pf-m-standalone"}}
-                {{#> check-input check-input--attribute=(concat 'name="checkrow1" aria-labelledby="' table--id '-node1"')}}{{/check-input}}
-              {{/check}}
-            {{/table-td}}
+            {{> table-cell table-cell--IsCheck=true}}
             {{#> table-th table-th--data-label="Repository name"}}
               <div>
                 <div id="{{table--id}}-node1">Node 1</div>
@@ -284,19 +276,7 @@ wrapperTag: div
             {{#> table-td table-td--data-label="Action"}}
               <a href="/some/path">Action link</a>
             {{/table-td}}
-            {{#> table-td table-td--action="true"}}
-              {{#> button button--modifier="pf-m-plain" button--attribute='aria-label="Remove"'}}
-                <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-              {{/button}}
-            {{/table-td}}
-          {{/table-tr}}
-
-          {{#> table-tr table-tr--IsSelected="true"}}
-            {{#> table-td table-td--IsCheck=true}}
-              {{#> check check--modifier="pf-m-standalone"}}
-                {{#> check-input check-input--attribute=(concat 'name="checkrow2" aria-labelledby="' table--id '-node2" checked')}}{{/check-input}}
-              {{/check}}
-            {{/table-td}}
+            {{> table-cell table-cell--IsCheck=true}}
             {{#> table-th table-th--data-label="Repository name"}}
               <div>
                 <div id="{{table--id}}-node2">Node 2</div>
@@ -338,19 +318,11 @@ wrapperTag: div
             {{#> table-td table-td--data-label="Action"}}
               <a href="/some/path">Action link</a>
             {{/table-td}}
-            {{#> table-td table-td--action="true"}}
-              {{#> button button--modifier="pf-m-plain" button--attribute='aria-label="Remove"'}}
-                <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-              {{/button}}
-            {{/table-td}}
+            {{> table-cell table-cell--IsCheck=true}}
           {{/table-tr}}
 
           {{#> table-tr}}
-            {{#> table-td table-td--IsCheck=true}}
-              {{#> check check--modifier="pf-m-standalone"}}
-                {{#> check-input check-input--attribute=(concat 'name="checkrow3" aria-labelledby="' table--id '-node3"')}}{{/check-input}}
-              {{/check}}
-            {{/table-td}}
+            {{> table-cell table-cell--IsCheck=true}}
             {{#> table-th table-th--data-label="Repository name"}}
               <div>
                 <div id="{{table--id}}-node3">Node 3</div>
@@ -392,19 +364,11 @@ wrapperTag: div
             {{#> table-td table-td--data-label="Action"}}
               <a href="#">Action link</a>
             {{/table-td}}
-            {{#> table-td table-td--action="true"}}
-              {{#> button button--modifier="pf-m-plain" button--attribute='aria-label="Remove"'}}
-                <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-              {{/button}}
-            {{/table-td}}
+            {{> table-cell table-cell--IsCheck=true}}
           {{/table-tr}}
 
           {{#> table-tr}}
-            {{#> table-td table-td--IsCheck=true}}
-              {{#> check check--modifier="pf-m-standalone"}}
-                {{#> check-input check-input--attribute=(concat 'name="checkrow4" aria-labelledby="' table--id '-node4"')}}{{/check-input}}
-              {{/check}}
-            {{/table-td}}
+            {{> table-cell table-cell--IsCheck=true}}
             {{#> table-th table-th--data-label="Repository name"}}
               <div>
                 <div id="{{table--id}}-node4">Node 4</div>
@@ -446,19 +410,11 @@ wrapperTag: div
             {{#> table-td table-td--data-label="Action"}}
               <a href="/some/path">Action link</a>
             {{/table-td}}
-            {{#> table-td table-td--action="true"}}
-              {{#> button button--modifier="pf-m-plain" button--attribute='aria-label="Remove"'}}
-                <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-              {{/button}}
-            {{/table-td}}
+            {{> table-cell table-cell--IsCheck=true}}
           {{/table-tr}}
 
           {{#> table-tr}}
-            {{#> table-td table-td--IsCheck=true}}
-              {{#> check check--modifier="pf-m-standalone"}}
-                {{#> check-input check-input--attribute=(concat 'name="checkrow5" aria-labelledby="' table--id '-node5"')}}{{/check-input}}
-              {{/check}}
-            {{/table-td}}
+            {{> table-cell table-cell--IsCheck=true}}
             {{#> table-td table-td--data-label="Repository name"}}
               <div>
                 <div id="{{table--id}}-node5">Node 5</div>
@@ -500,11 +456,7 @@ wrapperTag: div
             {{#> table-td table-td--data-label="Action"}}
               <a href="/some/path">Action link</a>
             {{/table-td}}
-            {{#> table-td table-td--action="true"}}
-              {{#> button button--modifier="pf-m-plain" button--attribute='aria-label="Remove"'}}
-                <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
-              {{/button}}
-            {{/table-td}}
+            {{> table-cell table-cell--IsCheck=true}}
           {{/table-tr}}
         {{/table-tbody}}
       {{/table}}

@@ -1,6 +1,10 @@
-<{{# if table-text--type}}{{table-text--type}}{{else}}span{{/if}} class="{{pfv}}table__text{{#if table-text--modifier}} {{table-text--modifier}}{{/if}}"
+<{{#if table-text--type}}{{table-text--type}}{{else}}span{{/if}} class="{{pfv}}table__text{{#if table-text--modifier}} {{table-text--modifier}}{{/if}}"
   {{#if table-text--attribute}}
     {{{table-text--attribute}}}
   {{/if}}>
-  {{> @partial-block}}
-</{{# if table-text--type}}{{table-text--type}}{{else}}span{{/if}}>
+  {{#if table-text--text}}
+    {{table-text--text}}
+  {{else if @partial-block}}
+    {{> @partial-block}}
+  {{/if}}
+</{{#if table-text--type}}{{table-text--type}}{{else}}span{{/if}}>

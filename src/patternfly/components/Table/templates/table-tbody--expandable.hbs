@@ -1,7 +1,7 @@
-{{#> table-tbody table-tbody--IsExpanded=table-tbody--expandable--IsExpanded}}
-  {{#> table-tr table-tr--IsExpanded="true" table-tr--expanded=table-tbody--expandable--IsExpanded table-tr--index=table-tbody--expandable--index}}
-    {{> table--toggle}}
-    {{> table--check}}
+{{#> table-tbody}}
+  {{#> table-tr table-tr--IsExpanded=true table-tr--IsExpanded=table-tbody--IsExpanded table-tr--index=table-tbody--expandable--index}}
+    {{> table-cell table-cell--IsToggle=true}}
+    {{> table-cell table-cell--IsCheck=true}}
     {{#> table-th table-th--data-label="Repository name"}}
       <div>
         {{#if table-tbody--expandable--title}}
@@ -21,19 +21,17 @@
     {{#> table-td table-td--data-label="Action"}}
       <a href="#">Link {{table-tbody--expandable--index}}</a>
     {{/table-td}}
-    {{#> table-td table-td--action="true"}}
-      {{> dropdown dropdown--id=(concat table--id '-dropdown-kebab-' table-tbody--expandable--index) dropdown-menu--modifier="pf-m-align-right" dropdown-toggle--IsPlain="true"}}
-    {{/table-td}}
+    {{> table-cell table-cell--IsAction=true}}
   {{/table-tr}}
 
-  {{#> table-tr table-tr--expandable="true" table-tr--IsExpanded=table-tbody--expandable--IsExpanded}}
-    {{> table-td table-td--IsEmpty="true"}}
-    {{> table-td table-td--IsEmpty="true"}}
+  {{#> table-tr table-tr--IsExpandable=true table-tr--IsExpanded=table-tbody--IsExpanded}}
+    {{> table-cell table-cell--IsEmpty=true}}
+    {{> table-cell table-cell--IsEmpty=true}}
     {{#> table-td table-td--attribute=(concat 'colspan="4" id="' table--id '-content' table-tbody--expandable--index '"')}}
       {{#> table-expandable-row-content}}
         Expandable content
       {{/table-expandable-row-content}}
     {{/table-td}}
-    {{> table-td table-td--IsEmpty="true"}}
+    {{> table-cell table-cell--IsEmpty=true}}
   {{/table-tr}}
 {{/table-tbody}}

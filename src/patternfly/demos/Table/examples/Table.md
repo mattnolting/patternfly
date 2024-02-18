@@ -19,7 +19,7 @@ import './Table.css'
         toolbar-template--HasToggleGroup=true
         toolbar-template--HasSearchFilter=true
         toolbar-template--HasSortButton=true
-        toolbar-template--HasOverflowMenu=true
+        toolbar-template--IsOverflowMenu=true
       }}
     {{> table-simple-table}}
     {{> table-pagination-footer}}
@@ -39,8 +39,8 @@ import './Table.css'
           toolbar-template--HasBulkSelect=true
           toolbar-template--HasToggleGroup=true
           toolbar-template--HasSearchFilter=true
-          toolbar-template--HasOverflowMenu=true
-          toolbar-template--HasOverflowMenuSecondButton=true
+          toolbar-template--IsOverflowMenu=true
+          toolbar-template--IsOverflowMenuSecondButton=true
           toolbar-template--HasIconButtonGroup=true
           toolbar-template--HasSortButtonMobile=true
         }}
@@ -252,7 +252,7 @@ import './Table.css'
           toolbar-template--HasToggleGroup=true
           toolbar-template--HasSearchFilter=true
           toolbar-template--HasSortButton=true
-          toolbar-template--HasOverflowMenu=true
+          toolbar-template--IsOverflowMenu=true
         }}
       <div class="pf-v5-c-scroll-inner-wrapper">
         {{> table--scrollable
@@ -279,7 +279,7 @@ import './Table.css'
           toolbar-template--HasToggleGroup=true
           toolbar-template--HasSearchFilter=true
           toolbar-template--HasSortButton=true
-          toolbar-template--HasOverflowMenu=true
+          toolbar-template--IsOverflowMenu=true
         }}
       <div class="pf-v5-c-scroll-inner-wrapper">
         {{>
@@ -308,7 +308,7 @@ import './Table.css'
           toolbar-template--HasToggleGroup=true
           toolbar-template--HasSearchFilter=true
           toolbar-template--HasSortButton=true
-          toolbar-template--HasOverflowMenu=true
+          toolbar-template--IsOverflowMenu=true
         }}
       <div class="pf-v5-c-scroll-inner-wrapper">
         {{> table--scrollable
@@ -337,7 +337,7 @@ import './Table.css'
           toolbar-template--HasToggleGroup=true
           toolbar-template--HasSearchFilter=true
           toolbar-template--HasSortButton=true
-          toolbar-template--HasOverflowMenu=true
+          toolbar-template--IsOverflowMenu=true
         }}
       <div class="pf-v5-c-scroll-inner-wrapper">
         {{> table--scrollable
@@ -360,22 +360,22 @@ By default, table cell alignment is set to baseline. This retains vertical align
 
 {{#*inline "page-template-section"}}
   {{#> page-main-section page-main-section--modifier="pf-m-no-padding pf-m-padding-on-xl" page-main-section--IsLimitWidth=true}}
-    {{#> table table--id="image-alignment-demo-table" table--grid=true table--modifier="pf-m-grid-lg" table--attribute='aria-label="This is an example of how to control image and text alignment in table cells."'}}
+    {{#> table table--id="image-alignment-demo-table" table--IsGrid=true table--modifier="pf-m-grid-lg" table--aria-label='This is an example of how to control image and text alignment in table cells."'}}
       {{#> table-thead}}
         {{#> table-tr table-th--modifier="pf-m-fit-content"}}
-          {{#> table-th table-th--modifier="pf-m-nowrap" table-th--attribute='scope="col"' table-th--sortable=true table-th--selected=true table-th--asc=true}}
+          {{#> table-th table-th--modifier="pf-m-nowrap"  table-th--IsSortable=true table-th--IsSelected=true table-th--IsAsc=true}}
             Repositories
           {{/table-th}}
-          {{#> table-th table-th--attribute='scope="col"' table-th--sortable=true table-th--IsColumnHelp=true}}
+          {{#> table-th  table-th--IsSortable=true table-th--IsColumnHelp=true}}
             Branches
           {{/table-th}}
-          {{#> table-th table-th--attribute='scope="col"' table-th--sortable=true}}
+          {{#> table-th  table-th--IsSortable=true}}
             Pull requests
           {{/table-th}}
-          {{#> table-th table-th--attribute='scope="col"'}}
+          {{#> table-th}}
             Workspaces
           {{/table-th}}
-          {{#> table-th table-th--attribute='scope="col"' table-th--IsColumnHelp=true}}
+          {{#> table-th  table-th--IsColumnHelp=true}}
             Last commit
           {{/table-th}}
         {{/table-tr}}

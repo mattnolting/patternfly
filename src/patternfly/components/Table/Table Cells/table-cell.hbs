@@ -1,0 +1,73 @@
+{{!-- /* options */ --}}
+{{#>
+  config
+  table-cell--id=
+    (ternary table-cell--IsNode
+      (dasherize table--id 'node' table-tr--index)
+      (dasherize table--id table-tr--index)
+    )
+  table-cell--tag=
+    (ternary table-cell--tag table-cell--tag (ternary IsThead 'th' 'td'))
+}}
+
+<{{table-cell--tag}} class="{{prefix (concat 'table__' table-cell--tag)}}
+  {{!-- set versioned modifiers `pf-v-c-type` --}}
+  {{setModifiers
+    table-cell--HasIcon=(prefix 'table__icon')
+    table-cell--IsAction=(prefix 'table__action')
+    table-cell--IsCheck=(prefix 'table__check')
+    table-cell--IsCompoundExpansionToggle=(prefix 'table__compound-expansion-toggle')
+    table-cell--IsOverflowMenu=(prefix 'table__action')
+    table-cell--IsRadio=(prefix 'table__radio')
+    table-cell--IsSort=(prefix 'table__sort')
+    table-cell--IsStickyColumn=(prefix 'table__sticky-column')
+    table-cell--IsStickyLeft=(prefix 'table__sticky-cell pf-m-left')
+    table-cell--IsStickyRight=(prefix 'table__sticky-cell pf-m-right')
+    table-cell--IsToggle=(prefix 'table__toggle')
+  }}
+
+  {{!-- set standard modifiers `pf-m-modifier` --}}
+  {{setModifiers
+    table-cell--IsColumnHelp='pf-m-help'
+    table-cell--IsExpanded='pf-m-expanded'
+    table-cell--IsFavorite='pf-m-favorite'
+    table-cell--IsSelected='pf-m-selected'
+    table-cell--IsWrap='pf-m-wrap'
+    table-cell--modifier=table-cell--modifier
+  }}"
+
+  {{#if IsThead}}
+    role="columnheader"
+    scope="col"
+  {{/if}}
+
+  {{#if IsTbody}}
+    role="rowheader"
+    scope="col"
+  {{/if}}
+
+  {{!-- sortable th --}}
+  {{ternary table-cell--IsSortable (concat 'aria-sort="' (ternary table-cell--IsSelected 'asc' 'none')'"') ' '}}
+
+  {{!-- cell attributes --}}
+  {{!-- {{ternary table-cell--attribute table-cell--attribute ' '}} --}}
+>
+
+  {{!-- Content --}}
+  {{!-- Theses files are configured specifically for table-cell.hbs --}}
+  {{#if table-cell--IsEmpty}}
+    {{> table-cell-empty}}
+  {{else}}
+    {{> table-cell-action}}
+    {{> table-cell-check}}
+    {{> table-cell-compound-expansion-toggle}}
+    {{> table-cell-favorite-button}}
+    {{> table-cell-overflow-menu}}
+    {{> table-cell-radio table-td--IsCheck=true}} {{!-- use check wrapper --}} {{!-- TODO: add radio wrapper --}}
+    {{> table-cell-sort}}
+    {{> table-cell-toggle}}
+  {{/if}}
+
+</{{table-cell--tag}}>
+{{/config}}
+

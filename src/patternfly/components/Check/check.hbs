@@ -1,10 +1,8 @@
 <{{#if check--IsLabelWrapped}}label{{else if check--type}}{{check--type}}{{else}}div{{/if}} class="{{pfv}}check
-  {{#if check--IsStandalone}}
-    pf-m-standalone
-  {{/if}}
-  {{#if check--modifier}}
-    {{check--modifier}}
-  {{/if}}"
+  {{setModifiers
+    check--IsStandalone='pf-m-standalone'
+    check--modifier=check--modifier
+  }}"
   {{#if check--id}}
     id="{{check--id}}"
   {{/if}}

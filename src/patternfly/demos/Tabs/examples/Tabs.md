@@ -316,8 +316,8 @@ section: components
           toolbar-template--HasFilter=true
           toolbar-template--HasNoPagination=true
           toolbar-template--HasSortButton=true
-          toolbar-template--HasOverflowMenu=true
-          toolbar-template--HasOverflowMenuSecondButton=true
+          toolbar-template--IsOverflowMenu=true
+          toolbar-template--IsOverflowMenuSecondButton=true
           toolbar-template--OverflowButton1Text='Generate'
           toolbar-template--OverflowButton2Text='Deploy'
           toolbar-template--filterText='Name'

@@ -7,8 +7,8 @@ Options: [
   toolbar-template--HasFilterGroup
   toolbar-template--HasDropdown0
   toolbar-template--HasSortButton
-  toolbar-template--HasOverflowMenu
-  toolbar-template--HasOverflowMenuSecondButton
+  toolbar-template--IsOverflowMenu
+  toolbar-template--IsOverflowMenuSecondButton
   toolbar-template--HasIconButtonGroup
   toolbar-template--HasViewToggle
   toolbar-template--HasNoPagination
@@ -89,7 +89,7 @@ Options: [
       {{/if}}
 
       {{!-- overflow menu --}}
-      {{#if toolbar-template--HasOverflowMenu}}
+      {{#if toolbar-template--IsOverflowMenu}}
         {{#> overflow-menu overflow-menu--id=(concat toolbar--id '-overflow-menu')}}
           {{#> overflow-menu-content overflow-menu-content--modifier="pf-v5-u-display-none pf-v5-u-display-flex-on-lg"}}
             {{#> overflow-menu-group overflow-menu-group--modifier="pf-m-button-group"}}
@@ -104,7 +104,7 @@ Options: [
               {{/overflow-menu-item}}
 
               {{!-- second button --}}
-              {{#if toolbar-template--HasOverflowMenuSecondButton}}
+              {{#if toolbar-template--IsOverflowMenuSecondButton}}
                 {{#> overflow-menu-item}}
                   {{#> button button--modifier="pf-m-secondary"}}
                     {{#if toolbar-template--OverflowButton2Text}}

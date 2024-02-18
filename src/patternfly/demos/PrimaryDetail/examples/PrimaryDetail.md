@@ -25,7 +25,7 @@ wrapperTag: div
               toolbar-template--id=(concat drawer--id '-toolbar')
               toolbar-template--modifier="pf-m-page-insets"
               toolbar-template--HasFilterGroup=true
-              toolbar-template--HasOverflowMenu=true
+              toolbar-template--IsOverflowMenu=true
               toolbar-template--HasSearchFilter=true
               toolbar-template--HasSortButton=true
               toolbar-template--HasToggleGroup=true
@@ -74,7 +74,7 @@ wrapperTag: div
               toolbar-template--id=(concat drawer--id '-toolbar')
               toolbar-template--modifier="pf-m-page-insets"
               toolbar-template--HasFilterGroup=true
-              toolbar-template--HasOverflowMenu=true
+              toolbar-template--IsOverflowMenu=true
               toolbar-template--HasSearchFilter=true
               toolbar-template--HasSortButton=true
               toolbar-template--HasToggleGroup=true
@@ -119,7 +119,7 @@ wrapperTag: div
               toolbar-template--id=(concat drawer--id '-toolbar')
               toolbar-template--modifier="pf-m-page-insets"
               toolbar-template--HasFilterGroup=true
-              toolbar-template--HasOverflowMenu=true
+              toolbar-template--IsOverflowMenu=true
               toolbar-template--HasSortButton=true
               toolbar-template--HasToggleGroup=true
             }}
@@ -162,8 +162,8 @@ wrapperTag: div
             toolbar-template--HasSearchFilter=true
             toolbar-template--HasSortButton=true
             toolbar-template--HasToggleGroup=true
-            toolbar-template--HasOverflowMenu=true
-            toolbar-template--HasOverflowMenuSecondButton=true
+            toolbar-template--IsOverflowMenu=true
+            toolbar-template--IsOverflowMenuSecondButton=true
             toolbar-template--HasViewToggle=true
           }}
         {{> divider divider--type="div"}}
@@ -285,8 +285,8 @@ wrapperTag: div
             toolbar-template--id=(concat drawer--id '-toolbar')
             toolbar-template--modifier="pf-m-page-insets"
             toolbar-template--HasDropdown=true
-            toolbar-template--HasOverflowMenu=true
-            toolbar-template--HasOverflowMenuSecondButton=true
+            toolbar-template--IsOverflowMenu=true
+            toolbar-template--IsOverflowMenuSecondButton=true
           }}
         {{> data-list-simple-data-list}}
       {{/drawer-content}}

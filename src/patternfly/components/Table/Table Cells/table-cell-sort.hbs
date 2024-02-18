@@ -1,0 +1,25 @@
+{{!--
+  Options:
+    table-cell--IsSelected
+    table-cell--text
+    table-cell--IsAsc
+--}}
+
+{{#if table-cell--IsSort}}
+  {{#> table-button}}
+    {{#> table-button-content}}
+      {{> table-text table-text--text=table-cell--text}}
+      {{#> table-sort-indicator}}
+        {{#if table-cell--IsSelected}}
+          {{#if table-cell--IsAsc}}
+            <i class="fas fa-long-arrow-alt-up"></i>
+          {{else}}
+            <i class="fas fa-long-arrow-alt-down"></i>
+          {{/if}}
+        {{else}}
+          <i class="fas fa-arrows-alt-v"></i>
+        {{/if}}
+      {{/table-sort-indicator}}
+    {{/table-button-content}}
+  {{/table-button}}
+{{/if}}
