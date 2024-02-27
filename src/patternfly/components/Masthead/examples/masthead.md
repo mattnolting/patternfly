@@ -80,7 +80,6 @@ cssPrefix: pf-v5-c-masthead
   {{> masthead-content}}
 {{/masthead}}
 ```
-
 ## Documentation
 
 ### Usage
