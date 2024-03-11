@@ -15,7 +15,6 @@ $pf-v6-c-tree-view--MaxDepth: 10;
 
   // * Table tree view check
   --#{$table}__tree-view-main--c-table__check--PaddingRight: var(--pf-t--global--spacer--sm);
-  --#{$table}__tree-view-main--c-table__check--PaddingLeft: var(--pf-t--global--spacer--sm);
   --#{$table}__tree-view-main--c-table__check--MarginRight: var(--pf-t--global--spacer--sm);
 
   // * Table tree view icon
@@ -95,7 +94,6 @@ $pf-v6-c-tree-view--MaxDepth: 10;
   }
 
   > .#{$table}__check label {
-    padding-inline-start: var(--#{$table}__tree-view-main--c-table__check--PaddingLeft);
     padding-inline-end: var(--#{$table}__tree-view-main--c-table__check--PaddingRight);
     margin-block-start: 0;
     margin-block-end: 0;

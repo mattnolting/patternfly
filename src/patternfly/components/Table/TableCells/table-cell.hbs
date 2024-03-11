@@ -1,0 +1,18 @@
+{{!-- TODO: automate `td/th` based up `IsThead/IsTbody` and make overridable --}}
+{{!-- TODO: automate attribution --}}
+
+{{#>
+  config
+  table-cell--root=(pfPrefix 'table__')
+  table-cell--tag=(ternary IsThead 'th' 'td')
+  table-cell--class=(concat table-cell--root table-cell--tag)
+  screen-reader--text=(ternary table-cell--text table-cell--text (concat table-cell--for ' action'))
+}}
+{{!-- TODO: Logic for both table__th and table__td goes here --}}
+
+
+<{{table-cell--tag}} class="{{table-cell--class}}">
+  {{> @partial-block}}
+</{{table-cell--tag}}>
+
+{{/config}}

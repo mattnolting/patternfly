@@ -277,7 +277,7 @@ These classes can be used to ensure that the table changes between the tabular a
       {{#> table-th table-th--attribute='scope="col"'}}
         Pull requests
       {{/table-th}}
-      {{> table-cell-empty}}
+      {{> table-cell-empty table-cell--for='Radio'}}
     {{/table-tr}}
   {{/table-thead}}
 
@@ -2322,7 +2322,9 @@ Note: To apply padding to `.pf-v6-c-table__expandable-row`, wrap the content in 
         {{/table-nested}}
       {{/table-td}}
     {{/table-tr}}
+  {{/table-tbody}}
 
+  {{#> table-tbody}}
     {{#> table-tr table-tr--IsControlRow="true"}}
       {{#> table-td table-td--IsCompoundExpansionToggle=true table-td--data-label="Repositories" table-td--button--attribute=(concat 'aria-controls="' table--id '-nested-table-4"')}}
         <i class="fas fa-code-branch" aria-hidden="true"></i>&nbsp;10
@@ -3160,7 +3162,8 @@ There are a few ways this can be handled:
       table--scrollable--id="sticky-column-example"
       table--scrollable--Column1IsStickyColumn=true
       table--scrollable--th--modifier--cell-1-modifier="pf-m-truncate pf-m-border-right"
-      table--scrollable--th--modifier--cell-2-modifier="pf-m-truncate"}}
+      table--scrollable--th--modifier--cell-2-modifier="pf-m-truncate"
+    }}
 </div>
 ```
 
@@ -3168,11 +3171,12 @@ There are a few ways this can be handled:
 ```hbs
 <div class="pf-v6-c-scroll-inner-wrapper">
   {{> table--scrollable
-      table--scrollable--id="sticky-multi-column-example"
       table--scrollable--Column1IsStickyColumn=true
       table--scrollable--Column2IsStickyColumn=true
+      table--scrollable--id="sticky-multi-column-example"
       table--scrollable--th--modifier--cell-1-modifier="pf-m-truncate"
-      table--scrollable--th--modifier--cell-2-modifier="pf-m-truncate pf-m-border-right"}}
+      table--scrollable--th--modifier--cell-2-modifier="pf-m-truncate pf-m-border-right"
+    }}
 </div>
 ```
 
@@ -3181,11 +3185,12 @@ There are a few ways this can be handled:
 <div class="pf-v6-c-scroll-outer-wrapper">
   <div class="pf-v6-c-scroll-inner-wrapper">
     {{> table--scrollable table--scrollable--id="sticky-header-columns-example"
-        table--scrollable--modifier="pf-m-sticky-header"
         table--scrollable--Column1IsStickyColumn=true
         table--scrollable--Column2IsStickyColumn=true
+        table--scrollable--modifier="pf-m-sticky-header"
         table--scrollable--th--modifier--cell-1-modifier="pf-m-truncate"
-        table--scrollable--th--modifier--cell-2-modifier="pf-m-truncate pf-m-border-right"}}
+        table--scrollable--th--modifier--cell-2-modifier="pf-m-truncate pf-m-border-right"
+      }}
   </div>
 </div>
 ```
@@ -3197,7 +3202,8 @@ There are a few ways this can be handled:
   {{> table--scrollable
       table--scrollable--id="sticky-right-column-example"
       table--scrollable--ColumnLastIsStickyColumn=true
-      table--scrollable--th--modifier--cell-9-modifier="pf-m-truncate pf-m-border-left"}}
+      table--scrollable--th--modifier--cell-9-modifier="pf-m-truncate pf-m-border-left"
+    }}
 </div>
 ```
 
@@ -3224,7 +3230,7 @@ For sticky columns to function correctly, the parent table's width must be contr
       {{#> table-tr}}
         {{> table-cell-empty table-td--attribute='rowspan="2"'}}
         {{> table-cell-check table-td--attribute='rowspan="2"'}}
-        {{#> table-th table-th--attribute='scope="col" rowspan="2"' table-th--sortable="true" table-th--modifier="pf-m-border-right"}}
+        {{#> table-th table-th--attribute='scope="col" rowspan="2"' table-th--IsSortable="true" table-th--modifier="pf-m-border-right"}}
           Team
         {{/table-th}}
         {{#> table-th table-th--attribute='scope="col" colspan="3"' table-th--modifier="pf-m-border-right"}}
@@ -3612,7 +3618,7 @@ For sticky columns to function correctly, the parent table's width must be contr
 {{#> table table--id="table-favorites-sortable" table--IsGrid=true table--modifier="pf-m-grid-md" table--attribute='aria-label="This is a sortable with favorites table example"'}}
   {{#> table-thead}}
     {{#> table-tr table-tr--index="1"}}
-      {{> table-th table-th--attribute='scope="col"' table-th--IsFavorite="true" table-th--IsSortable=true table-th--IsSelected="true" table-button--attribute='aria-label="Favorite"'}}
+      {{> table-th table-th--attribute='scope="col"' table-th--IsFavorite=true table-th--IsSortable=true table-th--IsSelected=true table-button--attribute='aria-label="Favorite"'}}
       {{#> table-th table-th--attribute='scope="col"'}}
         Repositories
       {{/table-th}}

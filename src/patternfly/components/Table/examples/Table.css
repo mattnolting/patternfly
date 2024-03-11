@@ -9,10 +9,8 @@
   inset-block-start: -18px;
 }
 
+#ws-core-c-table-sticky-columns-and-header .ws-preview-html,
+#ws-core-c-table-nested-column-headers-sticky-header .ws-preview-html,
 #ws-core-c-table-sticky-header .ws-preview-html {
-  height: 300px;
-}
-
-#ws-core-c-table-sticky-columns-and-header .ws-preview-html {
-  height: 600px;
+  height: 400px;
 }

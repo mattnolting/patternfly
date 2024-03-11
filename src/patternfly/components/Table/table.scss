@@ -102,6 +102,7 @@
   --#{$table}__favorite--c-button--FontSize: var(--pf-t--global--font--size--body--default);
   --#{$table}--cell--m-favorite--Color: var(--pf-t--global--text--color--subtle);
   --#{$table}__favorite--m-favorited--c-button--Color: var(--pf-t--global--color--favorite--clicked);
+  --#{$table}__favorite--m-favorited--c-button--hover--Color: var(--pf-t--global--color--favorite--clicked);
   --#{$table}__sort--m-favorite__button__text--Color: var(--pf-t--global--text--color--subtle);
   --#{$table}__sort--m-favorite__button--hover__text--Color: var(--pf-t--global--text--color--regular);
 
@@ -252,17 +253,18 @@
   --#{$table}__subhead--Color: var(--pf-t--global--text--color--subtle);
 
   // * Table striped
-  --#{$table}--m-striped__tr--BackgroundColor: var(--pf-t--global--background--color--primary--default);
+  --#{$table}--m-striped__tr--BackgroundColor: var(--pf-t--global--background--color--primary--clicked);
 
-  // * Table sticky
+  // * Table sticky header
   --#{$table}--m-sticky-header--cell--ZIndex: var(--pf-t--global--Zindex--xs);
+  --#{$table}--m-sticky-header--ZIndex: calc(var(--pf-t--global--Zindex--xs) + 1);
+  --#{$table}--m-sticky-header--border--ZIndex: calc(var(--pf-t--global--Zindex--xs) + 2);
 }
 
 // TODO: update grouping comments to // Table {element}
 // TODO: flatten the modifiers out ex: .#{$table}.pf-m-sticky-header {}
 // - Table
 .#{$table} {
-  // Base
   width: 100%;
   background-color: var(--#{$table}--BackgroundColor);
 
@@ -271,6 +273,24 @@
   }
 
   // - Table sticky header
+  &.pf-m-sticky-header > .#{$table}__thead,
+  .#{$table}__thead.pf-m-nested-column-header {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: var(--#{$table}--m-sticky-header--ZIndex);
+    background: var(--#{$table}--BackgroundColor);
+
+    &::before {
+      position: absolute;
+      inset-block-end: 0;
+      inset-inline-start: 0;
+      inset-inline-end: 0;
+      z-index: var(--#{$table}--m-sticky-header--border--ZIndex);
+      content: '';
+      border-block-end: var(--#{$table}--border-width--base) solid var(--#{$table}--BorderColor);
+    }
+  }
+
   &.pf-m-sticky-header {
     position: relative;
 
@@ -280,48 +300,11 @@
       }
     }
 
-    // - Table thead not nested column header
-    > thead:where(.#{$table}__thead):not(.pf-m-nested-column-header) {
-      > tr:where(.#{$table}__tr) > :where(th, td) {
-        position: sticky;
-        inset-block-start: 0;
-        background: var(--#{$table}--BackgroundColor);
-
-        // stylelint-disable-next-line
-        &::after {
-          position: absolute;
-          inset-block-end: 0;
-          inset-inline-start: 0;
-          inset-inline-end: 0;
-          content: '';
-          border-block-end: var(--#{$table}--border-width--base) solid var(--#{$table}--BorderColor);
-        }
-      }
-    }
-
     // - Table nested column header
     > .pf-m-nested-column-header {
       position: sticky;
       inset-block-start: 0;
-      z-index: var(--pf-t--global--Zindex--xs);
       background: var(--#{$table}--BackgroundColor);
-
-      > .pf-m-border-row {
-        height: var(--#{$table}--border-width--base);
-        background-color: var(--#{$table}--BorderColor);
-      }
-
-      // TODO: remove this block
-      tr:where(.#{$table}__tr):not(:nth-last-child(2)) {
-        // stylelint-disable max-nesting-depth
-        th:where(.#{$table}__th),
-        td:where(.#{$table}__td) {
-          &:not([rowspan]) {
-            // --#{$table}--cell--PaddingBottom: var(--#{$table}__thead--m-nested-column-header__tr--PaddingBottom);
-          }
-        }
-        // stylelint-enable
-      }
     }
   }
 
@@ -344,7 +327,7 @@
   // - Table striped
   // stylelint-disable
   &.pf-m-striped:not(.pf-m-expandable) > tbody:where(.#{$table}__tbody) > tr:where(.#{$table}__tr):nth-child(odd), // regular table
-  &.pf-m-striped.pf-m-expandable > tbody:where(.#{$table}__tbody):nth-of-type(odd) > tr:where(.#{$table}__tr):not(.#{$table}__expandable-row), // expandable table
+  &.pf-m-striped.pf-m-expandable > tbody:where(.#{$table}__tbody):nth-of-type(odd) > tr:where(.#{$table}__tr), // expandable table
   > .pf-m-striped > tr:nth-child(odd), // tbody odd
   > .pf-m-striped-even > tr:nth-child(even), // tbody even
   tr:where(.#{$table}__tr).pf-m-striped { // tr
@@ -368,7 +351,6 @@
   tr:where(.#{$table}__tr) > :where(th, td) {
     @include pf-v5-hidden-visible(var(--#{$table}--cell--hidden-visible--Display));
 
-    // set position relative for ::after borders
     position: relative;
     width: var(--#{$table}--cell--Width);
     min-width: var(--#{$table}--cell--MinWidth);
@@ -633,6 +615,16 @@
   &.pf-m-drag-over {
     overflow-anchor: none;
   }
+
+  // - Table table
+  .#{$table}{
+    background-color: transparent;
+
+    &,
+    :is(.#{$table}__tbody, .#{$table}__tr:last-child) {
+      border-block-end: 0;
+    }
+  }
 }
 
 // - Table thead
@@ -646,36 +638,42 @@
 .#{$table}__tbody {
   vertical-align: top;
 
-  // - Table tbody table control row
-  .#{$table}__control-row {
-    background-color: var(--#{$table}__control-row--BackgroundColor);
-    border-block-end: var(--#{$table}__control-row--BorderBottomWidth) solid var(--#{$table}__control-row__tbody--BorderBottomColor);
-  }
-
   // TODO: make this a class `compound expansion content`
-  .#{$table}__control-row + .#{$table}__expandable-row.pf-m-expanded {
+  .#{$table}__control-row ~ .#{$table}__expandable-row.pf-m-expanded {
     background-color: var(--#{$table}--compound-expansion--m-expanded--BackgroundColor);
+  }
+}
 
-    .#{$table}{
-      background-color: transparent;
-    }
+// Table table tbody expandable
+.#{$table}.pf-m-expandable {
+  .#{$table}__tr.pf-m-expanded {
+    border-block-end: 0;
   }
 
-  // Table table tbody expandable
-  .#{$table}.pf-m-expandable & {
-    border-block-end: var(--#{$table}--m-expandable__tbody--BorderBottomWidth) solid var(--#{$table}--m-expandable__tbody--BorderBottomColor);
+  // - Table tbody
+  .#{$table}__tbody {
+    border-block-end: var(--#{$table}__tr--BorderBottomWidth) solid var(--#{$table}__tr--BorderBottomColor);
+  }
 
-    // - Table tbody - Table tr
-    .#{$table}__tbody,
-    .#{$table}__tr {
-      border-block-end: 0;
+  // - Table tbody - Table tr
+  .#{$table}__tbody.pf-m-expanded {
+    border-block-end: var(--#{$table}__tr--BorderBottomWidth) solid var(--#{$table}__tr--BorderBottomColor);
+
+    // - Table tbody table control row
+    .#{$table}__control-row {
+      background-color: var(--#{$table}__control-row--BackgroundColor);
+      border-block-end: var(--#{$table}__control-row--BorderBottomWidth) solid var(--#{$table}__control-row__tbody--BorderBottomColor);
     }
   }
 }
 
-// - Tabel tr
+// - Table tr
 .#{$table}__tr {
   border-block-end: var(--#{$table}__tr--BorderBottomWidth) solid var(--#{$table}__tr--BorderBottomColor);
+
+  &.pf-m-border-row {
+    border-block-end: var(--#{$table}--border-width--base) solid var(--#{$table}--BorderColor);
+  }
 }
 
 // - Table text
@@ -702,13 +700,6 @@
       text-overflow: var(--#{$table}--cell--TextOverflow);
       white-space: var(--#{$table}--cell--WhiteSpace);
     }
-  }
-}
-
-// - Table tr
-.#{$table}__tr {
-  &.pf-m-border-row {
-    border-block-end: var(--#{$table}--border-width--base) solid var(--#{$table}--BorderColor);
   }
 }
 
@@ -863,14 +854,15 @@
 
 // - Table favorite
 .#{$table}__favorite {
-  // --#{$table}--cell--PaddingLeft: var(--#{$table}__favorite--PaddingLeft);
-  // --#{$table}--cell--PaddingRight: var(--#{$table}__favorite--PaddingRight);
-
   .#{$button} {
     --#{$button}--FontSize: var(--#{$table}__favorite--c-button--FontSize);
+  }
 
-    @at-root .pf-m-favorited#{&} {
-      --#{$button}--m-plain--Color: var(--#{$table}__favorite--m-favorited--c-button--Color);
+  &.pf-m-favorited .#{$button} {
+    --#{$button}--m-plain--Color: var(--#{$table}__favorite--m-favorited--c-button--Color);
+
+    &:is(:hover, :focus) {
+      --#{$button}--m-plain--hover--Color: var(--#{$table}__favorite--m-favorited--c-button--Color);
     }
   }
 }
@@ -1000,9 +992,9 @@
   }
 
   &.pf-m-favorite {
-    --#{$table}__sort__button__text--Color: var(--#{$table}__sort--m-favorite__button__text--Color);
-    --#{$table}__sort__button--hover__text--Color: var(--#{$table}__sort--m-favorite__button--hover__text--Color);
-    --#{$table}__sort--m-selected__button__text--Color: currentcolor;
+    .#{$table}__text {
+      font-size: var(--#{$table}__favorite--c-button--FontSize);
+    }
   }
 }
 
