@@ -8,9 +8,15 @@
   table-cell--type=(ternary table-cell--type table-cell--type table-cell--tag)
   table-cell--className=(concat table-cell--root table-cell--tag)
   table-cell--modifiers=(setModifiers
+    table-cell--IsAction=(pfPrefix 'table__action')
+    table-cell--IsCheck=(pfPrefix 'table__check')
+    table-cell--IsEmpty=(pfPrefix 'table__empty')
+    table-cell--IsOverflowMenu=(pfPrefix 'table__action')
     table-cell--IsToggle=(pfPrefix 'table__toggle')
-    table-cell--IsEmpty=(pfPrefix 'table__cell-empty')
-    table-cell--IsCheckbox=(pfPrefix 'table__check')
+  )
+  table-cell--options=(ifTruthy
+    (entry IsBody 'table__tbody')
+    (entry IsThead 'table__thead')
   )
 }}
 {{!-- TODO: Logic for both table__th and table__td goes here --}}

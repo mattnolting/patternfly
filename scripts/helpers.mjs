@@ -54,9 +54,6 @@ else custom value for select--width: {{#> select)}}Filter by name{{/select}}
 {{#> select select--id=(concat toolbar--id '-select-name') select--width=(ternary toolbar-items-search-filter--width toolbar-items-search-filter--width '175px') select-toggle--icon="fas fa-filter"}}
 {{> toolbar-item-search-filter toolbar-items-search-filter--width="300px"}}
 */
-export const ternary = (testValue, trueValue, fallback) => {
-  return testValue ? trueValue : fallback;
-};
 
 // ======================================================================================
 // debug: is a helper function that logs all parameters and their values, if defined to the console
@@ -245,6 +242,22 @@ export const tag = function (tag) {
 };
 
 // ======================================================================================
+// tag: is a helper function that returns the tag of a component
+// ======================================================================================
+//
+// Usage:
+//   {{#> tag}}
+//     {{debug}}
+//     {{debug component--id}}
+//
+// Options:
+//     Can request a specific value to be logged. `component--id` is requested on the second line
+// ======================================================================================
+export const print = function () {
+  return this;
+};
+
+// ======================================================================================
 // setModifier: is a helper function that sets a modifier class
 // ======================================================================================
 export const setModifier = function (param, className) {
@@ -381,3 +394,56 @@ export const inlineStyle = function (prop, val) {
 }
 
 // TODO: create helper to look for `Is` then camelcase to return boolean with the need for `true`
+export const ternary = (testValue, trueValue, fallback) => {
+  return testValue ? trueValue : fallback;
+};
+
+export const keyValue = function (key, value) {
+  return { key, value };
+}
+
+export const entry = function (key, value) {
+  return { key, value };
+}
+
+export const ifTruthy = (...params) => {
+  // const args = Array.prototype.slice.call(arguments, 0, -1);
+
+  // for (const param in params) {
+  //   console.log(param);
+  // }
+
+  for (const param in params) {
+    const testVal = params[param].key;
+    const returnValue = params[param].value;
+
+    if (testVal) {
+      return returnValue
+    }
+
+    // for (const property in param) {
+    //   console.log(property.key, property.value);
+    // }
+  };
+
+
+  // params.forEach(function (key, value) {
+  //   console.log(key, value);
+  // });
+
+  // return testValue ? trueValue : fallback;
+};
+
+// const test1 = keyValue(undefined, 'that');
+// const test2 = keyValue('this2', 'that2');
+// const test3 = keyValue('this3', 'that3');
+// const test4 = keyValue('this4', 'that4');
+
+// const testObj = {
+//   test1,
+//   test2,
+//   test3,
+//   test4
+// };
+
+// tester(testObj);

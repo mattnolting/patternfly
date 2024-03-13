@@ -374,7 +374,8 @@
       text-align: center;
     }
 
-    &:empty {
+    &:empty,
+    &.#{$table}__empty {
       width: auto;
       min-width: 0;
       padding: 0;
