@@ -6,40 +6,21 @@
   config
   table-cell--IsEmpty=true
   table-cell--text='Column header'
-  table-cell--empty--text=(concat
-    (ternary table-cell--IsText 'Text' '')
-    (ternary table-cell--IsToggle 'Row expansion' '')
-    (ternary table-cell--IsAction 'Action' '')
-    (ternary table-cell--IsPrimaryAction 'Primary action' '')
-    (ternary table-cell--IsSecondaryAction 'Secondary action' '')
-    (ternary table-cell--IsUrl 'URL' '')
-    (ternary table-cell--IsRadio 'Radio select' '')
-    (ternary table-cell--IsCheck 'Checkbox' '')
+  table-cell--empty--text=(ifTruthy
+    (entry table-cell--IsText 'Text')
+    (entry table-cell--IsToggle 'Row expansion')
+    (entry table-cell--IsAction 'Action')
+    (entry table-cell--IsPrimaryAction 'Primary action')
+    (entry table-cell--IsSecondaryAction 'Secondary action')
+    (entry table-cell--IsUrl 'URL')
+    (entry table-cell--IsRadio 'Radio select')
+    (entry table-cell--IsCheck 'Checkbox')
   )
 }}
-  {{!-- table-cell--param=(param IsBody 'this is a body element') --}}
 
-
-  {{!-- table--test=(keyValue config.table-cell--type 'this has a type') --}}
-  {{!-- tester (
-    (keyValue 'test1' 'that')
-    (keyValue 'test2' 'that')
-    (keyValue 'test3' 'that')
-    (keyValue 'test4' 'that')
-  ) --}}
-    {{!-- (if table-cell--IsText (print 'Text'))
-    (if table-cell--IsToggle (print 'Row expansion'))
-    (if table-cell--IsAction (print 'Action'))
-    (if table-cell--IsPrimaryAction (print 'Primary action'))
-    (if table-cell--IsSecondaryAction (print 'Secondary action'))
-    (if table-cell--IsUrl (print 'URL'))
-    (if table-cell--IsRadio (print 'Radio select'))
-    (if table-cell--IsCheck (print 'Checkbox')) --}}
-
-{{#> table-cell}}
+{{#> table-test}}
   {{> screen-reader screen-reader--text=(ternary table-cell--empty--text table-cell--empty--text 'test')}}
-  {{debug}}
-{{/table-cell}}
+{{/table-test}}
 
 {{/config}}
 

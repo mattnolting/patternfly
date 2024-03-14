@@ -1,4 +1,5 @@
 import { patternflyNamespace, patternflyVersion } from './init.mjs';
+import * as functions from './workspace-utilities/functions.mjs';
 
 /** Ignore the object appended by handlebars. */
 export const concat = (...params) => {
@@ -407,43 +408,33 @@ export const entry = function (key, value) {
 }
 
 export const ifTruthy = (...params) => {
-  // const args = Array.prototype.slice.call(arguments, 0, -1);
-
-  // for (const param in params) {
-  //   console.log(param);
-  // }
-
   for (const param in params) {
     const testVal = params[param].key;
     const returnValue = params[param].value;
 
     if (testVal) {
-      return returnValue
+      return returnValue;
     }
+  }
+}
 
-    // for (const property in param) {
-    //   console.log(property.key, property.value);
-    // }
-  };
+export const extendRoot = function (extension, options) {
+  return this.root + '__' + extension;
+}
 
+export const classConfig = function (...map) {
+  const objectName = this.root + '-classlist';
+  if (!this[objectName]) { this[objectName] = { }; }
 
-  // params.forEach(function (key, value) {
-  //   console.log(key, value);
-  // });
+  this[objectName]['root-class'] = this.root;
 
-  // return testValue ? trueValue : fallback;
-};
+  map.forEach((item, i) => {
+    this[objectName][item.key] = item.value;
+  });
+}
 
-// const test1 = keyValue(undefined, 'that');
-// const test2 = keyValue('this2', 'that2');
-// const test3 = keyValue('this3', 'that3');
-// const test4 = keyValue('this4', 'that4');
-
-// const testObj = {
-//   test1,
-//   test2,
-//   test3,
-//   test4
-// };
-
-// tester(testObj);
+export const init = function (options) {
+  console.log(this, options);
+  functions.setRoot(pfPrefix(options.root));
+  // return this.options;
+}

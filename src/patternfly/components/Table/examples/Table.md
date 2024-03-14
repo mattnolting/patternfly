@@ -8,7 +8,7 @@ import './Table.css'
 
 # Examples
 
-## Basic table
+## Basic tablez
 
 ### Basic table example
 ```hbs
@@ -17,6 +17,7 @@ import './Table.css'
     This is the table caption
   {{/table-caption}}
   {{#> table-thead}}
+    {{#> table-cell-empty table-cell--IsToggle=true}}
     {{#> table-tr}}
       {{#> table-th table-th--attribute='scope="col"'}}
         Repositories

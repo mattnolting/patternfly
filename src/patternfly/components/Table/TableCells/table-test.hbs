@@ -1,13 +1,30 @@
 {{!-- TODO: automate `td/th` based up `IsThead/IsTbody` and make overridable --}}
 {{!-- TODO: automate attribution --}}
-{{!-- table-cell--tag=(ternary IsThead 'th' 'td') --}}
+{{!-- table-test--tag=(ternary IsThead 'th' 'td') --}}
+
+{{init
+  root='table'
+}}
+{{classConfig
+  (entry 'action-class' 'table-cell--action-class')
+  (entry 'toggle-class' 'table-cell--toggle-class')
+  (entry 'empty-class' 'table-cell--empty-class')
+}}
 
 {{#>
   config
-  root=(pfPrefix 'table')
-  table-cell--tag=(ternary IsThead 'th' 'td')
+  table-test--tag=(ternary IsThead 'th' 'td')
+  classlist=(concat
+    (extendRoot table-test--tag)
+    (classConfig
+      (entry 'action-class' 'table-cell--action-class')
+      (entry 'toggle-class' 'table-cell--toggle-class')
+      (entry 'empty-class' 'table-cell--empty-class')
+    )
+  )
 }}
-  {{!-- table-cell--root=(extendRoot table-cell--tag) --}}
+
+  {{!-- table-cell--root=(extendRoot table-test--tag) --}}
   {{!-- table-cell--modifiers=(ifTruthy
     (entry table-cell--IsAction table-cell--action-class)
     (entry table-cell--IsCheck (concat table-cell--root '__check'))
@@ -38,13 +55,7 @@
   (entry table-cell--IsToggle (concat table-cell--root '__toggle'))
 ) --}}
 
-  {{!-- table-cell--root=(extendRoot table-cell--tag) --}}
-
-{{!-- {{classConfig
-  (extendRoot table-cell--class 'table-cell--action-class')
-}} --}}
-
-
+  {{!-- table-cell--root=(extendRoot table-test--tag) --}}
   {{!-- (ifTruthy
     (entry table-cell--IsAction table-cell--action-class)
     (entry table-cell--IsCheck (concat table-cell--root 'check'))
@@ -54,7 +65,8 @@
   ) --}}
 
 {{!-- {{debug}} --}}
-<{{table-cell--tag}}
+
+<{{table-test--tag}} class="{{this.classlist}}"
   role='cell'
   {{#if table-cell--attribute}}
     {{{table-cell--attribute}}}
@@ -63,6 +75,6 @@
   {{#if @partial-block}}
     {{> @partial-block}}
   {{/if}}
-</{{table-cell--tag}}>
+</{{table-test--tag}}>
 
 {{/config}}

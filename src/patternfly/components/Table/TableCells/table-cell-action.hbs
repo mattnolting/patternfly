@@ -2,11 +2,19 @@
 {{!-- TODO: automate `td/th` based up `IsThead/IsTbody` and make overridable --}}
 {{!-- TODO: automate attribution --}}
 
-{{#> table-cell table-cell--IsAction=true}}
-  {{> menu-toggle
-      menu-toggle--IsPlain=true
-      menu-toggle--HasKebab=true
-      menu-toggle--IsSmall=table--IsCompact
-      menu-toggle--aria-label='Table actions'
-    }}
+{{#>
+  table-cell-action-config
+  table-cell--IsAction=true
+
+  menu-toggle--IsPlain=true
+  menu-toggle--HasKebab=true
+  menu-toggle--IsSmall=table--IsCompact
+  menu-toggle--aria-label='Table actions'
+}}
+
+
+{{#> table-cell}}
+  {{> menu-toggle}}
 {{/table-cell}}
+
+{{/table-cell-action-config}}
