@@ -13,15 +13,20 @@ export function copyAssets() {
   return src('src/patternfly/assets/**').pipe(dest('static/assets'));
 }
 
+export function copyJs() {
+  return src(['src/patternfly/**/*.js', 'src/patternfly/**/*.mjs']).pipe(dest('dist'));
+}
+
 export function copySource() {
   return Promise.all([
     // Copy excluded source files
-    src(['src/patternfly/**/_all.scss', 'src/patternfly/{components,layouts,patterns,utilities,themes}/**/*.scss', './src/patternfly/components/**/themes/**/*.scss']).pipe(
+    src(['src/patternfly/**/_all.scss', 'src/patternfly/{components,layouts,patterns,utilities,themes}/**/*.scss', 'src/patternfly/{components,layouts,patterns,utilities,themes}/**/*.scss', './src/patternfly/components/**/themes/**/*.scss']).pipe(
       dest('dist')
     ),
     // Copy source files
     src('src/patternfly/*.scss').pipe(dest('dist')),
     src('src/patternfly/sass-utilities/**').pipe(dest('dist/sass-utilities')),
+    src('src/patternfly/components/**/*.js').pipe(dest('dist/components/')),
     // base
     src('src/patternfly/base/**').pipe(dest('dist/base')),
     // Assets
@@ -32,11 +37,23 @@ export function copySource() {
     src('src/icons/PfIcons/*').pipe(dest('dist/icons/PfIcons/')),
     // For NPM
     src('*.md').pipe(dest('dist')),
+    src('*.mjs').pipe(dest('dist')),
     src('package.json').pipe(dest('dist'))
   ]);
 }
 
-const docFiles = ['src/site/**', 'src/patternfly/**/examples/*.css', 'src/patternfly/**/deprecated/*.css'];
+// const docFiles = ['src/site/**', 'src/patternfly/**/examples/*.css', 'src/patternfly/**/deprecated/*.css'];
+const docFiles = ['src/site/**', 'src/patternfly/**/examples/*.css', 'src/patternfly/**/examples/*.js', 'src/patternfly/**/examples/*.mjs', 'src/patternfly/**/deprecated/*.css'];
+
+export function moveDirTask(dir, dest, cb) {
+  const watcher = watch(docFiles, { delay: 0 });
+  watcher.on('change', copyDocs);
+  watcher.on('add', copyDocs);
+  cb();
+
+  return gulp.src(`${dir}/**/*.js`)
+    .pipe(gulp.dest(`${dest}/${dir}/`));
+}
 
 export function copyDocs() {
   return src(docFiles).pipe(dest('dist/docs'));

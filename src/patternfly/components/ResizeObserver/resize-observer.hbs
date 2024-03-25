@@ -1,0 +1,44 @@
+<div class="{{pfv}}resize-observer{{#if resize-observer--modifier}} {{resize-observer--modifier}}{{/if}}"
+  {{#if resize-observer--id}}
+    id="{{{resize-observer--id}}}"
+  {{/if}}
+  {{#if resize-observer--data-size-sm}}
+    data-size-sm="{{{resize-observer--data-size-sm}}}"
+  {{/if}}
+  {{#if resize-observer--data-size-md}}
+    data-size-md="{{{resize-observer--data-size-md}}}"
+  {{/if}}
+  {{#if resize-observer--data-size-lg}}
+    data-size-lg="{{{resize-observer--data-size-lg}}}"
+  {{/if}}
+  {{#if resize-observer--data-size-xl}}
+    data-size-xl="{{{resize-observer--data-size-xl}}}"
+  {{/if}}
+  {{#if resize-observer--data-size-custom}}
+    data-size-custom="{{{resize-observer--data-size-custom}}}"
+  {{/if}}
+  data-on-xs="stacked, alpha"
+  data-on-sm="inlined, beta"
+  data-on-md="reversed, gamma"
+  data-on-lg="intial, delta"
+  data-on-xl="flex, zeta"
+  {{#if resize-observer--id}}
+    id="{{{resize-observer--id}}}"
+  {{/if}}
+  {{#if observeResize}}
+    {{observeResize}}
+  {{/if}}
+  {{#if resize-observer--attribute}}
+    {{{resize-observer--attribute}}}
+  {{/if}}>
+  {{#if @partial-block}}
+    {{> @partial-block}}
+  {{/if}}
+</div>
+<script>
+  console.log('main pages');
+  const MyComponent = () => {
+  }
+
+  MyComponent();
+</script>

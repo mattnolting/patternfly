@@ -109,5 +109,9 @@
     "registry": "https://registry.npmjs.org/",
     "access": "public",
     "tag": "alpha"
+  },
+  "dependencies": {
+    "@react-hook/resize-observer": "^1.2.6",
+    "resize-observer-polyfill": "^1.5.1"
   }
 }

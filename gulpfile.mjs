@@ -13,6 +13,8 @@ import { build as docsFrameworkBuild} from '@patternfly/documentation-framework/
 
 const { series, parallel } = gulp;
 
+// const jsFiles = ['./src/patternfly/{components,layouts,patterns,utilities}/**/*.js'];
+
 const sassFiles = [
   './src/patternfly/patternfly*.scss',
   './src/patternfly/base/patternfly*.scss',
@@ -21,9 +23,10 @@ const sassFiles = [
   // No need to compile component theme sass files to empty css files
   '!./src/patternfly/components/**/themes/**/*.scss'
 ];
-const hbsFiles = ['./src/patternfly/**/*.hbs'];
+
+const hbsFiles = ['./src/patternfly/**/*.hbs', './src/patternfly/**/**/*.hbs'];
 const mdFiles = ['./src/patternfly/**/*.md'];
-const helperFiles = ['./scripts/helpers.mjs'];
+const helperFiles = ['./scripts/helpers.mjs', './scripts/resizeObserver.mjs'];
 
 export function clean(cb) {
   const cleanGlobs = [

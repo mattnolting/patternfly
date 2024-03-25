@@ -1,5 +1,17 @@
+// import { resizeObserver } from './ResizeObserver.mjs';
+import ResizeObserver from 'resize-observer-polyfill';
 import { patternflyNamespace, patternflyVersion } from './init.mjs';
+// import useResizeObserver from '@react-hook/resize-observer';
+// import ReactDOM from 'react-dom';
+// import { resizeObserver } from './resizeObserver.mjs';
+// import ResizeObserver from 'resize-observer-polyfill';
+// import { createRequire } from 'module';
+// const require = createRequire(import.meta.url);
+// const settings = require('./settings.json');
 
+
+
+// console.log(settings);
 /** Ignore the object appended by handlebars. */
 export const concat = (...params) => {
   if (typeof params[params.length - 1] === 'object') {
@@ -21,6 +33,7 @@ export const removeWhiteSpaceForPrettier = () => {
   something else
 {{/ifEquals}}
 */
+
 export const ifEquals = function () {
   const args = Array.prototype.slice.call(arguments, 0, -1);
   const options = arguments[arguments.length - 1];
@@ -284,3 +297,5 @@ export const pfv = (type) => {
 export const prefix = function (term) {
   return pfv('c') + term;
 }
+
+console.log('helpers');
