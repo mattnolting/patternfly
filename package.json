@@ -11,6 +11,7 @@
     "backstop:test:dark": "backstop test --config='backstop.js' --dark",
     "backstop:approve": "backstop approve --config='backstop.js'",
     "backstop:approve:dark": "backstop approve --config='backstop.js' --dark",
+    "backstop:openReport": "backstop openReport --config='backstop.js'",
     "build-patternfly": "gulp buildPatternfly",
     "build": "gulp build",
     "build:docs": "gulp buildWebpack",

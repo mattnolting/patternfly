@@ -1,6 +1,6 @@
 @use '../../sass-utilities' as *;
 
-:where(:root, .#{$about-modal-box}) {
+:root, .#{$about-modal-box}-reset {
     // Component variables
   --#{$about-modal-box}--BackgroundImage: none;
   --#{$about-modal-box}--BackgroundColor: var(--pf-t--global--background--color--floating--default);
@@ -210,6 +210,6 @@
   // Close button
   // Since this btn is unique to the about modal, use contextual selectors in this specific instance
   .#{$button}.pf-m-plain {
-    font-size: var(--#{$about-modal-box}__close--c-button--FontSize);
+    --#{$button}--FontSize: var(--#{$about-modal-box}__close--c-button--FontSize);
   }
 }

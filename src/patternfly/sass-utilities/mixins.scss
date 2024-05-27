@@ -332,7 +332,7 @@
 
 // Dark theme style block
 @mixin pf-v6-theme-dark($theme-dark-class: $pf-v6--theme-dark--class, $theme-dark-target: $pf-v6--theme-dark--target) {
-  #{$theme-dark-target}:where(#{$theme-dark-class}) {
+  #{$theme-dark-target}#{$theme-dark-class} {
     @content;
   }
 }

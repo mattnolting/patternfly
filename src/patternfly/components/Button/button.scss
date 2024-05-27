@@ -1,6 +1,6 @@
 @use '../../sass-utilities' as *;
 
-:where(:root, .#{$button}) {
+:root, .#{$button}-reset {
   --#{$button}--Display: inline-flex;
   --#{$button}--AlignItems: baseline;
   --#{$button}--JustifyContent: center;
@@ -103,7 +103,6 @@
   --#{$button}--m-link--m-danger--m-clicked__icon--Color: var(--pf-t--global--text--color--status--danger--clicked);
 
   // Link inline
-  --#{$button}--m-link--m-inline--Display: inline-flex;
   --#{$button}--m-link--m-inline--JustifyContent: flex-start;
   --#{$button}--m-link--m-inline--FontSize: initial;
   --#{$button}--m-link--m-inline--LineHeight: initial;
@@ -258,6 +257,8 @@
   --#{$button}__icon--MarginInlineEnd: 0;
   --#{$button}__icon--m-start--MarginInlineEnd: 0;
   --#{$button}__icon--m-end--MarginInlineStart: 0;
+  --#{$button}__icon--MinWidth: var(--#{$button}__icon--FontSize, var(--#{$button}--FontSize));
+  --#{$button}__icon--MinHeight: var(--#{$button}__icon--FontSize, var(--#{$button}--FontSize));
 
   // Progress
   --#{$button}__progress--width: calc(var(--#{$spinner}--m-md--diameter) + var(--pf-t--global--spacer--sm)); // matches medium spinner diameter plus a spacer
@@ -289,6 +290,8 @@
   gap: var(--#{$button}--Gap);
   align-items: var(--#{$button}--AlignItems);
   justify-content: var(--#{$button}--JustifyContent);
+  min-width: calc(var(--#{$button}--FontSize) * var(--#{$button}--LineHeight) + var(--#{$button}--PaddingBlockStart) + var(--#{$button}--PaddingBlockEnd));
+  min-height: calc(var(--#{$button}--FontSize) * var(--#{$button}--LineHeight) + var(--#{$button}--PaddingBlockStart) + var(--#{$button}--PaddingBlockEnd));
   padding-block-start: var(--#{$button}--PaddingBlockStart);
   padding-block-end: var(--#{$button}--PaddingBlockEnd);
   padding-inline-start: var(--#{$button}--PaddingInlineStart);
@@ -418,6 +421,7 @@
       --#{$button}--disabled--Color: var(--#{$button}--m-link--m-inline--disabled--Color);
       --#{$button}--disabled__icon--Color: var(--#{$button}--m-link--m-inline--disabled__icon--Color);
 
+      min-height: auto;
       text-align: start;
       white-space: normal;
       outline-offset: #{pf-size-prem(2px)};
@@ -561,8 +565,6 @@
 
       min-width: var(--#{$button}--m-plain--m-no-padding--MinWidth);
     }
-
-    min-width: var(--#{$button}--m-plain--MinWidth);
   }
 
   &.pf-m-block {
@@ -579,11 +581,11 @@
   }
 
   &.pf-m-display-lg {
+    --#{$button}--FontSize: var(--#{$button}--m-display-lg--FontSize);
     --#{$button}--PaddingBlockStart: var(--#{$button}--m-display-lg--PaddingBlockStart);
     --#{$button}--PaddingInlineEnd: var(--#{$button}--m-display-lg--PaddingInlineEnd);
     --#{$button}--PaddingBlockEnd: var(--#{$button}--m-display-lg--PaddingBlockEnd);
     --#{$button}--PaddingInlineStart: var(--#{$button}--m-display-lg--PaddingInlineStart);
-    --#{$button}--FontSize: var(--#{$button}--m-display-lg--FontSize);
   }
 
   &:hover,
@@ -666,6 +668,12 @@ span.#{$button}.pf-m-inline {
 }
 
 .#{$button}__icon {
+  display: inline-flex;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  min-width: var(--#{$button}__icon--MinWidth);
+  min-height: var(--#{$button}__icon--MinWidth); // make icon container square
   margin-inline-start: var(--#{$button}__icon--MarginInlineStart);
   margin-inline-end: var(--#{$button}__icon--MarginInlineEnd);
   color: var(--#{$button}__icon--Color);
