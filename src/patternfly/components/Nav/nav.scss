@@ -10,8 +10,8 @@
   --#{$nav}__list--ColumnGap: var(--pf-t--global--spacer--xs);
 
   // * Nav // default to row gap if no custom value is set
-  --#{$nav}--PaddingBlockStart: var(--pf-t--global--spacer--md);
-  --#{$nav}--PaddingBlockEnd: var(--pf-t--global--spacer--md);
+  // --#{$nav}--PaddingBlockStart: var(--pf-t--global--spacer--md);
+  // --#{$nav}--PaddingBlockEnd: var(--pf-t--global--spacer--md);
   --#{$nav}--PaddingInlineStart: 0; // var(--pf-t--global--spacer--md);
   --#{$nav}--PaddingInlineEnd: 0; // var(--pf-t--global--spacer--md);
   --#{$nav}--RowGap: var(--pf-t--global--spacer--lg);
@@ -113,8 +113,9 @@
   row-gap: var(--#{$nav}--RowGap);
   column-gap: var(--#{$nav}--ColumnGap);
   max-width: 100%;
-  padding-block-start: var(--#{$nav}--PaddingBlockStart);
-  padding-block-end: var(--#{$nav}--PaddingBlockEnd);
+
+  // padding-block-start: var(--#{$nav}--PaddingBlockStart);
+  // padding-block-end: var(--#{$nav}--PaddingBlockEnd);
   padding-inline-start: var(--#{$nav}--PaddingInlineStart);
   padding-inline-end: var(--#{$nav}--PaddingInlineEnd);
   font-size: var(--#{$nav}--FontSize);
@@ -128,7 +129,7 @@
 
   &.pf-m-inset {
     --#{$nav}--PaddingInlineStart: var(--pf-t--global--spacer--md);
-    --#{$nav}--PaddingInlineEnd: var(--pf-t--global--spacer--md);  
+    --#{$nav}--PaddingInlineEnd: var(--pf-t--global--spacer--md);
   }
 
   &.pf-m-fill {

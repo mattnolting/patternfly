@@ -10,9 +10,7 @@ cssPrefix: pf-v6-c-masthead
 {{#> masthead masthead--id="basic-masthead"}}
   {{#> masthead-main}}
     {{> masthead-toggle}}
-    {{#> masthead-brand}}
-      {{> masthead-logo}}
-    {{/masthead-brand}}
+    {{> masthead-brand}}
   {{/masthead-main}}
   {{> masthead-content}}
 {{/masthead}}
@@ -23,20 +21,28 @@ cssPrefix: pf-v6-c-masthead
 {{#> masthead masthead--id="basic-masthead-with-mixed-content-example"}}
   {{#> masthead-main}}
     {{> masthead-toggle}}
-    {{#> masthead-brand}}
-      {{> masthead-logo}}
-    {{/masthead-brand}}
+    {{> masthead-brand}}
   {{/masthead-main}}
   {{#> masthead-content}}
-    {{#> button button--IsPrimary=true}}
-      Primary
-    {{/button}}
-    {{#> button button--IsSecondary=true}}
-      Secondary
-    {{/button}}
-    {{#> button button--IsTertiary=true}}
-      Tertiary
-    {{/button}}
+    {{#> action-list}}
+      {{#> action-list-group}}
+        {{#> action-list-item}}
+          {{#> button button--IsPrimary=true}}
+            Primary
+          {{/button}}
+        {{/action-list-item}}
+        {{#> action-list-item}}
+          {{#> button button--IsSecondary=true}}
+            Secondary
+          {{/button}}
+        {{/action-list-item}}
+        {{#> action-list-item}}
+          {{#> button button--IsTertiary=true}}
+            Tertiary
+          {{/button}}
+        {{/action-list-item}}
+      {{/action-list-group}}
+    {{/action-list}}
   {{/masthead-content}}
 {{/masthead}}
 ```
@@ -46,9 +52,7 @@ cssPrefix: pf-v6-c-masthead
 {{#> masthead masthead--id="inline-masthead-example" masthead--modifier="pf-m-display-inline"}}
   {{#> masthead-main}}
     {{> masthead-toggle}}
-    {{#> masthead-brand}}
-      {{> masthead-logo}}
-    {{/masthead-brand}}
+    {{> masthead-brand}}
   {{/masthead-main}}
   {{> masthead-content}}
 {{/masthead}}
@@ -59,9 +63,7 @@ cssPrefix: pf-v6-c-masthead
 {{#> masthead masthead--id="stack-masthead-example" masthead--modifier="pf-m-display-stack"}}
   {{#> masthead-main}}
     {{> masthead-toggle}}
-    {{#> masthead-brand}}
-      {{> masthead-logo}}
-    {{/masthead-brand}}
+    {{> masthead-brand}}
   {{/masthead-main}}
   {{> masthead-content}}
 {{/masthead}}
@@ -72,9 +74,7 @@ cssPrefix: pf-v6-c-masthead
 {{#> masthead masthead--id="stack-inline-masthead-example" masthead--modifier="pf-m-display-inline pf-m-display-stack-on-lg pf-m-display-inline-on-2xl"}}
   {{#> masthead-main}}
     {{> masthead-toggle}}
-    {{#> masthead-brand}}
-      {{> masthead-logo}}
-    {{/masthead-brand}}
+    {{> masthead-brand}}
   {{/masthead-main}}
   {{> masthead-content}}
 {{/masthead}}
@@ -85,9 +85,7 @@ cssPrefix: pf-v6-c-masthead
 {{#> masthead masthead--id="inset-masthead-example" masthead--modifier="pf-m-inset-sm"}}
   {{#> masthead-main}}
     {{> masthead-toggle}}
-    {{#> masthead-brand}}
-      {{> masthead-logo}}
-    {{/masthead-brand}}
+    {{> masthead-brand}}
   {{/masthead-main}}
   {{> masthead-content}}
 {{/masthead}}

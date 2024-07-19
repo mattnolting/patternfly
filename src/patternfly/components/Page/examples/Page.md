@@ -15,11 +15,7 @@ import './Page.css'
   {{#> masthead}}
     {{#> masthead-main}}
       {{> masthead-toggle}}
-      {{#> masthead-brand}}
-        {{#> masthead-logo}}
-          Logo
-        {{/masthead-logo}}
-      {{/masthead-brand}}
+      {{> masthead-brand}}
     {{/masthead-main}}
     {{> masthead-content}}
   {{/masthead}}
@@ -57,11 +53,7 @@ import './Page.css'
   {{#> masthead}}
     {{#> masthead-main}}
       {{> masthead-toggle}}
-      {{#> masthead-brand}}
-        {{#> masthead-logo}}
-          Logo
-        {{/masthead-logo}}
-      {{/masthead-brand}}
+      {{> masthead-brand}}
     {{/masthead-main}}
     {{> masthead-content}}
   {{/masthead}}
@@ -85,11 +77,7 @@ import './Page.css'
   {{#> masthead}}
     {{#> masthead-main}}
       {{> masthead-toggle}}
-      {{#> masthead-brand}}
-        {{#> masthead-logo}}
-          Logo
-        {{/masthead-logo}}
-      {{/masthead-brand}}
+      {{> masthead-brand}}
     {{/masthead-main}}
     {{> masthead-content}}
   {{/masthead}}
@@ -117,11 +105,7 @@ import './Page.css'
   {{#> masthead}}
     {{#> masthead-main}}
       {{> masthead-toggle}}
-      {{#> masthead-brand}}
-        {{#> masthead-logo}}
-          Logo
-        {{/masthead-logo}}
-      {{/masthead-brand}}
+      {{> masthead-brand}}
     {{/masthead-main}}
     {{> masthead-content}}
   {{/masthead}}
@@ -145,11 +129,7 @@ import './Page.css'
   {{#> masthead}}
     {{#> masthead-main}}
       {{> masthead-toggle}}
-      {{#> masthead-brand}}
-        {{#> masthead-logo}}
-          Logo
-        {{/masthead-logo}}
-      {{/masthead-brand}}
+      {{> masthead-brand}}
     {{/masthead-main}}
     {{> masthead-content}}
   {{/masthead}}
@@ -176,11 +156,7 @@ import './Page.css'
   {{#> masthead}}
     {{#> masthead-main}}
       {{> masthead-toggle}}
-      {{#> masthead-brand}}
-        {{#> masthead-logo}}
-          Logo
-        {{/masthead-logo}}
-      {{/masthead-brand}}
+      {{> masthead-brand}}
     {{/masthead-main}}
     {{> masthead-content}}
   {{/masthead}}
@@ -216,11 +192,7 @@ import './Page.css'
   {{#> masthead}}
     {{#> masthead-main}}
       {{> masthead-toggle}}
-      {{#> masthead-brand}}
-        {{#> masthead-logo}}
-          Logo
-        {{/masthead-logo}}
-      {{/masthead-brand}}
+      {{> masthead-brand}}
     {{/masthead-main}}
     {{> masthead-content}}
   {{/masthead}}

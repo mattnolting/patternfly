@@ -2,5 +2,9 @@
   {{#if masthead-brand--attribute}}
     {{{masthead-brand--attribute}}}
   {{/if}}>
-  {{> @partial-block}}
+  {{#if @partial-block}}
+    {{> @partial-block}}
+  {{else}}
+    {{> masthead-logo}}
+  {{/if}}
 </div>
