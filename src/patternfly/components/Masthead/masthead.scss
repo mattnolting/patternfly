@@ -19,7 +19,7 @@ $pf-v6-c-masthead--inset-map: build-spacer-map("none", "sm", "md", "lg", "xl", "
 
   // * Masthead brand
   // --#{$masthead}__logo--MarginInlineEnd: var(--pf-t--global--spacer--md);
-  --#{$masthead}__logo--MaxHeight: #{pf-size-prem(38px)};
+  --#{$masthead}__logo--MaxHeight: #{pf-size-prem(37px)};
 
   // * Masthead toggle
   --#{$masthead}__toggle--Size: var(--pf-t--global--icon--size--xl);
@@ -259,6 +259,9 @@ $pf-v6-c-masthead--inset-map: build-spacer-map("none", "sm", "md", "lg", "xl", "
 // - Masthead logo
 .#{$masthead}__logo {
   align-items: var(--#{$masthead}__logo--AlignItems, var(--#{$masthead}--AlignItems));
+  width: auto;
+  height: auto;
+  max-width: 240px;
   max-height: var(--#{$masthead}__logo--MaxHeight);
 
   // margin-inline-end: var(--#{$masthead}__logo--MarginInlineEnd);
