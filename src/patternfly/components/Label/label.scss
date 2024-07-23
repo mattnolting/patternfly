@@ -562,10 +562,11 @@
     border-radius: var(--#{$label}--BorderRadius);
   }
 
-  // truncate input fields
-  @at-root input#{&} {
-    @include pf-v6-text-overflow;
-  }
+}
+
+// truncate input fields
+input.#{$label}__content {
+  @include pf-v6-text-overflow;
 }
 
 .#{$label}__icon {

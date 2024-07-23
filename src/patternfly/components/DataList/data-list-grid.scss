@@ -2,21 +2,19 @@
 
 @mixin pf-v6-c-data-list-responsive-block() {
   // base responsive styles
-  @at-root .#{$data-list}:not([class*="pf-m-grid"]) {
-    @media screen and (min-width: $pf-v6-global--breakpoint--md) {
+  @media screen and (min-width: $pf-v6-global--breakpoint--md) {
+    .#{$data-list} {
       @content;
     }
   }
 
-  @at-root .#{$data-list}.pf-m-grid-none {
-    @media screen and (min-width: $pf-v6-global--breakpoint--xs) {
-      @content;
-    }
+  .#{$data-list}.pf-m-grid-none {
+    @content;
   }
 
   // grid modifiers
   @each $size, $bp in $pf-v6-global--breakpoint-name-map {
-    @at-root .#{$data-list}.pf-m-grid-#{$size} {
+    .#{$data-list}.pf-m-grid-#{$size} {
       @media screen and (min-width: #{$bp}) {
         @content;
       }
@@ -49,11 +47,7 @@
   }
 
   .#{$data-list}__cell {
-    // stylelint-disable selector-not-notation
-    // update to single :not() in breaking change
-    &:not(:last-child):not(.pf-m-icon) {
-      margin-inline-end: var(--#{$data-list}__cell--MarginInlineEnd);
-    }
+    margin-inline-end: var(--#{$data-list}__cell--MarginInlineEnd);
 
     // for all subsequent .#{$data-list}__cell's, set to full width
     & + .#{$data-list}__cell {

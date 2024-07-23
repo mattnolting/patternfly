@@ -525,10 +525,6 @@
 
   @include pf-v6-hidden-visible(flex);
 
-  @at-root :where(label)#{&} {
-    cursor: pointer;
-  }
-
   &.pf-m-selected {
     --#{$menu}__item-select-icon--Color: var(--#{$menu}__item--m-selected__item-select-icon--Color);
   }
@@ -543,6 +539,10 @@
       color: var(--#{$menu}__item-external--Color);
     }
   }
+}
+
+label.#{$menu}__item {
+  cursor: pointer;
 }
 
 // - Menu item select icon

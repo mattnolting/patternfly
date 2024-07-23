@@ -430,23 +430,18 @@ $pf-v6-c-tree-view--MaxNesting: 10 !default;
     @include pf-v6-text-overflow;
   }
 
-  @at-root .#{$tree-view}.pf-m-truncate & {
-    --#{$tree-view}__node-content--Overflow: hidden;
-
-    @include pf-v6-text-overflow;
-  }
 }
 
 .#{$tree-view}__node-text {
-  @at-root label#{&} {
-    cursor: pointer;
-  }
-
   font-weight: inherit;
   color: inherit;
   text-align: start;
   background-color: transparent;
   border: 0;
+}
+
+label.#{$tree-view}__node-text {
+  cursor: pointer;
 }
 
 .#{$tree-view}__node-title {

@@ -558,11 +558,6 @@ $pf-v6-c-tabs--spacer-map: build-spacer-map("none", "sm", "md", "lg", "xl", "2xl
 
 // Tab link
 .#{$tabs}__link {
-  @at-root .#{$tabs}__item.pf-m-action,
-  & {
-    --#{$tabs}__link--after--BorderBlockEndWidth: var(--#{$tabs}__link--after--BorderWidth); // Set default border target
-  }
-
   display: flex;
   flex: 1;
   column-gap: var(--#{$tabs}__link--ColumnGap);
@@ -577,36 +572,6 @@ $pf-v6-c-tabs--spacer-map: build-spacer-map("none", "sm", "md", "lg", "xl", "2xl
   background-color: var(--#{$tabs}__link--BackgroundColor);
   border-radius: var(--#{$tabs}__link--BorderRadius);
 
-  @at-root .#{$tabs}__item.pf-m-action,
-  & {
-    &::before {
-      pointer-events: none;
-      border-block-start-color: var(--#{$tabs}__link--before--BorderBlockStartColor);
-      border-block-start-width: var(--#{$tabs}__link--before--BorderBlockStartWidth);
-      border-block-end-color: var(--#{$tabs}__link--before--BorderBlockEndColor);
-      border-block-end-width: var(--#{$tabs}__link--before--BorderBlockEndWidth);
-      border-inline-start-color: var(--#{$tabs}__link--before--BorderInlineStartColor);
-      border-inline-start-width: var(--#{$tabs}__link--before--BorderInlineStartWidth);
-      border-inline-end-color: var(--#{$tabs}__link--before--BorderInlineEndColor);
-      border-inline-end-width: var(--#{$tabs}__link--before--BorderInlineEndWidth);
-    }
-  }
-
-  @at-root .#{$tabs}__item.pf-m-action,
-  & {
-    &::after {
-      inset-block-start: var(--#{$tabs}__link--after--InsetBlockStart);
-      inset-block-end: var(--#{$tabs}__link--after--InsetBlockEnd);
-      inset-inline-start: var(--#{$tabs}__link--before--InsetInlineStart); // use the ::before Left value to offset the top border / overlap left border
-      inset-inline-end: var(--#{$tabs}__link--after--InsetInlineEnd);
-      border-color: var(--#{$tabs}__link--after--BorderColor);
-      border-block-start-width: var(--#{$tabs}__link--after--BorderBlockStartWidth);
-      border-block-end-width: var(--#{$tabs}__link--after--BorderBlockEndWidth);
-      border-inline-start-width: var(--#{$tabs}__link--after--BorderInlineStartWidth);
-      border-inline-end-width: var(--#{$tabs}__link--after--BorderInlineEndWidth);
-    }
-  }
-
   &:where(:hover, :focus) {
     --#{$tabs}__link--BackgroundColor: var(--#{$tabs}__link--hover--BackgroundColor);
       }
@@ -616,23 +581,8 @@ $pf-v6-c-tabs--spacer-map: build-spacer-map("none", "sm", "md", "lg", "xl", "2xl
     pointer-events: none;
   }
 
-  @at-root .#{$tabs}__item.pf-m-action.pf-m-disabled,
-  &:disabled,
-  &.pf-m-disabled,
-  &.pf-m-aria-disabled {
-    --#{$tabs}__link--Color: var(--#{$tabs}__link--disabled--Color);
-    --#{$tabs}__link--before--BorderInlineEndWidth: var(--#{$tabs}__link--disabled--before--BorderInlineEndWidth);
-    --#{$tabs}__link--before--BorderBlockEndWidth: var(--#{$tabs}__link--disabled--before--BorderBlockEndWidth);
-    --#{$tabs}__link--before--BorderInlineStartWidth: var(--#{$tabs}__link--disabled--before--BorderInlineStartWidth);
-    --#{$tabs}__link--after--BorderWidth: 0;
-  }
-
   &:is(:disabled, .pf-m-disabled, .pf-m-aria-disabled) {
     --#{$tabs}__link--BackgroundColor: var(--#{$tabs}__link--disabled--BackgroundColor);
-  }
-
-  @at-root .#{$tabs}__item.pf-m-action.pf-m-disabled {
-    --#{$tabs}__link--BackgroundColor: transparent;
   }
 
   &.pf-m-aria-disabled {
@@ -642,6 +592,51 @@ $pf-v6-c-tabs--spacer-map: build-spacer-map("none", "sm", "md", "lg", "xl", "2xl
   &.pf-m-expanded {
     --#{$tabs}__link-toggle-icon--Rotate: var(--#{$tabs}__link--m-expanded__toggle-icon--Rotate);
   }
+}
+
+.#{$tabs}__link,
+.#{$tabs}__item.pf-m-action {
+  --#{$tabs}__link--after--BorderBlockEndWidth: var(--#{$tabs}__link--after--BorderWidth); // Set default border target
+
+  &::before {
+    pointer-events: none;
+    border-block-start-color: var(--#{$tabs}__link--before--BorderBlockStartColor);
+    border-block-start-width: var(--#{$tabs}__link--before--BorderBlockStartWidth);
+    border-block-end-color: var(--#{$tabs}__link--before--BorderBlockEndColor);
+    border-block-end-width: var(--#{$tabs}__link--before--BorderBlockEndWidth);
+    border-inline-start-color: var(--#{$tabs}__link--before--BorderInlineStartColor);
+    border-inline-start-width: var(--#{$tabs}__link--before--BorderInlineStartWidth);
+    border-inline-end-color: var(--#{$tabs}__link--before--BorderInlineEndColor);
+    border-inline-end-width: var(--#{$tabs}__link--before--BorderInlineEndWidth);
+  }
+
+  &::after {
+    inset-block-start: var(--#{$tabs}__link--after--InsetBlockStart);
+    inset-block-end: var(--#{$tabs}__link--after--InsetBlockEnd);
+    inset-inline-start: var(--#{$tabs}__link--before--InsetInlineStart); // use the ::before Left value to offset the top border / overlap left border
+    inset-inline-end: var(--#{$tabs}__link--after--InsetInlineEnd);
+    border-color: var(--#{$tabs}__link--after--BorderColor);
+    border-block-start-width: var(--#{$tabs}__link--after--BorderBlockStartWidth);
+    border-block-end-width: var(--#{$tabs}__link--after--BorderBlockEndWidth);
+    border-inline-start-width: var(--#{$tabs}__link--after--BorderInlineStartWidth);
+    border-inline-end-width: var(--#{$tabs}__link--after--BorderInlineEndWidth);
+  }
+
+}
+
+.#{$tabs}__item.pf-m-action.pf-m-disabled {
+  --#{$tabs}__link--BackgroundColor: transparent;
+}
+
+.#{$tabs}__item.pf-m-action.pf-m-disabled,
+.#{$tabs}__link:disabled,
+.#{$tabs}__link.pf-m-disabled,
+.#{$tabs}__link.pf-m-aria-disabled {
+  --#{$tabs}__link--Color: var(--#{$tabs}__link--disabled--Color);
+  --#{$tabs}__link--before--BorderInlineEndWidth: var(--#{$tabs}__link--disabled--before--BorderInlineEndWidth);
+  --#{$tabs}__link--before--BorderBlockEndWidth: var(--#{$tabs}__link--disabled--before--BorderBlockEndWidth);
+  --#{$tabs}__link--before--BorderInlineStartWidth: var(--#{$tabs}__link--disabled--before--BorderInlineStartWidth);
+  --#{$tabs}__link--after--BorderWidth: 0;
 }
 
 .#{$tabs}__link-toggle-icon {
