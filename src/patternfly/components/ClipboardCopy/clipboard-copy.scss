@@ -63,9 +63,10 @@
   display: flex;
   gap: var(--#{$clipboard-copy}__group--Gap);
 
-  > * + * {
-    margin-inline-start: -1px;
-  }
+  // this has no affect
+  // > * + * {
+  //   margin-inline-start: -1px;
+  // }
 }
 
 .#{$clipboard-copy}__toggle-icon {

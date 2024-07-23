@@ -85,15 +85,17 @@
 .#{$radio}__input {
   justify-self: start;
 
-  @at-root label.#{$radio},
-  & {
-    cursor: pointer;
-  }
-
   &:disabled,
   &.pf-m-disabled {
     --#{$radio}__label--Color: var(--#{$radio}__label--disabled--Color);
 
     cursor: not-allowed;
   }
+}
+
+label.#{$radio},
+.#{$radio}__label,
+.#{$radio}__input {
+  justify-self: start;
+  cursor: pointer;
 }
