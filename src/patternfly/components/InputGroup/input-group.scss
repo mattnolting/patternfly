@@ -85,8 +85,8 @@
   font-size: var(--#{$input-group}__text--FontSize);
   color: var(--#{$input-group}__text--Color);
 
-  @at-root label#{&} {
-    cursor: pointer;
-  }
 }
 
+label.#{$input-group}__text {
+  cursor: pointer;
+}

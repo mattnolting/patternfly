@@ -102,11 +102,6 @@
       text-decoration: none;
     }
   }
-
-  // update at breaking change
-  @at-root button#{&} {
-    border: none;
-  }
 }
 
 .#{$breadcrumb}__dropdown {

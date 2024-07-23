@@ -43,10 +43,6 @@
     padding-block-start: var(--#{$list}--nested--PaddingBlockStart);
   }
 
-  @at-root ul#{&} {
-    list-style: var(--#{$list}--ul--ListStyle);
-  }
-
   &.pf-m-icon-lg {
     --#{$list}__item-icon--MinWidth: var(--#{$list}--m-icon-lg__item-icon--MinWidth);
     --#{$list}__item-icon--MarginBlockStart: 0;
@@ -75,6 +71,10 @@
       border-block-start: var(--#{$list}--m-bordered--li--BorderBlockStartWidth) solid var(--#{$list}--m-bordered--li--BorderBlockStartColor);
     }
   }
+}
+
+ul.#{$list} {
+  list-style: var(--#{$list}--ul--ListStyle);
 }
 
 .#{$list}__item {

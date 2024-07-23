@@ -1,9 +1,7 @@
 // Font Awesome 5 icons https://fontawesome.com
 @use '../sass-utilities' as *;
 
-%pf-fa-local {
-  @import "../assets/fontawesome/fontawesome";
-}
+@forward '../assets/fontawesome';
 
 @if not($pf-v6-global--disable-fontawesome) {
   @if $pf-v6-global--enable-fontawesome-cdn {
@@ -27,9 +25,5 @@
       font-weight: 900;
     }
     // stylelint-enable
-
-    * {
-      @extend %pf-fa-local;
-    }
   }
 }

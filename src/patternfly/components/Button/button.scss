@@ -397,12 +397,6 @@
     --#{$button}--m-clicked__icon--Color: var(--#{$button}--m-link--m-clicked__icon--Color);
 
     &.pf-m-inline {
-      @at-root span#{&} {
-        --#{$button}--m-link--m-inline--Display: var(--#{$button}--span--m-link--m-inline--Display);
-        --#{$button}__icon--m-start--MarginInlineEnd: var(--#{$button}--span--m-link--m-inline__icon--m-start--MarginInlineEnd);
-        --#{$button}__icon--m-end--MarginInlineStart: var(--#{$button}--span--m-link--m-inline__icon--m-end--MarginInlineStart);
-      }
-
       --#{$button}--Display: var(--#{$button}--m-link--m-inline--Display);
       --#{$button}--JustifyContent: var(--#{$button}--m-link--m-inline--JustifyContent);
       --#{$button}--FontSize: var(--#{$button}--m-link--m-inline--FontSize);
@@ -662,6 +656,13 @@
       }
     }
   }
+}
+
+span.#{$button}.pf-m-inline {
+  --#{$button}__icon--m-start--MarginInlineEnd: var(--#{$button}--span--m-link--m-inline__icon--m-start--MarginInlineEnd);
+  --#{$button}__icon--m-end--MarginInlineStart: var(--#{$button}--span--m-link--m-inline__icon--m-end--MarginInlineStart);
+
+  display: inline;
 }
 
 .#{$button}__icon {

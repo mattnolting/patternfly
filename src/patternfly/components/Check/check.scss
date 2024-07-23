@@ -73,11 +73,6 @@
 .#{$check}__input {
   justify-self: start;
 
-  @at-root label.#{$check},
-  & {
-    cursor: pointer;
-  }
-
   &:disabled,
   &.pf-m-disabled {
     --#{$check}__label--Color: var(--#{$check}__label--disabled--Color);
@@ -90,4 +85,10 @@
   margin-inline-start: var(--#{$check}__label-required--MarginInlineStart);
   font-size: var(--#{$check}__label-required--FontSize);
   color: var(--#{$check}__label-required--Color);
+}
+
+label.#{$check},
+label.#{$check}__label,
+label.#{$check}__input {
+  cursor: pointer;
 }
