@@ -13,11 +13,9 @@ import './Page.css'
 ```hbs
 {{#> page}}
   {{#> masthead}}
-    {{> masthead-toggle}}
     {{#> masthead-main}}
-      {{#> masthead-brand}}
-        Logo
-      {{/masthead-brand}}
+      {{> masthead-toggle}}
+      {{> masthead-brand}}
     {{/masthead-main}}
     {{> masthead-content}}
   {{/masthead}}
@@ -53,11 +51,9 @@ import './Page.css'
 ```hbs
 {{#> page page--nav-direction="vertical"}}
   {{#> masthead}}
-    {{> masthead-toggle}}
     {{#> masthead-main}}
-      {{#> masthead-brand}}
-        Logo
-      {{/masthead-brand}}
+      {{> masthead-toggle}}
+      {{> masthead-brand}}
     {{/masthead-main}}
     {{> masthead-content}}
   {{/masthead}}
@@ -79,11 +75,9 @@ import './Page.css'
 ```hbs
 {{#> page}}
   {{#> masthead}}
-    {{> masthead-toggle}}
     {{#> masthead-main}}
-      {{#> masthead-brand}}
-        Logo
-      {{/masthead-brand}}
+      {{> masthead-toggle}}
+      {{> masthead-brand}}
     {{/masthead-main}}
     {{> masthead-content}}
   {{/masthead}}
@@ -109,11 +103,9 @@ import './Page.css'
 ```hbs
 {{#> page page--nav-direction="vertical"}}
   {{#> masthead}}
-    {{> masthead-toggle}}
     {{#> masthead-main}}
-      {{#> masthead-brand}}
-        Logo
-      {{/masthead-brand}}
+      {{> masthead-toggle}}
+      {{> masthead-brand}}
     {{/masthead-main}}
     {{> masthead-content}}
   {{/masthead}}
@@ -135,11 +127,9 @@ import './Page.css'
 ```hbs
 {{#> page}}
   {{#> masthead}}
-    {{> masthead-toggle}}
     {{#> masthead-main}}
-      {{#> masthead-brand}}
-        Logo
-      {{/masthead-brand}}
+      {{> masthead-toggle}}
+      {{> masthead-brand}}
     {{/masthead-main}}
     {{> masthead-content}}
   {{/masthead}}
@@ -164,11 +154,9 @@ import './Page.css'
 ```hbs
 {{#> page}}
   {{#> masthead}}
-    {{> masthead-toggle}}
     {{#> masthead-main}}
-      {{#> masthead-brand}}
-        Logo
-      {{/masthead-brand}}
+      {{> masthead-toggle}}
+      {{> masthead-brand}}
     {{/masthead-main}}
     {{> masthead-content}}
   {{/masthead}}
@@ -202,11 +190,9 @@ import './Page.css'
 ```hbs
 {{#> page}}
   {{#> masthead}}
-    {{> masthead-toggle}}
     {{#> masthead-main}}
-      {{#> masthead-brand}}
-        Logo
-      {{/masthead-brand}}
+      {{> masthead-toggle}}
+      {{> masthead-brand}}
     {{/masthead-main}}
     {{> masthead-content}}
   {{/masthead}}

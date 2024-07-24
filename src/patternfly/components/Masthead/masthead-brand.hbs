@@ -1,11 +1,4 @@
-<{{#if masthead-brand--type}}{{masthead-brand--type}}{{else}}a{{/if}} class="{{pfv}}masthead__brand{{#if masthead-brand--modifier}} {{masthead-brand--modifier}}{{/if}}"
-  {{#unless masthead-brand--type}}
-    {{#if masthead-brand--href}}
-      href="{{masthead-brand--href}}"
-    {{else}}
-      href="#"
-    {{/if}}
-  {{/unless}}
+<div class="{{pfv}}masthead__brand{{#if masthead-brand--modifier}} {{masthead-brand--modifier}}{{/if}}"
   {{#if masthead-brand--attribute}}
     {{{masthead-brand--attribute}}}
   {{/if}}>
@@ -14,4 +7,4 @@
   {{else}}
     {{> masthead-logo}}
   {{/if}}
-</{{#if masthead-brand--type}}{{masthead-brand--type}}{{else}}a{{/if}}>
+</div>
