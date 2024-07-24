@@ -41,6 +41,7 @@
 .#{$breadcrumb}__list {
   display: flex;
   flex-wrap: wrap;
+  column-gap: var(--#{$breadcrumb}__item--MarginInlineEnd);
   align-items: center;
 }
 
@@ -54,12 +55,8 @@
   white-space: nowrap; // Keeps the item-divider and __link text on the same line
   list-style: none;
 
-  &:first-child:has(.#{$breadcrumb}__link) {
+  &:first-child {
     --#{$breadcrumb}__link--PaddingInlineStart: 0; // remove padding from first child if link
-  }
-
-  &:not(:last-child) {
-    margin-inline-end: var(--#{$breadcrumb}__item--MarginInlineEnd);
   }
 }
 
