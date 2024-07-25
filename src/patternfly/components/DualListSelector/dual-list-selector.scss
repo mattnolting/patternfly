@@ -309,7 +309,7 @@ $pf-v6-c-dual-list-selector__item--MaxNesting: 10;
   margin-block-start: var(--#{$dual-list-selector}__controls--MarginBlockStart);
 }
 
-:is(.#{$dual-list-selector}__controls-item, .#{$dual-list-selector}__item-toggle-icon) {
+.#{$dual-list-selector}__controls-item, .#{$dual-list-selector}__item-toggle-icon {
   @include pf-v6-mirror-inline-on-rtl;
 }
 

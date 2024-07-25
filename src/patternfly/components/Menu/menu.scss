@@ -172,7 +172,7 @@
 // - Menu item disabled - Menu action disabled
 .#{$menu}__list-item,
 .#{$menu}__item-action {
-  &:is(.pf-m-disabled, :disabled, .pf-m-aria-disabled, [aria-disabled="true"]) {
+  &.pf-m-disabled, &:disabled, &.pf-m-aria-disabled, &[aria-disabled="true"] {
     --#{$menu}__item--Color: var(--#{$menu}__item--m-disabled--Color);
     --#{$menu}__item-toggle-icon--Color: var(--#{$menu}--icon--disabled--Color);
     --#{$menu}__item-external-icon--Color: var(--#{$menu}--icon--disabled--Color);
@@ -184,7 +184,7 @@
 }
 
 // - Menu hidden
-[class*="#{$menu}"]:is([hidden]) {
+[class*="#{$menu}"]:hidden {
   display: none;
 }
 
@@ -437,7 +437,7 @@
 }
 
 // - Menu list
-.#{$menu}__list .#{$divider}:is(li) {
+.#{$menu}__list li.#{$divider} {
   margin-block-start: var(--#{$menu}__list--divider--MarginBlockStart);
   margin-block-end: var(--#{$menu}__list--divider--MarginBlockEnd);
 }
@@ -482,7 +482,7 @@
   &.pf-m-danger {
     --#{$menu}__item--Color: var(--#{$menu}__list-item--m-danger--Color);
 
-    &:is(:hover, :focus) {
+    &:hover, &:focus {
       --#{$menu}__item--Color: var(--#{$menu}__list-item--m-danger--hover--Color, var(--#{$menu}__list-item--m-danger--Color));
     }
   }
@@ -529,7 +529,7 @@
     --#{$menu}__item-select-icon--Color: var(--#{$menu}__item--m-selected__item-select-icon--Color);
   }
 
-  &:is(:hover, :focus, .pf-m-selected) {
+  &:hover, &:focus, &.pf-m-selected {
     .#{$menu}__item-select-icon,
     .#{$menu}__item-external-icon {
       opacity: 1;

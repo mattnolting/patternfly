@@ -379,7 +379,7 @@ $pf-v6-l-flex--variable-map: build-variable-map("#{$pf-prefix}l-flex--spacer", $
         }
       }
 
-      &:is(#{$pf-v6-l-flex--row-gap--selectors}) {
+      &#{$pf-v6-l-flex--row-gap--selectors} {
         > * {
           margin-block-end: 0;
         }
@@ -404,7 +404,7 @@ $pf-v6-l-flex--variable-map: build-variable-map("#{$pf-prefix}l-flex--spacer", $
         }
       }
 
-      &:is(#{$pf-v6-l-flex--column-gap--selectors}) {
+      &#{$pf-v6-l-flex--column-gap--selectors} {
         > * {
           margin-inline-end: 0;
         }

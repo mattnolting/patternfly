@@ -128,7 +128,7 @@
 
   &.pf-m-inset {
     --#{$nav}--PaddingInlineStart: var(--pf-t--global--spacer--md);
-    --#{$nav}--PaddingInlineEnd: var(--pf-t--global--spacer--md);  
+    --#{$nav}--PaddingInlineEnd: var(--pf-t--global--spacer--md);
   }
 
   &.pf-m-fill {
@@ -176,7 +176,8 @@
     margin-block-end: var(--#{$nav}__button--RowGap--row-offset);
   }
 
-  &.pf-m-expanded:is(:not(:only-child, :last-child)) {
+  &.pf-m-expanded:not(:only-child),
+  &.pf-m-expanded:not(:last-child) {
     margin-block-end: var(--#{$nav}__item--m-expanded--MarginBlockEnd, var(--#{$nav}__item--RowGap)); // default to row gap if no custom value is set
 
     + .#{$nav}__item > .#{$nav}__link::before {

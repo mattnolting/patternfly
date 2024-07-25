@@ -448,7 +448,8 @@
     --#{$label}__content--MaxWidth: var(--#{$label}--m-editable__content--MaxWidth);
     --#{$label}__content--Cursor: var(--#{$label}--m-editable__content--Cursor);
 
-    .#{$label}__content:is(:hover, :focus) {
+    .#{$label}__content:hover,
+    .#{$label}__content:focus {
       --#{$label}--m-editable--TextDecorationLine: var(--#{$label}--m-editable--hover--TextDecorationLine);
       --#{$label}--m-editable--TextDecorationStyle: var(--#{$label}--m-editable--hover--TextDecorationStyle);
     }
@@ -470,7 +471,7 @@
     --#{$label}--Color: var(--#{$label}--m-overflow--Color);
     --#{$label}--BackgroundColor: var(--#{$label}--m-overflow--BackgroundColor);
 
-    &:is(:hover, :focus) {
+    &:hover, &:focus {
       --#{$label}--m-overflow--Color: var(--#{$label}--m-overflow--hover--Color);
       --#{$label}--m-overflow--BackgroundColor: var(--#{$label}--m-overflow--hover--BackgroundColor);
     }
@@ -482,7 +483,7 @@
     --#{$label}--BorderColor: var(--#{$label}--m-add--BorderColor);
     --#{$label}--BorderWidth: var(--#{$label}--m-add--BorderWidth);
 
-    &:is(:hover, :focus) {
+    &:hover, :focus {
       --#{$label}--m-add--Color: var(--#{$label}--m-add--hover--Color);
       --#{$label}--m-add--BackgroundColor: var(--#{$label}--m-add--hover--BackgroundColor);
       --#{$label}--m-add--BorderColor: var(--#{$label}--m-add--hover--BorderColor);
@@ -494,12 +495,11 @@
     --#{$label}__content--Cursor: var(--#{$label}--m-clickable__content--Cursor);
 
     .#{$label}__content {
-      &,
-      &:is(:hover, :focus) {
+      &, &:hover, &:focus {
         text-decoration: none;
       }
 
-      &:is(:hover, :focus) {
+      &:hover, &:focus {
         --#{$label}--Color: var(--#{$label}--m-clickable--hover--Color);
         --#{$label}__icon--Color: var(--#{$label}--m-clickable--hover__icon--Color);
         --#{$label}--BackgroundColor: var(--#{$label}--m-clickable--hover--BackgroundColor);

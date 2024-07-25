@@ -413,7 +413,7 @@ $pf-v6-c-progress-stepper--breakpoint-map: build-breakpoint-map();
     text-underline-offset: var(--#{$progress-stepper}__step-title--m-help-text--TextUnderlineOffset);
     cursor: pointer;
 
-    &:is(:hover, :focus) {
+    &:hover, &:focus {
       --#{$progress-stepper}__step-title--m-help-text--TextDecorationLine: var(--#{$progress-stepper}__step-title--m-help-text--hover--TextDecorationLine);
       --#{$progress-stepper}__step-title--m-help-text--TextDecorationStyle: var(--#{$progress-stepper}__step-title--m-help-text--hover--TextDecorationStyle);
       --#{$progress-stepper}__step-title--Color: var(--#{$progress-stepper}__step-title--m-help-text--hover--Color);

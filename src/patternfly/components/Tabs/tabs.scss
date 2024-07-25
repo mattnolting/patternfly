@@ -581,7 +581,18 @@ $pf-v6-c-tabs--spacer-map: build-spacer-map("none", "sm", "md", "lg", "xl", "2xl
     pointer-events: none;
   }
 
-  &:is(:disabled, .pf-m-disabled, .pf-m-aria-disabled) {
+  @at-root .#{$tabs}__item.pf-m-action.pf-m-disabled,
+  &:disabled,
+  &.pf-m-disabled,
+  &.pf-m-aria-disabled {
+    --#{$tabs}__link--Color: var(--#{$tabs}__link--disabled--Color);
+    --#{$tabs}__link--before--BorderInlineEndWidth: var(--#{$tabs}__link--disabled--before--BorderInlineEndWidth);
+    --#{$tabs}__link--before--BorderBlockEndWidth: var(--#{$tabs}__link--disabled--before--BorderBlockEndWidth);
+    --#{$tabs}__link--before--BorderInlineStartWidth: var(--#{$tabs}__link--disabled--before--BorderInlineStartWidth);
+    --#{$tabs}__link--after--BorderWidth: 0;
+  }
+
+  &:disabled, &.pf-m-disabled, &.pf-m-aria-disabled {
     --#{$tabs}__link--BackgroundColor: var(--#{$tabs}__link--disabled--BackgroundColor);
   }
 

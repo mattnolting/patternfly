@@ -351,7 +351,7 @@
       text-align: center;
     }
 
-    &:is(:empty, .#{$table}__cell-empty) {
+    &:empty, &.#{$table}__cell-empty {
       width: auto;
       min-width: 0;
       padding: 0;
@@ -466,7 +466,8 @@
 
   // - Table truncate - Table wrap - Table nowrap - Table fit content - Table wrap - Table break word
   :where([class*='#{$table}']),
-  :where(&) > :is(thead, tbody) {
+  :where(&) > thead,
+  :where(&) > tbody {
     @at-root .#{$table} > thead,
     &.pf-m-truncate {
       --#{$table}--cell--MinWidth: var(--#{$table}--m-truncate--cell--MinWidth);
@@ -535,7 +536,7 @@
       background-color: var(--#{$table}__tr--m-clickable--BackgroundColor);
       outline-offset: var(--#{$table}__tr--m-clickable--OutlineOffset);
 
-      &:is(:hover, :focus) {
+      &:hover, &:focus {
         --#{$table}__tr--m-clickable--BackgroundColor: var(--#{$table}__tr--m-clickable--hover--BackgroundColor);
       }
     }
@@ -560,7 +561,7 @@
       background-color: var(--#{$table}__tbody--m-clickable--BackgroundColor);
       outline-offset: var(--#{$table}__tbody--m-clickable--OutlineOffset);
 
-      &:is(:hover, :focus) {
+      &:hover, &:focus {
         --#{$table}__tbody--m-clickable--BackgroundColor: var(--#{$table}__tbody--m-clickable--hover--BackgroundColor);
       }
 
@@ -589,7 +590,8 @@
     background-color: transparent;
 
     &,
-    :is(.#{$table}__tbody, .#{$table}__tr:last-child) {
+    .#{$table}__tbody,
+    .#{$table}__tr:last-child {
       border-block-end: 0;
     }
   }
@@ -652,7 +654,7 @@
     margin-block-end: 0; // remove offset in nested tables
   }
 
-  &:is(:hover, :focus) {
+  &:hover, &:focus {
     color: var(--#{$table}__button--hover--Color);
   }
 }
@@ -788,8 +790,8 @@
   &.pf-m-favorited .#{$button} {
     --#{$button}--m-plain__icon--Color: var(--#{$table}__favorite--m-favorited--c-button--Color);
 
-    &:is(:hover, :focus) {
-      --#{$button}--hover__icon--Color: var(--#{$table}__favorite--m-favorited--c-button--Color);
+    &:hover, &:focus {
+      --#{$button}--m-plain--hover--Color: var(--#{$table}__favorite--m-favorited--c-button--Color);
     }
   }
 }
@@ -846,7 +848,7 @@
     overflow: hidden;
 
     // Remove outline and apply to parent td
-    &:is(:hover, :focus) {
+    &:hover, &:focus {
       outline: 0;
     }
   }
@@ -894,7 +896,7 @@
 
   // - Table button
   .#{$table}__button {
-    &:is(:hover, :focus) {
+    &:hover, &:focus {
       --#{$table}__sort-indicator--Color: var(--#{$table}__sort__button--hover__sort-indicator--Color);
       --#{$table}__sort__button__text--Color: var(--#{$table}__sort__button--hover__text--Color);
       --#{$table}__button--BackgroundColor: var(--#{$table}__button--hover--BackgroundColor);

@@ -457,7 +457,7 @@
     --#{$wizard}__nav-link-main--BackgroundColor: var(--#{$wizard}__nav-link--m-current--BackgroundColor);
   }
 
-  &:is(.pf-m-success, .pf-m-danger) {
+  &.pf-m-success, &.pf-m-danger {
     &::before {
       display: none;
     }

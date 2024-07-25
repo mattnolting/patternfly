@@ -82,7 +82,7 @@
   word-break: break-word;
   background-color: var(--#{$breadcrumb}__link--BackgroundColor);
 
-  &:is(:hover, :focus) {
+  &:hover, &:focus {
     --#{$breadcrumb}__link--Color: var(--#{$breadcrumb}__link--hover--Color);
     --#{$breadcrumb}__link--TextDecorationLine: var(--#{$breadcrumb}__link--hover--TextDecorationLine);
     --#{$breadcrumb}__link--TextDecorationStyle: var(--#{$breadcrumb}__link--hover--TextDecorationStyle);
@@ -93,8 +93,7 @@
   &.pf-m-current {
     cursor: default;
 
-    &,
-    &:is(:hover, :focus) {
+    &, &:hover, &:focus {
       color: var(--#{$breadcrumb}__link--m-current--Color);
       text-decoration: none;
     }

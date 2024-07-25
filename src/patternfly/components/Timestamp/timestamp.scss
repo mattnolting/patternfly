@@ -25,7 +25,7 @@
     text-underline-offset: var(--#{$timestamp}--m-help-text--TextUnderlineOffset);
     cursor: pointer;
 
-    &:is(:hover, :focus) {
+    &:hover, &:focus {
       --#{$timestamp}--Color: var(--#{$timestamp}--m-help-text--hover--Color);
       --#{$timestamp}--m-help-text--TextDecorationLine: var(--#{$timestamp}--m-help-text--hover--TextDecorationLine);
       --#{$timestamp}--m-help-text--TextDecorationStyle: var(--#{$timestamp}--m-help-text--hover--TextDecorationStyle);

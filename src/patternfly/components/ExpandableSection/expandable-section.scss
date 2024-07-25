@@ -135,7 +135,7 @@
   border: none;
   border-radius: var(--#{$expandable-section}__toggle--BorderRadius, 0);
 
-  &:is(:hover, :focus) {
+  &:hover, &:focus {
     --#{$expandable-section}__toggle-text--Color: var(--#{$expandable-section}__toggle-text--hover--Color);
     --#{$expandable-section}__toggle--BackgroundColor: var(--#{$expandable-section}__toggle--hover--BackgroundColor, initial);
   }

@@ -261,7 +261,7 @@
     }
   }
 
-  &:is(:hover, :focus) {
+  &:hover, &:focus {
     --#{$menu-toggle}--Color: var(--#{$menu-toggle}--hover--Color);
     --#{$menu-toggle}--BackgroundColor: var(--#{$menu-toggle}--hover--BackgroundColor);
     --#{$menu-toggle}--BorderWidth: var(--#{$menu-toggle}--hover--BorderWidth);
@@ -269,7 +269,7 @@
     --#{$menu-toggle}__toggle-icon--Color: var(--#{$menu-toggle}--hover__toggle-icon--Color);
   }
 
-  &:is(.pf-m-expanded, [aria-expanded="true"]) {
+  &.pf-m-expanded, &[aria-expanded="true"] {
     --#{$menu-toggle}--Color: var(--#{$menu-toggle}--expanded--Color);
     --#{$menu-toggle}--BackgroundColor: var(--#{$menu-toggle}--expanded--BackgroundColor);
     --#{$menu-toggle}--BorderWidth: var(--#{$menu-toggle}--expanded--BorderWidth);
@@ -277,7 +277,7 @@
     --#{$menu-toggle}__toggle-icon--Color: var(--#{$menu-toggle}--expanded__toggle-icon--Color);
   }
 
-  &:is(:disabled, .pf-m-disabled) {
+  &:disabled, &.pf-m-disabled {
     --#{$menu-toggle}--Color: var(--#{$menu-toggle}--disabled--Color);
     --#{$menu-toggle}--BackgroundColor: var(--#{$menu-toggle}--disabled--BackgroundColor);
 
@@ -287,8 +287,7 @@
     }
   }
 
-  &.pf-m-primary,
-  &:is(:disabled, .pf-m-disabled) {
+  &.pf-m-primary, &:disabled, &.pf-m-disabled {
     &::before {
       border: 0;
     }
@@ -390,7 +389,7 @@
     > :not(.pf-m-disabled):not([disabled]) {
       background-color: var(--#{$menu-toggle}--m-split-button--m-action--m-primary--child--BackgroundColor);
 
-      &:is(:hover, :focus) {
+      &:hover, &:focus {
         --#{$menu-toggle}--m-split-button--m-action--m-primary--child--BackgroundColor: var(--#{$menu-toggle}--m-split-button--m-action--m-primary--child--hover--BackgroundColor);
       }
     }
@@ -407,7 +406,7 @@
   }
 
   // disable accent border
-  &:is(.pf-m-disabled, :disabled) {
+  &.pf-m-disabled, &:disabled {
     --#{$menu-toggle}--m-split-button--m-action--child--BorderInlineStartColor: var(--#{$menu-toggle}--m-split-button--m-action--child--disabled--BorderInlineStartColor);
 
     &::before {
@@ -416,7 +415,8 @@
   }
 
   // disabled styles for children
-  > :is(.pf-m-disabled, :disabled) {
+  > .pf-m-disabled,
+  > :disabled {
     --#{$menu-toggle}--m-split-button--m-action--child--BorderInlineStartColor: var(--#{$menu-toggle}--m-split-button--m-action--child--disabled--BorderInlineStartColor);
 
     color: var(--#{$menu-toggle}--m-split-button--child--disabled--Color);

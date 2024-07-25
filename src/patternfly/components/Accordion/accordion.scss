@@ -134,7 +134,7 @@
   border: 0;
   border-radius: var(--#{$accordion}__toggle--BorderRadius);
 
-  &:is(:hover, :focus) {
+  &:hover, &:focus {
     --#{$accordion}__toggle--BackgroundColor: var(--#{$accordion}__toggle--hover--BackgroundColor);
   }
 }

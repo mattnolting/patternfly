@@ -117,7 +117,7 @@
     border-inline-end-color: var(--#{$toggle-group}__button--before--BorderInlineEndColor, var(--#{$toggle-group}__button--before--BorderColor));
   }
 
-  &:is(:hover, :focus) {
+  &:hover, &:focus {
     --#{$toggle-group}__button--BackgroundColor: var(--#{$toggle-group}__button--hover--BackgroundColor);
     --#{$toggle-group}__button--ZIndex: var(--#{$toggle-group}__button--hover--ZIndex);
     --#{$toggle-group}__button--before--BorderColor: var(--#{$toggle-group}__button--hover--before--BorderColor);
@@ -132,7 +132,7 @@
     --#{$toggle-group}__button--before--BorderColor: var(--#{$toggle-group}__button--m-selected--before--BorderColor);
   }
 
-  &:is(:disabled, .pf-m-disabled) {
+  &:disabled, &.pf-m-disabled {
     --#{$toggle-group}__button--BackgroundColor: var(--#{$toggle-group}__button--disabled--BackgroundColor);
     --#{$toggle-group}__button--Color: var(--#{$toggle-group}__button--disabled--Color);
     --#{$toggle-group}__button--ZIndex: var(--#{$toggle-group}__button--disabled--ZIndex);
