@@ -209,13 +209,13 @@ $pf-v6-c-tree-view--MaxDepth: 10;
     }
   }
 
-  tr:where(.#{$table}__tr):not([hidden]) {
+  .#{$table}__tr:not([hidden]) {
     display: grid;
     grid-template-columns: 1fr max-content;
   }
 
   // target node rows
-  tr:where(.#{$table}__tr)[aria-expanded] {
+  .#{$table}__tr[aria-expanded] {
     .#{$table}__tree-view-title-cell {
       --#{$table}--cell--PaddingBlockStart: var(--#{$table}--m-tree-view-grid__tr--expanded__tree-view-title-cell--PaddingBlockStart);
     }
@@ -225,7 +225,7 @@ $pf-v6-c-tree-view--MaxDepth: 10;
     }
   }
 
-  td:where(.#{$table}__td):not(.#{$table}__tree-view-title-cell) {
+  .#{$table}__td:not(.#{$table}__tree-view-title-cell) {
     --#{$table}--cell--PaddingBlockStart: var(--#{$table}--m-tree-view-grid__td--not--c-table__tree-view-title-cell--PaddingBlockStart);
     --#{$table}--cell--PaddingBlockEnd: var(--#{$table}--m-tree-view-grid__td--not--c-table__tree-view-title-cell--PaddingBlockEnd);
 
@@ -236,23 +236,24 @@ $pf-v6-c-tree-view--MaxDepth: 10;
     padding-inline-end: var(--#{$table}__tree-view-text--PaddingInlineEnd);
   }
 
-  thead:where(.#{$table}__thead) th:where(.#{$table}__th) {
+  .#{$table}__thead .#{$table}__th {
     display: none;
   }
 
-  td:where(.#{$table}__td) {
+  .#{$table}__td {
     display: none;
   }
 
   // Standard td, in standard row (non-expandable)
-  td:where(.#{$table}__td)[data-label] {
+  .#{$table}__td[data-label] {
     grid-template-columns: var(--#{$table}--m-tree-view-grid__td--data-label--GridTemplateColumns);
     grid-column: 1;
     grid-column-gap: var(--#{$table}--m-tree-view-grid__tbody--cell--GridColumnGap);
     align-items: start;
 
     // set contents of td to start at column two of td grid
-    > :where(th, td) {
+    > .#{$table}__th,
+    > .#{$table}__td {
       grid-column: 2;
     }
 
@@ -264,8 +265,11 @@ $pf-v6-c-tree-view--MaxDepth: 10;
     }
   }
 
-  .#{$table}__tr > :where(th, td).pf-m-border-right::before {
-    border-inline-end: 0;
+  .#{$table}__tr > .#{$table}__th,
+  .#{$table}__tr > .#{$table}__td {
+    &.pf-m-border-right::before {
+      border-inline-end: 0;
+    }
   }
 
   // - Table tree view tr tree view details expanded
