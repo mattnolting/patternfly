@@ -1,6 +1,6 @@
 @use '../../sass-utilities' as *;
 
-$pf-v6-c-description-list-order--breakpoint-map: build-breakpoint-map();
+$pf-v6-c-description-list-order--breakpoint-map: build-breakpoint-map("base");
 $pf-v6-c-description-list-order--limit: 12;
 
 // stylelint-disable max-nesting-depth

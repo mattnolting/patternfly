@@ -83,7 +83,7 @@
   grid-column: 1 / -1;
   margin-block-start: var(--#{$hint}__footer--MarginBlockStart);
 
-  > :not(:last-child) {
-    margin-inline-end: var(--#{$hint}__footer--child--MarginInlineEnd);
-  }
+  // > :not(:last-child) {
+  //   margin-inline-end: var(--#{$hint}__footer--child--MarginInlineEnd);
+  // }
 }

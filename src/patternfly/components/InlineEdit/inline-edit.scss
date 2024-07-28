@@ -23,9 +23,9 @@
   display: flex;
   align-items: baseline;
 
-  > * {
-    margin-inline-end: var(--#{$inline-edit}__group--item--MarginInlineEnd);
-  }
+  // > * {
+  //   margin-inline-end: var(--#{$inline-edit}__group--item--MarginInlineEnd);
+  // }
 
   &.pf-m-icon-group {
     --#{$inline-edit}__group--item--MarginInlineEnd: var(--#{$inline-edit}__action--m-icon-group--item--MarginInlineEnd);
@@ -43,9 +43,9 @@
     flex-direction: column;
   }
 
-  > :last-child {
-    --#{$inline-edit}__group--item--MarginInlineEnd: 0;
-  }
+  // > :last-child {
+  //   --#{$inline-edit}__group--item--MarginInlineEnd: 0;
+  // }
 }
 
 // Input and input group

@@ -117,8 +117,8 @@
   white-space: normal;
 }
 
-// Hide divider of first child - required for react since dividers are included in each item
-// Consider revisiting this in a breaking change release
-.#{$breadcrumb}__list > :first-child .#{$breadcrumb}__item-divider {
-  display: none;
-}
+// // Hide divider of first child - required for react since dividers are included in each item
+// // Consider revisiting this in a breaking change release
+// .#{$breadcrumb}__list > :first-child .#{$breadcrumb}__item-divider {
+//   display: none;
+// }

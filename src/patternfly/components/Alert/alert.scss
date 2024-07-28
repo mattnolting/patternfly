@@ -231,8 +231,8 @@
   padding-block-start: var(--#{$alert}__action-group--PaddingBlockStart);
 
   > .#{$button} {
-    &:not(:last-child) {
-      margin-inline-end: var(--#{$alert}__action-group__c-button--not-last-child--MarginInlineEnd);
-    }
+    // &:not(:last-child) {
+    //   margin-inline-end: var(--#{$alert}__action-group__c-button--not-last-child--MarginInlineEnd);
+    // }
   }
 }

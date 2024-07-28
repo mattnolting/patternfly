@@ -483,7 +483,7 @@
     --#{$label}--BorderColor: var(--#{$label}--m-add--BorderColor);
     --#{$label}--BorderWidth: var(--#{$label}--m-add--BorderWidth);
 
-    &:hover, :focus {
+    &:hover, &:focus {
       --#{$label}--m-add--Color: var(--#{$label}--m-add--hover--Color);
       --#{$label}--m-add--BackgroundColor: var(--#{$label}--m-add--hover--BackgroundColor);
       --#{$label}--m-add--BorderColor: var(--#{$label}--m-add--hover--BorderColor);

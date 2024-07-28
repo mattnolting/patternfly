@@ -1,6 +1,6 @@
 @use '../../sass-utilities' as *;
 
-$pf-v6-c-masthead--breakpoint-map: build-breakpoint-map();
+$pf-v6-c-masthead--breakpoint-map: build-breakpoint-map("base");
 $pf-v6-c-masthead--inset-map: build-spacer-map("none", "sm", "md", "lg", "xl", "2xl");
 
 :root, .#{$masthead}-reset {
@@ -209,11 +209,11 @@ $pf-v6-c-masthead--inset-map: build-spacer-map("none", "sm", "md", "lg", "xl", "
   width: var(--#{$masthead}__logo--Width);
   max-height: var(--#{$masthead}__logo--MaxHeight);
 
-  > * {
-    max-width: 100%;
-    max-height: 100%;
-    vertical-align: middle;
- }
+//   > * {
+//     max-width: 100%;
+//     max-height: 100%;
+//     vertical-align: middle;
+//  }
 }
 
 // - Masthead expandable content

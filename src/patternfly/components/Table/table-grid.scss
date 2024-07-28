@@ -6,29 +6,29 @@
     @content;
   }
 
-  .pf-m-grid-md.#{$table} {
-    @media screen and (max-width: $pf-v6-global--breakpoint--md) {
-      @content;
-    }
-  }
+  // .pf-m-grid-md.#{$table} {
+  //   @media screen and (max-width: $pf-v6-global--breakpoint--md) {
+  //     @content;
+  //   }
+  // }
 
-  .pf-m-grid-lg.#{$table} {
-    @media screen and (max-width: $pf-v6-global--breakpoint--lg) {
-      @content;
-    }
-  }
+  // .pf-m-grid-lg.#{$table} {
+  //   @media screen and (max-width: $pf-v6-global--breakpoint--lg) {
+  //     @content;
+  //   }
+  // }
 
-  .pf-m-grid-xl.#{$table} {
-    @media screen and (max-width: $pf-v6-global--breakpoint--xl) {
-      @content;
-    }
-  }
+  // .pf-m-grid-xl.#{$table} {
+  //   @media screen and (max-width: $pf-v6-global--breakpoint--xl) {
+  //     @content;
+  //   }
+  // }
 
-  .pf-m-grid-2xl.#{$table} {
-    @media screen and (max-width: $pf-v6-global--breakpoint--2xl) {
-      @content;
-    }
-  }
+  // .pf-m-grid-2xl.#{$table} {
+  //   @media screen and (max-width: $pf-v6-global--breakpoint--2xl) {
+  //     @content;
+  //   }
+  // }
 }
 
 // - Table grid
@@ -167,12 +167,12 @@
   }
 
   // - Table thead
-  thead:where(.#{$table}__thead) {
+  .#{$table}__thead {
     display: none;
   }
 
   // - Table tbody
-  tbody:where(.#{$table}__tbody) {
+  .#{$table}__tbody {
     display: block;
 
     &:first-of-type {
@@ -191,7 +191,7 @@
   }
 
   // - Table grid tr selected
-  tr:where(.#{$table}__tr).pf-m-selected {
+  .#{$table}__tr.pf-m-selected {
     --#{$table}__expandable-row--after--BorderInlineStartWidth: 0;
     --#{$table}__expandable-row--after--BorderColor: transparent;
   }
@@ -199,7 +199,7 @@
   // Standard table row (non-expandable)
   // exclude expandable rows
   // - Table grid tr not expandable row
-  tr:where(.#{$table}__tr):not(.#{$table}__expandable-row) {
+  .#{$table}__tr:not(.#{$table}__expandable-row) {
     display: grid;
     grid-template-columns: 1fr;
     height: auto;
@@ -248,12 +248,12 @@
     }
   }
 
-  .#{$table}__icon > * {
+  .#{$table}__icon {
     text-align: start;
   }
 
   // - Table grid th td data label
-  :where(.#{$table}__th, .#{$table}__td)[data-label] {
+  .#{$table}__th, .#{$table}__td[data-label] {
     // default pf-v6-hidden-visible() mixin is called in table.scss. redefining variable here
     --#{$table}--cell--hidden-visible--Display: var(--#{$table}--m-grid--cell--hidden-visible--Display);
 
@@ -265,9 +265,9 @@
     align-items: start;
 
     // set contents of td to start at column two of td grid
-    > * {
-      grid-column: 2;
-    }
+    // > * {
+    //   grid-column: 2;
+    // }
 
     &::before {
       position: revert;
@@ -309,7 +309,7 @@
 
   // Compound expansion responsive
   // - Table grid tbody
-  tbody:where(.#{$table}__tbody) {
+  .#{$table}__tbody {
     position: relative;
 
     &::after {
@@ -325,18 +325,18 @@
     &.pf-m-expanded {
       --#{$table}__tbody--after--BorderInlineStartWidth: var(--#{$table}__tbody--after--border-width--base);
 
-      & tbody:where(.#{$table}__tbody) {
+      & .#{$table}__tbody {
         --#{$table}__tbody--after--BorderInlineStartWidth: 0;
       }
     }
 
-    > tr:where(.#{$table}__tr) > :first-child:not(.#{$table}__check)::after {
-      --#{$table}__expandable-row--after--BorderInlineStartWidth: 0;
+    // > .#{$table}__tr > :first-child:not(.#{$table}__check)::after {
+    //   --#{$table}__expandable-row--after--BorderInlineStartWidth: 0;
 
-      position: static;
-      width: auto;
-      background-color: transparent;
-    }
+    //   position: static;
+    //   width: auto;
+    //   background-color: transparent;
+    // }
   }
 
   // - Table grid expandable row
@@ -365,7 +365,7 @@
       border-block-start-color: var(--#{$table}--BorderColor);
     }
 
-    > :first-child:not(.#{$table}__check)::after {
+    > .#{$table}__tr:not(.#{$table}__check)::after {
       // Border treatment
       content: none;
     }
@@ -390,16 +390,16 @@
   }
 
   // - Table grid tbody hoverable
-  tbody:where(.#{$table}__tbody).pf-m-hoverable {
+  .#{$table}__tbody.pf-m-hoverable {
     --#{$table}__tbody--after--BorderInlineStartWidth: 0;
     --#{$table}__tbody--after--BorderInlineStartColor: transparent;
 
     &,
-    > tr:where(.#{$table}__tr) {
+    > .#{$table}__tr {
       position: relative;
     }
 
-    > tr:where(.#{$table}__tr)::after {
+    > .#{$table}__tr::after {
       content: '';
       position: absolute;
       inset-block-start: 0;
@@ -422,7 +422,7 @@
 
 
   // - Table grid tr selected
-  tr:where(.#{$table}__tr).pf-m-selected {
+  .#{$table}__tr.pf-m-selected {
     &::after {
       content: '';
       position: absolute;
@@ -435,7 +435,7 @@
   }
 
   // Set defaults
-  tr:where(.#{$table}__tr):not(.#{$table}__expandable-row) {
+  .#{$table}__tr:not(.#{$table}__expandable-row) {
     .#{$table}__toggle,
     .#{$table}__check,
     .#{$table}__favorite,
@@ -553,8 +553,8 @@
     }
   }
 
-  [class*="pf-m-width"] {
-    --#{$table}--cell--Width: auto;
-  }
+  // [class*="pf-m-width"] {
+  //   --#{$table}--cell--Width: auto;
+  // }
 }
 // stylelint-enable

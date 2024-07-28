@@ -152,10 +152,10 @@
     --#{$slider}__step-label--TranslateX: var(--#{$slider}__step--first-child__step-label--TranslateX);
   }
 
-  &:last-child {
-    --#{$slider}__step-tick--TranslateX: var(--#{$slider}__step--last-child__step-tick--TranslateX);
-    --#{$slider}__step-label--TranslateX: var(--#{$slider}__step--last-child__step-label--TranslateX);
-  }
+  // &:last-child {
+  //   --#{$slider}__step-tick--TranslateX: var(--#{$slider}__step--last-child__step-tick--TranslateX);
+  //   --#{$slider}__step-label--TranslateX: var(--#{$slider}__step--last-child__step-label--TranslateX);
+  // }
 }
 
 .#{$slider}__step-tick {

@@ -653,9 +653,9 @@
       --#{$button}__progress--InsetInlineStart: var(--#{$button}--m-in-progress--m-plain__progress--InsetInlineStart);
       --#{$button}__progress--TranslateX: var(--#{$button}--m-in-progress--m-plain__progress--TranslateX);
 
-      > :not(.#{$button}__progress) {
-        opacity: 0;
-      }
+      // > :not(.#{$button}__progress) {
+      //   opacity: 0;
+      // }
     }
   }
 }

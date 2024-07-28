@@ -1,6 +1,6 @@
 @use '../../sass-utilities' as *;
 
-$pf-v6-u-sizing--min-max--breakpoint-map: build-breakpoint-map();
+$pf-v6-u-sizing--min-max--breakpoint-map: build-breakpoint-map("base");
 // stylelint-disable
 
 // Width options

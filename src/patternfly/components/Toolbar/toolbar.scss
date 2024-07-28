@@ -7,7 +7,7 @@ $pf-v6-c-toolbar--breakpoint-map: build-breakpoint-map('base');
 $pf-v6--include-toolbar-breakpoints: true !default;
 
 @if $pf-v6--include-toolbar-breakpoints {
-  $pf-v6-c-toolbar--breakpoint-map: build-breakpoint-map();
+  $pf-v6-c-toolbar--breakpoint-map: build-breakpoint-map("base");
 }
 
 :root, .#{$toolbar}-reset {
@@ -284,9 +284,9 @@ $pf-v6--include-toolbar-breakpoints: true !default;
     display: grid;
   }
 
-  .#{$toolbar}__item > * {
-    flex-basis: 100%;
-  }
+  // .#{$toolbar}__item > * {
+  //   flex-basis: 100%;
+  // }
 
   .#{$toolbar}__group.pf-m-action-group-inline {
     display: flex;

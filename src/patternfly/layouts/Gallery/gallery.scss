@@ -1,6 +1,6 @@
 @use '../../sass-utilities' as *;
 
-$pf-v6-l-gallery--breakpoint-map: build-breakpoint-map();
+$pf-v6-l-gallery--breakpoint-map: build-breakpoint-map("base");
 
 :root, .#{$gallery}-reset {
   --#{$gallery}--m-gutter--GridGap: var(--pf-t--global--spacer--gutter--default);

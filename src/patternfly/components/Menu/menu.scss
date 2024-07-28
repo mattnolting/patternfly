@@ -450,9 +450,9 @@
   transition-duration: var(--#{$menu}__list-item--TransitionDuration);
   transition-property: var(--#{$menu}__list-item--TransitionProperty);
 
-  > * {
-    position: relative;
-  }
+  // > * {
+  //   position: relative;
+  // }
 
   &::before {
     position: absolute;
@@ -492,8 +492,7 @@
   }
 
   &.pf-m-focus,
-  &:focus-within,
-  &:has(> :hover) {
+  &:focus-within {
     --#{$menu}__list-item--BackgroundColor: var(--#{$menu}__list-item--hover--BackgroundColor);
 
     .#{$menu}__item-select-icon,

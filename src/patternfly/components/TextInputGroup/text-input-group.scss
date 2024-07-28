@@ -62,7 +62,7 @@
 
   // Utilities
   --#{$text-input-group}__utilities--child--MarginInlineStart: var(--pf-t--global--spacer--xs);
-  
+
   // input disabled style
   --#{$text-input-group}--m-disabled--Color: var(--pf-t--global--text--color--on-disabled);
   --#{$text-input-group}--m-disabled--BackgroundColor: var(--pf-t--global--background--color--disabled--default);
@@ -156,9 +156,11 @@
     min-width: calc(var(--#{$text-input-group}__LineHeight) * var(--#{$text-input-group}__FontSize));
   }
 
-  > :first-child:not(.#{$text-input-group}__text) {
-    margin-inline-start: var(--#{$text-input-group}__main--first-child--not--text-input--MarginInlineStart);
-  }
+  // > :first-child:not(.#{$text-input-group}__text) {
+  //   padding-block-start: var(--#{$text-input-group}__main--first-child--not--text-input--PaddingBlockStart);
+  //   padding-block-end: var(--#{$text-input-group}__main--first-child--not--text-input--PaddingBlockEnd);
+  //   margin-inline-start: var(--#{$text-input-group}__main--first-child--not--text-input--MarginInlineStart);
+  // }
 
   .#{$label-group}__main {
     padding-block-start: var(--#{$text-input-group}--c-label-group__main--PaddingBlockStart);
@@ -225,9 +227,9 @@
   margin-inline-start: var(--#{$text-input-group}__utilities--MarginInlineStart);
   margin-inline-end: var(--#{$text-input-group}__utilities--MarginInlineEnd);
 
-  > * + * {
-    margin-inline-start: var(--#{$text-input-group}__utilities--child--MarginInlineStart);
-  }
+  // > * + * {
+  //   margin-inline-start: var(--#{$text-input-group}__utilities--child--MarginInlineStart);
+  // }
 }
 
 .#{$text-input-group}__group {

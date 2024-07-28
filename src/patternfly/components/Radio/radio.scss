@@ -52,15 +52,15 @@
   // find height of single label, divide by two, offset by 50% of own height
   transform: translateY(var(--#{$radio}__input--TranslateY));
 
-  // fixes a chrome issue where the left edge is cut off in a container with overflow hidden
-  &:first-child {
-    margin-inline-start: var(--#{$radio}__input--first-child--MarginInlineStart);
-  }
+  // // fixes a chrome issue where the left edge is cut off in a container with overflow hidden
+  // &:first-child {
+  //   margin-inline-start: var(--#{$radio}__input--first-child--MarginInlineStart);
+  // }
 
-  // fixes a chrome issue where the right edge is cut off in a container with overflow hidden
-  &:last-child {
-    margin-inline-end: var(--#{$radio}__input--last-child--MarginInlineEnd);
-  }
+  // // fixes a chrome issue where the right edge is cut off in a container with overflow hidden
+  // &:last-child {
+  //   margin-inline-end: var(--#{$radio}__input--last-child--MarginInlineEnd);
+  // }
 }
 
 .#{$radio}__label {

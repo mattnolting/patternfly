@@ -165,15 +165,15 @@
   background-color: var(--#{$login}__main--BackgroundColor);
   border-radius: var(--#{$login}__main--BorderRadius);
 
-  // If the first child isn't a header, then we need to put the header's top padding there
-  > :first-child:not(.#{$login}__main-header) {
-    padding-block-start: var(--#{$login}__main-header--PaddingBlockStart);
-  }
+  // // If the first child isn't a header, then we need to put the header's top padding there
+  // > :first-child:not(.#{$login}__main-header) {
+  //   padding-block-start: var(--#{$login}__main-header--PaddingBlockStart);
+  // }
 
-  // If the last child isn't the footer, then we need to put the footer's bottom padding there
-  > :last-child:not(.#{$login}__main-footer) {
-    padding-block-end: var(--#{$login}__main-footer--PaddingBlockEnd);
-  }
+  // // If the last child isn't the footer, then we need to put the footer's bottom padding there
+  // > :last-child:not(.#{$login}__main-footer) {
+  //   padding-block-end: var(--#{$login}__main-footer--PaddingBlockEnd);
+  // }
 }
 
 .#{$login}__main-header {
@@ -224,9 +224,9 @@
     text-align: center;
   }
 
-  > * {
-    flex-basis: 100%;
-  }
+  // > * {
+  //   flex-basis: 100%;
+  // }
 }
 
 .#{$login}__main-footer-links {
@@ -254,9 +254,9 @@
   text-align: center;
   border-block-start: var(--#{$login}__main-footer-band--BorderBlockStartWidth) solid var(--#{$login}__main-footer-band--BorderBlockStartColor);
 
-  > * + * {
-    padding-block-start: var(--#{$login}__main-footer-band-item--PaddingBlockStart);
-  }
+  // > * + * {
+  //   padding-block-start: var(--#{$login}__main-footer-band-item--PaddingBlockStart);
+  // }
 }
 
 .#{$login}__footer {

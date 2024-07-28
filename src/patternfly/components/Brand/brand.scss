@@ -1,6 +1,6 @@
 @use '../../sass-utilities' as *;
 
-$pf-v6-c-brand--breakpoint-map: build-breakpoint-map();
+$pf-v6-c-brand--breakpoint-map: build-breakpoint-map("base");
 
 :root, .#{$brand}-reset {
   --#{$brand}--Width: auto;

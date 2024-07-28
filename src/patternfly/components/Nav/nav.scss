@@ -176,14 +176,14 @@
     margin-block-end: var(--#{$nav}__button--RowGap--row-offset);
   }
 
-  &.pf-m-expanded:not(:only-child),
-  &.pf-m-expanded:not(:last-child) {
-    margin-block-end: var(--#{$nav}__item--m-expanded--MarginBlockEnd, var(--#{$nav}__item--RowGap)); // default to row gap if no custom value is set
+  // &.pf-m-expanded:not(:only-child),
+  // &.pf-m-expanded:not(:last-child) {
+  //   margin-block-end: var(--#{$nav}__item--m-expanded--MarginBlockEnd, var(--#{$nav}__item--RowGap)); // default to row gap if no custom value is set
 
-    + .#{$nav}__item > .#{$nav}__link::before {
-      inset-block-start: calc(var(--#{$nav}__item--RowGap) * -1 - var(--#{$nav}__list--RowGap));
-    }
-  }
+  //   + .#{$nav}__item > .#{$nav}__link::before {
+  //     inset-block-start: calc(var(--#{$nav}__item--RowGap) * -1 - var(--#{$nav}__list--RowGap));
+  //   }
+  // }
 }
 
 // - Nav section
@@ -311,9 +311,9 @@
   .#{$button} {
     outline-offset: var(--#{$nav}--OutlineOffset);
 
-    > * {
-      @include pf-v6-mirror-inline-on-rtl;
-    }
+    // > * {
+    //   @include pf-v6-mirror-inline-on-rtl;
+    // }
   }
 }
 

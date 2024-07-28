@@ -193,10 +193,10 @@
   inset-block-start: var(--#{$popover}__close--InsetBlockStart);
   inset-inline-end: var(--#{$popover}__close--InsetInlineEnd);
 
-  // Create room for the close button
-  + * {
-    padding-inline-end: var(--#{$popover}__close--sibling--PaddingInlineEnd);
-  }
+  // // Create room for the close button
+  // + * {
+  //   padding-inline-end: var(--#{$popover}__close--sibling--PaddingInlineEnd);
+  // }
 }
 
 .#{$popover}__arrow {

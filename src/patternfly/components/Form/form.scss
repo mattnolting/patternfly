@@ -300,13 +300,13 @@ $pf-v6-c-form--m-horizontal--breakpoint-map: build-breakpoint-map("sm", "md", "l
     display: flex;
     flex-flow: row wrap;
 
-    > * {
-      margin-inline-end: var(--#{$form}__group-control--m-inline--child--MarginInlineEnd);
-    }
+    // > * {
+    //   margin-inline-end: var(--#{$form}__group-control--m-inline--child--MarginInlineEnd);
+    // }
 
-    > :last-child {
-      --#{$form}__group-control--m-inline--child--MarginInlineEnd: 0;
-    }
+    // > :last-child {
+    //   --#{$form}__group-control--m-inline--child--MarginInlineEnd: 0;
+    // }
   }
 
   &.pf-m-stack {
@@ -349,12 +349,12 @@ $pf-v6-c-form--m-horizontal--breakpoint-map: build-breakpoint-map("sm", "md", "l
   margin-inline-start: var(--#{$form}__actions--MarginInlineStart);
   margin-inline-end: var(--#{$form}__actions--MarginInlineEnd);
 
-  > * {
-    margin-block-start: var(--#{$form}__actions--child--MarginBlockStart);
-    margin-block-end: var(--#{$form}__actions--child--MarginBlockEnd);
-    margin-inline-start: var(--#{$form}__actions--child--MarginInlineStart);
-    margin-inline-end: var(--#{$form}__actions--child--MarginInlineEnd);
-  }
+  // > * {
+  //   margin-block-start: var(--#{$form}__actions--child--MarginBlockStart);
+  //   margin-block-end: var(--#{$form}__actions--child--MarginBlockEnd);
+  //   margin-inline-start: var(--#{$form}__actions--child--MarginInlineStart);
+  //   margin-inline-end: var(--#{$form}__actions--child--MarginInlineEnd);
+  // }
 }
 
 .#{$form}__field-group {
@@ -365,9 +365,9 @@ $pf-v6-c-form--m-horizontal--breakpoint-map: build-breakpoint-map("sm", "md", "l
   border-block-start: var(--#{$form}__field-group--BorderBlockStartWidth) solid var(--#{$form}__field-group--BorderBlockStartColor);
   border-block-end: var(--#{$form}__field-group--BorderBlockEndWidth) solid var(--#{$form}__field-group--BorderBlockEndColor);
 
-  &:last-child {
-    --#{$form}__field-group--BorderBlockEndWidth: 0;
-  }
+  // &:last-child {
+  //   --#{$form}__field-group--BorderBlockEndWidth: 0;
+  // }
 
   & + &,
   &:first-child {
@@ -470,9 +470,9 @@ $pf-v6-c-form--m-horizontal--breakpoint-map: build-breakpoint-map("sm", "md", "l
       --#{$form}__field-group-header--PaddingBlockStart: 0;
     }
 
-    &:last-child {
-      margin-block-end: var(--#{$form}__field-group-body__field-group--last-child--MarginBlockEnd);
-    }
+    // &:last-child {
+    //   margin-block-end: var(--#{$form}__field-group-body__field-group--last-child--MarginBlockEnd);
+    // }
   }
 }
 

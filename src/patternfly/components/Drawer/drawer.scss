@@ -369,9 +369,9 @@ $pf-v6-c-drawer__panel--list--width: (25, 33, 50, 66, 75, 100);
   padding-inline-start: var(--#{$drawer}__head--PaddingInlineStart);
   padding-inline-end: var(--#{$drawer}__head--PaddingInlineEnd);
 
-  > * {
-    grid-column: 1;
-  }
+  // > * {
+  //   grid-column: 1;
+  // }
 }
 
 // Panel actions
@@ -405,13 +405,13 @@ $pf-v6-c-drawer__panel--list--width: (25, 33, 50, 66, 75, 100);
     padding-inline-end: var(--#{$drawer}__body--m-padding--PaddingInlineEnd);
   }
 
-  &:not(.pf-m-no-padding) + * {
-    padding-block-start: 0;
-  }
+  // &:not(.pf-m-no-padding) + * {
+  //   padding-block-start: 0;
+  // }
 
-  &:last-child {
-    flex: 1 1;
-  }
+  // &:last-child {
+  //   flex: 1 1;
+  // }
 }
 
 // Page level drawer - move to page component in breaking change

@@ -260,9 +260,9 @@
   padding-block-end: var(--#{$data-list}__item-control--PaddingBlockEnd);
   margin-inline-end: var(--#{$data-list}__item-control--MarginInlineEnd);
 
-  > *:not(:last-child) {
-    margin-inline-end: var(--#{$data-list}__item-control--not-last-child--MarginInlineEnd);
-  }
+  // > *:not(:last-child) {
+  //   margin-inline-end: var(--#{$data-list}__item-control--not-last-child--MarginInlineEnd);
+  // }
 }
 
 .#{$data-list}__check {

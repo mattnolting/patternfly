@@ -129,29 +129,29 @@
   margin-block-start: var(--#{$content}--li--MarginBlockStart);
 }
 
-.#{$content}--p,
-.#{$content}--dl,
-.#{$content}--ol,
-.#{$content}--ul,
-.#{$content}--blockquote,
-.#{$content}--small,
-.#{$content}--pre,
-.#{$content}--table,
-.#{$content}--hr,
-.#{$content} p,
-.#{$content} dl,
-.#{$content} ol,
-.#{$content} ul,
-.#{$content} blockquote,
-.#{$content} small,
-.#{$content} pre,
-.#{$content} table,
-.#{$content} hr {
-  &:not(:last-child) {
-    // This variable name doesn't reflect the selector, it's an excpection to the variable system.
-    margin-block-end: var(--#{$content}--MarginBlockEnd);
-  }
-}
+// .#{$content}--p,
+// .#{$content}--dl,
+// .#{$content}--ol,
+// .#{$content}--ul,
+// .#{$content}--blockquote,
+// .#{$content}--small,
+// .#{$content}--pre,
+// .#{$content}--table,
+// .#{$content}--hr,
+// .#{$content} p,
+// .#{$content} dl,
+// .#{$content} ol,
+// .#{$content} ul,
+// .#{$content} blockquote,
+// .#{$content} small,
+// .#{$content} pre,
+// .#{$content} table,
+// .#{$content} hr {
+//   &:not(:last-child) {
+//     // This variable name doesn't reflect the selector, it's an excpection to the variable system.
+//     margin-block-end: var(--#{$content}--MarginBlockEnd);
+//   }
+// }
 
 .#{$content}--h1,
 .#{$content}--h2,
@@ -238,9 +238,9 @@
   line-height: var(--#{$content}--small--LineHeight);
   color: var(--#{$content}--small--Color);
 
-  &:not(:last-child) {
-    margin-block-end: var(--#{$content}--small--MarginBlockEnd);
-  }
+  // &:not(:last-child) {
+  //   margin-block-end: var(--#{$content}--small--MarginBlockEnd);
+  // }
 }
 
 .#{$content}--blockquote,

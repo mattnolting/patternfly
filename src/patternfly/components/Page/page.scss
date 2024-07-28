@@ -57,7 +57,7 @@ $pf-page-v6--height-breakpoint-map: build-breakpoint-map("base", "sm", "md", "lg
   --#{$page}--masthead--main-container--GridArea: sidebar / sidebar / main / main; // no sidebar
   --#{$page}__main-container--MaxHeight: calc(100% - var(--pf-t--global--spacer--lg));
   --#{$page}__main-container--BackgroundColor: var(--pf-t--global--background--color--primary--default);
-  --#{$page}__main-container--MarginInlineStart: var(--#{$page}--inset); 
+  --#{$page}__main-container--MarginInlineStart: var(--#{$page}--inset);
   --#{$page}__main-container--MarginInlineEnd: var(--#{$page}--inset);
   --#{$page}__main-container--BorderRadius: var(--pf-t--global--border--radius--large);
   --#{$page}__main-container--BorderWidth: var(--pf-t--global--spacer--sm); // TODO Change to be a page outline token
@@ -76,7 +76,7 @@ $pf-page-v6--height-breakpoint-map: build-breakpoint-map("base", "sm", "md", "lg
 
   // Limit width
   --#{$page}--section--m-limit-width--MaxWidth: calc(#{pf-size-prem(2000px)} - var(--#{$page}__sidebar--Width));
-  
+
   // Sticky
   --#{$page}--section--m-sticky-top--ZIndex: var(--pf-t--global--z-index--md);
   --#{$page}--section--m-sticky-top--BoxShadow: var(--pf-t--global--box-shadow--sm--bottom);
@@ -211,9 +211,9 @@ $pf-page-v6--height-breakpoint-map: build-breakpoint-map("base", "sm", "md", "lg
   padding-inline-start: var(--#{$page}__sidebar-body--PaddingInlineStart);
   padding-inline-end: var(--#{$page}__sidebar-body--PaddingInlineEnd);
 
-  &:last-child {
-    flex-grow: 1;
-  }
+  // &:last-child {
+  //   flex-grow: 1;
+  // }
 
   &.pf-m-page-insets {
     --#{$page}__sidebar-body--PaddingInlineEnd: var(--#{$page}__sidebar-body--m-page-insets--PaddingInlineEnd);
@@ -339,8 +339,7 @@ $pf-page-v6--height-breakpoint-map: build-breakpoint-map("base", "sm", "md", "lg
     }
   }
 
-  &.pf-m-fill,
-  &:has(.#{$page}__main-wizard) {
+  &.pf-m-fill {
     align-self: stretch;
   }
 
@@ -377,17 +376,17 @@ $pf-page-v6--height-breakpoint-map: build-breakpoint-map("base", "sm", "md", "lg
     --#{$page}__main-section--PaddingBlockStart: var(--#{$page}__main-breadcrumb--main-section--PaddingBlockStart);
   }
 
-  // Responsive height modifiers for sticky top/bottom
-  @each $breakpoint, $breakpoint-value in $pf-page-v6--height-breakpoint-map {
-    $breakpoint-name: if($breakpoint != "base", -on-#{$breakpoint}-height, "");
+  // // Responsive height modifiers for sticky top/bottom
+  // @each $breakpoint, $breakpoint-value in $pf-page-v6--height-breakpoint-map {
+  //   $breakpoint-name: if($breakpoint != "base", -on-#{$breakpoint}-height, "");
 
-    @include pf-v6-apply-height-breakpoint($breakpoint) {
-      &.pf-m-sticky-top#{$breakpoint-name},
-      .#{$page}__main-group.pf-m-sticky-top#{$breakpoint-name} &:last-child {
-        --#{$page}__main-breadcrumb--PaddingBlockEnd: var(--#{$page}__main-breadcrumb--m-sticky-top--PaddingBlockEnd);
-      }
-    }
-  }
+  //   @include pf-v6-apply-height-breakpoint($breakpoint) {
+  //     &.pf-m-sticky-top#{$breakpoint-name},
+  //     .#{$page}__main-group.pf-m-sticky-top#{$breakpoint-name} &:last-child {
+  //       --#{$page}__main-breadcrumb--PaddingBlockEnd: var(--#{$page}__main-breadcrumb--m-sticky-top--PaddingBlockEnd);
+  //     }
+  //   }
+  // }
 }
 
 .#{$page}__main-tabs {

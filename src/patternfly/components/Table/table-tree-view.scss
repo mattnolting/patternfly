@@ -37,22 +37,22 @@ $pf-v6-c-tree-view--MaxDepth: 10;
 
 // - Table tree view
 .#{$table}.pf-m-tree-view {
-  > tbody > tr {
+  > .#{$table}__tbody > .#{$table}__tr {
     --#{$table}--m-tree-view__toggle--InsetInlineStart: var(--#{$table}__tree-view-main--PaddingInlineStart);
 
-    &.pf-m-no-inset {
-      --#{$table}__tree-view-main--PaddingInlineStart: var(--#{$table}--m-no-inset__tree-view-main--PaddingInlineStart);
-      --#{$table}__tree-view-main--MarginInlineStart: var(--#{$table}--m-no-inset__tree-view-main--MarginInlineStart);
-    }
+    // &.pf-m-no-inset {
+    //   --#{$table}__tree-view-main--PaddingInlineStart: var(--#{$table}--m-no-inset__tree-view-main--PaddingInlineStart);
+    //   --#{$table}__tree-view-main--MarginInlineStart: var(--#{$table}--m-no-inset__tree-view-main--MarginInlineStart);
+    // }
   }
 
-  &.pf-m-no-inset {
+  .#{$table}__tr.pf-m-no-inset {
     --#{$table}__tree-view-main--PaddingInlineStart: var(--#{$table}--m-no-inset__tree-view-main--PaddingInlineStart);
     --#{$table}__tree-view-main--MarginInlineStart: var(--#{$table}--m-no-inset__tree-view-main--MarginInlineStart);
   }
 
   @for $i from 2 through $pf-v6-c-tree-view--MaxDepth {
-    tr:where(.#{$table}__tr)[aria-level="#{$i}"] {
+    .#{$table}__tr[aria-level="#{$i}"] {
       --#{$table}__tree-view-main--PaddingInlineStart: calc(var(--#{$table}__tree-view-main--nested-indent--base) * #{$i - 1} + var(--#{$table}__tree-view-main--indent--base));
     }
   }
@@ -193,7 +193,7 @@ $pf-v6-c-tree-view--MaxDepth: 10;
   --#{$table}--m-tree-view-grid__action--MarginBlockStart: calc(var(--pf-t--global--spacer--control--vertical--plain) * -1);
   --#{$table}--m-tree-view-grid__action--MarginBlockEnd: calc(var(--pf-t--global--spacer--control--vertical--plain) * -1);
 
-  tbody:where(.#{$table}__tbody) tr:where(.#{$table}__tr) {
+  .#{$table}__tbody .#{$table}__tr {
     position: relative;
     border: none;
     outline-offset: var(--#{$table}--m-tree-view-grid--tr--OutlineOffset);
@@ -209,10 +209,10 @@ $pf-v6-c-tree-view--MaxDepth: 10;
     }
   }
 
-  .#{$table}__tr:not([hidden]) {
-    display: grid;
-    grid-template-columns: 1fr max-content;
-  }
+  // .#{$table}__tr:not([hidden]) {
+  //   display: grid;
+  //   grid-template-columns: 1fr max-content;
+  // }
 
   // target node rows
   .#{$table}__tr[aria-expanded] {
@@ -273,10 +273,10 @@ $pf-v6-c-tree-view--MaxDepth: 10;
   }
 
   // - Table tree view tr tree view details expanded
-  tr:where(.#{$table}__tr).pf-m-tree-view-details-expanded {
+  .#{$table}__tr.pf-m-tree-view-details-expanded {
     padding-block-end: var(--#{$table}--m-tree-view-grid--m-tree-view-details-expanded--PaddingBlockEnd);
 
-    td:where(.#{$table}__td)[data-label] {
+    .#{$table}__td[data-label] {
       display: grid;
     }
   }
@@ -318,7 +318,7 @@ $pf-v6-c-tree-view--MaxDepth: 10;
   }
 
   @for $i from 2 through $pf-v6-c-tree-view--MaxDepth {
-    tr:where(.#{$table}__tr)[aria-level="#{$i}"] {
+    .#{$table}__tr[aria-level="#{$i}"] {
       --#{$table}--m-tree-view-grid__tbody--cell--PaddingInlineStart: calc(var(--#{$table}__tree-view-main--nested-indent--base) * #{$i - 1} + var(--#{$table}__tree-view-main--indent--base)); // indent, plus indent level, plus
     }
   }

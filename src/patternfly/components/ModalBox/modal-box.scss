@@ -138,9 +138,9 @@
  inset-block-start: var(--#{$modal-box}__close--InsetBlockStart);
  inset-inline-end: var(--#{$modal-box}__close--InsetInlineEnd);
 
-  + * {
-    margin-inline-end: var(--#{$modal-box}__close--sibling--MarginInlineEnd); // Create room for the close button
-  }
+  // + * {
+  //   margin-inline-end: var(--#{$modal-box}__close--sibling--MarginInlineEnd); // Create room for the close button
+  // }
 }
 
 .#{$modal-box}__header {
@@ -227,12 +227,12 @@
   padding-inline-start: var(--#{$modal-box}__footer--PaddingInlineStart);
   padding-inline-end: var(--#{$modal-box}__footer--PaddingInlineEnd);
 
-  // Base margin left and right equal for buttons when wrapped
-  > .#{$button}:not(:last-child) {
-    margin-inline-end: var(--#{$modal-box}__footer--c-button--MarginInlineEnd);
+  // // Base margin left and right equal for buttons when wrapped
+  // > .#{$button}:not(:last-child) {
+  //   margin-inline-end: var(--#{$modal-box}__footer--c-button--MarginInlineEnd);
 
-    @media screen and (min-width: $pf-v6-global--breakpoint--sm) {
-      --#{$modal-box}__footer--c-button--MarginInlineEnd: var(--#{$modal-box}__footer--c-button--sm--MarginInlineEnd);
-    }
-  }
+  //   @media screen and (min-width: $pf-v6-global--breakpoint--sm) {
+  //     --#{$modal-box}__footer--c-button--MarginInlineEnd: var(--#{$modal-box}__footer--c-button--sm--MarginInlineEnd);
+  //   }
+  // }
 }

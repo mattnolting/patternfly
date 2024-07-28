@@ -2,11 +2,11 @@
 
 // Normalize
 @if $pf-v6-global--enable-normalize {
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
+  // *,
+  // *::before,
+  // *::after {
+  //   box-sizing: border-box;
+  // }
 
 
   html,
