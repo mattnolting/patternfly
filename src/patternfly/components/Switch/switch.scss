@@ -54,7 +54,7 @@
   height: var(--#{$switch}--Height);
   font-size: var(--#{$switch}--FontSize);
   line-height: var(--#{$switch}--LineHeight);
-  vertical-align: middle;
+  // vertical-align: middle;
   cursor: pointer;
 
   &.pf-m-reverse {
@@ -179,5 +179,5 @@
 .#{$switch}__label {
   display: inline-block;
   grid-column: 2;
-  vertical-align: top;
+  // vertical-align: top;
 }

@@ -281,17 +281,17 @@
   &.pf-m-placeholder > select {
     --#{$form-control}--Color: var(--#{$form-control}--m-placeholder--Color);
 
-    * {
-      // We need to use the color property instead of redefining a var
-      // for certain Linux distros/non-Mac OS
-      color: var(--#{$form-control}--m-placeholder--child--Color);
+    // * {
+    //   // We need to use the color property instead of redefining a var
+    //   // for certain Linux distros/non-Mac OS
+    //   color: var(--#{$form-control}--m-placeholder--child--Color);
 
-      // stylelint-disable max-nesting-depth
-      &:disabled {
-        color: revert;
-      }
-      // stylelint-enable
-    }
+    //   // stylelint-disable max-nesting-depth
+    //   &:disabled {
+    //     color: revert;
+    //   }
+    //   // stylelint-enable
+    // }
   }
 
   > textarea {

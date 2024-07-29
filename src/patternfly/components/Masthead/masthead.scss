@@ -166,9 +166,9 @@ $pf-v6-c-masthead--inset-map: build-spacer-map("none", "sm", "md", "lg", "xl", "
   align-items: center;
   margin-inline-end: var(--#{$masthead}__main--MarginInlineEnd);
 
-  &:has(.#{$masthead}__toggle) ~ .#{$masthead}__content {
-    --#{$masthead}__content--GridColumn: var(--#{$masthead}__main--toggle--content--GridColumn);
-  }
+  // &:has(.#{$masthead}__toggle) ~ .#{$masthead}__content {
+  //   --#{$masthead}__content--GridColumn: var(--#{$masthead}__main--toggle--content--GridColumn);
+  // }
 }
 
 // - Masthead main masthead content masthead logo

@@ -324,9 +324,9 @@ $pf-v6-c-progress-stepper--breakpoint-map: build-breakpoint-map("base");
     --#{$progress-stepper}__step-icon--Color: var(--#{$progress-stepper}__step--m-custom__step-icon--Color);
   }
 
-  &:last-child {
-    --#{$progress-stepper}__step-main--MarginBlockEnd: 0;
-  }
+  // &:last-child {
+  //   --#{$progress-stepper}__step-main--MarginBlockEnd: 0;
+  // }
 }
 
 // The step icon wrapper provides a container on which to use the before for the line connecting the steps

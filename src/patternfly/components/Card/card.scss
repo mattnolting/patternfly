@@ -123,9 +123,9 @@
   // SELECTABLE CARDS
   &.pf-m-selectable {
     // disables the gap since these have an empty label
-    .#{$card}__selectable-actions :is(.#{$check}, .#{$radio}) {
-      gap: 0;
-    }
+    // .#{$card}__selectable-actions :is(.#{$check}, .#{$radio}) {
+    //   gap: 0;
+    // }
   }
 
   // SELECTABLE or CLICKABLE CARDS
