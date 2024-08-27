@@ -18,6 +18,13 @@
 	text-transform: none;
 }
 
+.pf-v6-pficon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	line-height: normal;
+}
+
 %pf-v6-pficon {
 	@include pf-v6-pficon-styles;
 }

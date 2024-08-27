@@ -213,9 +213,11 @@
   display: grid;
   grid-template-columns: var(--#{$multiple-file-upload}__status-progress--GridTemplateColumns);
   gap: var(--#{$multiple-file-upload}__status-progress--Gap);
+  align-items: normal;
 }
 
 .#{$multiple-file-upload}__status-progress-icon {
+  display: inline-flex;
   color: var(--#{$multiple-file-upload}__status-progress-icon--Color);
 }
 
